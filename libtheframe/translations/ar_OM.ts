@@ -82,7 +82,7 @@
 <context>
     <name>ViewportElement</name>
     <message>
-        <location filename="../elements/viewportelement.cpp" line="79"/>
+        <location filename="../elements/viewportelement.cpp" line="87"/>
         <source>Canvas</source>
         <translation type="unfinished"></translation>
     </message>

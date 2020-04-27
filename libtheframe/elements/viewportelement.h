@@ -26,6 +26,15 @@ struct ViewportElementPrivate;
 class ViewportElement : public Element {
         Q_OBJECT
     public:
+        struct FrameIterator {
+            FrameIterator(quint64 value);
+            quint64 value;
+
+            void operator++();
+            void operator--();
+            quint64 operator->();
+        };
+
         explicit ViewportElement();
         ~ViewportElement();
 
@@ -34,6 +43,9 @@ class ViewportElement : public Element {
 
         void setBackgroundColor(QColor color);
         QColor backgroundColor();
+
+        FrameIterator constFrameBegin() const;
+        FrameIterator constFrameEnd(quint64 numberOfFrames) const;
 
     signals:
         void viewportSizeChanged(QSize size);

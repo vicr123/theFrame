@@ -50,6 +50,14 @@ QColor ViewportElement::backgroundColor() {
     return d->backgroundColor;
 }
 
+ViewportElement::FrameIterator ViewportElement::constFrameBegin() const {
+    return FrameIterator(0);
+}
+
+ViewportElement::FrameIterator ViewportElement::constFrameEnd(quint64 numberOfFrames) const {
+    return FrameIterator(numberOfFrames);
+}
+
 void ViewportElement::render(QPainter* painter, quint64 frame) const {
     painter->save();
 
@@ -87,4 +95,20 @@ QString ViewportElement::propertyDisplayName(QString property) const {
 QColor ViewportElement::propertyColor(QString property) const {
     Q_UNUSED(property)
     return QColor();
+}
+
+ViewportElement::FrameIterator::FrameIterator(quint64 value) {
+    this->value = value;
+}
+
+void ViewportElement::FrameIterator::operator ++() {
+    this->value++;
+}
+
+void ViewportElement::FrameIterator::operator--() {
+    this->value--;
+}
+
+quint64 ViewportElement::FrameIterator::operator->() {
+    return value;
 }
