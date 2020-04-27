@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=theFrame
+GenericName=Animation Tool
+Categories=AudioVideo;Video;
+Exec=theframe
+Icon=theframe

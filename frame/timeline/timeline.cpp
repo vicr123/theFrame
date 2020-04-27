@@ -1,0 +1,192 @@
+/****************************************
+ *
+ *   INSERT-PROJECT-NAME-HERE - INSERT-GENERIC-NAME-HERE
+ *   Copyright (C) 2020 Victor Tran
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * *************************************/
+#include "timeline.h"
+#include "ui_timeline.h"
+
+#include <QScrollBar>
+#include <QScroller>
+#include <QPointer>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <elements/timelineelement.h>
+#include <the-libs_global.h>
+
+#include "timelineleftwidget.h"
+#include "timelinerightwidget.h"
+
+struct TimelinePrivate {
+    TimelineLeftWidget* rootLeftWidget;
+    ViewportElement* rootViewportElement;
+    Prerenderer* prerenderer;
+
+    QList<QObject*> currentSelection;
+
+    quint64 frameCount = 1200;
+    double frameSpacing = 1;
+    uint framerate = 60;
+    quint64 currentFrame = 0;
+};
+
+Timeline::Timeline(QWidget* parent) :
+    QWidget(parent),
+    ui(new Ui::Timeline) {
+    ui->setupUi(this);
+
+    d = new TimelinePrivate();
+    ui->timelineLeftPane->setFixedWidth(SC_DPI(300));
+//    this->setMaximumHeight(SC_DPI(500));
+
+    connect(ui->timelineLeftPane->verticalScrollBar(), &QScrollBar::valueChanged, ui->timelineRightPane->verticalScrollBar(), &QScrollBar::setValue);
+    connect(ui->timelineRightPane->verticalScrollBar(), &QScrollBar::valueChanged, ui->timelineLeftPane->verticalScrollBar(), &QScrollBar::setValue);
+
+    ui->timelineLeftPane->setProperty("X-Contemporary-NoInstallScroller", true);
+    ui->timelineRightPane->setProperty("X-Contemporary-NoInstallScroller", true);
+}
+
+Timeline::~Timeline() {
+    delete ui;
+}
+
+void Timeline::setViewportElement(ViewportElement* element) {
+    d->rootViewportElement = element;
+    d->rootLeftWidget = new TimelineLeftWidget(this, element, true);
+    ui->leftPaneLayout->addWidget(d->rootLeftWidget);
+    ui->rightPaneLayout->addWidget(d->rootLeftWidget->rightWidget());
+}
+
+ViewportElement* Timeline::viewportElement() {
+    return d->rootViewportElement;
+}
+
+void Timeline::setPrerenderer(Prerenderer* prerenderer) {
+    d->prerenderer = prerenderer;
+}
+
+Prerenderer* Timeline::prerenderer() const {
+    return d->prerenderer;
+}
+
+void Timeline::setFrameSpacing(double frameSpacing) {
+    d->frameSpacing = frameSpacing;
+    emit frameSpacingChanged(frameSpacing);
+}
+
+double Timeline::frameSpacing() const {
+    return d->frameSpacing;
+}
+
+void Timeline::setFrameCount(quint64 frameCount) {
+    d->frameCount = frameCount;
+    emit frameCountChanged(frameCount);
+}
+
+quint64 Timeline::frameCount() const {
+    return d->frameCount;
+}
+
+void Timeline::setFramerate(uint framerate) {
+    d->framerate = framerate;
+    emit framerateChanged(framerate);
+}
+
+uint Timeline::framerate() const {
+    return d->framerate;
+}
+
+void Timeline::setCurrentFrame(quint64 frame) {
+    if (frame >= frameCount()) frame = frameCount() - 1;
+    d->currentFrame = frame;
+    emit currentFrameChanged(frame);
+}
+
+quint64 Timeline::currentFrame() const {
+    return d->currentFrame;
+}
+
+void Timeline::setCurrentSelection(QObject* element) {
+    clearCurrentSelection();
+    this->addToCurrentSelection(element);
+}
+
+void Timeline::addToCurrentSelection(QObject* element) {
+    if (d->currentSelection.count() > 0) {
+        if (strcmp(element->metaObject()->className(), d->currentSelection.first()->metaObject()->className()) != 0) clearCurrentSelection();
+    }
+
+    auto deleteFunction = [ = ] {
+        d->currentSelection.removeOne(element);
+        emit currentSelectionChanged();
+    };
+
+    if (element->metaObject()->inherits(&TimelineElement::staticMetaObject)) {
+        connect(qobject_cast<TimelineElement*>(element), &TimelineElement::aboutToDelete, this, deleteFunction);
+    } else {
+        connect(element, &QObject::destroyed, this, deleteFunction);
+    }
+    d->currentSelection.append(element);
+    emit currentSelectionChanged();
+}
+
+void Timeline::clearCurrentSelection() {
+    d->currentSelection.clear();
+    emit currentSelectionChanged();
+}
+
+QList<QObject*> Timeline::currentSelection() {
+    return d->currentSelection;
+}
+
+void Timeline::deleteSelected() {
+    for (QObject* element : d->currentSelection) {
+        //Make sure we're not deleting the root viewport
+        if (element == d->rootLeftWidget) continue;
+        element->deleteLater();
+    }
+    d->currentSelection.clear();
+    emit currentSelectionChanged();
+}
+
+QJsonObject Timeline::save() const {
+    QJsonObject rootObj;
+    rootObj.insert("framerate", static_cast<qint64>(this->framerate()));
+    rootObj.insert("frameCount", QString::number(this->frameCount()));
+    rootObj.insert("frameSpacing", this->frameSpacing());
+
+    QJsonArray viewportSize = {
+        d->rootViewportElement->viewportSize().width(),
+        d->rootViewportElement->viewportSize().height()
+    };
+    rootObj.insert("viewportSize", viewportSize);
+    rootObj.insert("viewport", d->rootViewportElement->save());
+    return rootObj;
+}
+
+bool Timeline::load(QJsonObject obj) {
+    this->setFramerate(static_cast<uint>(obj.value("framerate").toInt()));
+    this->setFrameCount(obj.value("frameCount").toString().toULongLong());
+    this->setFrameSpacing(obj.value("frameSpacing").toDouble());
+
+    QJsonArray viewportSize = obj.value("viewportSize").toArray();
+    d->rootViewportElement->setViewportSize(QSize(viewportSize.at(0).toInt(), viewportSize.at(1).toInt()));
+
+    d->rootViewportElement->load(obj.value("viewport").toObject());
+
+    return true;
+}
