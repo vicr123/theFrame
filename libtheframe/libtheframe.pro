@@ -1,4 +1,4 @@
-QT += widgets thelib
+QT += widgets thelib svg
 SHARE_APP_NAME=theframe/libtheframe
 
 TEMPLATE = lib
@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     elements/element.cpp \
     elements/groupelement.cpp \
+    elements/pictureelement.cpp \
     elements/rectangleelement.cpp \
     elements/textelement.cpp \
     elements/timelineelement.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 HEADERS += \
     elements/element.h \
     elements/groupelement.h \
+    elements/pictureelement.h \
     elements/rectangleelement.h \
     elements/textelement.h \
     elements/timelineelement.h \

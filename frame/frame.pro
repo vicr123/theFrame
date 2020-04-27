@@ -20,6 +20,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     prerenderer.cpp \
+    properties/fileproperty.cpp \
     properties/floatproperty.cpp \
     properties/fontproperty.cpp \
     properties/percentageproperty.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
 HEADERS += \
     mainwindow.h \
     prerenderer.h \
+    properties/fileproperty.h \
     properties/floatproperty.h \
     properties/fontproperty.h \
     properties/percentageproperty.h \
@@ -53,6 +55,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    properties/fileproperty.ui \
     properties/floatproperty.ui \
     properties/fontproperty.ui \
     properties/percentageproperty.ui \

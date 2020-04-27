@@ -26,6 +26,7 @@
 #include "properties/stringproperty.h"
 #include "properties/pointproperty.h"
 #include "properties/fontproperty.h"
+#include "properties/fileproperty.h"
 
 #include "timeline/timeline.h"
 #include <elements/timelineelement.h>
@@ -33,6 +34,8 @@
 
 struct PropertiesWidgetPrivate {
     Timeline* timeline;
+
+    QString projectPath;
 
     PropertyWidget* startWidget = nullptr;
     PropertyWidget* endWidget = nullptr;
@@ -57,6 +60,8 @@ struct PropertiesWidgetPrivate {
                 return &PointProperty::staticMetaObject;
             case Element::Font:
                 return &FontProperty::staticMetaObject;
+            case Element::File:
+                return &FileProperty::staticMetaObject;
 
         }
         return nullptr;
@@ -95,6 +100,10 @@ void PropertiesWidget::setTimeline(Timeline* timeline) {
     ui->resYBox->setValue(timeline->viewportElement()->viewportSize().height());
 }
 
+void PropertiesWidget::setProjectPath(QString path) {
+    d->projectPath = path;
+}
+
 void PropertiesWidget::updateCurrentTimelineElements() {
     if (d->timeline->currentSelection().count() == 0) {
         ui->stackedWidget->setCurrentWidget(ui->nothingSelectedPage);
@@ -121,6 +130,9 @@ void PropertiesWidget::updateCurrentTimelineElements() {
             if (metaObj) {
                 d->startWidget = qobject_cast<PropertyWidget*>(metaObj->newInstance());
                 d->endWidget = qobject_cast<PropertyWidget*>(metaObj->newInstance());
+
+                d->startWidget->setProperty("projectPath", d->projectPath);
+                d->endWidget->setProperty("projectPath", d->projectPath);
 
                 ui->startValueLayout->addWidget(d->startWidget);
                 ui->endValueLayout->addWidget(d->endWidget);
@@ -167,6 +179,7 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 const QMetaObject* metaObj = d->objectForPropertyType(element->propertyType(property));
                 if (metaObj) {
                     PropertyWidget* pw = qobject_cast<PropertyWidget*>(metaObj->newInstance(Q_ARG(QWidget*, w)));
+                    pw->setProperty("projectPath", d->projectPath);
                     pw->setValue(element->startValue(property));
                     connect(pw, &PropertyWidget::valueChanged, this, [ = ](QVariant value) {
                         element->setStartValue(property, value);

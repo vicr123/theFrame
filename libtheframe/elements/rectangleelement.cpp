@@ -42,7 +42,7 @@ void RectangleElement::render(QPainter* painter, quint64 frame) const {
     QRect geometry = this->propertyValueForFrame("geometry", frame).toRect();
     QColor backgroundColor = this->propertyValueForFrame("backgroundColor", frame).value<QColor>();
     QColor borderColor = this->propertyValueForFrame("borderColor", frame).value<QColor>();
-    double opacity = this->propertyValueForFrame("opacity", frame).toDouble();
+    double opacity = this->propertyValueForFrame("opacity", frame).toDouble() * painter->opacity();
 
     geometry.translate(this->parentElement()->renderOffset(frame));
 

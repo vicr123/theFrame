@@ -37,6 +37,8 @@ class PropertiesWidget : public QWidget {
 
         void setTimeline(Timeline* timeline);
 
+        void setProjectPath(QString path);
+
     private slots:
         void on_elementNameBox_textChanged(const QString& arg1);
 

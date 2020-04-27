@@ -4,7 +4,7 @@
 <context>
     <name>Element</name>
     <message>
-        <location filename="../elements/element.cpp" line="59"/>
+        <location filename="../elements/element.cpp" line="60"/>
         <source>New Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19,6 +19,29 @@
     <message>
         <location filename="../elements/groupelement.cpp" line="65"/>
         <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PictureElement</name>
+    <message>
+        <location filename="../elements/pictureelement.cpp" line="115"/>
+        <source>Geometry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/pictureelement.cpp" line="117"/>
+        <source>Source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/pictureelement.cpp" line="119"/>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/pictureelement.cpp" line="136"/>
+        <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

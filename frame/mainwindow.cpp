@@ -33,6 +33,7 @@ struct MainWindowPrivate {
     quint64 startFrame;
 
     QString currentFile;
+    ViewportElement* viewport;
 };
 
 MainWindow::MainWindow(QWidget* parent)
@@ -42,14 +43,14 @@ MainWindow::MainWindow(QWidget* parent)
     d = new MainWindowPrivate();
 
     Prerenderer* prerenderer = new Prerenderer();
-    ViewportElement* root = ui->viewport->rootElement();
-    prerenderer->setViewportElement(root);
+    d->viewport = ui->viewport->rootElement();
+    prerenderer->setViewportElement(d->viewport);
     prerenderer->setTimeline(ui->timeline);
 
     ui->viewport->setPrerenderer(prerenderer);
 
     ui->timeline->setPrerenderer(prerenderer);
-    ui->timeline->setViewportElement(root);
+    ui->timeline->setViewportElement(d->viewport);
     ui->propertiesWidget->setTimeline(ui->timeline);
 
     ui->viewport->setFrame(0);
@@ -171,7 +172,9 @@ void MainWindow::on_actionSaveAs_triggered() {
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
         if (result == QFileDialog::Accepted) {
             d->currentFile = fileDialog->selectedFiles().first();
-            ui->actionSave->trigger();
+            QString projectPath = QFileInfo(d->currentFile).path();
+            d->viewport->setProperty("projectPath", projectPath);
+            ui->propertiesWidget->setProjectPath(projectPath);
         }
         fileDialog->deleteLater();
     });
@@ -203,6 +206,9 @@ void MainWindow::on_actionOpen_triggered() {
             }
 
             d->currentFile = fileDialog->selectedFiles().first();
+            QString projectPath = QFileInfo(d->currentFile).path();
+            d->viewport->setProperty("projectPath", projectPath);
+            ui->propertiesWidget->setProjectPath(projectPath);
         }
         fileDialog->deleteLater();
     });

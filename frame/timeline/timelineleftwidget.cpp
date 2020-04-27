@@ -31,6 +31,7 @@
 #include <elements/rectangleelement.h>
 #include <elements/textelement.h>
 #include <elements/groupelement.h>
+#include <elements/pictureelement.h>
 
 struct TimelineLeftWidgetPrivate {
     Timeline* timeline;
@@ -95,6 +96,9 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     });
     addMenu->addAction(tr("Text"), [ = ] {
         element->addChild(new TextElement());
+    });
+    addMenu->addAction(tr("Picture"), [ = ] {
+        element->addChild(new PictureElement());
     });
     addMenu->addAction(tr("Group"), [ = ] {
         element->addChild(new GroupElement());

@@ -40,7 +40,8 @@ class Element : public QObject {
             Percentage,
             String,
             Point,
-            Font
+            Font,
+            File
         };
 
         virtual void render(QPainter* painter, quint64 frame) const;
@@ -57,7 +58,7 @@ class Element : public QObject {
         void setName(QString name);
         QString name() const;
 
-        void setStartValue(QString property, QVariant value);
+        virtual void setStartValue(QString property, QVariant value);
         QVariant startValue(QString property) const;
 
         QList<TimelineElement*> timelineElements(QString property) const;
@@ -69,6 +70,7 @@ class Element : public QObject {
         QList<Element*> childElements() const;
         void clearChildren();
         Element* parentElement() const;
+        const Element* rootElement() const;
 
         TimelineElement* timelineElementAtFrame(QString property, quint64 frame) const;
 

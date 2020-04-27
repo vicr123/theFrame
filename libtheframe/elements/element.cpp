@@ -29,6 +29,7 @@
 #include "rectangleelement.h"
 #include "textelement.h"
 #include "groupelement.h"
+#include "pictureelement.h"
 
 struct ElementPrivate {
     QMultiMap<QString, TimelineElement*> timelineElements;
@@ -192,6 +193,14 @@ Element* Element::parentElement() const {
     return d->parent;
 }
 
+const Element* Element::rootElement() const {
+    const Element* e = this;
+    while (e->parentElement()) {
+        e = e->parentElement();
+    }
+    return e;
+}
+
 TimelineElement* Element::timelineElementAtFrame(QString property, quint64 frame) const {
     for (TimelineElement* timelineElement : timelineElements(property)) {
         if (timelineElement->isFrameContained(frame)) {
@@ -332,6 +341,8 @@ bool Element::load(QJsonObject obj) {
             childElement = new TextElement();
         } else if (type == "GroupElement") {
             childElement = new GroupElement();
+        } else if (type == "PictureElement") {
+            childElement = new PictureElement();
         }
 
         if (childElement) {
@@ -353,6 +364,7 @@ QJsonValue Element::propertyToJson(Element::PropertyType propertyType, QVariant 
         case Element::Double:
         case Element::Percentage:
         case Element::String:
+        case Element::File:
             return QJsonValue::fromVariant(value);
         case Element::Rect: {
             QRect rect = value.toRect();
@@ -399,6 +411,7 @@ QVariant Element::jsonToProperty(Element::PropertyType propertyType, QJsonValue 
         case Element::Double:
         case Element::Percentage:
         case Element::String:
+        case Element::File:
             return json.toVariant();
         case Element::Rect: {
             QJsonArray array = json.toArray();

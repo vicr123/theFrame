@@ -2,6 +2,34 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="to_TO" sourcelanguage="en_US">
 <context>
+    <name>FileProperty</name>
+    <message>
+        <location filename="../properties/fileproperty.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/fileproperty.ui" line="32"/>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/fileproperty.ui" line="42"/>
+        <source>Select File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/fileproperty.cpp" line="44"/>
+        <source>PNG images (*.png)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/fileproperty.cpp" line="44"/>
+        <source>SVG images (*.svg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FloatProperty</name>
     <message>
         <location filename="../properties/floatproperty.ui" line="14"/>
@@ -186,20 +214,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="162"/>
+        <location filename="../mainwindow.cpp" line="163"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="162"/>
+        <location filename="../mainwindow.cpp" line="163"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="169"/>
-        <location filename="../mainwindow.cpp" line="184"/>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <location filename="../mainwindow.cpp" line="187"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -461,43 +489,48 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="92"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="93"/>
         <source>Add an element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="93"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="94"/>
         <source>Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="96"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="97"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="99"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="100"/>
+        <source>Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="103"/>
         <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="153"/>
-        <location filename="../timeline/timelineleftwidget.cpp" line="155"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="157"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="159"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="154"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="158"/>
         <source>Children will also be deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="173"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="177"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="173"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="177"/>
         <source>Set a name for this %1</source>
         <translation type="unfinished"></translation>
     </message>

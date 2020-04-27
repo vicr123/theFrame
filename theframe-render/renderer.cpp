@@ -38,6 +38,7 @@ struct RendererPrivate {
     ViewportElement* viewport;
     QJsonObject rootObject;
 
+    QString inputFile;
     QString outputFile;
 
     uint framerate;
@@ -95,12 +96,15 @@ bool Renderer::prepare() {
 
     QDir workingDir(QDir::currentPath());
     d->outputFile = workingDir.absoluteFilePath(parser.positionalArguments().at(1));
+    d->inputFile = parser.positionalArguments().first();
 
     return true;
 }
 
 bool Renderer::constructElements() {
     d->viewport = new ViewportElement();
+    d->viewport->setProperty("projectPath", QFileInfo(d->inputFile).path());
+    d->viewport->setProperty("requireThread", true);
 
     d->framerate = static_cast<uint>(d->rootObject.value("framerate").toInt());
     d->frameCount = d->rootObject.value("frameCount").toString().toULongLong();
