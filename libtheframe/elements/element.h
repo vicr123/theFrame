@@ -37,7 +37,10 @@ class Element : public QObject {
             Double,
             Rect,
             Color,
-            Percentage
+            Percentage,
+            String,
+            Point,
+            Font
         };
 
         virtual void render(QPainter* painter, quint64 frame) const;

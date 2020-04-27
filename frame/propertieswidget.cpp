@@ -23,6 +23,9 @@
 #include "properties/rectproperty.h"
 #include "properties/floatproperty.h"
 #include "properties/percentageproperty.h"
+#include "properties/stringproperty.h"
+#include "properties/pointproperty.h"
+#include "properties/fontproperty.h"
 
 #include "timeline/timeline.h"
 #include <elements/timelineelement.h>
@@ -48,6 +51,12 @@ struct PropertiesWidgetPrivate {
                 return &RectProperty::staticMetaObject;
             case Element::Color:
                 break;
+            case Element::String:
+                return &StringProperty::staticMetaObject;
+            case Element::Point:
+                return &PointProperty::staticMetaObject;
+            case Element::Font:
+                return &FontProperty::staticMetaObject;
 
         }
         return nullptr;
@@ -137,7 +146,7 @@ void PropertiesWidget::updateCurrentTimelineElements() {
             d->propertyWidgets.clear();
 
             Element* element = qobject_cast<Element*>(e);
-            for (QString property : element->animatableProperties().keys()) {
+            for (QString property : element->allProperties().keys()) {
                 QWidget* w = new QWidget(this);
 
                 QBoxLayout* outerLayout = new QBoxLayout(QBoxLayout::TopToBottom);

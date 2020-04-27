@@ -15,10 +15,28 @@
     </message>
 </context>
 <context>
+    <name>FontProperty</name>
+    <message>
+        <location filename="../properties/fontproperty.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/fontproperty.ui" line="20"/>
+        <source>Family</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/fontproperty.ui" line="27"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <source>MainWindow</source>
+        <source>theFrame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -205,6 +223,24 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     </message>
 </context>
 <context>
+    <name>PointProperty</name>
+    <message>
+        <location filename="../properties/pointproperty.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/pointproperty.ui" line="32"/>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/pointproperty.ui" line="49"/>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PropertiesWidget</name>
     <message>
         <location filename="../propertieswidget.ui" line="14"/>
@@ -386,6 +422,19 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     </message>
 </context>
 <context>
+    <name>StringProperty</name>
+    <message>
+        <location filename="../properties/stringproperty.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../properties/stringproperty.ui" line="32"/>
+        <source>Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Timeline</name>
     <message>
         <location filename="../timeline/timeline.ui" line="14"/>
@@ -412,33 +461,43 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="89"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="92"/>
         <source>Add an element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="90"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="93"/>
         <source>Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="142"/>
-        <location filename="../timeline/timelineleftwidget.cpp" line="144"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="96"/>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="99"/>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="153"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="155"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="143"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="154"/>
         <source>Children will also be deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="162"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="173"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="162"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="173"/>
         <source>Set a name for this %1</source>
         <translation type="unfinished"></translation>
     </message>

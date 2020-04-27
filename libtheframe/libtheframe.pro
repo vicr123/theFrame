@@ -20,13 +20,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     elements/element.cpp \
+    elements/groupelement.cpp \
     elements/rectangleelement.cpp \
+    elements/textelement.cpp \
     elements/timelineelement.cpp \
     elements/viewportelement.cpp
 
 HEADERS += \
     elements/element.h \
+    elements/groupelement.h \
     elements/rectangleelement.h \
+    elements/textelement.h \
     elements/timelineelement.h \
     elements/viewportelement.h \
     libtheframe_global.h

@@ -21,9 +21,12 @@ SOURCES += \
     mainwindow.cpp \
     prerenderer.cpp \
     properties/floatproperty.cpp \
+    properties/fontproperty.cpp \
     properties/percentageproperty.cpp \
+    properties/pointproperty.cpp \
     properties/propertywidget.cpp \
     properties/rectproperty.cpp \
+    properties/stringproperty.cpp \
     propertieswidget.cpp \
     timeline/timeline.cpp \
     timeline/timelineleftwidget.cpp \
@@ -35,9 +38,12 @@ HEADERS += \
     mainwindow.h \
     prerenderer.h \
     properties/floatproperty.h \
+    properties/fontproperty.h \
     properties/percentageproperty.h \
+    properties/pointproperty.h \
     properties/propertywidget.h \
     properties/rectproperty.h \
+    properties/stringproperty.h \
     propertieswidget.h \
     timeline/timeline.h \
     timeline/timelineleftwidget.h \
@@ -48,8 +54,11 @@ HEADERS += \
 FORMS += \
     mainwindow.ui \
     properties/floatproperty.ui \
+    properties/fontproperty.ui \
     properties/percentageproperty.ui \
+    properties/pointproperty.ui \
     properties/rectproperty.ui \
+    properties/stringproperty.ui \
     propertieswidget.ui \
     timeline/timeline.ui \
     timeline/timelineleftwidget.ui \

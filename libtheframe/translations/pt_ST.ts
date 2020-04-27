@@ -4,8 +4,21 @@
 <context>
     <name>Element</name>
     <message>
-        <location filename="../elements/element.cpp" line="57"/>
+        <location filename="../elements/element.cpp" line="59"/>
         <source>New Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GroupElement</name>
+    <message>
+        <location filename="../elements/groupelement.cpp" line="52"/>
+        <source>Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/groupelement.cpp" line="65"/>
+        <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -34,6 +47,35 @@
     <message>
         <location filename="../elements/rectangleelement.cpp" line="89"/>
         <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextElement</name>
+    <message>
+        <location filename="../elements/textelement.cpp" line="25"/>
+        <source>Edit Me!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/textelement.cpp" line="78"/>
+        <location filename="../elements/textelement.cpp" line="103"/>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/textelement.cpp" line="80"/>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/textelement.cpp" line="82"/>
+        <source>Text Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/textelement.cpp" line="84"/>
+        <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

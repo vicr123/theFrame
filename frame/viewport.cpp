@@ -49,7 +49,6 @@ Viewport::~Viewport() {
 
 void Viewport::setFrame(quint64 frame) {
     d->currentFrame = frame;
-    d->rootRender = QPixmap(d->rootElement->viewportSize());
 
     d->prerenderer->frame(frame)->then([ = ](QPixmap pixmap) {
         if (d->currentFrame == frame) {
@@ -57,8 +56,6 @@ void Viewport::setFrame(quint64 frame) {
             this->update();
         }
     });
-
-    this->update();
 }
 
 void Viewport::setPrerenderer(Prerenderer* prerenderer) {

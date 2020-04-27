@@ -71,7 +71,7 @@ QMap<QString, Element::PropertyType> RectangleElement::animatableProperties() co
 
 QPoint RectangleElement::renderOffset(quint64 frame) const {
     QRect geometry = this->propertyValueForFrame("geometry", frame).toRect();
-    return geometry.topLeft();
+    return geometry.topLeft() + this->parentElement()->renderOffset(frame);
 }
 
 QString RectangleElement::typeDisplayName() const {

@@ -75,7 +75,7 @@ tPromise<void>* Prerenderer::cacheFrame(quint64 frame) {
             QPainter painter(&pixmap);
             d->element->render(&painter, frame);
             painter.end();
-            pixmap = pixmap.scaled(pixmap.size() / 16);
+            pixmap = pixmap.scaled(pixmap.size() / 8);
             res(pixmap);
         })->then([ = ](QPixmap pixmap) {
             d->prerenders.insert(frame, pixmap);

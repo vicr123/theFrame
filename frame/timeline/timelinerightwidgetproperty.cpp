@@ -37,7 +37,7 @@ struct TimelineRightWidgetPropertyPrivate {
     };
 
     Timeline* timeline;
-    Element* element;
+    QPointer<Element> element;
     QString property;
 
     bool isRoot;
@@ -84,6 +84,8 @@ quint64 TimelineRightWidgetProperty::frameForPoint(int x) {
 }
 
 void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
+    if (!d->element) return;
+
     QPainter painter(this);
     painter.setPen(Qt::transparent);
     if (d->property == "") {

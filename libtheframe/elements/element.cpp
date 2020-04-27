@@ -27,6 +27,8 @@
 
 #include "viewportelement.h"
 #include "rectangleelement.h"
+#include "textelement.h"
+#include "groupelement.h"
 
 struct ElementPrivate {
     QMultiMap<QString, TimelineElement*> timelineElements;
@@ -82,8 +84,8 @@ QMap<QString, Element::PropertyType> Element::allProperties() const {
 }
 
 Element::PropertyType Element::propertyType(QString property) const {
-    Q_ASSERT(this->animatableProperties().contains(property));
-    return this->animatableProperties().value(property);
+    Q_ASSERT(this->allProperties().contains(property));
+    return this->allProperties().value(property);
 }
 
 QString Element::name() const {
@@ -96,12 +98,13 @@ void Element::setName(QString name) {
 }
 
 void Element::setStartValue(QString property, QVariant value) {
-    Q_ASSERT(this->animatableProperties().contains(property));
+    Q_ASSERT(this->allProperties().contains(property));
     d->startValues.insert(property, value);
+    tryInvalidateFromFrame(0);
 }
 
 QVariant Element::startValue(QString property) const {
-    Q_ASSERT(this->animatableProperties().contains(property));
+    Q_ASSERT(this->allProperties().contains(property));
     return d->startValues.value(property);
 }
 
@@ -325,6 +328,10 @@ bool Element::load(QJsonObject obj) {
             childElement = new RectangleElement();
         } else if (type == "ViewportElement") {
             childElement = new ViewportElement();
+        } else if (type == "TextElement") {
+            childElement = new TextElement();
+        } else if (type == "GroupElement") {
+            childElement = new GroupElement();
         }
 
         if (childElement) {
@@ -345,6 +352,7 @@ QJsonValue Element::propertyToJson(Element::PropertyType propertyType, QVariant 
         case Element::Integer:
         case Element::Double:
         case Element::Percentage:
+        case Element::String:
             return QJsonValue::fromVariant(value);
         case Element::Rect: {
             QRect rect = value.toRect();
@@ -356,7 +364,7 @@ QJsonValue Element::propertyToJson(Element::PropertyType propertyType, QVariant 
             };
             return array;
         }
-        case Element::Color:
+        case Element::Color: {
             QColor col = value.value<QColor>();
             QJsonArray array = {
                 col.red(),
@@ -364,6 +372,19 @@ QJsonValue Element::propertyToJson(Element::PropertyType propertyType, QVariant 
                 col.blue()
             };
             return array;
+        }
+        case Element::Point: {
+            QPoint point = value.toPoint();
+            QJsonArray array = {
+                point.x(),
+                point.y()
+            };
+            return array;
+        }
+        case Element::Font: {
+            QFont font = value.value<QFont>();
+            return font.toString();
+        }
     }
     return QJsonValue();
 }
@@ -377,16 +398,29 @@ QVariant Element::jsonToProperty(Element::PropertyType propertyType, QJsonValue 
         case Element::Integer:
         case Element::Double:
         case Element::Percentage:
+        case Element::String:
             return json.toVariant();
         case Element::Rect: {
             QJsonArray array = json.toArray();
             QRect rect(array.at(0).toInt(), array.at(1).toInt(), array.at(2).toInt(), array.at(3).toInt());
             return rect;
         }
-        case Element::Color:
+        case Element::Color: {
             QJsonArray array = json.toArray();
             QColor col(array.at(0).toInt(), array.at(1).toInt(), array.at(2).toInt());
             return col;
+        }
+        case Element::Point: {
+            QJsonArray array = json.toArray();
+            QPoint point(array.at(0).toInt(), array.at(1).toInt());
+            return point;
+        }
+        case Element::Font: {
+            QString str = json.toString();
+            QFont font;
+            font.fromString(str);
+            return font;
+        }
     }
     return QVariant();
 }

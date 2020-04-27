@@ -26,12 +26,15 @@
 #include <QMenu>
 #include <QInputDialog>
 #include <QMouseEvent>
+#include <QPointer>
 
 #include <elements/rectangleelement.h>
+#include <elements/textelement.h>
+#include <elements/groupelement.h>
 
 struct TimelineLeftWidgetPrivate {
     Timeline* timeline;
-    Element* element;
+    QPointer<Element> element;
     TimelineRightWidget* rightWidget;
 
     bool isRoot;
@@ -90,6 +93,12 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     addMenu->addAction(tr("Rectangle"), [ = ] {
         element->addChild(new RectangleElement());
     });
+    addMenu->addAction(tr("Text"), [ = ] {
+        element->addChild(new TextElement());
+    });
+    addMenu->addAction(tr("Group"), [ = ] {
+        element->addChild(new GroupElement());
+    });
     ui->addButton->setMenu(addMenu);
 
     if (isRoot) ui->deleteButton->setVisible(false);
@@ -109,6 +118,8 @@ void TimelineLeftWidget::resizeEvent(QResizeEvent* event) {
 }
 
 void TimelineLeftWidget::paintEvent(QPaintEvent* event) {
+    if (!d->element) return;
+
     QPainter painter(this);
     painter.setPen(Qt::transparent);
 
