@@ -24,6 +24,8 @@
 #include <elements/rectangleelement.h>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QCloseEvent>
+#include <tmessagebox.h>
 #include <taboutdialog.h>
 #include "prerenderer.h"
 
@@ -38,6 +40,8 @@ struct MainWindowPrivate {
 
     QString currentFile;
     ViewportElement* viewport;
+
+    bool doClose = false;
 };
 
 MainWindow::MainWindow(QWidget* parent)
@@ -56,6 +60,9 @@ MainWindow::MainWindow(QWidget* parent)
     ui->menuEdit->insertAction(ui->actionDeleteTransition, undoAction);
     ui->menuEdit->insertAction(ui->actionDeleteTransition, redoAction);
     ui->menuEdit->insertSeparator(ui->actionDeleteTransition);
+    connect(d->undoStack, &QUndoStack::cleanChanged, this, [=](bool clean) {
+        this->setWindowModified(!clean);
+    });
 
     Prerenderer* prerenderer = new Prerenderer();
     d->viewport = ui->viewport->rootElement();
@@ -165,38 +172,11 @@ void MainWindow::on_lastFrameButton_clicked() {
 }
 
 void MainWindow::on_actionSave_triggered() {
-    if (d->currentFile.isEmpty()) {
-        ui->actionSaveAs->trigger();
-        return;
-    }
-
-    QSaveFile saveFile(d->currentFile);
-    saveFile.open(QSaveFile::WriteOnly);
-
-    QJsonDocument doc(ui->timeline->save());
-    saveFile.write(doc.toJson(QJsonDocument::Compact));
-    if (!saveFile.commit()) {
-        //Error Error!
-        QMessageBox::critical(this, tr("Error"), tr("Sorry, we couldn't save the file. Check that there is enough disk space and that you have permission to write to the file.\n\nDon't close the window until you've managed to save your changes, otherwise you may lose data."));
-    }
+    this->save();
 }
 
 void MainWindow::on_actionSaveAs_triggered() {
-    QFileDialog* fileDialog = new QFileDialog(this);
-    fileDialog->setAcceptMode(QFileDialog::AcceptSave);
-    fileDialog->setNameFilters({tr("theFrame Project Files (*.tfrproj)")});
-    fileDialog->setWindowFlag(Qt::Sheet);
-    fileDialog->setWindowModality(Qt::WindowModal);
-    connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
-        if (result == QFileDialog::Accepted) {
-            d->currentFile = fileDialog->selectedFiles().first();
-            QString projectPath = QFileInfo(d->currentFile).path();
-            d->viewport->setProperty("projectPath", projectPath);
-            ui->propertiesWidget->setProjectPath(projectPath);
-        }
-        fileDialog->deleteLater();
-    });
-    fileDialog->open();
+    this->saveAs();
 }
 
 void MainWindow::on_actionOpen_triggered() {
@@ -207,29 +187,43 @@ void MainWindow::on_actionOpen_triggered() {
     fileDialog->setWindowModality(Qt::WindowModal);
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
         if (result == QFileDialog::Accepted) {
-            //Attempt to load this file
-            QFile file(fileDialog->selectedFiles().first());
-            file.open(QSaveFile::ReadOnly);
+            auto loadFile = [=] {
+                //Attempt to load this file
+                QFile file(fileDialog->selectedFiles().first());
+                file.open(QSaveFile::ReadOnly);
 
-            QJsonParseError error;
-            QJsonDocument doc = QJsonDocument::fromJson(file.readAll(), &error);
+                QJsonParseError error;
+                QJsonDocument doc = QJsonDocument::fromJson(file.readAll(), &error);
 
-            if (error.error != QJsonParseError::NoError || !doc.isObject()) {
-                //Error Error!
-                return;
+                if (error.error != QJsonParseError::NoError || !doc.isObject()) {
+                    //Error Error!
+                    return;
+                }
+
+                if (!ui->timeline->load(doc.object())) {
+                    //Error Error!
+                    return;
+                }
+
+                d->currentFile = fileDialog->selectedFiles().first();
+                this->setWindowFilePath(d->currentFile);
+                QString projectPath = QFileInfo(d->currentFile).path();
+                d->viewport->setProperty("projectPath", projectPath);
+                ui->propertiesWidget->setProjectPath(projectPath);
+
+                d->undoStack->clear();
+            };
+
+            if (!d->undoStack->isClean()) {
+                this->ensureDiscardChanges()->then(loadFile)->error([=](QString reason) {
+                    fileDialog->deleteLater();
+                });
+            } else {
+                loadFile();
             }
-
-            if (!ui->timeline->load(doc.object())) {
-                //Error Error!
-                return;
-            }
-
-            d->currentFile = fileDialog->selectedFiles().first();
-            QString projectPath = QFileInfo(d->currentFile).path();
-            d->viewport->setProperty("projectPath", projectPath);
-            ui->propertiesWidget->setProjectPath(projectPath);
+        } else {
+            fileDialog->deleteLater();
         }
-        fileDialog->deleteLater();
     });
     fileDialog->open();
 }
@@ -237,4 +231,92 @@ void MainWindow::on_actionOpen_triggered() {
 void MainWindow::on_actionAbout_triggered() {
     tAboutDialog dialog;
     dialog.exec();
+}
+
+void MainWindow::closeEvent(QCloseEvent* event)
+{
+    if (d->doClose) return;
+    if (!d->undoStack->isClean()) {
+        event->ignore();
+        this->ensureDiscardChanges()->then([=] {
+            d->doClose = true;
+            this->close();
+        });
+    }
+}
+
+tPromise<void>* MainWindow::save()
+{
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+        if (d->currentFile.isEmpty()) {
+            this->saveAs()->then(res)->error(rej);
+            return;
+        }
+
+        QSaveFile saveFile(d->currentFile);
+        saveFile.open(QSaveFile::WriteOnly);
+
+        QJsonDocument doc(ui->timeline->save());
+        saveFile.write(doc.toJson(QJsonDocument::Compact));
+        if (!saveFile.commit()) {
+            //Error Error!
+            QMessageBox::critical(this, tr("Error"), tr("Sorry, we couldn't save the file. Check that there is enough disk space and that you have permission to write to the file.\n\nDon't close the window until you've managed to save your changes, otherwise you may lose data."));
+            rej("Save Error");
+        } else {
+            d->undoStack->setClean();
+            res();
+        }
+    });
+}
+
+tPromise<void>* MainWindow::saveAs()
+{
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+        QFileDialog* fileDialog = new QFileDialog(this);
+        fileDialog->setAcceptMode(QFileDialog::AcceptSave);
+        fileDialog->setNameFilters({tr("theFrame Project Files (*.tfrproj)")});
+        fileDialog->setWindowFlag(Qt::Sheet);
+        fileDialog->setWindowModality(Qt::WindowModal);
+        connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
+            if (result == QFileDialog::Accepted) {
+                d->currentFile = fileDialog->selectedFiles().first();
+                this->setWindowFilePath(d->currentFile);
+                QString projectPath = QFileInfo(d->currentFile).path();
+                d->viewport->setProperty("projectPath", projectPath);
+                ui->propertiesWidget->setProjectPath(projectPath);
+
+                this->save()->then(res)->error(rej);
+            } else {
+                rej("Cancelled");
+            }
+            fileDialog->deleteLater();
+        });
+        fileDialog->open();
+    });
+}
+
+tPromise<void>* MainWindow::ensureDiscardChanges()
+{
+    return tPromise<void>::runOnSameThread([=](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
+        tMessageBox* box = new tMessageBox(this);
+        box->setWindowTitle(tr("Save Changes?"));
+        box->setText(tr("You'll lose any unsaved changes in this project if you don't save."));
+        box->setIcon(tMessageBox::Warning);
+        box->setStandardButtons(tMessageBox::Save | tMessageBox::Discard | tMessageBox::Cancel);
+        box->setWindowModality(Qt::WindowModal);
+        box->setWindowFlag(Qt::Sheet);
+        connect(box, &tMessageBox::finished, this, [=](int result) {
+            if (result == tMessageBox::Save) {
+                this->save()->then([=] {
+                    res();
+                })->error(rej);
+            } else if (result == tMessageBox::Discard) {
+                res();
+            } else {
+                rej("Cancelled");
+            }
+            box->deleteLater();
+        });
+        box->open();
+    });
 }

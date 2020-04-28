@@ -21,6 +21,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <tpromise.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -73,6 +74,12 @@ class MainWindow : public QMainWindow {
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;
+
+        void closeEvent(QCloseEvent* event);
+
+        tPromise<void>* save();
+        tPromise<void>* saveAs();
+        tPromise<void>* ensureDiscardChanges();
 
         void updatePlayFrame();
 };
