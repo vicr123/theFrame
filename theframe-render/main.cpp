@@ -53,7 +53,9 @@ void prepareTraps() {
 #endif
 
 int main(int argc, char* argv[]) {
+#ifdef Q_OS_LINUX
     qputenv("QT_QPA_PLATFORM", "offscreen");
+#endif
     QGuiApplication a(argc, argv);
 
     //Catch signals on Linux

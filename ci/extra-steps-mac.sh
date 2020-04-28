@@ -1,11 +1,6 @@
 cd build
 mv frame/theFrame.app ./
 
-ls
-ls theFrame.app
-ls theFrame.app/Contents
-ls theFrame.app/Contents/MacOS
-
 LIBTHEFRAME_FRAMEWORK_RELATIVE_PATH='libtheframe.framework/Versions/1/libtheframe'
 
 # Install the render process
