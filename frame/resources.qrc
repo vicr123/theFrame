@@ -2,4 +2,7 @@
     <qresource prefix="/">
         <file>icons/aboutsplash.svg</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>theframe.svg</file>
+    </qresource>
 </RCC>

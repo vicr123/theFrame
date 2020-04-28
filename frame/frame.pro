@@ -115,7 +115,7 @@ macx {
 #        ICON = icon-bp.icns
 #    } else {
         TARGET = "theFrame"
-#        ICON = icon.icns
+        ICON = icon.icns
 #    }
 
     INCLUDEPATH += "/usr/local/include/the-libs"
