@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, macOS-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: vicr123/the-libs/bootstrap@actions
+      name: "Bootstrap Build"
+      with:
+        extra-deps-linux: "qt512websockets"
+    - uses: vicr123/contemporary-theme/actions/build@master
+      name: Build Contemporary
+    - uses: actions/checkout@v1
+    - uses: vicr123/the-libs/build@actions
+      name: "Build Project"
+    - uses: vicr123/the-libs/image@actions
+      name: "Package Project"
+      id: image
+      with:
+        extra-plugins-linux: "styles/libContemporary.so"
+        image-name-linux: theframe-linux.AppImage
+        app-bundle-mac: "theFrame.app"
+    - uses: actions/upload-artifact@v1
+      name: Upload Artifact to GitHub Actions
+      with:
+        name: ${{ steps.image.outputs.asset-name }}
+        path: ${{ steps.image.outputs.image-path }}
+    - uses: vicr123/create-release@delete-old-release
+      name: "Create Release"
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: continuous
+        release_name: Continuous Build
+        replace_old_tag: true
+        prerelease: true
+    - uses: actions/upload-release-asset@v1.0.1
+      name: "Upload Release"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ${{ steps.image.outputs.image-path }}
+        asset_name: ${{ steps.image.outputs.asset-name }}
+        asset_content_type: ${{ steps.image.outputs.asset-content-type }}
