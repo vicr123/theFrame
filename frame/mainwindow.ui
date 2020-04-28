@@ -161,8 +161,6 @@
     <addaction name="actionNextFrame"/>
     <addaction name="actionPreviousFrame"/>
     <addaction name="separator"/>
-    <addaction name="actionDeleteTransition"/>
-    <addaction name="separator"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
    </widget>
@@ -170,6 +168,7 @@
     <property name="title">
      <string>Edit</string>
     </property>
+    <addaction name="actionDeleteTransition"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">

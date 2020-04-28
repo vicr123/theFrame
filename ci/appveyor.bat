@@ -21,6 +21,7 @@ cd ..
 
 git clone https://github.com/vicr123/contemporary-theme.git
 cd contemporary-theme
+git checkout blueprint
 qmake Contemporary.pro "CONFIG+=release"
 nmake release
 cd ..
@@ -43,4 +44,4 @@ copy build\libtheframe\release\libtheframe.dll deploy
 copy build\theframe-render\release\theframe-render.exe deploy
 copy "C:\Program Files\thelibs\lib\the-libs.dll" deploy
 cd deploy
-windeployqt theFrame.exe -svg -multimedia
+windeployqt theFrame.exe -svg -multimedia -concurrent
