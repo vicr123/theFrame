@@ -1,0 +1,38 @@
+version: 1.0.{build}
+branches:
+  only:
+  - blueprint
+  - master
+skip_tags: true
+image: Visual Studio 2017
+clone_depth: 5
+
+environment:
+  REPO_SLUG: vicr123/theFrame
+  GITHUB_TOKEN:
+    secure: ccBnzSyxy5O8O5cYFyrs+yuS3hWVbytsJJwm4ZFLiCWbR9ECyTO5bmDUb70EqE2u
+  deploy_project: theframe
+  deploy_version: ''
+  deploy_artifact: ''
+    
+build_script:
+- cmd: >-
+    appveyor\build.bat
+
+test: off
+
+artifacts:
+- path: deploy
+  name: theFrame-Windows
+  
+  
+before_deploy:
+- ps:
+    iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/deploy.ps1'))
+    
+deploy_script:
+- ps: >-
+    
+    Start-FileDownload 'https://github.com/probonopd/uploadtool/raw/master/upload.sh'
+    
+    sh -c "TRAVIS_BRANCH=$env:APPVEYOR_REPO_BRANCH TRAVIS_COMMIT=$env:APPVEYOR_REPO_COMMIT ./upload.sh /c/projects/theFrame/theFrame-Windows.zip 2>/dev/null"
