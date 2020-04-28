@@ -22,8 +22,10 @@
 
 #include "element.h"
 
+#include "libtheframe_global.h"
+
 struct ViewportElementPrivate;
-class ViewportElement : public Element {
+class LIBTHEFRAME_EXPORT ViewportElement : public Element {
         Q_OBJECT
     public:
         struct FrameIterator {

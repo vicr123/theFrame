@@ -22,8 +22,10 @@
 
 #include "element.h"
 
+#include "libtheframe_global.h"
+
 struct PictureElementPrivate;
-class PictureElement : public Element {
+class LIBTHEFRAME_EXPORT PictureElement : public Element {
         Q_OBJECT
     public:
         explicit PictureElement();

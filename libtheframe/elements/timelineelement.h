@@ -24,9 +24,11 @@
 #include <QVariant>
 #include <QEasingCurve>
 
+#include "libtheframe_global.h"
+
 struct TimelineElementPrivate;
 class Element;
-class TimelineElement : public QObject {
+class LIBTHEFRAME_EXPORT TimelineElement : public QObject {
         Q_OBJECT
     public:
         explicit TimelineElement();

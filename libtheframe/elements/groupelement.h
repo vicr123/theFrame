@@ -22,7 +22,9 @@
 
 #include "element.h"
 
-class GroupElement : public Element {
+#include "libtheframe_global.h"
+
+class LIBTHEFRAME_EXPORT GroupElement : public Element {
         Q_OBJECT
     public:
         explicit GroupElement();

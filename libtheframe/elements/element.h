@@ -24,9 +24,11 @@
 #include <QPainter>
 #include <QVariant>
 
+#include "libtheframe_global.h"
+
 struct ElementPrivate;
 class TimelineElement;
-class Element : public QObject {
+class LIBTHEFRAME_EXPORT Element : public QObject {
         Q_OBJECT
     public:
         explicit Element();

@@ -22,8 +22,10 @@
 
 #include "element.h"
 
+#include "libtheframe_global.h"
+
 struct RectangleElementPrivate;
-class RectangleElement : public Element {
+class LIBTHEFRAME_EXPORT RectangleElement : public Element {
         Q_OBJECT
     public:
         explicit RectangleElement();

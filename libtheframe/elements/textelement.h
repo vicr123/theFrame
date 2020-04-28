@@ -22,7 +22,9 @@
 
 #include "element.h"
 
-class TextElement : public Element {
+#include "libtheframe_global.h"
+
+class LIBTHEFRAME_EXPORT TextElement : public Element {
         Q_OBJECT
     public:
         explicit TextElement();
