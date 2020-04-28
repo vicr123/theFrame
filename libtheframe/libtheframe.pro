@@ -1,4 +1,4 @@
-QT += widgets thelib svg
+QT += widgets svg
 SHARE_APP_NAME=theframe/libtheframe
 
 TEMPLATE = lib
@@ -41,6 +41,8 @@ unix:!macx {
     # Include the-libs build tools
     include(/usr/share/the-libs/pri/buildmaster.pri)
 
+    QT += thelib
+
     TARGET = theframe
     target.path = /usr/lib
 
@@ -49,4 +51,31 @@ unix:!macx {
 
     INSTALLS += target translations
 }
-!isEmpty(target.path): INSTALLS += target
+
+win32 {
+    # Include the-libs build tools
+    include(C:/Program Files/thelibs/pri/buildmaster.pri)
+
+    INCLUDEPATH += "C:/Program Files/thelibs/include"
+    LIBS += -L"C:/Program Files/thelibs/lib" -lthe-libs
+    TARGET = libtheframe
+}
+
+macx {
+    # Include the-libs build tools
+    include(/usr/local/share/the-libs/pri/buildmaster.pri)
+
+    QT += macextras
+    LIBS += -framework CoreFoundation -framework AppKit
+
+    TARGET = libtheframe
+    CONFIG += lib_bundle
+
+    FRAMEWORK_HEADERS.version = 1.0
+    FRAMEWORK_HEADERS.files = ${HEADERS}
+    FRAMEWORK_HEADERS.path = Headers
+    QMAKE_BUNDLE_DATA += FRAMEWORK_HEADERS
+
+    INCLUDEPATH += "/usr/local/include/the-libs"
+    LIBS += -L/usr/local/lib -lthe-libs
+}

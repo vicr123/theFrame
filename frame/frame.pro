@@ -1,4 +1,4 @@
-QT       += core gui thelib
+QT       += core gui
 SHARE_APP_NAME = theframe
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -72,6 +72,9 @@ unix:!macx {
     # Include the-libs build tools
     include(/usr/share/the-libs/pri/buildmaster.pri)
 
+    QT += thelib
+    LIBS += -L$$OUT_PWD/../libtheframe/ -ltheframe
+
     TARGET = theframe
     target.path = /usr/bin
 
@@ -87,13 +90,45 @@ unix:!macx {
     INSTALLS += target appentry icon translations
 }
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/release/ -ltheframe
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/debug/ -ltheframe
-else:mac: LIBS += -F$$OUT_PWD/../libtheframe/ -framework theframe
-else:unix: LIBS += -L$$OUT_PWD/../libtheframe/ -ltheframe
+win32 {
+    # Include the-libs build tools
+    include(C:/Program Files/thelibs/pri/buildmaster.pri)
+
+    CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/release/ -llibtheframe
+    CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/debug/ -llibtheframe
+
+    INCLUDEPATH += "C:/Program Files/thelibs/include"
+    LIBS += -L"C:/Program Files/thelibs/lib" -lthe-libs
+    RC_FILE = icon.rc
+    TARGET = theFrame
+}
+
+macx {
+    # Include the-libs build tools
+    include(/usr/local/share/the-libs/pri/buildmaster.pri)
+
+    QT += macextras
+    LIBS += -framework CoreFoundation -framework AppKit
+
+#    blueprint {
+#        TARGET = "theSlate Blueprint"
+#        ICON = icon-bp.icns
+#    } else {
+        TARGET = "theFrame"
+#        ICON = icon.icns
+#    }
+
+    INCLUDEPATH += "/usr/local/include/the-libs"
+    LIBS += -L/usr/local/lib -lthe-libs -F$$OUT_PWD/../libtheframe/ -framework libtheframe
+
+    QMAKE_POST_LINK += $$quote(cp $${PWD}/dmgicon.icns $${PWD}/app-dmg-background.png $${PWD}/node-appdmg-config*.json $${OUT_PWD}/..)
+}
 
 INCLUDEPATH += $$PWD/../libtheframe
 DEPENDPATH += $$PWD/../libtheframe
 
 DISTFILES += \
     com.vicr123.theframe.desktop
+
+RESOURCES += \
+    resources.qrc

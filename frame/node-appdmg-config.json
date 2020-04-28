@@ -1,0 +1,26 @@
+{
+    "title": "theSlate",
+    "icon": "dmgicon.icns",
+    "background": "app-dmg-background.png",
+    "icon-size": 48,
+    "window": {
+        "size": {
+            "width": 600,
+            "height": 420
+        }
+    },
+    "contents": [
+        {
+            "x": 125,
+            "y": 225,
+            "type": "file",
+            "path": "slate/theSlate.app"
+        },
+        {
+            "x": 470,
+            "y": 225,
+            "type": "link",
+            "path": "/Applications"
+        }
+    ]
+}

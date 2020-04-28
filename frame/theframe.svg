@@ -28,7 +28,7 @@
        x2="27.313709"
        y2="-3.5959179"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.26458333,0,0,0.26458333,75.629423,277.46164)" />
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,75.629427,277.46165)" />
     <linearGradient
        id="linearGradient9085"
        inkscape:collect="always">
@@ -49,9 +49,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.2"
-     inkscape:cx="15.344529"
-     inkscape:cy="16.634685"
+     inkscape:zoom="22.4"
+     inkscape:cx="21.510482"
+     inkscape:cy="18.025088"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -93,7 +93,7 @@
     <circle
        style="opacity:1;fill:url(#linearGradient822-63);fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="path814-5"
-       cx="79.862686"
+       cx="79.862694"
        cy="281.69485"
        r="4.2333331"
        inkscape:export-filename="/home/victor/newcontemporary.png"
@@ -102,7 +102,7 @@
        transform="rotate(15)" />
     <path
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.36035824;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
-       d="m 4.5072585,291.74431 c -0.5663307,-0.15174 -1.1444401,0.18203 -1.296169,0.74835 l -1.0594401,3.95383 a 4.2333333,4.2333333 0 0 0 0.9860285,0.40916 4.2333333,4.2333333 0 0 0 5.1847608,-2.99339 4.2333333,4.2333333 0 0 0 0.1406306,-1.05798 z"
+       d="m 4.5072604,291.74432 c -0.5663314,-0.15174 -1.14444,0.18203 -1.2961681,0.74835 l -1.0594401,3.95383 a 4.2333333,4.2333333 0 0 0 0.9860273,0.40916 4.2333333,4.2333333 0 0 0 5.1847614,-2.99339 4.2333333,4.2333333 0 0 0 0.1406311,-1.05798 z"
        id="rect824-9"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/victor/newcontemporary.png"
@@ -110,26 +110,24 @@
        inkscape:export-ydpi="2165.5593" />
     <path
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.36035824;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
-       d="m 4.5072585,291.74431 c -0.5663306,-0.15174 -1.14444,0.18203 -1.2961689,0.74835 l -1.0594401,3.95383 a 4.2333333,4.2333333 0 0 0 0.9860285,0.40916 4.2333333,4.2333333 0 0 0 5.1847609,-2.99339 4.2333333,4.2333333 0 0 0 0.1406305,-1.05798 z"
+       d="m 4.5072604,291.74432 c -0.5663313,-0.15174 -1.1444399,0.18203 -1.296168,0.74835 l -1.0594401,3.95383 a 4.2333333,4.2333333 0 0 0 0.9860273,0.40916 4.2333333,4.2333333 0 0 0 5.1847615,-2.99339 4.2333333,4.2333333 0 0 0 0.140631,-1.05798 z"
        id="rect824-9-5"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/victor/newcontemporary.png"
        inkscape:export-xdpi="2165.5593"
        inkscape:export-ydpi="2165.5593" />
     <path
-       style="fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.5072099,291.74436 c -0.5663308,-0.15174 -1.1444596,0.18204 -1.2961883,0.74836 l -1.0594215,3.95381 a 4.2333333,4.2333333 0 0 0 0.9860257,0.40919 4.2333333,4.2333333 0 0 0 0.8177854,0.13459 l 3.2657099,-4.51876 z"
-       id="path1434-5"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#aaaaaa;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.5072099,291.74436 c -0.5663308,-0.15174 -1.1444596,0.18204 -1.2961883,0.74836 l -1.0594215,3.95381 a 4.2333333,4.2333333 0 0 0 0.9860257,0.40919 l 3.3167917,-4.58961 z"
-       id="path1434-3"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.5072099,291.74436 c -0.5663308,-0.15174 -1.1444596,0.18204 -1.2961883,0.74836 l -1.0594215,3.95381 a 4.2333333,4.2333333 0 0 0 0.26797,0.136 l 3.2681438,-4.52185 z"
-       id="path1434"
-       inkscape:connector-curvature="0" />
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.26499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path832"
+       sodipodi:type="arc"
+       sodipodi:cx="83.037621"
+       sodipodi:cy="284.87018"
+       sodipodi:rx="3.0427084"
+       sodipodi:ry="3.0427084"
+       sodipodi:start="3.1415927"
+       sodipodi:end="4.712389"
+       sodipodi:open="true"
+       d="m 79.994912,284.87018 a 3.0427084,3.0427084 0 0 1 3.042709,-3.04271"
+       transform="rotate(15)" />
   </g>
 </svg>

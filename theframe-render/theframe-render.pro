@@ -23,9 +23,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/release/ -ltheframe
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/debug/ -ltheframe
-else:mac: LIBS += -F$$OUT_PWD/../libtheframe/ -framework theframe
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/release/ -llibtheframe
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/debug/ -llibtheframe
+else:mac: LIBS += -F$$OUT_PWD/../libtheframe/ -framework libtheframe
 else:unix: LIBS += -L$$OUT_PWD/../libtheframe/ -ltheframe
 
 INCLUDEPATH += $$PWD/../libtheframe
