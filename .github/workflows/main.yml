@@ -23,7 +23,10 @@ jobs:
     - uses: vicr123/the-libs/build@actions
       name: "Build Project"
     - name: "Prepackage Project (macOS)"
-      run: ci/extra-steps.sh
+      run: |
+        pwd
+        ls
+        ./ci/extra-steps.sh
       if: runner.os == 'macOS'
     - uses: vicr123/the-libs/image@actions
       name: "Package Project"
