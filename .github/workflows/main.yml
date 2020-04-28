@@ -19,8 +19,6 @@ jobs:
         extra-deps-linux: "qt512websockets"
     - uses: vicr123/contemporary-theme/actions/build@master
       name: Build Contemporary
-    - uses: vicr123/contemporary-theme/actions/build@master
-      name: Build Contemporary
     - uses: actions/checkout@v1
     - uses: vicr123/the-libs/build@actions
       name: "Build Project"

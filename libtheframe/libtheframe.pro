@@ -71,10 +71,10 @@ macx {
     TARGET = libtheframe
     CONFIG += lib_bundle
 
-    FRAMEWORK_HEADERS.version = 1.0
-    FRAMEWORK_HEADERS.files = ${HEADERS}
-    FRAMEWORK_HEADERS.path = Headers
-    QMAKE_BUNDLE_DATA += FRAMEWORK_HEADERS
+#    FRAMEWORK_HEADERS.version = 1.0
+#    FRAMEWORK_HEADERS.files = ${HEADERS}
+#    FRAMEWORK_HEADERS.path = Headers
+#    QMAKE_BUNDLE_DATA += FRAMEWORK_HEADERS
 
     INCLUDEPATH += "/usr/local/include/the-libs"
     LIBS += -L/usr/local/lib -lthe-libs

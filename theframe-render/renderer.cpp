@@ -41,6 +41,8 @@ struct RendererPrivate {
     QString inputFile;
     QString outputFile;
 
+    QString ffmpegCommand;
+
     uint framerate;
     quint64 frameCount;
 
@@ -58,8 +60,9 @@ Renderer::~Renderer() {
 
 bool Renderer::prepare() {
     QCommandLineParser parser;
-    parser.addPositionalArgument("project", "Project file to render", "[project]");
-    parser.addPositionalArgument("output", "Output File", "[output]");
+    parser.addPositionalArgument("project", tr("Project file to render"), tr("[project]"));
+    parser.addPositionalArgument("output", tr("Output File"), tr("[output]"));
+    parser.addOption({"ffmpeg-command", tr("FFmpeg command to run"), tr("ffmpeg-command")});
     parser.addHelpOption();
     parser.setOptionsAfterPositionalArgumentsMode(QCommandLineParser::ParseAsOptions);
     parser.process(QCoreApplication::instance()->arguments());
@@ -97,6 +100,12 @@ bool Renderer::prepare() {
     QDir workingDir(QDir::currentPath());
     d->outputFile = workingDir.absoluteFilePath(parser.positionalArguments().at(1));
     d->inputFile = parser.positionalArguments().first();
+
+    if (parser.isSet("ffmpeg-command")) {
+        d->ffmpegCommand = parser.value("ffmpeg-command");
+    } else {
+        d->ffmpegCommand = "ffmpeg";
+    }
 
     return true;
 }
@@ -154,7 +163,7 @@ bool Renderer::completeRender() {
     logInfo(tr("Calling on ffmpeg to complete the rendering work"));
 
     QProcess ffmpegProcess;
-    ffmpegProcess.setProgram("ffmpeg");
+    ffmpegProcess.setProgram(d->ffmpegCommand);
     ffmpegProcess.setArguments({
         "-y",
         "-r", QString::number(d->framerate),
