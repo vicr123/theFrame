@@ -28,7 +28,7 @@ struct PictureElementPrivate;
 class LIBTHEFRAME_EXPORT PictureElement : public Element {
         Q_OBJECT
     public:
-        explicit PictureElement();
+        explicit Q_INVOKABLE PictureElement();
         ~PictureElement();
 
         void setStartValue(QString property, QVariant value);

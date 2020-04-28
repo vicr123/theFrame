@@ -64,14 +64,17 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         QVariant startValue(QString property) const;
 
         QList<TimelineElement*> timelineElements(QString property) const;
-        void addTimelineElement(QString property, TimelineElement* element);
+        TimelineElement* timelineElementById(uint id) const;
+        void addTimelineElement(QString property, TimelineElement* element, uint id = 0);
+        void clearTimelineElements();
 
         QVariant propertyValueForFrame(QString property, quint64 frame) const;
 
-        void addChild(Element* element);
+        void addChild(Element* element, uint id = 0);
         QList<Element*> childElements() const;
         void clearChildren();
         Element* parentElement() const;
+        Element* childById(uint id) const;
         const Element* rootElement() const;
 
         TimelineElement* timelineElementAtFrame(QString property, quint64 frame) const;
@@ -84,6 +87,8 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
 
         QJsonObject save() const;
         bool load(QJsonObject obj);
+
+        uint getId();
 
     protected:
 

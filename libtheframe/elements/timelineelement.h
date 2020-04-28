@@ -53,6 +53,8 @@ class LIBTHEFRAME_EXPORT TimelineElement : public QObject {
         QString propertyName();
         Element* parentElement();
 
+        uint getId();
+
         bool isFrameContained(quint64 frame);
         bool intersects(TimelineElement* other);
 
@@ -63,6 +65,7 @@ class LIBTHEFRAME_EXPORT TimelineElement : public QObject {
         void rollbackTransaction();
         void setParentElement(Element* element);
         void setPropertyName(QString property);
+        void setId(uint id);
 
     signals:
         void elementPropertyChanged();

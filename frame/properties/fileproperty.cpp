@@ -39,10 +39,11 @@ void FileProperty::setValue(QVariant value) {
 }
 
 void FileProperty::on_browseButton_clicked() {
-    QFileDialog* fileDialog = new QFileDialog();
+    QFileDialog* fileDialog = new QFileDialog(this->window());
     fileDialog->setAcceptMode(QFileDialog::AcceptOpen);
     fileDialog->setNameFilters({tr("PNG images (*.png)"), tr("SVG images (*.svg)")});
     fileDialog->setWindowFlag(Qt::Sheet);
+    fileDialog->setWindowModality(Qt::WindowModal);
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
         if (result == QFileDialog::Accepted) {
             //Attempt to load this file

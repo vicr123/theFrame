@@ -33,12 +33,14 @@
 
 struct ElementPrivate {
     QMultiMap<QString, TimelineElement*> timelineElements;
+    QMap<uint, TimelineElement*> timelineElementsById;
     QMap<QString, QVariant> startValues;
 
     QString elementName;
     QColor displayColor;
 
     QList<Element*> children;
+    QMap<uint, Element*> childrenById;
     Element* parent = nullptr;
 
     const QList<QColor> defaultColors = {
@@ -53,6 +55,10 @@ struct ElementPrivate {
     int inTransaction = 0;
     bool invalidateFrames = false;
     quint64 invalidateFrom;
+
+    uint timelineElementIds = 1;
+    uint childrenElementIds = 1;
+    uint thisId = 0;
 };
 
 Element::Element() : QObject(nullptr) {
@@ -114,11 +120,26 @@ QList<TimelineElement*> Element::timelineElements(QString property) const {
     return d->timelineElements.values(property);
 }
 
-void Element::addTimelineElement(QString property, TimelineElement* element) {
+TimelineElement* Element::timelineElementById(uint id) const
+{
+    return d->timelineElementsById.value(id);
+}
+
+void Element::addTimelineElement(QString property, TimelineElement* element, uint id) {
     Q_ASSERT(this->animatableProperties().contains(property));
+
+    uint timelineElementId;
+    if (id != 0) {
+        timelineElementId = id;
+    } else {
+        timelineElementId = d->timelineElementIds;
+    }
+
     element->setParentElement(this);
     element->setPropertyName(property);
+    element->setId(timelineElementId);
     d->timelineElements.insert(property, element);
+    d->timelineElementsById.insert(timelineElementId, element);
     connect(element, &TimelineElement::elementPropertyChanged, this, [ = ] {
         emit timelineElementsChanged();
         tryInvalidateFromFrame(element->startFrame());
@@ -126,11 +147,24 @@ void Element::addTimelineElement(QString property, TimelineElement* element) {
     connect(element, &TimelineElement::aboutToDelete, this, [ = ] {
         tryInvalidateFromFrame(element->startFrame());
         d->timelineElements.remove(property, element);
+        if (d->timelineElementsById.value(timelineElementId) == element) d->timelineElementsById.remove(timelineElementId);
         emit timelineElementsChanged();
     });
 
+    d->timelineElementIds++;
+
     tryInvalidateFromFrame(element->startFrame());
     emit timelineElementsChanged();
+}
+
+void Element::clearTimelineElements()
+{
+    for (TimelineElement* element : d->timelineElements.values()) {
+        element->deleteLater();
+    }
+    d->timelineElements.clear();
+    d->timelineElementsById.clear();
+    d->timelineElementIds = 1;
 }
 
 QVariant Element::propertyValueForFrame(QString property, quint64 frame) const {
@@ -166,13 +200,25 @@ QVariant Element::propertyValueForFrame(QString property, quint64 frame) const {
     return startValue(property);
 }
 
-void Element::addChild(Element* element) {
+void Element::addChild(Element* element, uint id) {
+    uint childElementId;
+    if (id != 0) {
+        childElementId = id;
+    } else {
+        childElementId = d->childrenElementIds;
+    }
+
     d->children.append(element);
+    d->childrenById.insert(childElementId, element);
     element->d->parent = this;
+    element->d->thisId = childElementId;
     connect(element, &Element::destroyed, this, [ = ] {
         d->children.removeOne(element);
+        if (d->childrenById.value(childElementId) == element) d->childrenById.remove(childElementId);
         tryInvalidateFromFrame(0);
     });
+
+    d->childrenElementIds++;
 
     emit newChildElement(element);
     tryInvalidateFromFrame(0);
@@ -186,11 +232,18 @@ void Element::clearChildren() {
     for (Element* element : d->children) {
         element->deleteLater();
     }
+    d->childrenById.clear();
     d->children.clear();
+    d->childrenElementIds = 1;
 }
 
 Element* Element::parentElement() const {
     return d->parent;
+}
+
+Element* Element::childById(uint id) const
+{
+    return d->childrenById.value(id);
 }
 
 const Element* Element::rootElement() const {
@@ -266,6 +319,9 @@ QJsonObject Element::save() const {
     elementObject.insert("type", QString::fromLatin1(this->metaObject()->className()));
     elementObject.insert("name", this->name());
     elementObject.insert("displayColor", propertyToJson(Color, this->displayColor()));
+    elementObject.insert("id", QString::number(d->thisId));
+    elementObject.insert("timelineElementIds", QString::number(d->timelineElementIds));
+    elementObject.insert("childrenElementIds", QString::number(d->childrenElementIds));
 
     QJsonObject startValues;
     for (QString property : this->allProperties().keys()) {
@@ -281,6 +337,7 @@ QJsonObject Element::save() const {
         jsonElement.insert("endFrame", QString::number(element->endFrame()));
         jsonElement.insert("startValue", propertyToJson(element->propertyName(), element->startValue()));
         jsonElement.insert("endValue", propertyToJson(element->propertyName(), element->endValue()));
+        jsonElement.insert("id", QString::number(element->getId()));
 
         QJsonObject easingCurve;
         easingCurve.insert("type", element->easingCurve().type());
@@ -299,8 +356,13 @@ QJsonObject Element::save() const {
 }
 
 bool Element::load(QJsonObject obj) {
+    this->clearTimelineElements();
     this->clearChildren();
 
+    //Load the ID here so that the root object doesn't need to be set an ID
+    d->thisId = obj.value("id").toString().toUInt();
+    d->timelineElementIds = obj.value("timelineElementIds").toString().toUInt();
+    d->childrenElementIds = obj.value("childrenElementIds").toString().toUInt();
     if (obj.value("type").toString() != this->metaObject()->className()) return false;
     this->setName(obj.value("name").toString());
     this->setDisplayColor(jsonToProperty(Color, obj.value("displayColor")).value<QColor>());
@@ -325,7 +387,8 @@ bool Element::load(QJsonObject obj) {
         QEasingCurve easingCurve(static_cast<QEasingCurve::Type>(easingCurveObject.value("type").toInt()));
         element->setEasingCurve(easingCurve);
 
-        this->addTimelineElement(property, element);
+        uint id = elementObject.value("id").toString().toUInt();
+        this->addTimelineElement(property, element, id);
     }
 
     QJsonArray children = obj.value("children").toArray();
@@ -346,12 +409,19 @@ bool Element::load(QJsonObject obj) {
         }
 
         if (childElement) {
+            //Also load the ID here so that this element knows about it
+            uint id = childObject.value("id").toString().toUInt();
             childElement->load(childObject);
-            this->addChild(childElement);
+            this->addChild(childElement, id);
         }
     }
 
     return true;
+}
+
+uint Element::getId()
+{
+    return d->thisId;
 }
 
 QJsonValue Element::propertyToJson(QString property, QVariant value) const {

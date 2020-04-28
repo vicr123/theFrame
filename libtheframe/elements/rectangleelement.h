@@ -28,7 +28,7 @@ struct RectangleElementPrivate;
 class LIBTHEFRAME_EXPORT RectangleElement : public Element {
         Q_OBJECT
     public:
-        explicit RectangleElement();
+        explicit Q_INVOKABLE RectangleElement();
         ~RectangleElement();
 
     signals:

@@ -28,6 +28,9 @@
 #include <elements/timelineelement.h>
 #include <the-libs_global.h>
 
+#include "undo/undodeletetimelineelement.h"
+#include "undo/undodeleteelement.h"
+
 #include "timelineleftwidget.h"
 #include "timelinerightwidget.h"
 
@@ -36,6 +39,7 @@ struct TimelinePrivate {
     ViewportElement* rootViewportElement;
     Prerenderer* prerenderer;
 
+    QUndoStack* undoStack;
     QList<QObject*> currentSelection;
 
     quint64 frameCount = 1200;
@@ -62,6 +66,16 @@ Timeline::Timeline(QWidget* parent) :
 
 Timeline::~Timeline() {
     delete ui;
+}
+
+void Timeline::setUndoStack(QUndoStack* undoStack)
+{
+    d->undoStack = undoStack;
+}
+
+QUndoStack* Timeline::undoStack()
+{
+    return d->undoStack;
 }
 
 void Timeline::setViewportElement(ViewportElement* element) {
@@ -154,11 +168,25 @@ QList<QObject*> Timeline::currentSelection() {
 }
 
 void Timeline::deleteSelected() {
+
+    d->undoStack->beginMacro(tr("Delete"));
     for (QObject* element : d->currentSelection) {
         //Make sure we're not deleting the root viewport
         if (element == d->rootLeftWidget) continue;
+
+        QUndoCommand* undoCommand = nullptr;
+        if (element->metaObject()->inherits(&TimelineElement::staticMetaObject)) {
+            undoCommand = new UndoDeleteTimelineElement(tr("Delete Timeline Element"), TimelineElementState(static_cast<TimelineElement*>(element)));
+        } else if (element->metaObject()->inherits(&Element::staticMetaObject)) {
+            Element* e = static_cast<Element*>(element);
+            undoCommand = new UndoDeleteElement(tr("Delete %1 \"%2\"").arg(e->typeDisplayName()).arg(e->name()), ElementState(e));
+        }
+
+        if (undoCommand) d->undoStack->push(undoCommand);
+
         element->deleteLater();
     }
+    d->undoStack->endMacro();
     d->currentSelection.clear();
     emit currentSelectionChanged();
 }

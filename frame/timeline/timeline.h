@@ -27,15 +27,19 @@ namespace Ui {
     class Timeline;
 }
 
-struct TimelinePrivate;
 class TimelineElement;
 class Prerenderer;
+class QUndoStack;
+struct TimelinePrivate;
 class Timeline : public QWidget {
         Q_OBJECT
 
     public:
         explicit Timeline(QWidget* parent = nullptr);
         ~Timeline();
+
+        void setUndoStack(QUndoStack* undoStack);
+        QUndoStack* undoStack();
 
         void setViewportElement(ViewportElement* element);
         ViewportElement* viewportElement();

@@ -26,6 +26,9 @@
 #include "timeline.h"
 #include "prerenderer.h"
 
+#include "undo/undotimelineelementmodify.h"
+#include "undo/undonewtimelineelement.h"
+
 struct TimelineRightWidgetPropertyPrivate {
     enum MouseState {
         MouseIdle,
@@ -45,6 +48,7 @@ struct TimelineRightWidgetPropertyPrivate {
     MouseState mouseState = MouseIdle;
     quint64 mouseFrameStart;
     QPointer<TimelineElement> mouseTimelineElement;
+    TimelineElementState oldState;
 };
 
 TimelineRightWidgetProperty::TimelineRightWidgetProperty(Timeline* timeline, Element* element, QString property, bool isRoot, QWidget* parent) : QWidget(parent) {
@@ -132,8 +136,7 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
     }
 
     //Draw foreground elements
-    int skipText = 0;
-    for (quint64 i = 0; i < d->timeline->frameCount(); i++) {
+    int skipText = 0;    for (quint64 i = 0; i < d->timeline->frameCount(); i++) {
         painter.save();
         double frameStart = d->timeline->frameSpacing() * static_cast<double>(i);
         double frameEnd = d->timeline->frameSpacing() * static_cast<double>(i + 1);
@@ -221,6 +224,7 @@ void TimelineRightWidgetProperty::mousePressEvent(QMouseEvent* event) {
                 d->mouseState = TimelineRightWidgetPropertyPrivate::MouseMidTransition;
             }
             d->mouseTimelineElement = timelineElement;
+            d->oldState = TimelineElementState(timelineElement);
         } else {
             d->mouseState = TimelineRightWidgetPropertyPrivate::MouseNotOnTransition;
         }
@@ -293,8 +297,35 @@ void TimelineRightWidgetProperty::mouseMoveEvent(QMouseEvent* event) {
 }
 
 void TimelineRightWidgetProperty::mouseReleaseEvent(QMouseEvent* event) {
+    if (d->element->tryCommitTransaction()) {
+        QUndoCommand* undoCommand = nullptr;
+        switch (d->mouseState) {
+            case TimelineRightWidgetPropertyPrivate::MouseMidTransition: {
+                TimelineElementState newState = TimelineElementState(d->mouseTimelineElement);
+                if (newState != d->oldState) undoCommand = new UndoTimelineElementModify(tr("Move Timeline Element"), d->oldState, newState);
+                break;
+            }
+            case TimelineRightWidgetPropertyPrivate::MouseLeadTransition:
+            case TimelineRightWidgetPropertyPrivate::MouseTailTransition: {
+                TimelineElementState newState = TimelineElementState(d->mouseTimelineElement);
+                if (newState != d->oldState) undoCommand = new UndoTimelineElementModify(tr("Resize Timeline Element"), d->oldState, newState);
+                break;
+            }
+            case TimelineRightWidgetPropertyPrivate::MouseCreatingTransition:
+                undoCommand = new UndoNewTimelineElement(tr("New Timeline Element"), TimelineElementState(d->mouseTimelineElement));
+                break;
+            case TimelineRightWidgetPropertyPrivate::MouseIdle:
+            case TimelineRightWidgetPropertyPrivate::MouseNotOnTransition:
+                break;
+
+        }
+
+        if (undoCommand) {
+            d->timeline->undoStack()->push(undoCommand);
+        }
+    }
+
     d->mouseState = TimelineRightWidgetPropertyPrivate::MouseIdle;
-    d->element->tryCommitTransaction();
     d->mouseTimelineElement = nullptr;
 }
 

@@ -4,7 +4,7 @@
 <context>
     <name>Element</name>
     <message>
-        <location filename="../elements/element.cpp" line="60"/>
+        <location filename="../elements/element.cpp" line="66"/>
         <source>New Element</source>
         <translation type="unfinished"></translation>
     </message>

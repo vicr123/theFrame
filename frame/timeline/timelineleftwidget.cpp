@@ -28,6 +28,11 @@
 #include <QMouseEvent>
 #include <QPointer>
 
+#include <QUndoStack>
+#include "undo/undonewelement.h"
+#include "undo/undodeleteelement.h"
+#include "undo/undoelementmodify.h"
+
 #include <elements/rectangleelement.h>
 #include <elements/textelement.h>
 #include <elements/groupelement.h>
@@ -92,16 +97,16 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     QMenu* addMenu = new QMenu(this);
     addMenu->addSection(tr("Add an element"));
     addMenu->addAction(tr("Rectangle"), [ = ] {
-        element->addChild(new RectangleElement());
+        addElement(new RectangleElement());
     });
     addMenu->addAction(tr("Text"), [ = ] {
-        element->addChild(new TextElement());
+        addElement(new TextElement());
     });
     addMenu->addAction(tr("Picture"), [ = ] {
-        element->addChild(new PictureElement());
+        addElement(new PictureElement());
     });
     addMenu->addAction(tr("Group"), [ = ] {
-        element->addChild(new GroupElement());
+        addElement(new GroupElement());
     });
     ui->addButton->setMenu(addMenu);
 
@@ -151,17 +156,25 @@ void TimelineLeftWidget::addChild(Element* element) {
     ui->childrenLayout->addWidget(widget);
 }
 
+void TimelineLeftWidget::addElement(Element* element)
+{
+    d->element->addChild(element);
+    d->timeline->undoStack()->push(new UndoNewElement(tr("Add %1").arg(element->typeDisplayName()), ElementState(element)));
+}
+
 void TimelineLeftWidget::on_deleteButton_clicked() {
     if (d->element->childElements().count() > 0) {
         QMenu* warningMenu = new QMenu(this);
         warningMenu->addSection(tr("Delete"));
         warningMenu->addAction(tr("Children will also be deleted"))->setEnabled(false);
         warningMenu->addAction(QIcon::fromTheme("list-remove"), tr("Delete"), [ = ] {
+            d->timeline->undoStack()->push(new UndoDeleteElement(tr("Delete %1 \"%2\"").arg(d->element->typeDisplayName()).arg(d->element->name()), ElementState(d->element)));
             d->element->deleteLater();
         });
         ui->deleteButton->setMenu(warningMenu);
         ui->deleteButton->showMenu();
     } else {
+        d->timeline->undoStack()->push(new UndoDeleteElement(tr("Delete %1 \"%2\"").arg(d->element->typeDisplayName()).arg(d->element->name()), ElementState(d->element)));
         d->element->deleteLater();
     }
 }
@@ -176,6 +189,8 @@ void TimelineLeftWidget::on_renameButton_clicked() {
     bool ok;
     QString newName = QInputDialog::getText(this, tr("Rename"), tr("Set a name for this %1").arg(d->element->typeDisplayName()), QLineEdit::Normal, d->element->name(), &ok);
     if (ok) {
+        ElementState oldState(d->element);
         d->element->setName(newName);
+        d->timeline->undoStack()->push(new UndoElementModify(tr("Element Name Change"), oldState, ElementState(d->element)));
     }
 }

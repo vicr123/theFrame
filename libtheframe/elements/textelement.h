@@ -27,7 +27,7 @@
 class LIBTHEFRAME_EXPORT TextElement : public Element {
         Q_OBJECT
     public:
-        explicit TextElement();
+        explicit Q_INVOKABLE TextElement();
 
     signals:
 

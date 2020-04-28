@@ -37,7 +37,7 @@ class LIBTHEFRAME_EXPORT ViewportElement : public Element {
             quint64 operator->();
         };
 
-        explicit ViewportElement();
+        explicit Q_INVOKABLE ViewportElement();
         ~ViewportElement();
 
         void setViewportSize(QSize size);

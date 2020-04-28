@@ -214,20 +214,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="163"/>
+        <location filename="../mainwindow.cpp" line="50"/>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="51"/>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="54"/>
+        <source>CTRL+Z</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="55"/>
+        <source>CTRL+SHIFT+Z</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="180"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="163"/>
+        <location filename="../mainwindow.cpp" line="180"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="170"/>
         <location filename="../mainwindow.cpp" line="187"/>
+        <location filename="../mainwindow.cpp" line="205"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -376,38 +396,63 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="400"/>
+        <location filename="../propertieswidget.ui" line="403"/>
         <source>Accelerate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="405"/>
+        <location filename="../propertieswidget.ui" line="408"/>
         <source>Decelerate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="410"/>
+        <location filename="../propertieswidget.ui" line="413"/>
         <source>Accelerate then Decelerate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="415"/>
+        <location filename="../propertieswidget.ui" line="418"/>
         <source>Decelerate then Accelerate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="423"/>
+        <location filename="../propertieswidget.ui" line="426"/>
         <source>Select the type of easing curve you&apos;d like to use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="436"/>
+        <location filename="../propertieswidget.ui" line="439"/>
         <source>EASING</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="531"/>
+        <location filename="../propertieswidget.ui" line="534"/>
         <source>Element Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.cpp" line="154"/>
+        <source>Start Value Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.cpp" line="159"/>
+        <source>End Value Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.cpp" line="205"/>
+        <source>Start State Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.cpp" line="236"/>
+        <source>Easing Curve Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.cpp" line="243"/>
+        <source>Element Name Change</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -469,6 +514,21 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../timeline/timeline.cpp" line="172"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timeline.cpp" line="179"/>
+        <source>Delete Timeline Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timeline.cpp" line="182"/>
+        <source>Delete %1 &quot;%2&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TimelineLeftWidget</name>
@@ -489,49 +549,65 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="93"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="98"/>
         <source>Add an element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="94"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="99"/>
         <source>Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="97"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="102"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="100"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="105"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="103"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="108"/>
         <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="157"/>
-        <location filename="../timeline/timelineleftwidget.cpp" line="159"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="162"/>
+        <source>Add %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="168"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="170"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="158"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="169"/>
         <source>Children will also be deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="171"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="177"/>
+        <source>Delete %1 &quot;%2&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="190"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="177"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="190"/>
         <source>Set a name for this %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="194"/>
+        <source>Element Name Change</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -540,6 +616,24 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../timeline/timelinerightwidget.ui" line="14"/>
         <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TimelineRightWidgetProperty</name>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="305"/>
+        <source>Move Timeline Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="311"/>
+        <source>Resize Timeline Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="315"/>
+        <source>New Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

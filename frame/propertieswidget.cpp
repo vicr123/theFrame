@@ -32,8 +32,12 @@
 #include <elements/timelineelement.h>
 #include <elements/element.h>
 
+#include "undo/undoelementmodify.h"
+#include "undo/undotimelineelementmodify.h"
+
 struct PropertiesWidgetPrivate {
     Timeline* timeline;
+    QUndoStack* undoStack;
 
     QString projectPath;
 
@@ -100,6 +104,11 @@ void PropertiesWidget::setTimeline(Timeline* timeline) {
     ui->resYBox->setValue(timeline->viewportElement()->viewportSize().height());
 }
 
+void PropertiesWidget::setUndoStack(QUndoStack* undoStack)
+{
+    d->undoStack = undoStack;
+}
+
 void PropertiesWidget::setProjectPath(QString path) {
     d->projectPath = path;
 }
@@ -138,8 +147,17 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 ui->endValueLayout->addWidget(d->endWidget);
                 d->startWidget->setValue(timelineElement->startValue());
                 d->endWidget->setValue(timelineElement->endValue());
-                connect(d->startWidget, &PropertyWidget::valueChanged, timelineElement, &TimelineElement::setStartValue);
-                connect(d->endWidget, &PropertyWidget::valueChanged, timelineElement, &TimelineElement::setEndValue);
+
+                connect(d->startWidget, &PropertyWidget::valueChanged, this, [=](QVariant value) {
+                    TimelineElementState oldState(timelineElement);
+                    timelineElement->setStartValue(value);
+                    d->undoStack->push(new UndoTimelineElementModify(tr("Start Value Change"), oldState, TimelineElementState(timelineElement)));
+                });
+                connect(d->endWidget, &PropertyWidget::valueChanged, this, [=](QVariant value) {
+                    TimelineElementState oldState(timelineElement);
+                    timelineElement->setEndValue(value);
+                    d->undoStack->push(new UndoTimelineElementModify(tr("End Value Change"), oldState, TimelineElementState(timelineElement)));
+                });
             }
 
             if (timelineElement->easingCurve().type() == QEasingCurve::Linear) {
@@ -182,7 +200,9 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                     pw->setProperty("projectPath", d->projectPath);
                     pw->setValue(element->startValue(property));
                     connect(pw, &PropertyWidget::valueChanged, this, [ = ](QVariant value) {
+                        ElementState oldState(element);
                         element->setStartValue(property, value);
+                        d->undoStack->push(new UndoElementModify(tr("Start State Change"), oldState, ElementState(element)));
                     });
                     layout->addWidget(pw);
                 }
@@ -204,6 +224,7 @@ void PropertiesWidget::updateCurrentTimelineElements() {
 
 void PropertiesWidget::setEasingCurve() {
     TimelineElement* timelineElement = qobject_cast<TimelineElement*>(d->timeline->currentSelection().first());
+    TimelineElementState oldState(timelineElement);
     if (ui->easingBox->currentIndex() == 0) { //Linear
         timelineElement->setEasingCurve(QEasingCurve::Linear);
     } else if (ui->easingBox->currentIndex() == ui->easingBox->count() - 1) {
@@ -212,11 +233,14 @@ void PropertiesWidget::setEasingCurve() {
         QEasingCurve::Type easingCurveType = static_cast<QEasingCurve::Type>((ui->easingBox->currentIndex() - 1) * 4 + 1 + ui->easingTypeBox->currentIndex());
         timelineElement->setEasingCurve(easingCurveType);
     }
+    d->undoStack->push(new UndoTimelineElementModify(tr("Easing Curve Change"), oldState, TimelineElementState(timelineElement)));
 }
 
 void PropertiesWidget::on_elementNameBox_textChanged(const QString& arg1) {
     Element* element = qobject_cast<Element*>(d->timeline->currentSelection().first());
+    ElementState oldState(element);
     element->setName(arg1);
+    d->undoStack->push(new UndoElementModify(tr("Element Name Change"), oldState, ElementState(element)));
 }
 
 void PropertiesWidget::on_easingBox_currentIndexChanged(int index) {

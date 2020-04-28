@@ -33,6 +33,8 @@ struct TimelineElementPrivate {
     Element* parent;
     QString propertyName;
 
+    uint id;
+
     QStack<TimelineElementPrivate> transactionStack;
 };
 
@@ -107,6 +109,11 @@ Element* TimelineElement::parentElement() {
     return d->parent;
 }
 
+uint TimelineElement::getId()
+{
+    return d->id;
+}
+
 bool TimelineElement::isFrameContained(quint64 frame) {
     return d->startFrame <= frame && d->endFrame >= frame;
 }
@@ -139,4 +146,9 @@ void TimelineElement::setParentElement(Element* element) {
 
 void TimelineElement::setPropertyName(QString property) {
     d->propertyName = property;
+}
+
+void TimelineElement::setId(uint id)
+{
+    d->id = id;
 }

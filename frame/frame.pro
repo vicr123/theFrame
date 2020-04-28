@@ -33,6 +33,14 @@ SOURCES += \
     timeline/timelineleftwidget.cpp \
     timeline/timelinerightwidget.cpp \
     timeline/timelinerightwidgetproperty.cpp \
+    undo/elementstate.cpp \
+    undo/timelineelementstate.cpp \
+    undo/undodeleteelement.cpp \
+    undo/undodeletetimelineelement.cpp \
+    undo/undoelementmodify.cpp \
+    undo/undonewelement.cpp \
+    undo/undonewtimelineelement.cpp \
+    undo/undotimelineelementmodify.cpp \
     viewport.cpp
 
 HEADERS += \
@@ -51,6 +59,14 @@ HEADERS += \
     timeline/timelineleftwidget.h \
     timeline/timelinerightwidget.h \
     timeline/timelinerightwidgetproperty.h \
+    undo/elementstate.h \
+    undo/timelineelementstate.h \
+    undo/undodeleteelement.h \
+    undo/undodeletetimelineelement.h \
+    undo/undoelementmodify.h \
+    undo/undonewelement.h \
+    undo/undonewtimelineelement.h \
+    undo/undotimelineelementmodify.h \
     viewport.h
 
 FORMS += \

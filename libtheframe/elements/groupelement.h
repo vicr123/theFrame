@@ -27,7 +27,7 @@
 class LIBTHEFRAME_EXPORT GroupElement : public Element {
         Q_OBJECT
     public:
-        explicit GroupElement();
+        explicit Q_INVOKABLE GroupElement();
 
     signals:
 

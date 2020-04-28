@@ -27,10 +27,14 @@
 #include <taboutdialog.h>
 #include "prerenderer.h"
 
+#include <QUndoStack>
+
 struct MainWindowPrivate {
     QTimer* playTimer;
     qint64 playStartTime;
     quint64 startFrame;
+
+    QUndoStack* undoStack;
 
     QString currentFile;
     ViewportElement* viewport;
@@ -42,6 +46,17 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
     d = new MainWindowPrivate();
 
+    d->undoStack = new QUndoStack(this);
+    QAction* undoAction = d->undoStack->createUndoAction(this, tr("Undo"));
+    QAction* redoAction = d->undoStack->createRedoAction(this, tr("Redo"));
+    undoAction->setIcon(QIcon::fromTheme("edit-undo"));
+    redoAction->setIcon(QIcon::fromTheme("edit-redo"));
+    undoAction->setShortcut(tr("CTRL+Z"));
+    redoAction->setShortcut(tr("CTRL+SHIFT+Z"));
+    ui->menuEdit->insertAction(ui->actionDeleteTransition, undoAction);
+    ui->menuEdit->insertAction(ui->actionDeleteTransition, redoAction);
+    ui->menuEdit->insertSeparator(ui->actionDeleteTransition);
+
     Prerenderer* prerenderer = new Prerenderer();
     d->viewport = ui->viewport->rootElement();
     prerenderer->setViewportElement(d->viewport);
@@ -49,9 +64,11 @@ MainWindow::MainWindow(QWidget* parent)
 
     ui->viewport->setPrerenderer(prerenderer);
 
+    ui->timeline->setUndoStack(d->undoStack);
     ui->timeline->setPrerenderer(prerenderer);
     ui->timeline->setViewportElement(d->viewport);
     ui->propertiesWidget->setTimeline(ui->timeline);
+    ui->propertiesWidget->setUndoStack(d->undoStack);
 
     ui->viewport->setFrame(0);
     prerenderer->tryPrerenderAll();
@@ -165,10 +182,11 @@ void MainWindow::on_actionSave_triggered() {
 }
 
 void MainWindow::on_actionSaveAs_triggered() {
-    QFileDialog* fileDialog = new QFileDialog();
+    QFileDialog* fileDialog = new QFileDialog(this);
     fileDialog->setAcceptMode(QFileDialog::AcceptSave);
     fileDialog->setNameFilters({tr("theFrame Project Files (*.tfrproj)")});
     fileDialog->setWindowFlag(Qt::Sheet);
+    fileDialog->setWindowModality(Qt::WindowModal);
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
         if (result == QFileDialog::Accepted) {
             d->currentFile = fileDialog->selectedFiles().first();
@@ -182,10 +200,11 @@ void MainWindow::on_actionSaveAs_triggered() {
 }
 
 void MainWindow::on_actionOpen_triggered() {
-    QFileDialog* fileDialog = new QFileDialog();
+    QFileDialog* fileDialog = new QFileDialog(this);
     fileDialog->setAcceptMode(QFileDialog::AcceptOpen);
     fileDialog->setNameFilters({tr("theFrame Project Files (*.tfrproj)")});
     fileDialog->setWindowFlag(Qt::Sheet);
+    fileDialog->setWindowModality(Qt::WindowModal);
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
         if (result == QFileDialog::Accepted) {
             //Attempt to load this file
