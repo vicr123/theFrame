@@ -79,6 +79,10 @@ class MainWindow : public QMainWindow {
 
         void on_actionEnable_Prerendering_toggled(bool arg1);
 
+        void on_actionSources_triggered();
+
+        void on_actionFile_Bug_triggered();
+
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;

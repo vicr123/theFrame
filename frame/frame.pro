@@ -138,6 +138,11 @@ macx {
     LIBS += -L/usr/local/lib -lthe-libs -F$$OUT_PWD/../libtheframe/ -framework libtheframe
 
     QMAKE_POST_LINK += $$quote(cp $${PWD}/dmgicon.icns $${PWD}/app-dmg-background.png $${PWD}/node-appdmg-config*.json $${OUT_PWD}/..)
+
+    icons.path = Contents/Resources/icons
+    icons.files = icons/contemporary-icons
+
+    QMAKE_BUNDLE_DATA += icons
 }
 
 INCLUDEPATH += $$PWD/../libtheframe

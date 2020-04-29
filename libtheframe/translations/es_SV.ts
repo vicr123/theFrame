@@ -12,12 +12,17 @@
 <context>
     <name>GroupElement</name>
     <message>
-        <location filename="../elements/groupelement.cpp" line="52"/>
+        <location filename="../elements/groupelement.cpp" line="56"/>
         <source>Offset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/groupelement.cpp" line="65"/>
+        <location filename="../elements/groupelement.cpp" line="58"/>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/groupelement.cpp" line="73"/>
         <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
@@ -81,24 +86,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="78"/>
-        <location filename="../elements/textelement.cpp" line="103"/>
+        <location filename="../elements/textelement.cpp" line="82"/>
+        <location filename="../elements/textelement.cpp" line="111"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="80"/>
+        <location filename="../elements/textelement.cpp" line="84"/>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="82"/>
+        <location filename="../elements/textelement.cpp" line="86"/>
         <source>Text Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="84"/>
+        <location filename="../elements/textelement.cpp" line="88"/>
         <source>Font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/textelement.cpp" line="90"/>
+        <source>Opacity</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

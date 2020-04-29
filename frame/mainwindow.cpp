@@ -25,6 +25,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QDesktopServices>
 #include <tmessagebox.h>
 #include <taboutdialog.h>
 #include "prerenderer.h"
@@ -77,6 +78,9 @@ MainWindow::MainWindow(QWidget* parent)
     ui->timeline->setViewportElement(d->viewport);
     ui->propertiesWidget->setTimeline(ui->timeline);
     ui->propertiesWidget->setUndoStack(d->undoStack);
+
+    ui->menuWindow->addAction(ui->timelineDockWidget->toggleViewAction());
+    ui->menuWindow->addAction(ui->propertiesDockWidget->toggleViewAction());
 
     ui->viewport->setFrame(0);
 
@@ -339,4 +343,14 @@ void MainWindow::on_actionClear_In_Out_Points_triggered()
 void MainWindow::on_actionEnable_Prerendering_toggled(bool arg1)
 {
     d->prerenderer->setEnablePrerendering(arg1);
+}
+
+void MainWindow::on_actionSources_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/vicr123/theFrame"));
+}
+
+void MainWindow::on_actionFile_Bug_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/vicr123/theFrame/issues"));
 }

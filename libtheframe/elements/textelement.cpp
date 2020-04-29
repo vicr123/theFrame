@@ -26,6 +26,7 @@ TextElement::TextElement() : Element() {
     this->setStartValue("textColor", QColor(0, 0, 0));
     this->setStartValue("position", QPoint(100, 100));
     this->setStartValue("font", QApplication::font());
+    this->setStartValue("opacity", 1.0);
 }
 
 
@@ -36,6 +37,7 @@ void TextElement::render(QPainter* painter, quint64 frame) const {
     QFont font = this->startValue("font").value<QFont>();
     QColor textCol = this->propertyValueForFrame("textColor", frame).value<QColor>();
     QPoint pos = this->propertyValueForFrame("position", frame).toPoint();
+    double opacity = this->propertyValueForFrame("opacity", frame).toDouble();
     QFontMetrics metrics(font);
 
     pos += this->parentElement()->renderOffset(frame);
@@ -45,6 +47,7 @@ void TextElement::render(QPainter* painter, quint64 frame) const {
     textRect.setWidth(metrics.horizontalAdvance(text));
     textRect.moveCenter(pos); //TODO: Anchor
 
+    painter->setOpacity(painter->opacity() * opacity);
     painter->setFont(font);
     painter->setPen(textCol);
     painter->drawText(textRect, Qt::AlignCenter, text);
@@ -62,7 +65,8 @@ QPoint TextElement::renderOffset(quint64 frame) const {
 QMap<QString, Element::PropertyType> TextElement::animatableProperties() const {
     return {
         {"position", Element::Point},
-        {"textColor", Element::Color}
+        {"textColor", Element::Color},
+        {"opacity", Element::Percentage}
     };
 }
 
@@ -82,6 +86,8 @@ QString TextElement::propertyDisplayName(QString property) const {
         return tr("Text Color");
     } else if (property == "font") {
         return tr("Font");
+    } else if (property == "opacity") {
+        return tr("Opacity");
     }
     return QString();
 }
@@ -94,6 +100,8 @@ QColor TextElement::propertyColor(QString property) const {
     } else if (property == "textColor") {
         return QColor(40, 18, 35, 127);
     } else if (property == "font") {
+        return QColor(39, 40, 23, 127);
+    } else if (property == "opacity") {
         return QColor(39, 40, 23, 127);
     }
     return QColor();

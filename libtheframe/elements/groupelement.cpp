@@ -20,13 +20,16 @@
 #include "groupelement.h"
 
 GroupElement::GroupElement() : Element() {
-
+    this->setStartValue("opacity", 1.0);
 }
 
 
 void GroupElement::render(QPainter* painter, quint64 frame) const {
     painter->save();
 
+    double opacity = this->propertyValueForFrame("opacity", frame).toDouble();
+
+    painter->setOpacity(painter->opacity() * opacity);
     Element::render(painter, frame);
 
     painter->restore();
@@ -39,7 +42,8 @@ QPoint GroupElement::renderOffset(quint64 frame) const {
 
 QMap<QString, Element::PropertyType> GroupElement::animatableProperties() const {
     return {
-        {QStringLiteral("offset"), Element::Point}
+        {QStringLiteral("offset"), Element::Point},
+        {QStringLiteral("opacity"), Element::Percentage}
     };
 }
 
@@ -50,6 +54,8 @@ QMap<QString, Element::PropertyType> GroupElement::staticProperties() const {
 QString GroupElement::propertyDisplayName(QString property) const {
     if (property == "offset") {
         return tr("Offset");
+    } else if (property == "opacity") {
+        return tr("Opacity");
     }
     return QString();
 }
@@ -57,6 +63,8 @@ QString GroupElement::propertyDisplayName(QString property) const {
 QColor GroupElement::propertyColor(QString property) const {
     if (property == "text") {
         return QColor(14, 40, 37, 127);
+    } else if (property == "opacity") {
+        return QColor(38, 40, 21, 127);
     }
     return QColor();
 }

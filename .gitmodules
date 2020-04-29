@@ -1,0 +1,3 @@
+[submodule "frame/icons/contemporary-icons"]
+	path = frame/icons/contemporary-icons
+	url = git@github.com:vicr123/contemporary-icons.git

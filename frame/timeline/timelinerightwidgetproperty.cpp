@@ -32,6 +32,7 @@
 struct TimelineRightWidgetPropertyPrivate {
     enum MouseState {
         MouseIdle,
+        MouseDownNoAction,
         MouseMidTransition,
         MouseLeadTransition,
         MouseTailTransition,
@@ -240,6 +241,8 @@ void TimelineRightWidgetProperty::mousePressEvent(QMouseEvent* event) {
         } else {
             d->mouseState = TimelineRightWidgetPropertyPrivate::MouseNotOnTransition;
         }
+    } else {
+        d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
     }
     d->timeline->setCurrentFrame(frame);
 }
@@ -247,6 +250,8 @@ void TimelineRightWidgetProperty::mousePressEvent(QMouseEvent* event) {
 void TimelineRightWidgetProperty::mouseMoveEvent(QMouseEvent* event) {
     quint64 frame = this->frameForPoint(event->pos().x());
     switch (d->mouseState) {
+        case TimelineRightWidgetPropertyPrivate::MouseDownNoAction:
+            break;
         case TimelineRightWidgetPropertyPrivate::MouseIdle: {
             if (!d->property.isEmpty()) {
                 TimelineElement* timelineElement = d->element->timelineElementAtFrame(d->property, frame);
@@ -326,6 +331,7 @@ void TimelineRightWidgetProperty::mouseReleaseEvent(QMouseEvent* event) {
             case TimelineRightWidgetPropertyPrivate::MouseCreatingTransition:
                 undoCommand = new UndoNewTimelineElement(tr("New Timeline Element"), TimelineElementState(d->mouseTimelineElement));
                 break;
+            case TimelineRightWidgetPropertyPrivate::MouseDownNoAction:
             case TimelineRightWidgetPropertyPrivate::MouseIdle:
             case TimelineRightWidgetPropertyPrivate::MouseNotOnTransition:
                 break;

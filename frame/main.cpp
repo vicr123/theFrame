@@ -21,6 +21,7 @@
 
 #include <tapplication.h>
 #include <QDir>
+#include <QIcon>
 
 int main(int argc, char* argv[]) {
     tApplication a(argc, argv);
@@ -31,6 +32,11 @@ int main(int argc, char* argv[]) {
         a.setShareDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../share/theframe/"));
     }
     a.installTranslators();
+
+#ifdef Q_OS_MAC
+    QIcon::setThemeName("contemporary-icons");
+    QIcon::setThemeSearchPaths({QDir::cleanPath(QApplication::applicationDirPath() + "/../Resources/icons")});
+#endif
 
     a.setOrganizationName("theSuite");
     a.setOrganizationDomain("");
