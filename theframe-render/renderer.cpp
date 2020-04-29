@@ -110,9 +110,9 @@ bool Renderer::prepare() {
     }
 
     if (parser.isSet("vcodec")) {
-        d->ffmpegCommand = parser.value("vcodec");
+        d->vcodec = parser.value("vcodec");
     } else {
-        d->ffmpegCommand = "libx264";
+        d->vcodec = "libx264";
     }
 
     return true;
