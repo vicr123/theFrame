@@ -37,6 +37,7 @@ struct MainWindowPrivate {
     quint64 startFrame;
 
     QUndoStack* undoStack;
+    Prerenderer* prerenderer;
 
     QString currentFile;
     ViewportElement* viewport;
@@ -64,21 +65,20 @@ MainWindow::MainWindow(QWidget* parent)
         this->setWindowModified(!clean);
     });
 
-    Prerenderer* prerenderer = new Prerenderer();
+    d->prerenderer = new Prerenderer();
     d->viewport = ui->viewport->rootElement();
-    prerenderer->setViewportElement(d->viewport);
-    prerenderer->setTimeline(ui->timeline);
+    d->prerenderer->setViewportElement(d->viewport);
+    d->prerenderer->setTimeline(ui->timeline);
 
-    ui->viewport->setPrerenderer(prerenderer);
+    ui->viewport->setPrerenderer(d->prerenderer);
 
     ui->timeline->setUndoStack(d->undoStack);
-    ui->timeline->setPrerenderer(prerenderer);
+    ui->timeline->setPrerenderer(d->prerenderer);
     ui->timeline->setViewportElement(d->viewport);
     ui->propertiesWidget->setTimeline(ui->timeline);
     ui->propertiesWidget->setUndoStack(d->undoStack);
 
     ui->viewport->setFrame(0);
-    prerenderer->tryPrerenderAll();
 
     d->playTimer = new QTimer(this);
     connect(d->playTimer, &QTimer::timeout, this, &MainWindow::updatePlayFrame);
@@ -319,4 +319,24 @@ tPromise<void>* MainWindow::ensureDiscardChanges()
         });
         box->open();
     });
+}
+
+void MainWindow::on_actionSet_In_Point_triggered()
+{
+    ui->timeline->setInPoint(ui->timeline->currentFrame());
+}
+
+void MainWindow::on_actionSet_Out_Point_triggered()
+{
+    ui->timeline->setOutPoint(ui->timeline->currentFrame());
+}
+
+void MainWindow::on_actionClear_In_Out_Points_triggered()
+{
+    ui->timeline->clearInOutPoint();
+}
+
+void MainWindow::on_actionEnable_Prerendering_toggled(bool arg1)
+{
+    d->prerenderer->setEnablePrerendering(arg1);
 }

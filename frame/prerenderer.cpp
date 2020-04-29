@@ -29,6 +29,7 @@ struct PrerenderPrivate {
 
     bool prerenderJobRunning = false;
     bool restartPrerenderJob = false;
+    bool enablePrerendering = false;
 };
 
 Prerenderer::Prerenderer(QObject* parent) : QObject(parent) {
@@ -54,6 +55,28 @@ void Prerenderer::setViewportElement(ViewportElement* element) {
 
 void Prerenderer::setTimeline(Timeline* timeline) {
     d->timeline = timeline;
+    connect(timeline, &Timeline::inOutPointChanged, this, [=](quint64 inPoint, quint64 outPoint) {
+        if (inPoint == 0 && outPoint == 0) {
+            d->prerenders.clear();
+            this->tryPrerenderAll();
+        } else {
+            QList<quint64> prerendersToRemove;
+            for (quint64 prerender : d->prerenders.keys()) {
+                if (!d->timeline->isInPreviewRange(prerender)) prerendersToRemove.append(prerender);
+            }
+            for (quint64 toRemove : prerendersToRemove) {
+                d->prerenders.remove(toRemove);
+            }
+
+            this->tryPrerenderAll();
+        }
+    });
+}
+
+void Prerenderer::setEnablePrerendering(bool enable)
+{
+    d->enablePrerendering = enable;
+    this->tryPrerenderAll();
 }
 
 tPromise<QPixmap>* Prerenderer::frame(quint64 frame) {
@@ -61,23 +84,27 @@ tPromise<QPixmap>* Prerenderer::frame(quint64 frame) {
         if (d->prerenders.contains(frame)) {
             res(d->prerenders.value(frame));
         } else {
-            this->cacheFrame(frame)->then([ = ] {
-                res(d->prerenders.value(frame));
+            this->renderFrame(frame)->then([ = ](QPixmap pixmap) {
+                res(pixmap);
             });
         }
     });
 }
 
+tPromise<QPixmap>* Prerenderer::renderFrame(quint64 frame)
+{
+    return tPromise<QPixmap>::runOnNewThread([ = ](tPromiseFunctions<QPixmap>::SuccessFunction res, tPromiseFunctions<QPixmap>::FailureFunction rej) {
+        QPixmap pixmap(d->element->viewportSize());
+        QPainter painter(&pixmap);
+        d->element->render(&painter, frame);
+        painter.end();
+        res(pixmap);
+    });
+}
+
 tPromise<void>* Prerenderer::cacheFrame(quint64 frame) {
     return tPromise<void>::runOnSameThread([ = ](tPromiseFunctions<void>::SuccessFunction res, tPromiseFunctions<void>::FailureFunction rej) {
-        return tPromise<QPixmap>::runOnNewThread([ = ](tPromiseFunctions<QPixmap>::SuccessFunction res, tPromiseFunctions<QPixmap>::FailureFunction rej) {
-            QPixmap pixmap(d->element->viewportSize());
-            QPainter painter(&pixmap);
-            d->element->render(&painter, frame);
-            painter.end();
-            pixmap = pixmap.scaled(pixmap.size() / 8);
-            res(pixmap);
-        })->then([ = ](QPixmap pixmap) {
+        renderFrame(frame)->then([ = ](QPixmap pixmap) {
             d->prerenders.insert(frame, pixmap);
             emit framePrerenderStateChanged(frame);
             res();
@@ -95,6 +122,11 @@ void Prerenderer::tryPrerenderAll() {
         return;
     }
 
+    if (!d->enablePrerendering) {
+        d->prerenders.clear();
+        return;
+    }
+
     d->prerenderJobRunning = true;
     d->restartPrerenderJob = false;
 
@@ -103,7 +135,7 @@ void Prerenderer::tryPrerenderAll() {
 
 quint64 Prerenderer::nextPrerenderFrame(quint64 frame) {
     for (quint64 i = frame; i < d->timeline->frameCount(); i++) {
-        if (!d->prerenders.contains(i)) {
+        if (!d->prerenders.contains(i) && d->timeline->isInPreviewRange(i)) {
             return i;
         }
     }

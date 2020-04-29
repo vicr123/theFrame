@@ -29,6 +29,9 @@ struct ViewportPrivate {
 
     quint64 currentFrame;
     QPixmap rootRender;
+
+    bool renderingFrame = false;
+    bool renderRequired = false;
 };
 
 Viewport::Viewport(QWidget* parent) :
@@ -39,6 +42,10 @@ Viewport::Viewport(QWidget* parent) :
     d = new ViewportPrivate();
     d->rootElement = new ViewportElement();
     d->rootElement->setName(tr("Canvas"));
+
+    connect(d->rootElement, &ViewportElement::invalidateFromFrame, this, [=](quint64 frame) {
+        if (d->currentFrame >= frame) this->setFrame(d->currentFrame);
+    });
 }
 
 Viewport::~Viewport() {
@@ -50,12 +57,23 @@ Viewport::~Viewport() {
 void Viewport::setFrame(quint64 frame) {
     d->currentFrame = frame;
 
-    d->prerenderer->frame(frame)->then([ = ](QPixmap pixmap) {
-        if (d->currentFrame == frame) {
+    if (!d->renderingFrame) {
+        d->renderingFrame = true;
+        d->prerenderer->frame(frame)->then([ = ](QPixmap pixmap) {
             d->rootRender = pixmap;
-            this->update();
-        }
-    });
+
+            //Force a repaint
+            this->repaint();
+
+            d->renderingFrame = false;
+            if (d->renderRequired) {
+                d->renderRequired = false;
+                this->setFrame(d->currentFrame);
+            }
+        });
+    } else {
+        d->renderRequired = true;
+    }
 }
 
 void Viewport::setPrerenderer(Prerenderer* prerenderer) {

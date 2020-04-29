@@ -71,6 +71,14 @@ class MainWindow : public QMainWindow {
 
         void on_actionAbout_triggered();
 
+        void on_actionSet_In_Point_triggered();
+
+        void on_actionSet_Out_Point_triggered();
+
+        void on_actionClear_In_Out_Points_triggered();
+
+        void on_actionEnable_Prerendering_toggled(bool arg1);
+
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;

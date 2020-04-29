@@ -68,6 +68,7 @@ TimelineRightWidgetProperty::TimelineRightWidgetProperty(Timeline* timeline, Ele
     if (isRoot) {
         connect(timeline->prerenderer(), &Prerenderer::framePrerenderStateChanged, this, &TimelineRightWidgetProperty::draw);
         connect(timeline->prerenderer(), &Prerenderer::prerenderInvalidated, this, &TimelineRightWidgetProperty::draw);
+        connect(timeline, &Timeline::inOutPointChanged, this, &TimelineRightWidgetProperty::draw);
     }
 
     connect(element, &Element::timelineElementsChanged, this, &TimelineRightWidgetProperty::draw);
@@ -114,10 +115,21 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
         contentRect.moveTop(0);
         if (contentRect.width() < 1) contentRect.setWidth(1);
 
-        if (d->isRoot && d->timeline->prerenderer()->isFrameCached(i)) {
-            painter.setPen(Qt::transparent);
-            painter.setBrush(QColor(0, 100, 0, 255));
-            painter.drawRect(contentRect);
+        if (d->isRoot) {
+            if (d->timeline->prerenderer()->isFrameCached(i)) {
+                painter.setPen(Qt::transparent);
+                painter.setBrush(QColor(0, 100, 0, 255));
+                painter.drawRect(contentRect);
+            }
+
+            if (d->timeline->isInPreviewRange(i)) {
+                QRectF previewIndicator = contentRect;
+                previewIndicator.setHeight(contentRect.height() / 4);
+
+                painter.setPen(Qt::transparent);
+                painter.setBrush(QColor(255, 100, 0, 255));
+                painter.drawRect(previewIndicator);
+            }
         }
 
         if (!d->property.isEmpty()) {

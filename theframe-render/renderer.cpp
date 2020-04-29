@@ -42,6 +42,7 @@ struct RendererPrivate {
     QString outputFile;
 
     QString ffmpegCommand;
+    QString vcodec;
 
     uint framerate;
     quint64 frameCount;
@@ -63,6 +64,7 @@ bool Renderer::prepare() {
     parser.addPositionalArgument("project", tr("Project file to render"), tr("[project]"));
     parser.addPositionalArgument("output", tr("Output File"), tr("[output]"));
     parser.addOption({"ffmpeg-command", tr("FFmpeg command to run"), tr("ffmpeg-command")});
+    parser.addOption({"vcodec", tr("Video codec to use"), tr("vcodec")});
     parser.addHelpOption();
     parser.setOptionsAfterPositionalArgumentsMode(QCommandLineParser::ParseAsOptions);
     parser.process(QCoreApplication::instance()->arguments());
@@ -105,6 +107,12 @@ bool Renderer::prepare() {
         d->ffmpegCommand = parser.value("ffmpeg-command");
     } else {
         d->ffmpegCommand = "ffmpeg";
+    }
+
+    if (parser.isSet("vcodec")) {
+        d->ffmpegCommand = parser.value("vcodec");
+    } else {
+        d->ffmpegCommand = "libx264";
     }
 
     return true;
@@ -169,7 +177,7 @@ bool Renderer::completeRender() {
         "-r", QString::number(d->framerate),
         "-s", QString::number(d->viewport->viewportSize().width()) + "x" + QString::number(d->viewport->viewportSize().height()),
         "-i", "Frame%05d.png",
-        "-vcodec", "libx264",
+        "-vcodec", d->vcodec,
         d->outputFile
     });
     ffmpegProcess.setWorkingDirectory(d->temporaryDir.path());

@@ -35,8 +35,10 @@ class Prerenderer : public QObject {
         void setViewportElement(ViewportElement* element);
         void setTimeline(Timeline* timeline);
 
+        void setEnablePrerendering(bool enable);
+
         tPromise<QPixmap>* frame(quint64 frame);
-        tPromise<void>* cacheFrame(quint64 frame);
+        tPromise<QPixmap>* renderFrame(quint64 frame);
 
         bool isFrameCached(quint64 frame);
 
@@ -48,6 +50,8 @@ class Prerenderer : public QObject {
 
     private:
         PrerenderPrivate* d;
+
+        tPromise<void>* cacheFrame(quint64 frame);
 
         quint64 nextPrerenderFrame(quint64 frame);
         void preprerenderNextFrame(quint64 frame);

@@ -66,6 +66,15 @@ class Timeline : public QWidget {
 
         void deleteSelected();
 
+        void setInPoint(quint64 inPoint);
+        quint64 inPoint();
+
+        void setOutPoint(quint64 outPoint);
+        quint64 outPoint();
+
+        void clearInOutPoint();
+        bool isInPreviewRange(quint64 frame);
+
         QJsonObject save() const;
         bool load(QJsonObject obj);
 
@@ -74,6 +83,7 @@ class Timeline : public QWidget {
         void frameCountChanged(quint64 frameCount);
         void framerateChanged(uint framerate);
         void currentFrameChanged(quint64 currentFrame);
+        void inOutPointChanged(quint64 inPoint, quint64 outPoint);
         void currentSelectionChanged();
 
     private:

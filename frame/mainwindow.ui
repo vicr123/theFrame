@@ -163,6 +163,11 @@
     <addaction name="separator"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
+    <addaction name="separator"/>
+    <addaction name="actionSet_In_Point"/>
+    <addaction name="actionSet_Out_Point"/>
+    <addaction name="actionClear_In_Out_Points"/>
+    <addaction name="actionEnable_Prerendering"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -374,6 +379,38 @@
    </property>
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionSet_In_Point">
+   <property name="text">
+    <string>Set In Point</string>
+   </property>
+   <property name="shortcut">
+    <string>I</string>
+   </property>
+  </action>
+  <action name="actionSet_Out_Point">
+   <property name="text">
+    <string>Set Out Point</string>
+   </property>
+   <property name="shortcut">
+    <string>O</string>
+   </property>
+  </action>
+  <action name="actionClear_In_Out_Points">
+   <property name="text">
+    <string>Clear In/Out Points</string>
+   </property>
+   <property name="shortcut">
+    <string>P</string>
+   </property>
+  </action>
+  <action name="actionEnable_Prerendering">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Enable Prerendering</string>
    </property>
   </action>
  </widget>

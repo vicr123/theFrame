@@ -46,6 +46,9 @@ struct TimelinePrivate {
     double frameSpacing = 1;
     uint framerate = 60;
     quint64 currentFrame = 0;
+
+    quint64 inPoint = 0;
+    quint64 outPoint = 0;
 };
 
 Timeline::Timeline(QWidget* parent) :
@@ -107,6 +110,7 @@ double Timeline::frameSpacing() const {
 }
 
 void Timeline::setFrameCount(quint64 frameCount) {
+    if (d->outPoint > frameCount - 1) this->setOutPoint(frameCount - 1);
     d->frameCount = frameCount;
     emit frameCountChanged(frameCount);
 }
@@ -189,6 +193,53 @@ void Timeline::deleteSelected() {
     d->undoStack->endMacro();
     d->currentSelection.clear();
     emit currentSelectionChanged();
+}
+
+void Timeline::setInPoint(quint64 inPoint)
+{
+    if (d->inPoint == 0 && d->outPoint == 0) d->outPoint = d->frameCount - 1;
+    if (inPoint > d->outPoint) {
+        d->inPoint = d->outPoint;
+        d->outPoint = inPoint;
+    } else {
+        d->inPoint = inPoint;
+    }
+    emit inOutPointChanged(d->inPoint, d->outPoint);
+}
+
+quint64 Timeline::inPoint()
+{
+    return d->inPoint;
+}
+
+void Timeline::setOutPoint(quint64 outPoint)
+{
+    if (d->inPoint == 0 && d->outPoint == 0) d->inPoint = 0;
+    if (outPoint < d->inPoint) {
+        d->outPoint = d->inPoint;
+        d->inPoint = outPoint;
+    } else {
+        d->outPoint = outPoint;
+    }
+    emit inOutPointChanged(d->inPoint, d->outPoint);
+}
+
+quint64 Timeline::outPoint()
+{
+    return d->outPoint;
+}
+
+void Timeline::clearInOutPoint()
+{
+    d->inPoint = 0;
+    d->outPoint = 0;
+    emit inOutPointChanged(0, 0);
+}
+
+bool Timeline::isInPreviewRange(quint64 frame)
+{
+    if (d->inPoint == 0 && d->outPoint == 0) return false;
+    return d->inPoint <= frame && d->outPoint >= frame;
 }
 
 QJsonObject Timeline::save() const {
