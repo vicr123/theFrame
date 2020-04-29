@@ -103,6 +103,10 @@ class MainWindow : public QMainWindow {
 
         void on_actionNew_Window_triggered();
 
+        void on_actionRender_triggered();
+
+        void on_actionRender_Jobs_triggered();
+
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;

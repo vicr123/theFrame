@@ -30,6 +30,10 @@
 #include <tmessagebox.h>
 #include <taboutdialog.h>
 #include "prerenderer.h"
+#include <tpopover.h>
+
+#include "render/renderpopover.h"
+#include "render/renderjobs.h"
 
 #include <QUndoStack>
 
@@ -444,6 +448,7 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     ui->menuWindow->setEnabled(menuState);
     ui->actionSave->setEnabled(menuState);
     ui->actionSaveAs->setEnabled(menuState);
+    ui->actionRender->setEnabled(menuState);
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -502,4 +507,26 @@ void MainWindow::hideEvent(QHideEvent* event)
 {
     Q_UNUSED(event);
     this->openWindows.removeAll(this);
+}
+
+void MainWindow::on_actionRender_triggered()
+{
+    RenderPopover* render = new RenderPopover(d->currentFile);
+    tPopover* popover = new tPopover(render);
+    popover->setPopoverWidth(SC_DPI(600));
+    connect(render, &RenderPopover::done, popover, &tPopover::dismiss);
+    connect(popover, &tPopover::dismissed, render, &RenderPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    popover->show(this);
+}
+
+void MainWindow::on_actionRender_Jobs_triggered()
+{
+    RenderJobs* render = new RenderJobs();
+    tPopover* popover = new tPopover(render);
+    popover->setPopoverWidth(SC_DPI(-300));
+    connect(render, &RenderJobs::done, popover, &tPopover::dismiss);
+    connect(popover, &tPopover::dismissed, render, &RenderPopover::deleteLater);
+    connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
+    popover->show(this);
 }

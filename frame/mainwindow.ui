@@ -37,7 +37,7 @@
     <item>
      <widget class="tStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="welcomePage">
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -45,6 +45,9 @@
          <number>200</number>
         </property>
         <property name="topMargin">
+         <number>50</number>
+        </property>
+        <property name="rightMargin">
          <number>50</number>
         </property>
         <property name="bottomMargin">
@@ -63,18 +66,31 @@
          </widget>
         </item>
         <item>
-         <widget class="QCommandLinkButton" name="newProjectButton">
-          <property name="text">
-           <string>Create New Project</string>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <property name="spacing">
+           <number>0</number>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCommandLinkButton" name="openProjectButton">
-          <property name="text">
-           <string>Open Existing Project</string>
-          </property>
-         </widget>
+          <item>
+           <widget class="QCommandLinkButton" name="newProjectButton">
+            <property name="text">
+             <string>Create New Project</string>
+            </property>
+            <property name="description">
+             <string>Start a new project</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCommandLinkButton" name="openProjectButton">
+            <property name="text">
+             <string>Open Existing Project</string>
+            </property>
+            <property name="description">
+             <string>Open a project that you've saved</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <spacer name="verticalSpacer">
@@ -97,6 +113,9 @@
          <number>200</number>
         </property>
         <property name="topMargin">
+         <number>50</number>
+        </property>
+        <property name="rightMargin">
          <number>50</number>
         </property>
         <item>
@@ -377,6 +396,9 @@
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
     <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionRender"/>
+    <addaction name="actionRender_Jobs"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
     <addaction name="actionExit"/>
@@ -722,6 +744,22 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+N</string>
+   </property>
+  </action>
+  <action name="actionRender">
+   <property name="text">
+    <string>Render</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionRender_Jobs">
+   <property name="text">
+    <string>Render Jobs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+R</string>
    </property>
   </action>
  </widget>

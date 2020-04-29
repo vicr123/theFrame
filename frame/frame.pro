@@ -29,6 +29,11 @@ SOURCES += \
     properties/rectproperty.cpp \
     properties/stringproperty.cpp \
     propertieswidget.cpp \
+    render/rendercontroller.cpp \
+    render/renderjob.cpp \
+    render/renderjobs.cpp \
+    render/renderjobwidget.cpp \
+    render/renderpopover.cpp \
     timeline/timeline.cpp \
     timeline/timelineleftwidget.cpp \
     timeline/timelinerightwidget.cpp \
@@ -55,6 +60,11 @@ HEADERS += \
     properties/rectproperty.h \
     properties/stringproperty.h \
     propertieswidget.h \
+    render/rendercontroller.h \
+    render/renderjob.h \
+    render/renderjobs.h \
+    render/renderjobwidget.h \
+    render/renderpopover.h \
     timeline/timeline.h \
     timeline/timelineleftwidget.h \
     timeline/timelinerightwidget.h \
@@ -79,6 +89,9 @@ FORMS += \
     properties/rectproperty.ui \
     properties/stringproperty.ui \
     propertieswidget.ui \
+    render/renderjobs.ui \
+    render/renderjobwidget.ui \
+    render/renderpopover.ui \
     timeline/timeline.ui \
     timeline/timelineleftwidget.ui \
     timeline/timelinerightwidget.ui \

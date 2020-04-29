@@ -68,328 +68,358 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="61"/>
+        <location filename="../mainwindow.ui" line="64"/>
         <source>Welcome to theFrame!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="68"/>
+        <location filename="../mainwindow.ui" line="76"/>
         <source>Create New Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="75"/>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Start a new project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
         <source>Open Existing Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="110"/>
+        <location filename="../mainwindow.ui" line="89"/>
+        <source>Open a project that you&apos;ve saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="129"/>
         <source>New Project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="117"/>
+        <location filename="../mainwindow.ui" line="136"/>
         <source>Make sure you&apos;re happy with the frame rate and resolution before you begin. You can change them later, but it be a lot easier to set it up before you begin.</source>
         <translation type="unfinished">Hãy chắc chắn bạn hài lòng bởi tỷ lệ khung và độ phân giải trước khi bạn bắt đầu. Bạn có thể đổi nó sau, nhưng nó rất dễ hơn nếu bạn đặt trước khi bạn bắt đầu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="144"/>
+        <location filename="../mainwindow.ui" line="163"/>
         <source>Project Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="151"/>
+        <location filename="../mainwindow.ui" line="170"/>
         <source>Framerate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="158"/>
+        <location filename="../mainwindow.ui" line="177"/>
         <source> frames per second</source>
         <translation type="unfinished"> khung / giây</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="204"/>
+        <location filename="../mainwindow.ui" line="223"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="224"/>
+        <location filename="../mainwindow.ui" line="243"/>
         <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="372"/>
+        <location filename="../mainwindow.ui" line="391"/>
         <source>File</source>
         <translation>Tệp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="386"/>
+        <location filename="../mainwindow.ui" line="408"/>
         <source>View</source>
         <translation>Xem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="394"/>
-        <location filename="../mainwindow.ui" line="438"/>
+        <location filename="../mainwindow.ui" line="416"/>
+        <location filename="../mainwindow.ui" line="460"/>
         <source>Timeline</source>
         <translation>Dòng thời gian</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="409"/>
+        <location filename="../mainwindow.ui" line="431"/>
         <source>Edit</source>
         <translation>Sửa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="415"/>
+        <location filename="../mainwindow.ui" line="437"/>
         <source>Help</source>
         <translation>Trợ giúp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="424"/>
+        <location filename="../mainwindow.ui" line="446"/>
         <source>Window</source>
         <translation>Cửa sổ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="468"/>
+        <location filename="../mainwindow.ui" line="490"/>
         <source>Properties</source>
         <translation>Thuộc tính</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="499"/>
+        <location filename="../mainwindow.ui" line="521"/>
         <source>Next Frame</source>
         <translation>Khung tiếp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="502"/>
+        <location filename="../mainwindow.ui" line="524"/>
         <source>Right</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="511"/>
+        <location filename="../mainwindow.ui" line="533"/>
         <source>Previous Frame</source>
         <translation>Khung trước</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="514"/>
+        <location filename="../mainwindow.ui" line="536"/>
         <source>Left</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="519"/>
+        <location filename="../mainwindow.ui" line="541"/>
         <source>Delete</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="522"/>
+        <location filename="../mainwindow.ui" line="544"/>
         <source>Del</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="531"/>
+        <location filename="../mainwindow.ui" line="553"/>
         <source>Zoom In</source>
         <translation>Phóng to</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="534"/>
+        <location filename="../mainwindow.ui" line="556"/>
         <source>Ctrl+=</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="543"/>
+        <location filename="../mainwindow.ui" line="565"/>
         <source>Zoom Out</source>
         <translation>Thu nhỏ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="546"/>
+        <location filename="../mainwindow.ui" line="568"/>
         <source>Ctrl+-</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="555"/>
+        <location filename="../mainwindow.ui" line="577"/>
         <source>Play</source>
         <translation>Phát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="558"/>
+        <location filename="../mainwindow.ui" line="580"/>
         <source>Space</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="567"/>
+        <location filename="../mainwindow.ui" line="589"/>
         <source>First Frame</source>
         <translation>Khung đầu tiên</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="570"/>
+        <location filename="../mainwindow.ui" line="592"/>
         <source>Home</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="579"/>
+        <location filename="../mainwindow.ui" line="601"/>
         <source>Last Frame</source>
         <translation>Khung cuối cùng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="582"/>
+        <location filename="../mainwindow.ui" line="604"/>
         <source>End</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="591"/>
+        <location filename="../mainwindow.ui" line="613"/>
         <source>Save</source>
         <translation>Lưu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="594"/>
+        <location filename="../mainwindow.ui" line="616"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="603"/>
+        <location filename="../mainwindow.ui" line="625"/>
         <source>Save As</source>
         <translation>Lưu thành</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="606"/>
+        <location filename="../mainwindow.ui" line="628"/>
         <source>Ctrl+Shift+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="615"/>
+        <location filename="../mainwindow.ui" line="637"/>
         <source>Open</source>
         <translation>Mở</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="618"/>
+        <location filename="../mainwindow.ui" line="640"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="627"/>
+        <location filename="../mainwindow.ui" line="649"/>
         <source>About</source>
         <translation>Giới thiệu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="635"/>
+        <location filename="../mainwindow.ui" line="657"/>
         <source>Set In Point</source>
         <translation>Đạt điểm vào</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="638"/>
+        <location filename="../mainwindow.ui" line="660"/>
         <source>I</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="646"/>
+        <location filename="../mainwindow.ui" line="668"/>
         <source>O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="654"/>
+        <location filename="../mainwindow.ui" line="676"/>
         <source>P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
+        <location filename="../mainwindow.ui" line="684"/>
         <source>Enable Prerendering</source>
         <translation>Bật tính năng kết xuất trước</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="671"/>
+        <location filename="../mainwindow.ui" line="693"/>
         <source>Sources</source>
         <translation>Mã nguồn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="680"/>
+        <location filename="../mainwindow.ui" line="702"/>
         <source>File Bug</source>
         <translation>Báo cáo lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="688"/>
+        <location filename="../mainwindow.ui" line="710"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../mainwindow.ui" line="713"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="699"/>
+        <location filename="../mainwindow.ui" line="721"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="702"/>
+        <location filename="../mainwindow.ui" line="724"/>
         <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="710"/>
+        <location filename="../mainwindow.ui" line="732"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="713"/>
+        <location filename="../mainwindow.ui" line="735"/>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="721"/>
+        <location filename="../mainwindow.ui" line="743"/>
         <source>New Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="724"/>
+        <location filename="../mainwindow.ui" line="746"/>
         <source>Ctrl+Shift+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="643"/>
+        <location filename="../mainwindow.ui" line="751"/>
+        <source>Render</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="754"/>
+        <source>Ctrl+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="759"/>
+        <source>Render Jobs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="762"/>
+        <source>Ctrl+Shift+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="665"/>
         <source>Set Out Point</source>
         <translation>Đặt điểm ra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="651"/>
+        <location filename="../mainwindow.ui" line="673"/>
         <source>Clear In/Out Points</source>
         <translation>Xóa điểm vào/ra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="62"/>
+        <location filename="../mainwindow.cpp" line="66"/>
         <source>Undo</source>
         <translation>Hoàn tác</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="63"/>
+        <location filename="../mainwindow.cpp" line="67"/>
         <source>Redo</source>
         <translation>Làm lại</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="66"/>
+        <location filename="../mainwindow.cpp" line="70"/>
         <source>CTRL+Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="67"/>
+        <location filename="../mainwindow.cpp" line="71"/>
         <source>CTRL+SHIFT+Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="348"/>
         <source>Save Changes?</source>
         <translation>Lưu thay đổi?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="345"/>
+        <location filename="../mainwindow.cpp" line="349"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Bạn sẽ mất các thay đổi chưa lưu trong dự án này nếu bạn không lưu nó.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="305"/>
+        <location filename="../mainwindow.cpp" line="309"/>
         <source>Error</source>
         <translation>Lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="305"/>
+        <location filename="../mainwindow.cpp" line="309"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -398,8 +428,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Đừng đóng cửa sổ này đến khi bạn lưu tệp này, nếu không thì bạn sẽ mất dữ liệu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="201"/>
-        <location filename="../mainwindow.cpp" line="319"/>
+        <location filename="../mainwindow.cpp" line="205"/>
+        <location filename="../mainwindow.cpp" line="323"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>Tệp dự án theFrame (*.tfrproj)</translation>
     </message>
@@ -644,6 +674,170 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <location filename="../properties/rectproperty.ui" line="107"/>
         <source>Height</source>
         <translation>Chiều cao</translation>
+    </message>
+</context>
+<context>
+    <name>RenderController</name>
+    <message>
+        <location filename="../render/rendercontroller.cpp" line="31"/>
+        <source>Render Job Complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/rendercontroller.cpp" line="32"/>
+        <source>%1 has finished rendering.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/rendercontroller.cpp" line="38"/>
+        <source>Render Job Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/rendercontroller.cpp" line="39"/>
+        <source>%1 failed to render.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RenderJobWidget</name>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="35"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="98"/>
+        <source>PROGRESS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="175"/>
+        <source>ACTIONS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="184"/>
+        <source>Play Rendered Video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="187"/>
+        <source>Open the rendered video in your default video player</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="194"/>
+        <source>Open Video Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="197"/>
+        <source>Show the video file in the file browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.cpp" line="45"/>
+        <source>Pending...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.cpp" line="49"/>
+        <source>Currently rendering...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.cpp" line="54"/>
+        <source>Job Complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.cpp" line="59"/>
+        <source>Job Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RenderJobs</name>
+    <message>
+        <location filename="../render/renderjobs.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobs.ui" line="53"/>
+        <source>Render Jobs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RenderPopover</name>
+    <message>
+        <location filename="../render/renderpopover.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="35"/>
+        <source>Render</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="80"/>
+        <source>Render to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="114"/>
+        <source>FFMPEG location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="128"/>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="100"/>
+        <source>Renderer Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="66"/>
+        <location filename="../render/renderpopover.ui" line="73"/>
+        <location filename="../render/renderpopover.ui" line="107"/>
+        <source>Browse...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.cpp" line="46"/>
+        <source>MP4 Videos (*.mp4)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.cpp" line="68"/>
+        <source>FFMPEG (ffmpeg.exe)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.cpp" line="70"/>
+        <source>FFMPEG (ffmpeg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.cpp" line="88"/>
+        <source>theFrame Renderer (theframe-render.exe)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.cpp" line="90"/>
+        <source>theFrame Rnederer (theframe-render)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

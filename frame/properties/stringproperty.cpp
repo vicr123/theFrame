@@ -32,7 +32,8 @@ StringProperty::~StringProperty() {
 
 void StringProperty::setValue(QVariant value) {
     PropertyWidget::setValue(value);
-    ui->valueBox->setText(value.toString());
+
+    if (ui->valueBox->text() != value.toString()) ui->valueBox->setText(value.toString());
 }
 
 void StringProperty::on_valueBox_textChanged(const QString& arg1) {
