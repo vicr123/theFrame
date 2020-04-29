@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui concurrent
 SHARE_APP_NAME = theframe
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets

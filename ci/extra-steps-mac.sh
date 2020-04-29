@@ -3,9 +3,6 @@ mv frame/theFrame.app ./
 
 LIBTHEFRAME_FRAMEWORK_RELATIVE_PATH='libtheframe.framework/Versions/1/libtheframe'
 
-#Copy QtConcurrent over
-cp -R /usr/local/opt/qt/lib/QtConcurrent.framework theFrame.app/Contents/Frameworks/
-
 # Install the render process
 cp theframe-render/theframe-render theFrame.app/Contents/MacOS/
 install_name_tool -change /usr/local/opt/qt/lib/QtCore.framework/Versions/5/QtCore @executable_path/../Frameworks/QtCore.framework/Versions/5/QtCore theFrame.app/Contents/MacOS/theframe-render
