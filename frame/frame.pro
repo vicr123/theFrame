@@ -126,6 +126,9 @@ macx {
     QT += macextras
     LIBS += -framework CoreFoundation -framework AppKit
 
+    SOURCES += \
+        main-objc.mm
+
 #    blueprint {
 #        TARGET = "theSlate Blueprint"
 #        ICON = icon-bp.icns

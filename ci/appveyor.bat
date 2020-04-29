@@ -35,13 +35,11 @@ cd ..
 mkdir deploy
 mkdir deploy\styles
 mkdir deploy\translations
-mkdir deploy\audio
 mkdir deploy\icons
 copy "contemporary-theme\release\Contemporary.dll" deploy\styles
 copy build\frame\release\theFrame.exe deploy
 copy translations\*.qm deploy\translations
 copy icons\contemporary-theme deploy\icons\
-copy audio\* deploy\audio
 copy build\libtheframe\release\libtheframe.dll deploy
 copy build\theframe-render\release\theframe-render.exe deploy
 copy "C:\Program Files\thelibs\lib\the-libs.dll" deploy

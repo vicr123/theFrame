@@ -26,6 +26,7 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QDesktopServices>
+#include <tsettings.h>
 #include <tmessagebox.h>
 #include <taboutdialog.h>
 #include "prerenderer.h"
@@ -43,8 +44,13 @@ struct MainWindowPrivate {
     QString currentFile;
     ViewportElement* viewport;
 
+    tSettings settings;
+
     bool doClose = false;
+    bool shouldSaveWindowState = false;
 };
+
+QList<MainWindow*> MainWindow::openWindows = QList<MainWindow*>();
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -86,6 +92,12 @@ MainWindow::MainWindow(QWidget* parent)
 
     d->playTimer = new QTimer(this);
     connect(d->playTimer, &QTimer::timeout, this, &MainWindow::updatePlayFrame);
+
+    ui->stackedWidget->setCurrentWidget(ui->welcomePage);
+    ui->stackedWidget->setCurrentAnimation(tStackedWidget::Fade);
+
+    ui->welcomePage->installEventFilter(this);
+    ui->newProjectPage->installEventFilter(this);
 }
 
 MainWindow::~MainWindow() {
@@ -216,6 +228,7 @@ void MainWindow::on_actionOpen_triggered() {
                 ui->propertiesWidget->setProjectPath(projectPath);
 
                 d->undoStack->clear();
+                ui->stackedWidget->setCurrentWidget(ui->mainPage);
             };
 
             if (!d->undoStack->isClean()) {
@@ -245,8 +258,33 @@ void MainWindow::closeEvent(QCloseEvent* event)
         this->ensureDiscardChanges()->then([=] {
             d->doClose = true;
             this->close();
+        })->error([=](QString error) {
+#ifdef Q_OS_MAC
+            //Don't quit the app
+            QApplication::setQuitOnLastWindowClosed(false);
+#endif
         });
     }
+
+    if (d->shouldSaveWindowState) d->settings.setValue("Window/WindowState", this->saveState());
+}
+
+bool MainWindow::eventFilter(QObject* watched, QEvent* event)
+{
+    if (watched == ui->welcomePage || watched == ui->newProjectPage) {
+        if (event->type() == QEvent::Paint) {
+            QPainter painter(static_cast<QWidget*>(watched));
+            QLinearGradient grad;
+            grad.setColorAt(0, QColor(255, 200, 200));
+            grad.setColorAt(1, QColor(255, 100, 100));
+            grad.setStart(ui->welcomePage->layout()->contentsMargins().left() - 50, 0);
+            grad.setFinalStop(0, this->height());
+            painter.setPen(Qt::transparent);
+            painter.setBrush(grad);
+            painter.drawRect(0, 0, ui->welcomePage->layout()->contentsMargins().left() - 50, this->height());
+        }
+    }
+    return false;
 }
 
 tPromise<void>* MainWindow::save()
@@ -353,4 +391,115 @@ void MainWindow::on_actionSources_triggered()
 void MainWindow::on_actionFile_Bug_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/vicr123/theFrame/issues"));
+}
+
+void MainWindow::on_newProjectButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->newProjectPage);
+}
+
+void MainWindow::on_doCreateButton_clicked()
+{
+    d->viewport->setViewportSize(QSize(ui->createResXBox->value(), ui->createResYBox->value()));
+    ui->timeline->setFramerate(ui->createFpsBox->value());
+
+    this->saveAs()->then([=] {
+        ui->stackedWidget->setCurrentWidget(ui->mainPage);
+    });
+}
+
+void MainWindow::on_openProjectButton_clicked()
+{
+    ui->actionOpen->trigger();
+}
+
+void MainWindow::on_stackedWidget_currentChanged(int arg1)
+{
+    bool menuState;
+    if (ui->stackedWidget->currentWidget() == ui->mainPage) {
+        menuState = true;
+        d->shouldSaveWindowState = true;
+
+        if (d->settings.contains("Window/WindowState")) {
+            this->restoreState(d->settings.value("Window/WindowState").toByteArray());
+        } else {
+            ui->timelineDockWidget->setVisible(true);
+            ui->propertiesDockWidget->setVisible(true);
+        }
+    } else {
+        menuState = false;
+        d->shouldSaveWindowState = false;
+
+        d->settings.setValue("Window/WindowState", this->saveState());
+        d->settings.sync();
+
+        ui->timelineDockWidget->setVisible(false);
+        ui->propertiesDockWidget->setVisible(false);
+    }
+
+    ui->menubar->setVisible(menuState);
+    ui->menuEdit->setEnabled(menuState);
+    ui->menuView->setEnabled(menuState);
+    ui->menuTimeline->setEnabled(menuState);
+    ui->menuWindow->setEnabled(menuState);
+    ui->actionSave->setEnabled(menuState);
+    ui->actionSaveAs->setEnabled(menuState);
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+#ifdef Q_OS_MAC
+    QApplication::setQuitOnLastWindowClosed(true);
+#endif
+    QApplication::closeAllWindows();
+}
+
+void MainWindow::on_actionClose_triggered()
+{
+    this->close();
+}
+
+void MainWindow::on_actionNew_triggered()
+{
+    auto newFile = [=] {
+        ui->stackedWidget->setCurrentWidget(ui->newProjectPage);
+        d->viewport->clearChildren();
+        d->viewport->clearTimelineElements();
+        d->undoStack->clear();
+
+        d->currentFile = "";
+        this->setWindowFilePath("");
+        QString projectPath = "";
+        d->viewport->setProperty("projectPath", projectPath);
+        ui->propertiesWidget->setProjectPath(projectPath);
+    };
+
+    if (!d->undoStack->isClean()) {
+        this->ensureDiscardChanges()->then(newFile);
+    } else {
+        newFile();
+    }
+}
+
+void MainWindow::on_newProjectBackButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->welcomePage);
+}
+
+void MainWindow::on_actionNew_Window_triggered()
+{
+    MainWindow* newWindow = new MainWindow();
+    newWindow->show();
+}
+
+void MainWindow::showEvent(QShowEvent* event)
+{
+    Q_UNUSED(event);
+    this->openWindows.append(this);
+}
+
+void MainWindow::hideEvent(QHideEvent* event)
+{
+    Q_UNUSED(event);
+    this->openWindows.removeAll(this);
 }

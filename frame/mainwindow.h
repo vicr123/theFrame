@@ -37,6 +37,8 @@ class MainWindow : public QMainWindow {
         MainWindow(QWidget* parent = nullptr);
         ~MainWindow();
 
+        static QList<MainWindow*> openWindows;
+
     private slots:
 
         void on_timeline_currentFrameChanged(quint64 frame);
@@ -83,11 +85,32 @@ class MainWindow : public QMainWindow {
 
         void on_actionFile_Bug_triggered();
 
+        void on_newProjectButton_clicked();
+
+        void on_doCreateButton_clicked();
+
+        void on_openProjectButton_clicked();
+
+        void on_stackedWidget_currentChanged(int arg1);
+
+        void on_actionExit_triggered();
+
+        void on_actionClose_triggered();
+
+        void on_actionNew_triggered();
+
+        void on_newProjectBackButton_clicked();
+
+        void on_actionNew_Window_triggered();
+
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;
 
+        void showEvent(QShowEvent* event);
+        void hideEvent(QHideEvent* event);
         void closeEvent(QCloseEvent* event);
+        bool eventFilter(QObject* watched, QEvent* event);
 
         tPromise<void>* save();
         tPromise<void>* saveAs();

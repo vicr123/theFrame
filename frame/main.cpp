@@ -22,8 +22,14 @@
 #include <tapplication.h>
 #include <QDir>
 #include <QIcon>
+#include <QStyleFactory>
+
+#ifdef Q_OS_MAC
+    extern void setupMacObjC();
+#endif
 
 int main(int argc, char* argv[]) {
+//    qputenv("QT_FONT_DPI", "96");
     tApplication a(argc, argv);
 
     if (QDir("/usr/share/theframe").exists()) {
@@ -36,7 +42,36 @@ int main(int argc, char* argv[]) {
 #ifdef Q_OS_MAC
     QIcon::setThemeName("contemporary-icons");
     QIcon::setThemeSearchPaths({QDir::cleanPath(QApplication::applicationDirPath() + "/../Resources/icons")});
+
+    a.setQuitOnLastWindowClosed(false);
+    setupMacObjC();
 #endif
+
+    if (QStyleFactory::keys().contains("Contemporary")) {
+        QPalette pal = a.palette();
+
+        pal.setColor(QPalette::Button, QColor(0, 50, 150));
+        pal.setColor(QPalette::ButtonText, QColor(255, 255, 255));
+        pal.setColor(QPalette::Highlight, QColor(0, 80, 170));
+        pal.setColor(QPalette::HighlightedText, QColor(255, 255, 255));
+        pal.setColor(QPalette::Disabled, QPalette::Button, QColor(0, 30, 100));
+        pal.setColor(QPalette::Disabled, QPalette::ButtonText, QColor(150, 150, 150));
+
+        pal.setColor(QPalette::Window, QColor(40, 40, 40));
+        pal.setColor(QPalette::Base, QColor(40, 40, 40));
+        pal.setColor(QPalette::AlternateBase, QColor(60, 60, 60));
+        pal.setColor(QPalette::WindowText, QColor(255, 255, 255));
+        pal.setColor(QPalette::Text, QColor(255, 255, 255));
+        pal.setColor(QPalette::ToolTipText, QColor(255, 255, 255));
+
+        pal.setColor(QPalette::Disabled, QPalette::WindowText, QColor(150, 150, 150));
+
+        a.setPalette(pal);
+        a.setPalette(pal, "QDockWidget");
+        a.setPalette(pal, "QToolBar");
+
+        a.setStyle("Contemporary");
+    }
 
     a.setOrganizationName("theSuite");
     a.setOrganizationDomain("");
