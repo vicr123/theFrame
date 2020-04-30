@@ -21,7 +21,6 @@ cd ..
 
 git clone https://github.com/vicr123/contemporary-theme.git
 cd contemporary-theme
-git checkout blueprint
 qmake Contemporary.pro "CONFIG+=release"
 nmake release
 cd ..

@@ -16,7 +16,7 @@ class RenderJob : public QObject
             Errored
         };
 
-        explicit RenderJob(QString projectFile, QObject *parent = nullptr);
+        explicit RenderJob(QByteArray projectFile, QString projectPath, QObject *parent = nullptr);
         ~RenderJob();
 
         void setOutputFileName(QString filename);

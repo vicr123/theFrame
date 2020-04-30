@@ -2,6 +2,7 @@
 #define RENDERPOPOVER_H
 
 #include <QWidget>
+#include "renderjob.h"
 
 namespace Ui {
     class RenderPopover;
@@ -13,7 +14,7 @@ class RenderPopover : public QWidget
         Q_OBJECT
 
     public:
-        explicit RenderPopover(QString projectPath, QWidget *parent = nullptr);
+        explicit RenderPopover(QByteArray projectFile, QString projectPath, QWidget *parent = nullptr);
         ~RenderPopover();
 
     private slots:
@@ -34,6 +35,7 @@ class RenderPopover : public QWidget
         void on_startRenderButton_clicked();
 
     signals:
+        void renderingStarted(RenderJobPtr job);
         void done();
 
     private:

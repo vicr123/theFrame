@@ -11,14 +11,14 @@ struct RenderPopoverPrivate {
     bool renderJobStarted = false;
 };
 
-RenderPopover::RenderPopover(QString projectPath, QWidget *parent) :
+RenderPopover::RenderPopover(QByteArray projectFile, QString projectPath, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RenderPopover)
 {
     ui->setupUi(this);
     d = new RenderPopoverPrivate();
 
-    d->renderJob = RenderJobPtr(new RenderJob(projectPath));
+    d->renderJob = RenderJobPtr(new RenderJob(projectFile, projectPath));
     connect(d->renderJob.data(), &RenderJob::outputFileNameChanged, this, [=](QString filename) {
         ui->renderFile->setText(filename);
     });
@@ -118,5 +118,6 @@ void RenderPopover::on_rendererPath_textEdited(const QString &arg1)
 void RenderPopover::on_startRenderButton_clicked()
 {
     RenderController::instance()->queueRenderJob(d->renderJob);
+    emit renderingStarted(d->renderJob);
     emit done();
 }

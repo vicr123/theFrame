@@ -38,7 +38,8 @@ struct RendererPrivate {
     ViewportElement* viewport;
     QJsonObject rootObject;
 
-    QString inputFile;
+    QByteArray input;
+    QString projectPath;
     QString outputFile;
 
     QString ffmpegCommand;
@@ -65,6 +66,7 @@ bool Renderer::prepare() {
     parser.addPositionalArgument("output", tr("Output File"), tr("[output]"));
     parser.addOption({"ffmpeg-command", tr("FFmpeg command to run"), tr("ffmpeg-command")});
     parser.addOption({"vcodec", tr("Video codec to use"), tr("vcodec")});
+    parser.addOption({"project-path", tr("Root path for project files"), tr("project-path")});
     parser.addHelpOption();
     parser.setOptionsAfterPositionalArgumentsMode(QCommandLineParser::ParseAsOptions);
     parser.process(QCoreApplication::instance()->arguments());
@@ -74,19 +76,43 @@ bool Renderer::prepare() {
         return false;
     }
 
-    if (!QFile::exists(parser.positionalArguments().first())) {
-        logError(tr("Source file not found."));
+    QString inputFile = parser.positionalArguments().first();
+    if (parser.isSet("project-path")) {
+        d->projectPath = parser.value("project-path");
+    } else if (inputFile == "-") {
+        logError(tr("project-path argument required if reading from stdin."));
         return false;
+    } else {
+        d->projectPath = QFileInfo(inputFile).path();
     }
 
-    QFile sourceFile(parser.positionalArguments().first());
-    if (!sourceFile.open(QFile::ReadOnly)) {
-        logError(tr("Couldn't open source file for reading."));
-        return false;
+    QByteArray inputContents;
+    if (inputFile == "-") {
+        //Read from stdin
+        QFile f;
+        f.open(stdin, QFile::ReadOnly);
+        while (!f.atEnd()) {
+            inputContents.append(f.readAll());
+        }
+
+    } else {
+        if (!QFile::exists(inputFile)) {
+            logError(tr("Source file not found."));
+            return false;
+        }
+
+        QFile sourceFile(parser.positionalArguments().first());
+        if (!sourceFile.open(QFile::ReadOnly)) {
+            logError(tr("Couldn't open source file for reading."));
+            return false;
+        }
+
+        inputContents = sourceFile.readAll();
+        d->projectPath = QFileInfo(inputFile).path();
     }
 
     QJsonParseError parseError;
-    QJsonDocument doc = QJsonDocument::fromJson(sourceFile.readAll(), &parseError);
+    QJsonDocument doc = QJsonDocument::fromJson(inputContents, &parseError);
     if (parseError.error != QJsonParseError::NoError || !doc.isObject()) {
         logError(tr("Source file contains JSON errors."));
         return false;
@@ -101,7 +127,6 @@ bool Renderer::prepare() {
 
     QDir workingDir(QDir::currentPath());
     d->outputFile = workingDir.absoluteFilePath(parser.positionalArguments().at(1));
-    d->inputFile = parser.positionalArguments().first();
 
     if (parser.isSet("ffmpeg-command")) {
         d->ffmpegCommand = parser.value("ffmpeg-command");
@@ -120,7 +145,7 @@ bool Renderer::prepare() {
 
 bool Renderer::constructElements() {
     d->viewport = new ViewportElement();
-    d->viewport->setProperty("projectPath", QFileInfo(d->inputFile).path());
+    d->viewport->setProperty("projectPath", d->projectPath);
     d->viewport->setProperty("requireThread", true);
 
     d->framerate = static_cast<uint>(d->rootObject.value("framerate").toInt());

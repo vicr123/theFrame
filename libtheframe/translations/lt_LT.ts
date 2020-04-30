@@ -30,22 +30,22 @@
 <context>
     <name>PictureElement</name>
     <message>
-        <location filename="../elements/pictureelement.cpp" line="115"/>
+        <location filename="../elements/pictureelement.cpp" line="93"/>
         <source>Geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/pictureelement.cpp" line="117"/>
+        <location filename="../elements/pictureelement.cpp" line="95"/>
         <source>Source</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/pictureelement.cpp" line="119"/>
+        <location filename="../elements/pictureelement.cpp" line="97"/>
         <source>Opacity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/pictureelement.cpp" line="136"/>
+        <location filename="../elements/pictureelement.cpp" line="114"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>

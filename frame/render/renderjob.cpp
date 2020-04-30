@@ -5,11 +5,12 @@
 #include <QFileInfo>
 
 struct RenderJobPrivate {
-    QString projectFile;
     QString filename;
     QString ffmpegPath = "ffmpeg";
     QString renderer;
 
+    QByteArray projectFile;
+    QString projectPath;
     QProcess* renderProcess;
 
     quint64 progress = 0;
@@ -18,10 +19,11 @@ struct RenderJobPrivate {
     RenderJob::State state = RenderJob::Idle;
 };
 
-RenderJob::RenderJob(QString projectFile, QObject *parent) : QObject(parent)
+RenderJob::RenderJob(QByteArray projectFile, QString projectPath, QObject *parent) : QObject(parent)
 {
     d = new RenderJobPrivate();
     d->projectFile = projectFile;
+    d->projectPath = projectPath;
 
 #if defined(Q_OS_WIN)
     d->renderer = QApplication::applicationDirPath() + "/theframe-render.exe";
@@ -82,7 +84,8 @@ void RenderJob::startRenderJob()
     d->renderProcess->setProgram(d->renderer);
     d->renderProcess->setArguments({
         "--ffmpeg-command", d->ffmpegPath,
-        d->projectFile,
+        "--project-path", d->projectPath,
+        "-",
         d->filename
     });
     connect(d->renderProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [=](int exitCode, QProcess::ExitStatus state) {
@@ -110,6 +113,8 @@ void RenderJob::startRenderJob()
         }
     });
     d->renderProcess->start();
+    d->renderProcess->write(d->projectFile);
+    d->renderProcess->closeWriteChannel();
 
     if (!d->renderProcess->waitForStarted()) {
         d->state = Errored;

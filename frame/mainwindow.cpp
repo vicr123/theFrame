@@ -31,6 +31,7 @@
 #include <taboutdialog.h>
 #include "prerenderer.h"
 #include <tpopover.h>
+#include <ttoast.h>
 
 #include "render/renderpopover.h"
 #include "render/renderjobs.h"
@@ -102,6 +103,14 @@ MainWindow::MainWindow(QWidget* parent)
 
     ui->welcomePage->installEventFilter(this);
     ui->newProjectPage->installEventFilter(this);
+
+    QFont titleFont = ui->welcomeTitle->font();
+#ifdef Q_OS_MAC
+    titleFont.setPointSize(30);
+#else
+#endif
+    ui->welcomeTitle->setFont(titleFont);
+    ui->newProjectTitle->setFont(titleFont);
 }
 
 MainWindow::~MainWindow() {
@@ -511,9 +520,31 @@ void MainWindow::hideEvent(QHideEvent* event)
 
 void MainWindow::on_actionRender_triggered()
 {
-    RenderPopover* render = new RenderPopover(d->currentFile);
+    QJsonDocument doc(ui->timeline->save());
+
+    RenderPopover* render = new RenderPopover(doc.toJson(QJsonDocument::Compact), QFileInfo(d->currentFile).path());
     tPopover* popover = new tPopover(render);
     popover->setPopoverWidth(SC_DPI(600));
+    connect(render, &RenderPopover::renderingStarted, this, [=](RenderJobPtr job) {
+        if (job->state() == RenderJob::Idle || job->state() == RenderJob::Started) {
+            tToast* toast = new tToast();
+            if (job->state() == RenderJob::Idle) {
+                toast->setTitle(tr("Rendering Queued"));
+                toast->setText(tr("%1 has been queued for rendering.").arg(job->jobDisplayName()));
+            } else {
+                toast->setTitle(tr("Rendering Started"));
+                toast->setText(tr("%1 has started rendering.").arg(job->jobDisplayName()));
+            }
+            toast->setActions({
+                                  {"viewJobs", tr("View Render Jobs")}
+                              });
+            connect(toast, &tToast::actionClicked, this, [=](QString key) {
+                if (key == "viewJobs") ui->actionRender_Jobs->trigger();
+            });
+            connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+            toast->show(this);
+        }
+    });
     connect(render, &RenderPopover::done, popover, &tPopover::dismiss);
     connect(popover, &tPopover::dismissed, render, &RenderPopover::deleteLater);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);

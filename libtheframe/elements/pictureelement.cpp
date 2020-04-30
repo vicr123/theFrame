@@ -23,10 +23,6 @@
 #include <QSvgRenderer>
 
 struct PictureElementPrivate {
-    QPixmap sourceImage;
-    QSvgRenderer svgRenderer;
-
-    bool useSvg = false;
     bool reloadRequired = false;
 };
 
@@ -51,16 +47,6 @@ void PictureElement::setStartValue(QString property, QVariant value) {
 
 void PictureElement::render(QPainter* painter, quint64 frame) const {
     QString file = QDir(this->rootElement()->property("projectPath").toString()).absoluteFilePath(this->startValue("source").toString());
-    bool requireThread = this->rootElement()->property("requireThread").toBool();
-    requireThread = true;
-//    if (d->reloadRequired && !requireThread) {
-//        if (d->svgRenderer.load(file)) {
-//            d->useSvg = true;
-//        } else {
-//            d->sourceImage.load(file);
-//            d->useSvg = false;
-//        }
-//    }
     painter->save();
 
     QRect geometry = this->propertyValueForFrame("geometry", frame).toRect();
@@ -70,21 +56,13 @@ void PictureElement::render(QPainter* painter, quint64 frame) const {
 
     painter->setOpacity(opacity);
 
-    if (requireThread) {
-        QSvgRenderer svgRenderer;
-        if (svgRenderer.load(file)) {
-            svgRenderer.render(painter, geometry);
-        } else {
-            QPixmap sourceImage;
-            sourceImage.load(file);
-            painter->drawPixmap(geometry, d->sourceImage);
-        }
+    QSvgRenderer renderer;
+    if (renderer.load(file)) {
+        renderer.render(painter, geometry);
     } else {
-        if (d->useSvg) {
-            d->svgRenderer.render(painter, geometry);
-        } else {
-            painter->drawPixmap(geometry, d->sourceImage);
-        }
+        QImage sourceImage;
+        sourceImage.load(file);
+        painter->drawImage(geometry, sourceImage);
     }
 
     Element::render(painter, frame);
