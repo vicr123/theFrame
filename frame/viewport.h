@@ -30,6 +30,7 @@ namespace Ui {
 
 struct ViewportPrivate;
 class Prerenderer;
+class Timeline;
 class Viewport : public QWidget {
         Q_OBJECT
 
@@ -40,13 +41,29 @@ class Viewport : public QWidget {
         void setFrame(quint64 frame);
         void setPrerenderer(Prerenderer* prerenderer);
 
+        void setTimeline(Timeline* timeline);
+        Timeline* timeline();
+
         ViewportElement* rootElement();
+
+        QRect viewportRect();
+        double viewportScale();
+
+        QRect viewportToCanvas(QRect viewportCoordinates);
+        QRect canvasToViewport(QRect canvasCoordinates);
+
+    signals:
+        void viewportRectChanged();
 
     private:
         Ui::Viewport* ui;
         ViewportPrivate* d;
 
+        void updateTimelineSelection();
+        void updateViewportRect();
+
         void paintEvent(QPaintEvent* event);
+        void resizeEvent(QResizeEvent *event);
 };
 
 #endif // VIEWPORT_H

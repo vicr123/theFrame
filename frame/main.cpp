@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) {
     }
 
     a.setOrganizationName("theSuite");
-    a.setOrganizationDomain("");
+    a.setOrganizationDomain("vicr123.com");
     a.setApplicationName("theFrame");
     a.setApplicationIcon(QIcon::fromTheme("theframe", QIcon(":/icons/theframe.svg")));
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));

@@ -46,7 +46,8 @@ SOURCES += \
     undo/undonewelement.cpp \
     undo/undonewtimelineelement.cpp \
     undo/undotimelineelementmodify.cpp \
-    viewport.cpp
+    viewport.cpp \
+    viewport/rectangleviewport.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -77,7 +78,8 @@ HEADERS += \
     undo/undonewelement.h \
     undo/undonewtimelineelement.h \
     undo/undotimelineelementmodify.h \
-    viewport.h
+    viewport.h \
+    viewport/rectangleviewport.h
 
 FORMS += \
     mainwindow.ui \

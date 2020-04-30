@@ -83,6 +83,7 @@ MainWindow::MainWindow(QWidget* parent)
     d->prerenderer->setTimeline(ui->timeline);
 
     ui->viewport->setPrerenderer(d->prerenderer);
+    ui->viewport->setTimeline(ui->timeline);
 
     ui->timeline->setUndoStack(d->undoStack);
     ui->timeline->setPrerenderer(d->prerenderer);

@@ -158,6 +158,14 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                     timelineElement->setEndValue(value);
                     d->undoStack->push(new UndoTimelineElementModify(tr("End Value Change"), oldState, TimelineElementState(timelineElement)));
                 });
+                connect(timelineElement, &TimelineElement::elementPropertyChanged, d->startWidget, [=] {
+                    QSignalBlocker blocker(d->startWidget);
+                    d->startWidget->setValue(timelineElement->startValue());
+                });
+                connect(timelineElement, &TimelineElement::elementPropertyChanged, d->endWidget, [=] {
+                    QSignalBlocker blocker(d->endWidget);
+                    d->endWidget->setValue(timelineElement->endValue());
+                });
             }
 
             if (timelineElement->easingCurve().type() == QEasingCurve::Linear) {

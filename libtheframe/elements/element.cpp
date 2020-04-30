@@ -90,6 +90,11 @@ QMap<QString, Element::PropertyType> Element::allProperties() const {
     return map;
 }
 
+QVariantMap Element::propertyMetadata(QString property) const
+{
+    return QVariantMap();
+}
+
 Element::PropertyType Element::propertyType(QString property) const {
     Q_ASSERT(this->allProperties().contains(property));
     return this->allProperties().value(property);

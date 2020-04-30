@@ -54,6 +54,7 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         virtual QMap<QString, PropertyType> staticProperties() const = 0;
         virtual QString propertyDisplayName(QString property) const = 0;
         virtual QColor propertyColor(QString property) const = 0;
+        virtual QVariantMap propertyMetadata(QString property) const;
         PropertyType propertyType(QString property) const;
 
         virtual QString typeDisplayName() const = 0;
