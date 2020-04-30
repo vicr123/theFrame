@@ -39,7 +39,7 @@ copy "contemporary-theme\release\Contemporary.dll" deploy\styles
 copy build\frame\release\theFrame.exe deploy
 copy translations\*.qm deploy\translations
 copy defaults.conf deploy\
-copy icons\contemporary-theme deploy\icons\
+robocopy icons\contemporary-theme deploy\icons\ /e
 copy build\libtheframe\release\libtheframe.dll deploy
 copy build\theframe-render\release\theframe-render.exe deploy
 copy "C:\Program Files\thelibs\lib\the-libs.dll" deploy
