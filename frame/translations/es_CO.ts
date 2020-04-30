@@ -495,23 +495,23 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="88"/>
-        <source>Make sure you&apos;re happy with the frame rate and resolution before you begin. You can change them later, but it be a lot easier to set it up before you begin.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../propertieswidget.ui" line="114"/>
+        <location filename="../propertieswidget.ui" line="131"/>
         <source>PROJECT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="131"/>
+        <location filename="../propertieswidget.ui" line="138"/>
         <source> frames per second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="147"/>
+        <location filename="../propertieswidget.ui" line="118"/>
         <source>Total Frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.ui" line="88"/>
+        <source>Changing the frame rate and resolution may have unintended consequences. You have been warned!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -975,17 +975,17 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>TimelineRightWidgetProperty</name>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="322"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="341"/>
         <source>Move Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="328"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="347"/>
         <source>Resize Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="332"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="351"/>
         <source>New Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1016,7 +1016,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="96"/>
         <source>Animation Tool</source>
         <translation type="unfinished"></translation>
     </message>

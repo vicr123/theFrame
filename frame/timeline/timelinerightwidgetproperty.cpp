@@ -48,6 +48,7 @@ struct TimelineRightWidgetPropertyPrivate {
 
     MouseState mouseState = MouseIdle;
     quint64 mouseFrameStart;
+    quint64 initialElementFrameStart;
     QPointer<TimelineElement> mouseTimelineElement;
     TimelineElementState oldState;
 };
@@ -225,21 +226,26 @@ void TimelineRightWidgetProperty::mousePressEvent(QMouseEvent* event) {
     quint64 frame = this->frameForPoint(event->pos().x());
     d->mouseFrameStart = frame;
 
-    if (!d->property.isEmpty()) {
-        TimelineElement* timelineElement = d->element->timelineElementAtFrame(d->property, frame);
-        if (timelineElement) {
-            d->timeline->addToCurrentSelection(timelineElement);
-            if (timelineElement->startFrame() == frame) {
-                d->mouseState = TimelineRightWidgetPropertyPrivate::MouseLeadTransition;
-            } else if (timelineElement->endFrame() == frame) {
-                d->mouseState = TimelineRightWidgetPropertyPrivate::MouseTailTransition;
+    if (event->button() == Qt::LeftButton) {
+        if (!d->property.isEmpty()) {
+            TimelineElement* timelineElement = d->element->timelineElementAtFrame(d->property, frame);
+            if (timelineElement) {
+                d->timeline->addToCurrentSelection(timelineElement);
+                if (timelineElement->startFrame() == frame) {
+                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseLeadTransition;
+                } else if (timelineElement->endFrame() == frame) {
+                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseTailTransition;
+                } else {
+                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseMidTransition;
+                    d->initialElementFrameStart = timelineElement->startFrame();
+                }
+                d->mouseTimelineElement = timelineElement;
+                d->oldState = TimelineElementState(timelineElement);
             } else {
-                d->mouseState = TimelineRightWidgetPropertyPrivate::MouseMidTransition;
+                d->mouseState = TimelineRightWidgetPropertyPrivate::MouseNotOnTransition;
             }
-            d->mouseTimelineElement = timelineElement;
-            d->oldState = TimelineElementState(timelineElement);
         } else {
-            d->mouseState = TimelineRightWidgetPropertyPrivate::MouseNotOnTransition;
+            d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
         }
     } else {
         d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
@@ -267,9 +273,22 @@ void TimelineRightWidgetProperty::mouseMoveEvent(QMouseEvent* event) {
             }
             break;
         }
-        case TimelineRightWidgetPropertyPrivate::MouseMidTransition:
+        case TimelineRightWidgetPropertyPrivate::MouseMidTransition: {
+            quint64 startFrame;
+            if (d->initialElementFrameStart + frame < d->mouseFrameStart) {
+                startFrame = 0;
+            } else {
+                startFrame = d->initialElementFrameStart + frame - d->mouseFrameStart;
+            }
 
+            if (startFrame + d->mouseTimelineElement->length() > d->timeline->frameCount()) startFrame = d->timeline->frameCount() - 1 - d->mouseTimelineElement->length();
+
+            quint64 endFrame = startFrame + d->mouseTimelineElement->length();
+
+            d->mouseTimelineElement->setStartFrame(startFrame);
+            d->mouseTimelineElement->setEndFrame(endFrame);
             break;
+        }
         case TimelineRightWidgetPropertyPrivate::MouseLeadTransition:
             d->mouseTimelineElement->setStartFrame(frame);
             break;

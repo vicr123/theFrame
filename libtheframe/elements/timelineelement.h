@@ -41,6 +41,8 @@ class LIBTHEFRAME_EXPORT TimelineElement : public QObject {
         void setEndFrame(quint64 endFrame);
         quint64 endFrame();
 
+        quint64 length();
+
         void setStartValue(QVariant startValue);
         QVariant startValue();
 

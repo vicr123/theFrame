@@ -32,7 +32,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="nothingSelectedPage">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -85,7 +85,7 @@
          <item row="1" column="0" colspan="3">
           <widget class="QLabel" name="label_8">
            <property name="text">
-            <string>Make sure you're happy with the frame rate and resolution before you begin. You can change them later, but it be a lot easier to set it up before you begin.</string>
+            <string>Changing the frame rate and resolution may have unintended consequences. You have been warned!</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -102,6 +102,23 @@
            </property>
           </widget>
          </item>
+         <item row="3" column="2">
+          <widget class="QSpinBox" name="resYBox">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>9999</number>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Total Frames</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="0" colspan="3">
           <widget class="QLabel" name="label">
            <property name="font">
@@ -112,16 +129,6 @@
            </property>
            <property name="text">
             <string>PROJECT</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="2">
-          <widget class="QSpinBox" name="resYBox">
-           <property name="minimum">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <number>9999</number>
            </property>
           </widget>
          </item>
@@ -138,13 +145,6 @@
            </property>
            <property name="value">
             <number>60</number>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_10">
-           <property name="text">
-            <string>Total Frames</string>
            </property>
           </widget>
          </item>

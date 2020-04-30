@@ -74,6 +74,11 @@ quint64 TimelineElement::endFrame() {
     return d->endFrame;
 }
 
+quint64 TimelineElement::length()
+{
+    return d->endFrame - d->startFrame;
+}
+
 void TimelineElement::setStartValue(QVariant startValue) {
     d->startValue = startValue;
     emit elementPropertyChanged();

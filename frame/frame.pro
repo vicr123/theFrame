@@ -121,6 +121,9 @@ unix:!macx {
     translations.path = /usr/share/theframe/translations
     translations.files = translations/*
 
+    defaults.path = /etc/theframe/defaults.conf
+    defaults.files = defaults.conf
+
     INSTALLS += target appentry icon translations
 }
 
@@ -163,14 +166,18 @@ macx {
     icons.path = Contents/Resources/icons
     icons.files = icons/contemporary-icons
 
-    QMAKE_BUNDLE_DATA += icons
+    defaults.path = Contents/Resources/defaults.conf
+    defaults.files = defaults.conf
+
+    QMAKE_BUNDLE_DATA += icons defaults
 }
 
 INCLUDEPATH += $$PWD/../libtheframe
 DEPENDPATH += $$PWD/../libtheframe
 
 DISTFILES += \
-    com.vicr123.theframe.desktop
+    com.vicr123.theframe.desktop \
+    defaults.conf
 
 RESOURCES += \
     resources.qrc

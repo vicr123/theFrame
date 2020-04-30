@@ -23,6 +23,7 @@
 #include <QDir>
 #include <QIcon>
 #include <QStyleFactory>
+#include <tsettings.h>
 
 #ifdef Q_OS_MAC
     extern void setupMacObjC();
@@ -39,12 +40,22 @@ int main(int argc, char* argv[]) {
     }
     a.installTranslators();
 
-#ifdef Q_OS_MAC
+#if defined(Q_OS_WIN)
+    tSettings::registerDefaults(QApplication::applicationDirPath() + "/defaults.conf");
+#elif defined(Q_OS_MAC)
     QIcon::setThemeName("contemporary-icons");
-    QIcon::setThemeSearchPaths({QDir::cleanPath(QApplication::applicationDirPath() + "/../Resources/icons")});
+    QIcon::setThemeSearchPaths({a.macOSBundlePath() + "/Contents/Resources/icons"});
+
+    tSettings::registerDefaults(a.macOSBundlePath() + "/Contents/Resources/defaults.conf");
 
     a.setQuitOnLastWindowClosed(false);
     setupMacObjC();
+#else
+    if (QDir("/etc/theframe/defaults.conf").exists()) {
+        tSettings::registerDefaults("/etc/theframe/defaults.conf");
+    } else if (QDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../etc/theframe/defaults.conf")).exists()) {
+        tSettings::registerDefaults(QDir::cleanPath(QApplication::applicationDirPath() + "/../etc/theframe/defaults.conf"));
+    }
 #endif
 
     if (QStyleFactory::keys().contains("Contemporary")) {

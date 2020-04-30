@@ -38,6 +38,7 @@ mkdir deploy\icons
 copy "contemporary-theme\release\Contemporary.dll" deploy\styles
 copy build\frame\release\theFrame.exe deploy
 copy translations\*.qm deploy\translations
+copy defaults.conf deploy\
 copy icons\contemporary-theme deploy\icons\
 copy build\libtheframe\release\libtheframe.dll deploy
 copy build\theframe-render\release\theframe-render.exe deploy
