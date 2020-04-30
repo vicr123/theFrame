@@ -35,6 +35,7 @@
 
 #include "render/renderpopover.h"
 #include "render/renderjobs.h"
+#include "render/rendercontroller.h"
 
 #include <QUndoStack>
 
@@ -51,7 +52,7 @@ struct MainWindowPrivate {
 
     tSettings settings;
 
-    bool doClose = false;
+    uint closeFlag = 0;
     bool shouldSaveWindowState = false;
 };
 
@@ -266,18 +267,53 @@ void MainWindow::on_actionAbout_triggered() {
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-    if (d->doClose) return;
-    if (!d->undoStack->isClean()) {
+    if ((d->closeFlag & 1) == 0) {
+        if (!d->undoStack->isClean()) {
+            event->ignore();
+            this->ensureDiscardChanges()->then([=] {
+                d->closeFlag |= 1;
+                this->close();
+            })->error([=](QString error) {
+                //Don't quit the app
+                d->closeFlag = 0;
+    #ifdef Q_OS_MAC
+                QApplication::setQuitOnLastWindowClosed(false);
+    #endif
+            });
+        }
+    }
+
+    if ((d->closeFlag & 2) == 0 && openWindows.count() == 1 && RenderController::instance()->haveUnfinishedJobs()
+        #ifdef Q_OS_MAC
+            && QApplication::quitOnLastWindowClosed()
+        #endif
+            ) {
         event->ignore();
-        this->ensureDiscardChanges()->then([=] {
-            d->doClose = true;
+
+        tMessageBox* box = new tMessageBox(this);
+        box->setWindowTitle(tr("Running Render Jobs"));
+        box->setText(tr("You have running render jobs. If you exit theFrame, they'll be cancelled"));
+        box->setIcon(tMessageBox::Warning);
+        QPushButton* button = box->addButton(tr("Exit Anyway"), tMessageBox::DestructiveRole);
+        box->setStandardButtons(tMessageBox::Cancel);
+        box->setWindowModality(Qt::WindowModal);
+        box->setWindowFlag(Qt::Sheet);
+        connect(button, &QPushButton::clicked, this, [=] {
+            RenderController::instance()->cancelAll();
+            d->closeFlag |= 2;
             this->close();
-        })->error([=](QString error) {
+        });
+        connect(box, &tMessageBox::finished, this, [=](int result) {
+            if (result == tMessageBox::Cancel) {
+                //Don't quit the app
+                d->closeFlag = 0;
 #ifdef Q_OS_MAC
-            //Don't quit the app
             QApplication::setQuitOnLastWindowClosed(false);
 #endif
+            }
+            box->deleteLater();
         });
+        box->open();
     }
 
     if (d->shouldSaveWindowState) d->settings.setValue("Window/WindowState", this->saveState());

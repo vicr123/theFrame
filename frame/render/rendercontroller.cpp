@@ -23,6 +23,7 @@ void RenderController::queueRenderJob(RenderJobPtr job)
     connect(job.data(), &RenderJob::stateChanged, this, [=](RenderJob::State state) {
         switch (state) {
             case RenderJob::Idle:
+            case RenderJob::Cancelled:
                 break;
             case RenderJob::Started:
                 break;
@@ -40,7 +41,6 @@ void RenderController::queueRenderJob(RenderJobPtr job)
                 notification->post(true);
                 break;
             }
-
         }
     });
     d->jobs.append(job);
@@ -50,6 +50,21 @@ void RenderController::queueRenderJob(RenderJobPtr job)
 QList<RenderJobPtr> RenderController::jobs()
 {
     return d->jobs;
+}
+
+bool RenderController::haveUnfinishedJobs()
+{
+    for (RenderJobPtr job : d->jobs) {
+        if (job->state() != RenderJob::Finished || job->state() != RenderJob::Errored || job->state() == RenderJob::Cancelled) return true;
+    }
+    return false;
+}
+
+void RenderController::cancelAll()
+{
+    for (RenderJobPtr job : d->jobs) {
+        job->cancelRenderJob();
+    }
 }
 
 void RenderController::attemptStartNextJob()
@@ -64,6 +79,7 @@ void RenderController::attemptStartNextJob()
                 return;
             case RenderJob::Finished:
             case RenderJob::Errored:
+            case RenderJob::Cancelled:
                 break;
 
         }

@@ -121,7 +121,7 @@ unix:!macx {
     translations.path = /usr/share/theframe/translations
     translations.files = translations/*
 
-    defaults.path = /etc/theframe/defaults.conf
+    defaults.path = /etc/theframe/
     defaults.files = defaults.conf
 
     INSTALLS += target appentry icon translations
@@ -166,7 +166,7 @@ macx {
     icons.path = Contents/Resources/icons
     icons.files = icons/contemporary-icons
 
-    defaults.path = Contents/Resources/defaults.conf
+    defaults.path = Contents/Resources/
     defaults.files = defaults.conf
 
     QMAKE_BUNDLE_DATA += icons defaults

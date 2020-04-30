@@ -378,75 +378,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="67"/>
+        <location filename="../mainwindow.cpp" line="68"/>
         <source>Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="68"/>
+        <location filename="../mainwindow.cpp" line="69"/>
         <source>Redo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="71"/>
+        <location filename="../mainwindow.cpp" line="72"/>
         <source>CTRL+Z</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="72"/>
+        <location filename="../mainwindow.cpp" line="73"/>
         <source>CTRL+SHIFT+Z</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="294"/>
+        <source>Running Render Jobs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="295"/>
+        <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="297"/>
+        <source>Exit Anyway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="394"/>
         <source>Save Changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="359"/>
+        <location filename="../mainwindow.cpp" line="395"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="533"/>
+        <location filename="../mainwindow.cpp" line="569"/>
         <source>Rendering Queued</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="534"/>
+        <location filename="../mainwindow.cpp" line="570"/>
         <source>%1 has been queued for rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="536"/>
+        <location filename="../mainwindow.cpp" line="572"/>
         <source>Rendering Started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="537"/>
+        <location filename="../mainwindow.cpp" line="573"/>
         <source>%1 has started rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="540"/>
+        <location filename="../mainwindow.cpp" line="576"/>
         <source>View Render Jobs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="319"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="319"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="215"/>
-        <location filename="../mainwindow.cpp" line="333"/>
+        <location filename="../mainwindow.cpp" line="216"/>
+        <location filename="../mainwindow.cpp" line="369"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -691,22 +706,22 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>RenderController</name>
     <message>
-        <location filename="../render/rendercontroller.cpp" line="31"/>
+        <location filename="../render/rendercontroller.cpp" line="32"/>
         <source>Render Job Complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/rendercontroller.cpp" line="32"/>
+        <location filename="../render/rendercontroller.cpp" line="33"/>
         <source>%1 has finished rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/rendercontroller.cpp" line="38"/>
+        <location filename="../render/rendercontroller.cpp" line="39"/>
         <source>Render Job Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/rendercontroller.cpp" line="39"/>
+        <location filename="../render/rendercontroller.cpp" line="40"/>
         <source>%1 failed to render.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -730,6 +745,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="175"/>
+        <location filename="../render/renderjobwidget.ui" line="258"/>
         <source>ACTIONS</source>
         <translation type="unfinished"></translation>
     </message>
@@ -754,23 +770,38 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="45"/>
+        <location filename="../render/renderjobwidget.ui" line="267"/>
+        <source>Cancel Render Job</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.ui" line="270"/>
+        <source>Stop rendering the video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.cpp" line="47"/>
         <source>Pending...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="49"/>
+        <location filename="../render/renderjobwidget.cpp" line="52"/>
         <source>Currently rendering...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="54"/>
+        <location filename="../render/renderjobwidget.cpp" line="58"/>
         <source>Job Complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="59"/>
+        <location filename="../render/renderjobwidget.cpp" line="64"/>
         <source>Job Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.cpp" line="70"/>
+        <source>Job Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -827,27 +858,27 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="46"/>
+        <location filename="../render/renderpopover.cpp" line="48"/>
         <source>MP4 Videos (*.mp4)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="68"/>
+        <location filename="../render/renderpopover.cpp" line="70"/>
         <source>FFMPEG (ffmpeg.exe)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="70"/>
+        <location filename="../render/renderpopover.cpp" line="72"/>
         <source>FFMPEG (ffmpeg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="88"/>
+        <location filename="../render/renderpopover.cpp" line="90"/>
         <source>theFrame Renderer (theframe-render.exe)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="90"/>
+        <location filename="../render/renderpopover.cpp" line="92"/>
         <source>theFrame Rnederer (theframe-render)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1016,7 +1047,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="96"/>
+        <location filename="../main.cpp" line="97"/>
         <source>Animation Tool</source>
         <translation type="unfinished"></translation>
     </message>

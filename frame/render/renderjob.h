@@ -13,7 +13,8 @@ class RenderJob : public QObject
             Idle,
             Started,
             Finished,
-            Errored
+            Errored,
+            Cancelled
         };
 
         explicit RenderJob(QByteArray projectFile, QString projectPath, QObject *parent = nullptr);
@@ -31,6 +32,7 @@ class RenderJob : public QObject
         QString renderer();
 
         void startRenderJob();
+        void cancelRenderJob();
         State state();
 
         quint64 progress();

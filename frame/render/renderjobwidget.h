@@ -22,6 +22,8 @@ class RenderJobWidget : public QWidget
 
         void on_openVideoLocationButton_clicked();
 
+        void on_cancelRenderButton_clicked();
+
     private:
         Ui::RenderJobWidget *ui;
         RenderJobWidgetPrivate* d;

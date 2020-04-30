@@ -218,15 +218,15 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
 }
 
 void TimelineRightWidgetProperty::mousePressEvent(QMouseEvent* event) {
-    if ((event->modifiers() & Qt::ControlModifier) == 0) {
-        d->timeline->clearCurrentSelection();
-    }
-
     d->element->beginTransaction();
     quint64 frame = this->frameForPoint(event->pos().x());
     d->mouseFrameStart = frame;
 
     if (event->button() == Qt::LeftButton) {
+        if ((event->modifiers() & Qt::ControlModifier) == 0) {
+            d->timeline->clearCurrentSelection();
+        }
+
         if (!d->property.isEmpty()) {
             TimelineElement* timelineElement = d->element->timelineElementAtFrame(d->property, frame);
             if (timelineElement) {

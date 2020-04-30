@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QProcess>
 #include <QFileInfo>
+#include <tsettings.h>
 
 struct RenderJobPrivate {
     QString filename;
@@ -17,6 +18,7 @@ struct RenderJobPrivate {
     quint64 maxProgress = 0;
 
     RenderJob::State state = RenderJob::Idle;
+    tSettings settings;
 };
 
 RenderJob::RenderJob(QByteArray projectFile, QString projectPath, QObject *parent) : QObject(parent)
@@ -25,13 +27,19 @@ RenderJob::RenderJob(QByteArray projectFile, QString projectPath, QObject *paren
     d->projectFile = projectFile;
     d->projectPath = projectPath;
 
+    d->ffmpegPath = d->settings.value("Render/ffmpegLocation").toString();
+    if (d->ffmpegPath == "default") d->ffmpegPath = "ffmpeg";
+
+    d->renderer = d->settings.value("Render/rendererPath").toString();
+    if (d->renderer == "default") {
 #if defined(Q_OS_WIN)
-    d->renderer = QApplication::applicationDirPath() + "/theframe-render.exe";
+        d->renderer = QApplication::applicationDirPath() + "/theframe-render.exe";
 #elif defined(Q_OS_MAC)
-    d->renderer =  QApplication::applicationDirPath() + "/theframe-render";
+        d->renderer =  QApplication::applicationDirPath() + "/theframe-render";
 #else
-    d->renderer = "theframe-render";
+        d->renderer = "theframe-render";
 #endif
+    }
 }
 
 RenderJob::~RenderJob()
@@ -80,6 +88,10 @@ QString RenderJob::renderer()
 void RenderJob::startRenderJob()
 {
     if (d->state != Idle) return;
+
+    d->settings.setValue("Renderer/ffmpegLocation", d->ffmpegPath);
+    d->settings.setValue("Renderer/rendererPath", d->renderer);
+
     d->renderProcess = new QProcess(this);
     d->renderProcess->setProgram(d->renderer);
     d->renderProcess->setArguments({
@@ -89,12 +101,14 @@ void RenderJob::startRenderJob()
         d->filename
     });
     connect(d->renderProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [=](int exitCode, QProcess::ExitStatus state) {
-        if (exitCode == 0) {
-            d->state = Finished;
-        } else {
-            d->state = Errored;
+        if (d->state != Cancelled) {
+            if (exitCode == 0) {
+                d->state = Finished;
+            } else {
+                d->state = Errored;
+            }
+            emit stateChanged(d->state);
         }
-        emit stateChanged(d->state);
     });
     connect(d->renderProcess, &QProcess::readyReadStandardOutput, this, [=] {
         QString output = d->renderProcess->readAllStandardOutput();
@@ -120,6 +134,17 @@ void RenderJob::startRenderJob()
         d->state = Errored;
     } else {
         d->state = Started;
+    }
+    emit stateChanged(d->state);
+}
+
+void RenderJob::cancelRenderJob()
+{
+    if (d->state == Idle) {
+        d->state = Cancelled;
+    } else if (d->state == Started) {
+        d->renderProcess->terminate();
+        d->state = Cancelled;
     }
     emit stateChanged(d->state);
 }

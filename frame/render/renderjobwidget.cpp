@@ -28,6 +28,8 @@ RenderJobWidget::RenderJobWidget(RenderJobPtr job, QWidget *parent) :
     ui->progressBar->setMaximum(d->job->maxProgress());
     ui->progressBar->setValue(d->job->progress());
 
+    ui->cancelRenderButton->setProperty("type", "destructive");
+
     connect(d->job.data(), &RenderJob::stateChanged, this, &RenderJobWidget::updateState);
     this->updateState();
 }
@@ -45,22 +47,31 @@ void RenderJobWidget::updateState()
             ui->stateLabel->setText(tr("Pending..."));
             ui->progressBar->setVisible(false);
             ui->jobCompleteWidget->setVisible(false);
+            ui->jobRunningWidget->setVisible(false);
         case RenderJob::Started:
             ui->stateLabel->setText(tr("Currently rendering..."));
             ui->progressBar->setVisible(true);
             ui->jobCompleteWidget->setVisible(false);
+            ui->jobRunningWidget->setVisible(true);
             break;
         case RenderJob::Finished:
             ui->stateLabel->setText(tr("Job Complete"));
             ui->progressBar->setVisible(false);
             ui->jobCompleteWidget->setVisible(true);
+            ui->jobRunningWidget->setVisible(false);
             break;
         case RenderJob::Errored:
             ui->stateLabel->setText(tr("Job Failed"));
             ui->progressBar->setVisible(false);
             ui->jobCompleteWidget->setVisible(false);
+            ui->jobRunningWidget->setVisible(false);
             break;
-
+        case RenderJob::Cancelled:
+            ui->stateLabel->setText(tr("Job Cancelled"));
+            ui->progressBar->setVisible(false);
+            ui->jobCompleteWidget->setVisible(false);
+            ui->jobRunningWidget->setVisible(false);
+            break;
     }
 }
 
@@ -79,4 +90,9 @@ void RenderJobWidget::on_openVideoLocationButton_clicked()
 #else
     //not sure what to do on Linux :(
 #endif
+}
+
+void RenderJobWidget::on_cancelRenderButton_clicked()
+{
+    d->job->cancelRenderJob();
 }

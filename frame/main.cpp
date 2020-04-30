@@ -40,6 +40,10 @@ int main(int argc, char* argv[]) {
     }
     a.installTranslators();
 
+    a.setOrganizationName("theSuite");
+    a.setOrganizationDomain("vicr123.com");
+    a.setApplicationName("theFrame");
+
 #if defined(Q_OS_WIN)
     tSettings::registerDefaults(QApplication::applicationDirPath() + "/defaults.conf");
 #elif defined(Q_OS_MAC)
@@ -84,9 +88,6 @@ int main(int argc, char* argv[]) {
         a.setStyle("Contemporary");
     }
 
-    a.setOrganizationName("theSuite");
-    a.setOrganizationDomain("vicr123.com");
-    a.setApplicationName("theFrame");
     a.setApplicationIcon(QIcon::fromTheme("theframe", QIcon(":/icons/theframe.svg")));
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));
     a.setApplicationLicense(tApplication::Gpl3OrLater);

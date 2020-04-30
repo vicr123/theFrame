@@ -4,9 +4,11 @@
 #include "renderjob.h"
 #include "rendercontroller.h"
 #include <QFileDialog>
+#include <tsettings.h>
 
 struct RenderPopoverPrivate {
     RenderJobPtr renderJob;
+    tSettings settings;
 
     bool renderJobStarted = false;
 };
@@ -64,7 +66,7 @@ void RenderPopover::on_browserForFfmpegButton_clicked()
 {
     QFileDialog* fileDialog = new QFileDialog(this->window());
     fileDialog->setAcceptMode(QFileDialog::AcceptOpen);
-#ifdef Q_OS_WN
+#ifdef Q_OS_WIN
     fileDialog->setNameFilters({tr("FFMPEG (ffmpeg.exe)")});
 #else
     fileDialog->setNameFilters({tr("FFMPEG (ffmpeg)")});
@@ -84,7 +86,7 @@ void RenderPopover::on_browseForRenderer_clicked()
 {
     QFileDialog* fileDialog = new QFileDialog(this->window());
     fileDialog->setAcceptMode(QFileDialog::AcceptOpen);
-#ifdef Q_OS_WN
+#ifdef Q_OS_WIN
     fileDialog->setNameFilters({tr("theFrame Renderer (theframe-render.exe)")});
 #else
     fileDialog->setNameFilters({tr("theFrame Rnederer (theframe-render)")});

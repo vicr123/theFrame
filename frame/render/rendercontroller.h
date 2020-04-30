@@ -16,6 +16,9 @@ class RenderController : public QObject
         void queueRenderJob(RenderJobPtr job);
         QList<RenderJobPtr> jobs();
 
+        bool haveUnfinishedJobs();
+        void cancelAll();
+
     signals:
 
     private:
