@@ -2,12 +2,20 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="bg_BG" sourcelanguage="en_US">
 <context>
-    <name>FileProperty</name>
+    <name>ColorProperty</name>
     <message>
-        <location filename="../properties/fileproperty.ui" line="14"/>
-        <source>Form</source>
+        <location filename="../properties/colorproperty.ui" line="32"/>
+        <source>Value</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../properties/colorproperty.cpp" line="32"/>
+        <source>Select Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FileProperty</name>
     <message>
         <location filename="../properties/fileproperty.ui" line="32"/>
         <source>File</source>
@@ -19,23 +27,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../properties/fileproperty.cpp" line="44"/>
-        <source>PNG images (*.png)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../properties/fileproperty.cpp" line="44"/>
-        <source>SVG images (*.svg)</source>
+        <location filename="../properties/fileproperty.cpp" line="34"/>
+        <location filename="../properties/fileproperty.cpp" line="72"/>
+        <source>All Files (*)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>FloatProperty</name>
-    <message>
-        <location filename="../properties/floatproperty.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../properties/floatproperty.ui" line="38"/>
         <source>Value</source>
@@ -45,17 +44,12 @@
 <context>
     <name>FontProperty</name>
     <message>
-        <location filename="../properties/fontproperty.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../properties/fontproperty.ui" line="20"/>
+        <location filename="../properties/fontproperty.ui" line="35"/>
         <source>Family</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../properties/fontproperty.ui" line="27"/>
+        <location filename="../properties/fontproperty.ui" line="42"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -460,11 +454,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>PercentageProperty</name>
     <message>
-        <location filename="../properties/percentageproperty.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../properties/percentageproperty.ui" line="38"/>
         <source>Value</source>
         <translation type="unfinished"></translation>
@@ -477,11 +466,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 </context>
 <context>
     <name>PointProperty</name>
-    <message>
-        <location filename="../properties/pointproperty.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../properties/pointproperty.ui" line="32"/>
         <source>X</source>
@@ -631,43 +615,48 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="534"/>
+        <location filename="../propertieswidget.ui" line="537"/>
         <source>Element Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="154"/>
+        <location filename="../propertieswidget.ui" line="557"/>
+        <source>Element Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.cpp" line="160"/>
         <source>Start Value Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="159"/>
+        <location filename="../propertieswidget.cpp" line="165"/>
         <source>End Value Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="213"/>
+        <location filename="../propertieswidget.cpp" line="220"/>
         <source>Start State Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="244"/>
+        <location filename="../propertieswidget.cpp" line="263"/>
         <source>Easing Curve Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="251"/>
+        <location filename="../propertieswidget.cpp" line="270"/>
         <source>Element Name Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.cpp" line="307"/>
+        <source>Select Color</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RectProperty</name>
-    <message>
-        <location filename="../properties/rectproperty.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="42"/>
         <source>Top</source>
@@ -865,11 +854,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 </context>
 <context>
     <name>StringProperty</name>
-    <message>
-        <location filename="../properties/stringproperty.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../properties/stringproperty.ui" line="32"/>
         <source>Value</source>

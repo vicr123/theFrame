@@ -22,14 +22,21 @@
 
 #include <QFileDialog>
 
+struct FilePropertyPrivate {
+    QStringList namefilters;
+};
+
 FileProperty::FileProperty(QWidget* parent) :
     PropertyWidget(parent),
     ui(new Ui::FileProperty) {
     ui->setupUi(this);
+    d = new FilePropertyPrivate();
+    d->namefilters = QStringList({tr("All Files (*)")});
 }
 
 FileProperty::~FileProperty() {
     delete ui;
+    delete d;
 }
 
 void FileProperty::setValue(QVariant value) {
@@ -41,7 +48,7 @@ void FileProperty::setValue(QVariant value) {
 void FileProperty::on_browseButton_clicked() {
     QFileDialog* fileDialog = new QFileDialog(this->window());
     fileDialog->setAcceptMode(QFileDialog::AcceptOpen);
-    fileDialog->setNameFilters({tr("PNG images (*.png)"), tr("SVG images (*.svg)")});
+    fileDialog->setNameFilters(d->namefilters);
     fileDialog->setWindowFlag(Qt::Sheet);
     fileDialog->setWindowModality(Qt::WindowModal);
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
@@ -57,4 +64,10 @@ void FileProperty::on_browseButton_clicked() {
 
 void FileProperty::on_filenameBox_textEdited(const QString& arg1) {
     this->setValue(arg1);
+}
+
+
+void FileProperty::setPropertyMetadata(QVariantMap metadata)
+{
+    d->namefilters = metadata.value("nameFilters", QStringList({tr("All Files (*)")})).toStringList();
 }

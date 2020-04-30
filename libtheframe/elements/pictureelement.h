@@ -46,6 +46,7 @@ class LIBTHEFRAME_EXPORT PictureElement : public Element {
         QMap<QString, PropertyType> staticProperties() const;
         QString propertyDisplayName(QString property) const;
         QColor propertyColor(QString property) const;
+        QVariantMap propertyMetadata(QString property) const;
         QString typeDisplayName() const;
 };
 

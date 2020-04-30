@@ -45,6 +45,7 @@ class LIBTHEFRAME_EXPORT RectangleElement : public Element {
         QString typeDisplayName() const;
         QString propertyDisplayName(QString property) const;
         QColor propertyColor(QString property) const;
+        QVariantMap propertyMetadata(QString property) const;
 };
 
 #endif // RECTANGLEELEMENT_H

@@ -27,10 +27,13 @@
 #include "properties/pointproperty.h"
 #include "properties/fontproperty.h"
 #include "properties/fileproperty.h"
+#include "properties/colorproperty.h"
 
 #include "timeline/timeline.h"
 #include <elements/timelineelement.h>
 #include <elements/element.h>
+
+#include <QColorDialog>
 
 #include "undo/undoelementmodify.h"
 #include "undo/undotimelineelementmodify.h"
@@ -57,7 +60,7 @@ struct PropertiesWidgetPrivate {
             case Element::Rect:
                 return &RectProperty::staticMetaObject;
             case Element::Color:
-                break;
+                return &ColorProperty::staticMetaObject;
             case Element::String:
                 return &StringProperty::staticMetaObject;
             case Element::Point:
@@ -143,6 +146,9 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 d->startWidget->setProperty("projectPath", d->projectPath);
                 d->endWidget->setProperty("projectPath", d->projectPath);
 
+                d->startWidget->setPropertyMetadata(timelineElement->parentElement()->propertyMetadata(timelineElement->propertyName()));
+                d->endWidget->setPropertyMetadata(timelineElement->parentElement()->propertyMetadata(timelineElement->propertyName()));
+
                 ui->startValueLayout->addWidget(d->startWidget);
                 ui->endValueLayout->addWidget(d->endWidget);
                 d->startWidget->setValue(timelineElement->startValue());
@@ -206,6 +212,7 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 if (metaObj) {
                     PropertyWidget* pw = qobject_cast<PropertyWidget*>(metaObj->newInstance(Q_ARG(QWidget*, w)));
                     pw->setProperty("projectPath", d->projectPath);
+                    pw->setPropertyMetadata(element->propertyMetadata(property));
                     pw->setValue(element->startValue(property));
                     connect(pw, &PropertyWidget::valueChanged, this, [ = ](QVariant value) {
                         ElementState oldState(element);
@@ -219,6 +226,18 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 line->setFrameShape(QFrame::HLine);
                 line->setFixedHeight(1);
                 outerLayout->addWidget(line);
+
+                connect(element, &Element::displayColorChanged, this, [=](QColor col) {
+                    col.setAlpha(255);
+                    QPalette pal = ui->elementColorButton->palette();
+                    pal.setColor(QPalette::Button, col);
+                    ui->elementColorButton->setPalette(pal);
+                });
+                QColor displayCol = element->displayColor();
+                displayCol.setAlpha(255);
+                QPalette displayPal = ui->elementColorButton->palette();
+                displayPal.setColor(QPalette::Button, displayCol);
+                ui->elementColorButton->setPalette(displayPal);
 
                 ui->elementPropertiesLayout->addWidget(w);
                 d->propertyWidgets.append(w);
@@ -278,4 +297,21 @@ void PropertiesWidget::on_resYBox_valueChanged(int arg1) {
 
 void PropertiesWidget::on_totalFramesBox_valueChanged(int arg1) {
     d->timeline->setFrameCount(static_cast<uint>(arg1));
+}
+
+void PropertiesWidget::on_elementColorButton_clicked()
+{
+    Element* element = qobject_cast<Element*>(d->timeline->currentSelection().first());
+    QColorDialog* dialog = new QColorDialog(this->window());
+    dialog->setCurrentColor(element->displayColor());
+    dialog->setWindowTitle(tr("Select Color"));
+    dialog->setWindowFlag(Qt::Sheet);
+    dialog->setWindowModality(Qt::WindowModal);
+    connect(dialog, &QColorDialog::finished, this, [=](int result) {
+        if (result == QColorDialog::Accepted) {
+            element->setDisplayColor(dialog->currentColor());
+        }
+        dialog->deleteLater();
+    });
+    dialog->open();
 }

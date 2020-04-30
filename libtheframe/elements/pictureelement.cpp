@@ -110,6 +110,16 @@ QColor PictureElement::propertyColor(QString property) const {
     return QColor();
 }
 
+QVariantMap PictureElement::propertyMetadata(QString property) const
+{
+    if (property == "source") {
+        return {
+            {"nameFilters", QStringList({tr("All Images (*.png *.jpg *.jpeg *.gif *.svg)")})}
+        };
+    }
+    return QVariantMap();
+}
+
 QString PictureElement::typeDisplayName() const {
     return tr("Picture");
 }

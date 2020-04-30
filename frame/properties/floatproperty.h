@@ -34,12 +34,14 @@ class FloatProperty : public PropertyWidget {
         ~FloatProperty();
 
         void setValue(QVariant value);
+        void setPropertyMetadata(QVariantMap metadata);
 
     private slots:
         void on_propertyBox_valueChanged(double arg1);
 
     private:
         Ui::FloatProperty* ui;
+
 };
 
 #endif // FLOATPROPERTY_H

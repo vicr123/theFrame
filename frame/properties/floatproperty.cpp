@@ -38,3 +38,8 @@ void FloatProperty::setValue(QVariant value) {
 void FloatProperty::on_propertyBox_valueChanged(double arg1) {
     this->setValue(arg1);
 }
+
+void FloatProperty::setPropertyMetadata(QVariantMap metadata)
+{
+    ui->propertyBox->setRange(metadata.value("minValue", 0.0).toDouble(), metadata.value("maxValue", 100.0).toDouble());
+}

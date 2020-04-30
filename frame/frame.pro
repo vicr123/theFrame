@@ -20,6 +20,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     prerenderer.cpp \
+    properties/colorproperty.cpp \
     properties/fileproperty.cpp \
     properties/floatproperty.cpp \
     properties/fontproperty.cpp \
@@ -52,6 +53,7 @@ SOURCES += \
 HEADERS += \
     mainwindow.h \
     prerenderer.h \
+    properties/colorproperty.h \
     properties/fileproperty.h \
     properties/floatproperty.h \
     properties/fontproperty.h \
@@ -83,6 +85,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    properties/colorproperty.ui \
     properties/fileproperty.ui \
     properties/floatproperty.ui \
     properties/fontproperty.ui \

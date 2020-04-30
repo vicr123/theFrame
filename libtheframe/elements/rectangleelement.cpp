@@ -29,6 +29,7 @@ RectangleElement::RectangleElement() : Element() {
     this->setStartValue("geometry", QRect(0, 0, 100, 100));
     this->setStartValue("backgroundColor", QColor(0, 100, 200));
     this->setStartValue("borderColor", QColor(0, 0, 0));
+    this->setStartValue("borderWidth", 1.0);
     this->setStartValue("opacity", 1.0);
 }
 
@@ -42,13 +43,14 @@ void RectangleElement::render(QPainter* painter, quint64 frame) const {
     QRect geometry = this->propertyValueForFrame("geometry", frame).toRect();
     QColor backgroundColor = this->propertyValueForFrame("backgroundColor", frame).value<QColor>();
     QColor borderColor = this->propertyValueForFrame("borderColor", frame).value<QColor>();
+    double borderWidth = this->propertyValueForFrame("borderWidth", frame).toDouble();
     double opacity = this->propertyValueForFrame("opacity", frame).toDouble() * painter->opacity();
 
     geometry.translate(this->parentElement()->renderOffset(frame));
 
     painter->setOpacity(opacity);
     painter->setBrush(backgroundColor);
-    painter->setPen(borderColor);
+    painter->setPen(QPen(borderColor, borderWidth));
     painter->drawRect(geometry);
 
     Element::render(painter, frame);
@@ -65,6 +67,7 @@ QMap<QString, Element::PropertyType> RectangleElement::animatableProperties() co
         {QStringLiteral("geometry"), Rect},
         {QStringLiteral("backgroundColor"), Color},
         {QStringLiteral("borderColor"), Color},
+        {QStringLiteral("borderWidth"), Double},
         {QStringLiteral("opacity"), Percentage}
     };
 }
@@ -85,6 +88,8 @@ QString RectangleElement::propertyDisplayName(QString property) const {
         return tr("Background Color");
     } else if (property == "borderColor") {
         return tr("Border Color");
+    } else if (property == "borderWidth") {
+        return tr("Border Width");
     } else if (property == "opacity") {
         return tr("Opacity");
     }
@@ -98,9 +103,22 @@ QColor RectangleElement::propertyColor(QString property) const {
         return QColor(38, 40, 21, 127);
     } else if (property == "borderColor") {
         return QColor(40, 18, 35, 127);
+    } else if (property == "borderWidth") {
+        return QColor(38, 40, 21, 127);
     } else if (property == "opacity") {
         return QColor(39, 40, 23, 127);
     }
     return QColor();
+}
+
+QVariantMap RectangleElement::propertyMetadata(QString property) const
+{
+    if (property == "borderWidth") {
+        return {
+            {"minValue", 0.0},
+            {"maxValue", 999.0}
+        };
+    };
+    return QVariantMap();
 }
 

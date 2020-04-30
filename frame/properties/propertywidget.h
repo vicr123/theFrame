@@ -33,6 +33,8 @@ class PropertyWidget : public QWidget {
         virtual void setValue(QVariant value);
         QVariant value();
 
+        virtual void setPropertyMetadata(QVariantMap metadata);
+
     signals:
         void valueChanged(QVariant property);
 

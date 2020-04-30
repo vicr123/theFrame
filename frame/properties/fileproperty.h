@@ -26,6 +26,7 @@ namespace Ui {
     class FileProperty;
 }
 
+struct FilePropertyPrivate;
 class FileProperty : public PropertyWidget {
         Q_OBJECT
 
@@ -34,6 +35,7 @@ class FileProperty : public PropertyWidget {
         ~FileProperty();
 
         void setValue(QVariant value);
+        void setPropertyMetadata(QVariantMap metadata);
 
     private slots:
         void on_browseButton_clicked();
@@ -42,6 +44,8 @@ class FileProperty : public PropertyWidget {
 
     private:
         Ui::FileProperty* ui;
+        FilePropertyPrivate* d;
+
 };
 
 #endif // FILEPROPERTY_H

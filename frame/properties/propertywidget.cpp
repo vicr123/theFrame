@@ -39,3 +39,8 @@ void PropertyWidget::setValue(QVariant value) {
 QVariant PropertyWidget::value() {
     return d->value;
 }
+
+void PropertyWidget::setPropertyMetadata(QVariantMap metadata)
+{
+    Q_UNUSED(metadata);
+}

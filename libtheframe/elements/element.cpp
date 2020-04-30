@@ -311,6 +311,7 @@ bool Element::tryCommitTransaction() {
 }
 
 void Element::setDisplayColor(QColor color) {
+    color.setAlpha(127);
     d->displayColor = color;
     emit displayColorChanged(color);
 }

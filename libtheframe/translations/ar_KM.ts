@@ -45,7 +45,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/pictureelement.cpp" line="114"/>
+        <location filename="../elements/pictureelement.cpp" line="117"/>
+        <source>All Images (*.png *.jpg *.jpeg *.gif *.svg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/pictureelement.cpp" line="124"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
@@ -53,27 +58,32 @@
 <context>
     <name>RectangleElement</name>
     <message>
-        <location filename="../elements/rectangleelement.cpp" line="78"/>
+        <location filename="../elements/rectangleelement.cpp" line="81"/>
         <source>Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/rectangleelement.cpp" line="83"/>
+        <location filename="../elements/rectangleelement.cpp" line="86"/>
         <source>Geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/rectangleelement.cpp" line="85"/>
+        <location filename="../elements/rectangleelement.cpp" line="88"/>
         <source>Background Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/rectangleelement.cpp" line="87"/>
+        <location filename="../elements/rectangleelement.cpp" line="90"/>
         <source>Border Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/rectangleelement.cpp" line="89"/>
+        <location filename="../elements/rectangleelement.cpp" line="92"/>
+        <source>Border Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/rectangleelement.cpp" line="94"/>
         <source>Opacity</source>
         <translation type="unfinished"></translation>
     </message>

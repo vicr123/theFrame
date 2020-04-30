@@ -56,6 +56,8 @@ class PropertiesWidget : public QWidget {
 
         void on_totalFramesBox_valueChanged(int arg1);
 
+        void on_elementColorButton_clicked();
+
     private:
         Ui::PropertiesWidget* ui;
         PropertiesWidgetPrivate* d;
