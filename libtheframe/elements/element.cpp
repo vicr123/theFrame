@@ -206,7 +206,7 @@ QVariant Element::propertyValueForFrame(QString property, quint64 frame) const {
 }
 
 void Element::addChild(Element* element, uint id) {
-    this->insertChild(d->children.count() - 1, element, id);
+    this->insertChild(d->children.count(), element, id);
 }
 
 void Element::insertChild(int index, Element* element, uint id)

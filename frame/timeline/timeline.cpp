@@ -151,7 +151,17 @@ void Timeline::setCurrentSelection(QObject* element) {
 
 void Timeline::addToCurrentSelection(QObject* element) {
     if (d->currentSelection.count() > 0) {
-        if (strcmp(element->metaObject()->className(), d->currentSelection.first()->metaObject()->className()) != 0) clearCurrentSelection();
+        QList<const QMetaObject*> parents({
+            &Element::staticMetaObject,
+            &TimelineElement::staticMetaObject
+        });
+
+
+        bool ok = false;
+        for (const QMetaObject* obj : parents) {
+            if (element->metaObject()->inherits(obj) && d->currentSelection.first()->metaObject()->inherits(obj)) ok = true;
+        }
+        if (!ok) clearCurrentSelection();
     }
 
     auto deleteFunction = [ = ] {
@@ -366,7 +376,7 @@ QMimeData* Timeline::selectedMimeData()
 
         for (QObject* element : d->currentSelection) {
             //Make sure we're not copying the root viewport
-            if (element == d->rootLeftWidget) continue;
+            if (element == d->rootViewportElement) continue;
 
             //TODO: check that we're not copying any children
 

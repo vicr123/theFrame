@@ -243,7 +243,13 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 d->propertyWidgets.append(w);
             }
 
+            QSignalBlocker blocker(ui->elementNameBox);
+
             ui->elementType->setText(element->typeDisplayName().toUpper());
+            connect(element, &Element::nameChanged, this, [this](QString name) {
+                QSignalBlocker blocker(ui->elementNameBox);
+                ui->elementNameBox->setText(name);
+            });
             ui->elementNameBox->setText(element->name());
         }
     }

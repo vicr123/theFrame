@@ -687,17 +687,17 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>Đổi Trạng Thái Đầu Tiên</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="263"/>
+        <location filename="../propertieswidget.cpp" line="269"/>
         <source>Easing Curve Change</source>
         <translation>Đổi Đường Giảm</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="270"/>
+        <location filename="../propertieswidget.cpp" line="276"/>
         <source>Element Name Change</source>
         <translation>Đổi Tên Thành Phần</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="307"/>
+        <location filename="../propertieswidget.cpp" line="313"/>
         <source>Select Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -931,27 +931,27 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="188"/>
+        <location filename="../timeline/timeline.cpp" line="198"/>
         <source>Delete</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="196"/>
+        <location filename="../timeline/timeline.cpp" line="206"/>
         <source>Delete Timeline Element</source>
         <translation>Xóa Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="201"/>
+        <location filename="../timeline/timeline.cpp" line="211"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>Xóa %1 &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="282"/>
+        <location filename="../timeline/timeline.cpp" line="292"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="327"/>
+        <location filename="../timeline/timeline.cpp" line="337"/>
         <source>Paste Elements</source>
         <translation type="unfinished"></translation>
     </message>
