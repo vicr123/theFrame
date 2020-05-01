@@ -6,12 +6,12 @@
     <message>
         <location filename="../properties/colorproperty.ui" line="32"/>
         <source>Value</source>
-        <translation type="unfinished">Giá trị</translation>
+        <translation>Giá trị</translation>
     </message>
     <message>
         <location filename="../properties/colorproperty.cpp" line="32"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn màu</translation>
     </message>
 </context>
 <context>
@@ -30,7 +30,7 @@
         <location filename="../properties/fileproperty.cpp" line="34"/>
         <location filename="../properties/fileproperty.cpp" line="72"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Mọi tệp (*)</translation>
     </message>
 </context>
 <context>
@@ -59,67 +59,67 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theFrame</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="64"/>
         <source>Welcome to theFrame!</source>
-        <translation type="unfinished"></translation>
+        <translation>Chào mừng bạn với theFrame!</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="76"/>
         <source>Create New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo dự án mới</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="79"/>
         <source>Start a new project</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt đầu một dự án mới</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="86"/>
         <source>Open Existing Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở dự án đã tồn tại</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="89"/>
         <source>Open a project that you&apos;ve saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở một dự án bạn đã lưu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="129"/>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Dự án mới</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="136"/>
         <source>Make sure you&apos;re happy with the frame rate and resolution before you begin. You can change them later, but it be a lot easier to set it up before you begin.</source>
-        <translation type="unfinished">Hãy chắc chắn bạn hài lòng bởi tỷ lệ khung và độ phân giải trước khi bạn bắt đầu. Bạn có thể đổi nó sau, nhưng nó rất dễ hơn nếu bạn đặt trước khi bạn bắt đầu.</translation>
+        <translation>Hãy chắc chắn bạn hài lòng bởi tỷ lệ khung và độ phân giải trước khi bạn bắt đầu. Bạn có thể đổi nó sau, nhưng nó rất dễ hơn nếu bạn đặt trước khi bạn bắt đầu.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="163"/>
         <source>Project Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ phân giải dù án</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="170"/>
         <source>Framerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Tỷ lệ khung</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="177"/>
         <source> frames per second</source>
-        <translation type="unfinished"> khung / giây</translation>
+        <translation> khung / giây</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="223"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Lại</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="243"/>
         <source>Create</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="391"/>
@@ -310,92 +310,92 @@
     <message>
         <location filename="../mainwindow.ui" line="716"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Thoát</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="719"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="728"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="731"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="740"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Mới</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="752"/>
         <source>New Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Cửa sổ mới</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="755"/>
         <source>Ctrl+Shift+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="760"/>
         <source>Render</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết Xuất</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="763"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="768"/>
         <source>Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoạt động kết xuất</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="771"/>
         <source>Ctrl+Shift+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="782"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Cắt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="785"/>
         <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+X</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="796"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Sao chép</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="799"/>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="810"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Dán</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="813"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
@@ -430,17 +430,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="304"/>
         <source>Running Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Việc kết xuất đang xảy ra</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="305"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn còn việc kết xuất đang xảy ra. Nếu bạn thoát theFrame, nó sẽ bị hủy</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="307"/>
         <source>Exit Anyway</source>
-        <translation type="unfinished"></translation>
+        <translation>Vẫn thoát</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
@@ -455,27 +455,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="579"/>
         <source>Rendering Queued</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết Xuất được xếp hàng</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="580"/>
         <source>%1 has been queued for rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 bị xếp hàng để kết xuất.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="582"/>
         <source>Rendering Started</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết Xuất được bắt đầu</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="583"/>
         <source>%1 has started rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 đã bắt đầu kết xuất.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="586"/>
         <source>View Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem hoạt động kết xuất</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="365"/>
@@ -569,7 +569,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../propertieswidget.ui" line="255"/>
         <source>Anchor Start Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Neo giá trị bắt đầu</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="315"/>
@@ -674,7 +674,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../propertieswidget.ui" line="579"/>
         <source>Element Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu thành phần</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="164"/>
@@ -704,7 +704,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../propertieswidget.cpp" line="317"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn màu</translation>
     </message>
 </context>
 <context>
@@ -745,22 +745,22 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/rendercontroller.cpp" line="32"/>
         <source>Render Job Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Việc kết xuất đã hoàn thành</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="33"/>
         <source>%1 has finished rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 đã bị kết xuất.</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="39"/>
         <source>Render Job Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Việc kết xuất đã thất bại</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="40"/>
         <source>%1 failed to render.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 không được bị kết xuất.</translation>
     </message>
 </context>
 <context>
