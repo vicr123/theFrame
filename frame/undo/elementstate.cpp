@@ -6,6 +6,7 @@ ElementState::ElementState(Element* element)
 {
     if (element->parentElement()) {
         Element* parent = element->parentElement();
+        this->index = parent->childElements().indexOf(element);
         while (parent->getId() != 0) {
             this->parentIds.push(parent->getId());
             parent = parent->parentElement();

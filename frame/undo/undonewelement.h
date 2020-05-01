@@ -9,6 +9,7 @@ class UndoNewElement : public QUndoCommand
 {
     public:
         UndoNewElement(QString text, ElementState newElement);
+        UndoNewElement(QString text, QList<ElementState> newElementStates);
         ~UndoNewElement();
 
     private:

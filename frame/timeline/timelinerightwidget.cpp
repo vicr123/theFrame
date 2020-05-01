@@ -61,8 +61,8 @@ TimelineRightWidget::~TimelineRightWidget() {
     delete ui;
 }
 
-void TimelineRightWidget::addChild(TimelineRightWidget* child) {
-    ui->childrenLayout->addWidget(child);
+void TimelineRightWidget::addChild(int index, TimelineRightWidget* child) {
+    ui->childrenLayout->insertWidget(index, child);
 }
 
 void TimelineRightWidget::setHeaderHeight(int height) {

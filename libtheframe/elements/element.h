@@ -72,6 +72,7 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         QVariant propertyValueForFrame(QString property, quint64 frame) const;
 
         void addChild(Element* element, uint id = 0);
+        void insertChild(int index, Element* element, uint id = 0);
         QList<Element*> childElements() const;
         void clearChildren();
         Element* parentElement() const;
@@ -87,9 +88,10 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         QColor displayColor() const;
 
         QJsonObject save() const;
-        bool load(QJsonObject obj);
+        bool load(QJsonObject obj, bool respectIds = true);
 
         uint getId();
+        static Element* constructByType(QString type);
 
     protected:
 
@@ -97,7 +99,7 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         void timelineElementsChanged();
         void invalidateFromFrame(quint64 frame);
         void nameChanged(QString name);
-        void newChildElement(Element* element);
+        void childElementInserted(int index, Element* element);
         void displayColorChanged(QColor color);
 
     private:

@@ -36,7 +36,7 @@ class TimelineRightWidget : public QWidget {
         explicit TimelineRightWidget(Timeline* timeline, Element* element, bool isRoot, QWidget* parent = nullptr);
         ~TimelineRightWidget();
 
-        void addChild(TimelineRightWidget* child);
+        void addChild(int index, TimelineRightWidget* child);
 
         void setHeaderHeight(int height);
         void setPropertyElementHeight(int height);

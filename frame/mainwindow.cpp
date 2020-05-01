@@ -71,8 +71,8 @@ MainWindow::MainWindow(QWidget* parent)
     redoAction->setIcon(QIcon::fromTheme("edit-redo"));
     undoAction->setShortcut(tr("CTRL+Z"));
     redoAction->setShortcut(tr("CTRL+SHIFT+Z"));
-    ui->menuEdit->insertAction(ui->actionDeleteTransition, undoAction);
-    ui->menuEdit->insertAction(ui->actionDeleteTransition, redoAction);
+    ui->menuEdit->insertAction(ui->menuEdit->actions().at(0), undoAction);
+    ui->menuEdit->insertAction(ui->menuEdit->actions().at(1), redoAction);
     ui->menuEdit->insertSeparator(ui->actionDeleteTransition);
     connect(d->undoStack, &QUndoStack::cleanChanged, this, [=](bool clean) {
         this->setWindowModified(!clean);
@@ -89,6 +89,16 @@ MainWindow::MainWindow(QWidget* parent)
     ui->timeline->setUndoStack(d->undoStack);
     ui->timeline->setPrerenderer(d->prerenderer);
     ui->timeline->setViewportElement(d->viewport);
+    connect(ui->timeline, &Timeline::canCutChanged, this, [=] {
+        ui->actionCut->setEnabled(ui->timeline->canCut());
+    });
+    connect(ui->timeline, &Timeline::canCopyChanged, this, [=] {
+        ui->actionCopy->setEnabled(ui->timeline->canCopy());
+    });
+    connect(ui->timeline, &Timeline::canPasteChanged, this, [=] {
+        ui->actionPaste->setEnabled(ui->timeline->canPaste());
+    });
+
     ui->propertiesWidget->setTimeline(ui->timeline);
     ui->propertiesWidget->setUndoStack(d->undoStack);
 
@@ -597,4 +607,19 @@ void MainWindow::on_actionRender_Jobs_triggered()
     connect(popover, &tPopover::dismissed, render, &RenderPopover::deleteLater);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     popover->show(this);
+}
+
+void MainWindow::on_actionCopy_triggered()
+{
+    ui->timeline->copy();
+}
+
+void MainWindow::on_actionCut_triggered()
+{
+    ui->timeline->cut();
+}
+
+void MainWindow::on_actionPaste_triggered()
+{
+    ui->timeline->paste();
 }

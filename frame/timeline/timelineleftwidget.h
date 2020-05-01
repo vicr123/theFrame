@@ -56,7 +56,7 @@ class TimelineLeftWidget : public QWidget {
         void mousePressEvent(QMouseEvent* event);
         void mouseReleaseEvent(QMouseEvent* event);
 
-        void addChild(Element* element);
+        void addChild(int index, Element* element);
         void addElement(Element* element);
 };
 

@@ -25,11 +25,15 @@
 #include <QPointer>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QMimeData>
+#include <QClipboard>
+#include <QJsonDocument>
 #include <elements/timelineelement.h>
 #include <the-libs_global.h>
 
 #include "undo/undodeletetimelineelement.h"
 #include "undo/undodeleteelement.h"
+#include "undo/undonewelement.h"
 
 #include "timelineleftwidget.h"
 #include "timelinerightwidget.h"
@@ -65,6 +69,8 @@ Timeline::Timeline(QWidget* parent) :
 
     ui->timelineLeftPane->setProperty("X-Contemporary-NoInstallScroller", true);
     ui->timelineRightPane->setProperty("X-Contemporary-NoInstallScroller", true);
+
+    connect(QApplication::clipboard(), &QClipboard::dataChanged, this, &Timeline::canPasteChanged);
 }
 
 Timeline::~Timeline() {
@@ -160,30 +166,40 @@ void Timeline::addToCurrentSelection(QObject* element) {
     }
     d->currentSelection.append(element);
     emit currentSelectionChanged();
+
+    emit canCopyChanged();
+    emit canCutChanged();
 }
 
 void Timeline::clearCurrentSelection() {
     d->currentSelection.clear();
     emit currentSelectionChanged();
+
+    emit canCopyChanged();
+    emit canCutChanged();
 }
 
 QList<QObject*> Timeline::currentSelection() {
     return d->currentSelection;
 }
 
-void Timeline::deleteSelected() {
+void Timeline::deleteSelected(QString undoText) {
 
     d->undoStack->beginMacro(tr("Delete"));
     for (QObject* element : d->currentSelection) {
         //Make sure we're not deleting the root viewport
-        if (element == d->rootLeftWidget) continue;
+        if (element == d->rootViewportElement) continue;
 
         QUndoCommand* undoCommand = nullptr;
         if (element->metaObject()->inherits(&TimelineElement::staticMetaObject)) {
-            undoCommand = new UndoDeleteTimelineElement(tr("Delete Timeline Element"), TimelineElementState(static_cast<TimelineElement*>(element)));
+            QString undoDescription = undoText;
+            if (undoDescription == "") undoDescription = tr("Delete Timeline Element");
+            undoCommand = new UndoDeleteTimelineElement(undoText, TimelineElementState(static_cast<TimelineElement*>(element)));
         } else if (element->metaObject()->inherits(&Element::staticMetaObject)) {
+            QString undoDescription = undoText;
             Element* e = static_cast<Element*>(element);
-            undoCommand = new UndoDeleteElement(tr("Delete %1 \"%2\"").arg(e->typeDisplayName()).arg(e->name()), ElementState(e));
+            if (undoDescription == "") undoDescription = tr("Delete %1 \"%2\"").arg(e->typeDisplayName()).arg(e->name());
+            undoCommand = new UndoDeleteElement(undoDescription, ElementState(e));
         }
 
         if (undoCommand) d->undoStack->push(undoCommand);
@@ -242,6 +258,76 @@ bool Timeline::isInPreviewRange(quint64 frame)
     return d->inPoint <= frame && d->outPoint >= frame;
 }
 
+bool Timeline::canCopy()
+{
+    return !d->currentSelection.isEmpty();
+}
+
+void Timeline::copy()
+{
+    QMimeData* mimeData = this->selectedMimeData();
+    if (mimeData) {
+        QApplication::clipboard()->setMimeData(mimeData);
+    }
+}
+
+bool Timeline::canCut()
+{
+    return canCopy();
+}
+
+void Timeline::cut()
+{
+    copy();
+    deleteSelected(tr("Cut"));
+}
+
+bool Timeline::canPaste()
+{
+    const QMimeData* mimeData = QApplication::clipboard()->mimeData();
+    if (mimeData->hasFormat("application/x-theframe-elements")) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void Timeline::paste()
+{
+    const QMimeData* mimeData = QApplication::clipboard()->mimeData();
+    if (mimeData->hasFormat("application/x-theframe-elements")) {
+        QObject* firstSelection;
+        if (d->currentSelection.isEmpty()) {
+            firstSelection = d->rootViewportElement;
+        } else {
+            firstSelection = d->currentSelection.first();
+        }
+
+        if (!firstSelection->metaObject()->inherits(&Element::staticMetaObject)) return;
+
+        int insertIndex;
+        Element* e = static_cast<Element*>(firstSelection);
+        if (e == d->rootViewportElement) {
+            insertIndex = d->rootViewportElement->childElements().count();
+        } else {
+            insertIndex = e->parentElement()->childElements().indexOf(e) + 1;
+            e = e->parentElement();
+        }
+        QJsonArray list = QJsonDocument::fromBinaryData(mimeData->data("application/x-theframe-elements")).array();
+
+        QList<ElementState> undoList;
+        for (QJsonValue elementValue : list) {
+            QJsonObject elementObject = elementValue.toObject();
+            Element* element = Element::constructByType(elementObject.value("type").toString());
+            element->load(elementObject, false);
+            e->insertChild(insertIndex, element);
+
+            undoList.append(ElementState(element));
+        }
+        d->undoStack->push(new UndoNewElement(tr("Paste Elements"), undoList));
+    }
+}
+
 QJsonObject Timeline::save() const {
     QJsonObject rootObj;
     rootObj.insert("framerate", static_cast<qint64>(this->framerate()));
@@ -268,4 +354,28 @@ bool Timeline::load(QJsonObject obj) {
     d->rootViewportElement->load(obj.value("viewport").toObject());
 
     return true;
+}
+
+QMimeData* Timeline::selectedMimeData()
+{
+    if (d->currentSelection.isEmpty()) return nullptr;
+
+    QMimeData* mimeData = new QMimeData();
+    if (d->currentSelection.first()->metaObject()->inherits(&Element::staticMetaObject)) {
+        QJsonArray list;
+
+        for (QObject* element : d->currentSelection) {
+            //Make sure we're not copying the root viewport
+            if (element == d->rootLeftWidget) continue;
+
+            //TODO: check that we're not copying any children
+
+            Element* e = static_cast<Element*>(element);
+            list.append(e->save());
+        }
+
+        mimeData->setData("application/x-theframe-elements", QJsonDocument(list).toBinaryData());
+    }
+
+    return mimeData;
 }

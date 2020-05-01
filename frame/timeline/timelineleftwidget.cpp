@@ -84,10 +84,11 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     d->rightWidget->setHeaderHeight(ui->headerWidget->sizeHint().height());
     d->rightWidget->setBottomPadding(ui->addButtonsContainer->sizeHint().height());
 
-    for (Element* child : element->childElements()) {
-        addChild(child);
+    for (int i = 0; i < element->childElements().count(); i++) {
+        Element* child = element->childElements().at(i);
+        addChild(i, child);
     }
-    connect(element, &Element::newChildElement, this, &TimelineLeftWidget::addChild);
+    connect(element, &Element::childElementInserted, this, &TimelineLeftWidget::addChild);
     connect(element, &Element::destroyed, this, &TimelineLeftWidget::deleteLater);
 
     connect(timeline, &Timeline::currentSelectionChanged, this, [ = ] {
@@ -150,10 +151,10 @@ void TimelineLeftWidget::mouseReleaseEvent(QMouseEvent* event) {
 
 }
 
-void TimelineLeftWidget::addChild(Element* element) {
+void TimelineLeftWidget::addChild(int index, Element* element) {
     TimelineLeftWidget* widget = new TimelineLeftWidget(d->timeline, element, false);
-    d->rightWidget->addChild(widget->rightWidget());
-    ui->childrenLayout->addWidget(widget);
+    d->rightWidget->addChild(index, widget->rightWidget());
+    ui->childrenLayout->insertWidget(index, widget);
 }
 
 void TimelineLeftWidget::addElement(Element* element)

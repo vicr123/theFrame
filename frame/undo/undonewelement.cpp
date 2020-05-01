@@ -3,7 +3,7 @@
 #include <elements/element.h>
 
 struct UndoNewElementPrivate {
-    ElementState state;
+    QList<ElementState> states;
     
     bool ignore = true;
 };
@@ -11,7 +11,13 @@ struct UndoNewElementPrivate {
 UndoNewElement::UndoNewElement(QString text, ElementState newElement) : QUndoCommand(text)
 {
     d = new UndoNewElementPrivate();
-    d->state = newElement;
+    d->states.append(newElement);
+}
+
+UndoNewElement::UndoNewElement(QString text, QList<ElementState> newElementStates) : QUndoCommand(text)
+{
+    d = new UndoNewElementPrivate();
+    d->states.append(newElementStates);
 }
 
 UndoNewElement::~UndoNewElement()
@@ -22,7 +28,9 @@ UndoNewElement::~UndoNewElement()
 
 void UndoNewElement::undo()
 {
-    d->state.parentElement()->childById(d->state.elementId())->deleteLater();
+    for (auto i = d->states.rbegin(); i != d->states.rend(); i++) {
+        i->parentElement()->childById(i->elementId())->deleteLater();
+    }
 }
 
 void UndoNewElement::redo()
@@ -32,7 +40,9 @@ void UndoNewElement::redo()
         return;
     }
     
-    Element* element = qobject_cast<Element*>(d->state.elementType->newInstance());
-    element->load(d->state.data);
-    d->state.parentElement()->addChild(element, d->state.elementId());
+    for (ElementState state : d->states) {
+        Element* element = qobject_cast<Element*>(state.elementType->newInstance());
+        element->load(state.data);
+        state.parentElement()->insertChild(state.index, element, state.elementId());
+    }
 }

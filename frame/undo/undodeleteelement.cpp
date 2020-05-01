@@ -23,7 +23,7 @@ void UndoDeleteElement::undo()
 {
     Element* element = qobject_cast<Element*>(d->state.elementType->newInstance());
     element->load(d->state.data);
-    d->state.parentElement()->addChild(element, d->state.elementId());
+    d->state.parentElement()->insertChild(d->state.index, element, d->state.elementId());
 }
 
 void UndoDeleteElement::redo()

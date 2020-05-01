@@ -14,6 +14,7 @@ struct ElementState
 
     QStack<uint> parentIds;
     Element* rootElement;
+    int index;
 
     uint elementId();
     Element* parentElement();

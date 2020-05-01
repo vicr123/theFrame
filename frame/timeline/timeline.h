@@ -27,6 +27,7 @@ namespace Ui {
     class Timeline;
 }
 
+class QMimeData;
 class TimelineElement;
 class Prerenderer;
 class QUndoStack;
@@ -64,7 +65,7 @@ class Timeline : public QWidget {
         void clearCurrentSelection();
         QList<QObject*> currentSelection();
 
-        void deleteSelected();
+        void deleteSelected(QString undoText = "");
 
         void setInPoint(quint64 inPoint);
         quint64 inPoint();
@@ -74,6 +75,15 @@ class Timeline : public QWidget {
 
         void clearInOutPoint();
         bool isInPreviewRange(quint64 frame);
+        
+        bool canCopy();
+        void copy();
+
+        bool canCut();
+        void cut();
+
+        bool canPaste();
+        void paste();
 
         QJsonObject save() const;
         bool load(QJsonObject obj);
@@ -86,9 +96,15 @@ class Timeline : public QWidget {
         void inOutPointChanged(quint64 inPoint, quint64 outPoint);
         void currentSelectionChanged();
 
+        void canCopyChanged();
+        void canCutChanged();
+        void canPasteChanged();
+
     private:
         Ui::Timeline* ui;
         TimelinePrivate* d;
+        
+        QMimeData* selectedMimeData();
 };
 
 #endif // TIMELINE_H

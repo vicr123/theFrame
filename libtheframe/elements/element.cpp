@@ -206,6 +206,12 @@ QVariant Element::propertyValueForFrame(QString property, quint64 frame) const {
 }
 
 void Element::addChild(Element* element, uint id) {
+    this->insertChild(d->children.count() - 1, element, id);
+}
+
+void Element::insertChild(int index, Element* element, uint id)
+{
+
     uint childElementId;
     if (id != 0) {
         childElementId = id;
@@ -213,7 +219,7 @@ void Element::addChild(Element* element, uint id) {
         childElementId = d->childrenElementIds;
     }
 
-    d->children.append(element);
+    d->children.insert(index, element);
     d->childrenById.insert(childElementId, element);
     element->d->parent = this;
     element->d->thisId = childElementId;
@@ -225,7 +231,7 @@ void Element::addChild(Element* element, uint id) {
 
     d->childrenElementIds++;
 
-    emit newChildElement(element);
+    emit childElementInserted(index, element);
     tryInvalidateFromFrame(0);
 }
 
@@ -361,12 +367,12 @@ QJsonObject Element::save() const {
     return elementObject;
 }
 
-bool Element::load(QJsonObject obj) {
+bool Element::load(QJsonObject obj, bool respectIds) {
     this->clearTimelineElements();
     this->clearChildren();
 
     //Load the ID here so that the root object doesn't need to be set an ID
-    d->thisId = obj.value("id").toString().toUInt();
+    if (respectIds) d->thisId = obj.value("id").toString().toUInt();
     d->timelineElementIds = obj.value("timelineElementIds").toString().toUInt();
     d->childrenElementIds = obj.value("childrenElementIds").toString().toUInt();
     if (obj.value("type").toString() != this->metaObject()->className()) return false;
@@ -393,30 +399,20 @@ bool Element::load(QJsonObject obj) {
         QEasingCurve easingCurve(static_cast<QEasingCurve::Type>(easingCurveObject.value("type").toInt()));
         element->setEasingCurve(easingCurve);
 
-        uint id = elementObject.value("id").toString().toUInt();
+        uint id = 0;
+        if (respectIds) id = elementObject.value("id").toString().toUInt();
         this->addTimelineElement(property, element, id);
     }
 
     QJsonArray children = obj.value("children").toArray();
     for (QJsonValue child : children) {
         QJsonObject childObject = child.toObject();
-        Element* childElement = nullptr;
-        QString type = childObject.value("type").toString();
-        if (type == "RectangleElement") {
-            childElement = new RectangleElement();
-        } else if (type == "ViewportElement") {
-            childElement = new ViewportElement();
-        } else if (type == "TextElement") {
-            childElement = new TextElement();
-        } else if (type == "GroupElement") {
-            childElement = new GroupElement();
-        } else if (type == "PictureElement") {
-            childElement = new PictureElement();
-        }
+        Element* childElement = constructByType(childObject.value("type").toString());
 
         if (childElement) {
             //Also load the ID here so that this element knows about it
-            uint id = childObject.value("id").toString().toUInt();
+            uint id = 0;
+            if (respectIds) id = childObject.value("id").toString().toUInt();
             childElement->load(childObject);
             this->addChild(childElement, id);
         }
@@ -428,6 +424,22 @@ bool Element::load(QJsonObject obj) {
 uint Element::getId()
 {
     return d->thisId;
+}
+
+Element* Element::constructByType(QString type)
+{
+    if (type == "RectangleElement") {
+        return new RectangleElement();
+    } else if (type == "ViewportElement") {
+        return new ViewportElement();
+    } else if (type == "TextElement") {
+        return new TextElement();
+    } else if (type == "GroupElement") {
+        return new GroupElement();
+    } else if (type == "PictureElement") {
+        return new PictureElement();
+    }
+    return nullptr;
 }
 
 QJsonValue Element::propertyToJson(QString property, QVariant value) const {
