@@ -20,6 +20,7 @@ struct TimelineElementState
     QVariant startValue;
     QVariant endValue;
     QEasingCurve easingCurve;
+    bool anchorStart;
     uint id;
 
     Element* rootElement;

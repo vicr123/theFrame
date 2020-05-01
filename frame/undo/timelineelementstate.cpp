@@ -17,6 +17,7 @@ TimelineElementState::TimelineElementState(TimelineElement* element)
     this->endFrame = element->endFrame();
     this->startValue = element->startValue();
     this->endValue = element->endValue();
+    this->anchorStart = element->startAnchored();
     this->easingCurve = element->easingCurve();
     this->id = element->getId();
 }

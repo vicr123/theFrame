@@ -159,6 +159,7 @@ void Viewport::updateTimelineSelection()
                         RectangleViewport* start = new RectangleViewport(RectangleViewport::StartType, this);
                         start->setOffset(element->parentElement()->renderOffset(timelineElement->startFrame()));
                         start->setValue(timelineElement->startValue().toRect());
+                        start->setAnchored(timelineElement->startAnchored());
                         connect(start, &RectangleViewport::valueChanged, this, [=](QRect value) {
                             TimelineElementState oldState(timelineElement);
                             timelineElement->setStartValue(value);
@@ -184,6 +185,7 @@ void Viewport::updateTimelineSelection()
                             QSignalBlocker blocker(start);
                             start->setValue(timelineElement->startValue().toRect());
                             start->setOffset(element->parentElement()->renderOffset(timelineElement->startFrame()));
+                            start->setAnchored(timelineElement->startAnchored());
                         });
                         connect(timelineElement, &TimelineElement::elementPropertyChanged, end, [=] {
                             QSignalBlocker blocker(end);

@@ -40,6 +40,7 @@ void UndoNewTimelineElement::redo()
     element->setEndFrame(d->state.endFrame);
     element->setStartValue(d->state.startValue);
     element->setEndValue(d->state.endValue);
+    element->setStartAnchored(d->state.anchorStart);
     element->setEasingCurve(d->state.easingCurve);
     target->addTimelineElement(d->state.property, element, d->state.id);
 }

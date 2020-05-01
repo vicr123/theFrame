@@ -32,7 +32,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="nothingSelectedPage">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -250,7 +250,29 @@
               </widget>
              </item>
              <item>
-              <layout class="QVBoxLayout" name="startValueLayout"/>
+              <widget class="QCheckBox" name="anchorStartValue">
+               <property name="text">
+                <string>Anchor Start Value</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="tConditionalWidget" name="startValueWidget" native="true">
+               <layout class="QVBoxLayout" name="startValueLayout">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+               </layout>
+              </widget>
              </item>
             </layout>
            </item>
@@ -590,6 +612,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>tConditionalWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">tconditionalwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

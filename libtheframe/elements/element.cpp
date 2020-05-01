@@ -192,7 +192,15 @@ QVariant Element::propertyValueForFrame(QString property, quint64 frame) const {
             return closestTimelineElement->endValue();
         } else {
             tVariantAnimation anim;
-            anim.setStartValue(closestTimelineElement->startValue());
+            if (closestTimelineElement->startAnchored()) {
+                if (closestTimelineElement->startFrame() == 0) {
+                    anim.setStartValue(this->startValue(property));
+                } else {
+                    anim.setStartValue(propertyValueForFrame(property, closestTimelineElement->startFrame() - 1));
+                }
+            } else {
+                anim.setStartValue(closestTimelineElement->startValue());
+            }
             anim.setEndValue(closestTimelineElement->endValue());
             anim.setDuration(static_cast<int>(closestTimelineElement->endFrame() - closestTimelineElement->startFrame()));
             anim.setEasingCurve(closestTimelineElement->easingCurve());
@@ -349,6 +357,7 @@ QJsonObject Element::save() const {
         jsonElement.insert("endFrame", QString::number(element->endFrame()));
         jsonElement.insert("startValue", propertyToJson(element->propertyName(), element->startValue()));
         jsonElement.insert("endValue", propertyToJson(element->propertyName(), element->endValue()));
+        jsonElement.insert("startAnchored", element->startAnchored());
         jsonElement.insert("id", QString::number(element->getId()));
 
         QJsonObject easingCurve;
@@ -394,6 +403,7 @@ bool Element::load(QJsonObject obj, bool respectIds) {
         element->setEndFrame(elementObject.value("endFrame").toString().toULongLong());
         element->setStartValue(jsonToProperty(property, elementObject.value("startValue")));
         element->setEndValue(jsonToProperty(property, elementObject.value("endValue")));
+        element->setStartAnchored(elementObject.value("startAnchored").toBool());
 
         QJsonObject easingCurveObject = elementObject.value("easingCurve").toObject();
         QEasingCurve easingCurve(static_cast<QEasingCurve::Type>(easingCurveObject.value("type").toInt()));

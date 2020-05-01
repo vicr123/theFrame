@@ -30,6 +30,7 @@ void UndoTimelineElementModify::undo()
     timelineElement->setStartValue(d->before.startValue);
     timelineElement->setEndFrame(d->before.endFrame);
     timelineElement->setEndValue(d->before.endValue);
+    timelineElement->setStartAnchored(d->before.anchorStart);
     timelineElement->setEasingCurve(d->before.easingCurve);
 }
 
@@ -46,6 +47,7 @@ void UndoTimelineElementModify::redo()
     timelineElement->setStartValue(d->after.startValue);
     timelineElement->setEndFrame(d->after.endFrame);
     timelineElement->setEndValue(d->after.endValue);
+    timelineElement->setStartAnchored(d->after.anchorStart);
     timelineElement->setEasingCurve(d->after.easingCurve);
 }
 

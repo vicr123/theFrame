@@ -46,6 +46,9 @@ class LIBTHEFRAME_EXPORT TimelineElement : public QObject {
         void setStartValue(QVariant startValue);
         QVariant startValue();
 
+        void setStartAnchored(bool anchor);
+        bool startAnchored();
+
         void setEndValue(QVariant endValue);
         QVariant endValue();
 

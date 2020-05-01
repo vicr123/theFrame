@@ -21,6 +21,7 @@ class RectangleViewport : public QWidget
         void setValue(QRect value);
         QRect value();
 
+        void setAnchored(bool anchored);
         void setOffset(QPoint offset);
 
     signals:

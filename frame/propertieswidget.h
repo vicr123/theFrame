@@ -58,6 +58,8 @@ class PropertiesWidget : public QWidget {
 
         void on_elementColorButton_clicked();
 
+        void on_anchorStartValue_toggled(bool checked);
+
     private:
         Ui::PropertiesWidget* ui;
         PropertiesWidgetPrivate* d;

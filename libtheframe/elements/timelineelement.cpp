@@ -28,6 +28,8 @@ struct TimelineElementPrivate {
     QVariant startValue;
     QVariant endValue;
 
+    bool startAnchored = true;
+
     QEasingCurve easingCurve;
 
     Element* parent;
@@ -86,6 +88,17 @@ void TimelineElement::setStartValue(QVariant startValue) {
 
 QVariant TimelineElement::startValue() {
     return d->startValue;
+}
+
+void TimelineElement::setStartAnchored(bool anchor)
+{
+    d->startAnchored = anchor;
+    emit elementPropertyChanged();
+}
+
+bool TimelineElement::startAnchored()
+{
+    return d->startAnchored;
 }
 
 void TimelineElement::setEndValue(QVariant endValue) {

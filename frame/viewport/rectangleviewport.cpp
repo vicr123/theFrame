@@ -10,6 +10,7 @@ struct RectangleViewportPrivate {
     QRect value;
     QColor color;
     QPoint offset;
+    bool anchored;
 
     bool isMouseDown = false;
     RectangleViewport::SizingFlags sizingFlags;
@@ -62,6 +63,12 @@ QRect RectangleViewport::value()
     return d->value;
 }
 
+void RectangleViewport::setAnchored(bool anchored)
+{
+    d->anchored = anchored;
+    this->setVisible(!anchored);
+}
+
 void RectangleViewport::setOffset(QPoint offset)
 {
     d->offset = offset;
@@ -75,7 +82,7 @@ void RectangleViewport::updateGeometry()
     newGeometry.adjust(-d->lineWidth, -d->lineWidth, d->lineWidth, d->lineWidth);
 
     this->setGeometry(newGeometry);
-    this->setVisible(true);
+    this->setVisible(d->anchored);
 }
 
 RectangleViewport::SizingFlags RectangleViewport::hitTest(QPoint point)

@@ -567,137 +567,142 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>GIÁ TRỊ BẮT ĐẦU</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="293"/>
+        <location filename="../propertieswidget.ui" line="255"/>
+        <source>Anchor Start Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../propertieswidget.ui" line="315"/>
         <source>END VALUE</source>
         <translation>GIÁ TRỊ KẾT THÚC</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="336"/>
+        <location filename="../propertieswidget.ui" line="358"/>
         <source>Linear</source>
         <translation>Tuyến tính</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="341"/>
+        <location filename="../propertieswidget.ui" line="363"/>
         <source>Quadratic</source>
         <translation>Bậc hai</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="346"/>
+        <location filename="../propertieswidget.ui" line="368"/>
         <source>Cubic</source>
         <translation>Bậc ba</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="351"/>
+        <location filename="../propertieswidget.ui" line="373"/>
         <source>Quartic</source>
         <translation>Bậc tư</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="356"/>
+        <location filename="../propertieswidget.ui" line="378"/>
         <source>Quintic</source>
         <translation>Bậc năm</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="361"/>
+        <location filename="../propertieswidget.ui" line="383"/>
         <source>Sinusoidal</source>
         <translation>Theo hàm sin</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="366"/>
+        <location filename="../propertieswidget.ui" line="388"/>
         <source>Exponential</source>
         <translation>Theo hàm mũ</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="371"/>
+        <location filename="../propertieswidget.ui" line="393"/>
         <source>Circular</source>
         <translation>Theo hình vòng tròn</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="376"/>
+        <location filename="../propertieswidget.ui" line="398"/>
         <source>Elastic</source>
         <translation>Đàn hồi</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="381"/>
+        <location filename="../propertieswidget.ui" line="403"/>
         <source>Overshooting</source>
         <translation>Vượt quá</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="386"/>
+        <location filename="../propertieswidget.ui" line="408"/>
         <source>Bouncing</source>
         <translation>Nảy</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="391"/>
+        <location filename="../propertieswidget.ui" line="413"/>
         <source>Custom Beizer Spline</source>
         <translation>Beizer Spline tùy chỉnh</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="403"/>
+        <location filename="../propertieswidget.ui" line="425"/>
         <source>Accelerate</source>
         <translation>Tăng tốc</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="408"/>
+        <location filename="../propertieswidget.ui" line="430"/>
         <source>Decelerate</source>
         <translation>Giảm tốc</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="413"/>
+        <location filename="../propertieswidget.ui" line="435"/>
         <source>Accelerate then Decelerate</source>
         <translation>Tăng tốc rồi giảm tốc</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="418"/>
+        <location filename="../propertieswidget.ui" line="440"/>
         <source>Decelerate then Accelerate</source>
         <translation>Giảm tốc rồi tăng tốc</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="426"/>
+        <location filename="../propertieswidget.ui" line="448"/>
         <source>Select the type of easing curve you&apos;d like to use</source>
         <translation>Chọn loại đường giảm bạn muốn dùng</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="439"/>
+        <location filename="../propertieswidget.ui" line="461"/>
         <source>EASING</source>
         <translation>ĐƯỜNG GIẢM</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="537"/>
+        <location filename="../propertieswidget.ui" line="559"/>
         <source>Element Name</source>
         <translation>Tên thành phần</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="557"/>
+        <location filename="../propertieswidget.ui" line="579"/>
         <source>Element Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="160"/>
+        <location filename="../propertieswidget.cpp" line="164"/>
         <source>Start Value Change</source>
         <translation>Đổi Giá Trị Bắt Đầu</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="165"/>
+        <location filename="../propertieswidget.cpp" line="169"/>
         <source>End Value Change</source>
         <translation>Đổi Giá Trị Kết Thúc</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="220"/>
+        <location filename="../propertieswidget.cpp" line="224"/>
         <source>Start State Change</source>
         <translation>Đổi Trạng Thái Đầu Tiên</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="269"/>
+        <location filename="../propertieswidget.cpp" line="273"/>
         <source>Easing Curve Change</source>
         <translation>Đổi Đường Giảm</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="276"/>
+        <location filename="../propertieswidget.cpp" line="280"/>
         <source>Element Name Change</source>
         <translation>Đổi Tên Thành Phần</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="313"/>
+        <location filename="../propertieswidget.cpp" line="317"/>
         <source>Select Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1076,12 +1081,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>Vải bạt</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="165"/>
+        <location filename="../viewport.cpp" line="166"/>
         <source>Start Value Change</source>
         <translation type="unfinished">Đổi Giá Trị Bắt Đầu</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="177"/>
+        <location filename="../viewport.cpp" line="178"/>
         <source>End Value Change</source>
         <translation type="unfinished">Đổi Giá Trị Kết Thúc</translation>
     </message>

@@ -127,6 +127,10 @@ void PropertiesWidget::updateCurrentTimelineElements() {
 
             TimelineElement* timelineElement = qobject_cast<TimelineElement*>(e);
             connect(timelineElement, &TimelineElement::aboutToDelete, this, &PropertiesWidget::updateCurrentTimelineElements);
+
+            ui->anchorStartValue->setChecked(timelineElement->startAnchored());
+            ui->startValueWidget->setExpanded(!timelineElement->startAnchored());
+
             if (d->startWidget) {
                 ui->startValueLayout->removeWidget(d->startWidget);
                 d->startWidget->deleteLater();
@@ -320,4 +324,12 @@ void PropertiesWidget::on_elementColorButton_clicked()
         dialog->deleteLater();
     });
     dialog->open();
+}
+
+
+void PropertiesWidget::on_anchorStartValue_toggled(bool checked)
+{
+    TimelineElement* timelineElement = qobject_cast<TimelineElement*>(d->timeline->currentSelection().first());
+    timelineElement->setStartAnchored(checked);
+    ui->startValueWidget->setExpanded(!timelineElement->startAnchored());
 }
