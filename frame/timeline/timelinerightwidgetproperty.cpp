@@ -106,7 +106,9 @@ void TimelineRightWidgetProperty::paste()
     // Figure out how to paste this data
     // 1. If there is only one element, and it is of the same property type, paste that element here
 
-    if (list.count() == 1 && list.first().toObject().value("type").toInt() == d->element->propertyType(d->property)) {
+    if (!d->property.isEmpty() &&
+            list.count() == 1 &&
+            list.first().toObject().value("type").toInt() == d->element->propertyType(d->property)) {
         d->element->beginTransaction();
 
         TimelineElement* element = new TimelineElement(d->element);
@@ -184,7 +186,9 @@ void TimelineRightWidgetProperty::paste()
     tToast* toast = new tToast(this);
     toast->setTitle(tr("Paste"));
 
-    if (list.count() == 1 && list.first().toObject().value("type").toInt() != d->element->propertyType(d->property)) {
+    if (!d->property.isEmpty() &&
+            list.count() == 1 &&
+            list.first().toObject().value("type").toInt() != d->element->propertyType(d->property)) {
         //The user is trying to paste, but the types don't match
         toast->setText(tr("Can't paste that timeline element here because the type of the timeline element you're pasting doesn't match"));
     } else {
