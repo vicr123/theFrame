@@ -44,7 +44,12 @@ class TimelineRightWidgetProperty : public QWidget {
         void mousePressEvent(QMouseEvent* event);
         void mouseMoveEvent(QMouseEvent* event);
         void mouseReleaseEvent(QMouseEvent* event);
+        void mouseDoubleClickEvent(QMouseEvent *event);
         void focusOutEvent(QFocusEvent* event);
+
+        void singleClick(QMouseEvent* event);
+        void doubleClick(QMouseEvent* event);
+        void tripleClick(QMouseEvent* event);
 
         void timerParametersChanged();
         void draw();

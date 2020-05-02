@@ -9,6 +9,7 @@ class UndoTimelineElementModify : public QUndoCommand
 {
     public:
         UndoTimelineElementModify(QString text, TimelineElementState before, TimelineElementState after);
+        UndoTimelineElementModify(QString text, QList<TimelineElementState> before, QList<TimelineElementState> after);
         ~UndoTimelineElementModify();
 
     private:

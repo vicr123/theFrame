@@ -1051,54 +1051,54 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>TimelineRightWidgetProperty</name>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="116"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="119"/>
         <source>Paste Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="119"/>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="168"/>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="182"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="122"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="171"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="185"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="120"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="123"/>
         <source>Can&apos;t paste that timeline element here because it would overlap with other timeline elements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="165"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="168"/>
         <source>Paste Timeline Elements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="169"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="172"/>
         <source>Can&apos;t paste those timeline elements here because they would overlap with other timeline elements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="186"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="189"/>
         <source>Can&apos;t paste that timeline element here because the type of the timeline element you&apos;re pasting doesn&apos;t match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="188"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="191"/>
         <source>Can&apos;t paste those timeline elements here</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="446"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="456"/>
         <source>Move Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="452"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="462"/>
         <source>Resize Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="456"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="466"/>
         <source>New Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>

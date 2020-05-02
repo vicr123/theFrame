@@ -53,9 +53,12 @@ struct TimelineRightWidgetPropertyPrivate {
 
     MouseState mouseState = MouseIdle;
     quint64 mouseFrameStart;
-    quint64 initialElementFrameStart;
+    QList<quint64> initialElementFrameStart;
     QPointer<TimelineElement> mouseTimelineElement;
-    TimelineElementState oldState;
+    QList<TimelineElementState> oldState;
+    QElapsedTimer lastClickEvent;
+    TimelineElement* lastClickTimelineElement;
+    int numClicks = 0;
 };
 
 TimelineRightWidgetProperty::TimelineRightWidgetProperty(Timeline* timeline, Element* element, QString property, bool isRoot, QWidget* parent) : QWidget(parent) {
@@ -321,41 +324,31 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
 }
 
 void TimelineRightWidgetProperty::mousePressEvent(QMouseEvent* event) {
-    d->element->beginTransaction();
     quint64 frame = this->frameForPoint(event->pos().x());
-    d->mouseFrameStart = frame;
-
-    if (event->button() == Qt::LeftButton) {
-        if ((event->modifiers() & Qt::ControlModifier) == 0) {
-            d->timeline->clearCurrentSelection();
-        }
-
-        if (!d->property.isEmpty()) {
-            TimelineElement* timelineElement = d->element->timelineElementAtFrame(d->property, frame);
-            if (timelineElement) {
-                d->timeline->addToCurrentSelection(timelineElement);
-                if (timelineElement->startFrame() == frame) {
-                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseLeadTransition;
-                } else if (timelineElement->endFrame() == frame) {
-                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseTailTransition;
-                } else {
-                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseMidTransition;
-                    d->initialElementFrameStart = timelineElement->startFrame();
-                }
-                d->mouseTimelineElement = timelineElement;
-                d->oldState = TimelineElementState(timelineElement);
-            } else {
-                d->mouseState = TimelineRightWidgetPropertyPrivate::MouseNotOnTransition;
-            }
-        } else {
-            d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
-        }
-
-        d->timeline->setSelectedTimelineRightWidget(this);
+    TimelineElement* timelineElement = d->element->timelineElementAtFrame(d->property, frame);
+    if (d->lastClickTimelineElement != timelineElement) {
+        d->numClicks = 1;
+        d->lastClickEvent.start();
     } else {
-        d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
+        if (d->lastClickEvent.restart() < QApplication::doubleClickInterval()) {
+            d->numClicks++;
+        } else {
+            d->numClicks = 1;
+        }
     }
-    d->timeline->setCurrentFrame(frame);
+    d->lastClickTimelineElement = timelineElement;
+
+    switch (d->numClicks) {
+        case 1:
+            singleClick(event);
+            break;
+        case 2:
+            doubleClick(event);
+            break;
+        case 3:
+            tripleClick(event);
+            break;
+    }
 }
 
 void TimelineRightWidgetProperty::mouseMoveEvent(QMouseEvent* event) {
@@ -379,19 +372,18 @@ void TimelineRightWidgetProperty::mouseMoveEvent(QMouseEvent* event) {
             break;
         }
         case TimelineRightWidgetPropertyPrivate::MouseMidTransition: {
-            quint64 startFrame;
-            if (d->initialElementFrameStart + frame < d->mouseFrameStart) {
-                startFrame = 0;
-            } else {
-                startFrame = d->initialElementFrameStart + frame - d->mouseFrameStart;
+            quint64 mouseFrameStart = d->mouseFrameStart;
+            for (int i = 0; i < d->initialElementFrameStart.count(); i++) {
+                if (d->initialElementFrameStart.at(i) + frame < mouseFrameStart) {
+                    mouseFrameStart = d->initialElementFrameStart.at(i) + frame;
+                }
+
+//                if (startFrame + element->length() > d->timeline->frameCount()) startFrame = d->timeline->frameCount() - 1 - element->length();
             }
 
-            if (startFrame + d->mouseTimelineElement->length() > d->timeline->frameCount()) startFrame = d->timeline->frameCount() - 1 - d->mouseTimelineElement->length();
-
-            quint64 endFrame = startFrame + d->mouseTimelineElement->length();
-
-            d->mouseTimelineElement->setStartFrame(startFrame);
-            d->mouseTimelineElement->setEndFrame(endFrame);
+            for (int i = 0; i < d->initialElementFrameStart.count(); i++) {
+                static_cast<TimelineElement*>(d->timeline->currentSelection().at(i))->moveStartFrame(d->initialElementFrameStart.at(i) + frame - mouseFrameStart);
+            }
             break;
         }
         case TimelineRightWidgetPropertyPrivate::MouseLeadTransition:
@@ -438,18 +430,35 @@ void TimelineRightWidgetProperty::mouseMoveEvent(QMouseEvent* event) {
 }
 
 void TimelineRightWidgetProperty::mouseReleaseEvent(QMouseEvent* event) {
-    if (d->element->tryCommitTransaction()) {
+    bool shouldCommit = true;
+    QSet<Element*> elements;
+    elements.insert(d->element->parentElement());
+    for (QObject* o : d->timeline->currentSelection()) {
+        TimelineElement* element = static_cast<TimelineElement*>(o);
+        elements.insert(element->parentElement());
+        if (!element->parentElement()->canCommitTransaction()) shouldCommit = false;
+    }
+
+    if (shouldCommit) {
+        for (Element* element : elements) {
+            element->tryCommitTransaction();
+        }
+
         QUndoCommand* undoCommand = nullptr;
         switch (d->mouseState) {
             case TimelineRightWidgetPropertyPrivate::MouseMidTransition: {
-                TimelineElementState newState = TimelineElementState(d->mouseTimelineElement);
-                if (newState != d->oldState) undoCommand = new UndoTimelineElementModify(tr("Move Timeline Element"), d->oldState, newState);
+                QList<TimelineElementState> newStates;
+                for (QObject* o : d->timeline->currentSelection()) {
+                    TimelineElement* element = static_cast<TimelineElement*>(o);
+                    newStates.append(TimelineElementState(element));
+                }
+                if (newStates != d->oldState) undoCommand = new UndoTimelineElementModify(tr("Move Timeline Element"), d->oldState, newStates);
                 break;
             }
             case TimelineRightWidgetPropertyPrivate::MouseLeadTransition:
             case TimelineRightWidgetPropertyPrivate::MouseTailTransition: {
-                TimelineElementState newState = TimelineElementState(d->mouseTimelineElement);
-                if (newState != d->oldState) undoCommand = new UndoTimelineElementModify(tr("Resize Timeline Element"), d->oldState, newState);
+                QList<TimelineElementState> newState({TimelineElementState(d->mouseTimelineElement)});
+                if (newState != d->oldState) undoCommand = new UndoTimelineElementModify(tr("Resize Timeline Element"), d->oldState, {newState});
                 break;
             }
             case TimelineRightWidgetPropertyPrivate::MouseCreatingTransition:
@@ -465,14 +474,106 @@ void TimelineRightWidgetProperty::mouseReleaseEvent(QMouseEvent* event) {
         if (undoCommand) {
             d->timeline->undoStack()->push(undoCommand);
         }
+    } else {
+        for (Element* element : elements) {
+            element->rollbackTransaction();
+        }
     }
 
     d->mouseState = TimelineRightWidgetPropertyPrivate::MouseIdle;
     d->mouseTimelineElement = nullptr;
 }
 
+void TimelineRightWidgetProperty::mouseDoubleClickEvent(QMouseEvent* event)
+{
+    this->mousePressEvent(event);
+}
+
 void TimelineRightWidgetProperty::focusOutEvent(QFocusEvent* event) {
     this->update();
+}
+
+void TimelineRightWidgetProperty::singleClick(QMouseEvent* event)
+{
+    quint64 frame = this->frameForPoint(event->pos().x());
+    d->mouseFrameStart = frame;
+
+    auto clearSelection = [=] {
+        if ((event->modifiers() & Qt::ControlModifier) == 0) {
+            d->timeline->clearCurrentSelection();
+        }
+    };
+
+    if (event->button() == Qt::LeftButton) {
+        if (!d->property.isEmpty()) {
+            TimelineElement* timelineElement = d->element->timelineElementAtFrame(d->property, frame);
+            if (timelineElement) {
+                if (!d->timeline->currentSelection().contains(timelineElement)) {
+                    clearSelection();
+                }
+
+                d->timeline->addToCurrentSelection(timelineElement);
+
+                if (timelineElement->startFrame() == frame) {
+                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseLeadTransition;
+                } else if (timelineElement->endFrame() == frame) {
+                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseTailTransition;
+                } else {
+                    d->mouseState = TimelineRightWidgetPropertyPrivate::MouseMidTransition;
+                    d->initialElementFrameStart.clear();
+                    for (QObject* o : d->timeline->currentSelection()) {
+                        TimelineElement* element = static_cast<TimelineElement*>(o);
+                        d->initialElementFrameStart.append(element->startFrame());
+                    }
+                }
+                d->mouseTimelineElement = timelineElement;
+
+                d->oldState.clear();
+                for (QObject* o : d->timeline->currentSelection()) {
+                    TimelineElement* element = static_cast<TimelineElement*>(o);
+                    d->oldState.append(TimelineElementState(element));
+                }
+            } else {
+                d->mouseState = TimelineRightWidgetPropertyPrivate::MouseNotOnTransition;
+                clearSelection();
+            }
+        } else {
+            d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
+            clearSelection();
+        }
+
+        QSet<Element*> elements;
+        elements.insert(d->element->parentElement());
+        for (QObject* o : d->timeline->currentSelection()) {
+            TimelineElement* element = static_cast<TimelineElement*>(o);
+            elements.insert(element->parentElement());
+        }
+        for (Element* element : elements) element->beginTransaction();
+        d->timeline->setSelectedTimelineRightWidget(this);
+    } else {
+        d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
+    }
+    d->timeline->setCurrentFrame(frame);
+}
+
+void TimelineRightWidgetProperty::doubleClick(QMouseEvent* event)
+{
+    //Select all timeline elements on the current property
+    d->timeline->clearCurrentSelection();
+    for (TimelineElement* element : d->element->timelineElements(d->property)) {
+        d->timeline->addToCurrentSelection(element);
+    }
+}
+
+void TimelineRightWidgetProperty::tripleClick(QMouseEvent* event)
+{
+    //Select all timeline elements for this element
+    d->timeline->clearCurrentSelection();
+    for (QString property : d->element->allProperties().keys()) {
+        for (TimelineElement* element : d->element->timelineElements(property)) {
+            d->timeline->addToCurrentSelection(element);
+        }
+    }
 }
 
 void TimelineRightWidgetProperty::timerParametersChanged() {

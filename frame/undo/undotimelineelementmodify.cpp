@@ -4,13 +4,20 @@
 #include <elements/timelineelement.h>
 
 struct UndoTimelineElementModifyPrivate {
-     TimelineElementState before;
-     TimelineElementState after;
+     QList<TimelineElementState> before;
+     QList<TimelineElementState> after;
 
      bool ignore = true;
 };
 
 UndoTimelineElementModify::UndoTimelineElementModify(QString text, TimelineElementState before, TimelineElementState after) : QUndoCommand(text)
+{
+    d = new UndoTimelineElementModifyPrivate();
+    d->before = {before};
+    d->after = {after};
+}
+
+UndoTimelineElementModify::UndoTimelineElementModify(QString text, QList<TimelineElementState> before, QList<TimelineElementState> after) : QUndoCommand(text)
 {
     d = new UndoTimelineElementModifyPrivate();
     d->before = before;
@@ -24,9 +31,11 @@ UndoTimelineElementModify::~UndoTimelineElementModify()
 
 void UndoTimelineElementModify::undo()
 {
-    Element* target = d->before.target();
-    TimelineElement* timelineElement = target->timelineElementById(d->before.elementId());
-    timelineElement->load(d->before.data);
+    for (TimelineElementState element : d->before) {
+        Element* target = element.target();
+        TimelineElement* timelineElement = target->timelineElementById(element.elementId());
+        timelineElement->load(element.data);
+    }
 }
 
 void UndoTimelineElementModify::redo()
@@ -36,9 +45,11 @@ void UndoTimelineElementModify::redo()
         return;
     }
 
-    Element* target = d->after.target();
-    TimelineElement* timelineElement = target->timelineElementById(d->after.elementId());
-    timelineElement->load(d->after.data);
+    for (TimelineElementState element : d->after) {
+        Element* target = element.target();
+        TimelineElement* timelineElement = target->timelineElementById(element.elementId());
+        timelineElement->load(element.data);
+    }
 }
 
 
@@ -52,10 +63,16 @@ bool UndoTimelineElementModify::mergeWith(const QUndoCommand* o)
     //Check if we can merge
     if (o->id() != this->id()) return false;
     const UndoTimelineElementModify* other = static_cast<const UndoTimelineElementModify*>(o);
-    if (d->before.target() == other->d->before.target() && d->before.elementId() == other->d->before.elementId()) {
-        d->after = other->d->after;
-        return true;
-    } else {
-        return false;
+
+    if (d->before.count() != other->d->before.count()) return false;
+    for (int i = 0; i < d->before.count(); i++) {
+        TimelineElementState first = d->before.at(i);
+        TimelineElementState second = other->d->before.at(i);
+
+        if (first.target() != second.target()) return false;
+        if (first.elementId() != second.elementId()) return false;
     }
+
+    d->after = other->d->after;
+    return true;
 }

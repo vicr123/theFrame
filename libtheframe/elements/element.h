@@ -83,6 +83,8 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
 
         void beginTransaction();
         bool tryCommitTransaction();
+        bool canCommitTransaction();
+        void rollbackTransaction();
 
         void setDisplayColor(QColor color);
         QColor displayColor() const;

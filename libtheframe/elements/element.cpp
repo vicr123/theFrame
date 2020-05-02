@@ -290,38 +290,51 @@ void Element::beginTransaction() {
 }
 
 bool Element::tryCommitTransaction() {
-    bool canCommit = true;
-
-    //Make sure the state of the timeline elements are valid
-    for (QString property : this->animatableProperties().keys()) {
-        for (TimelineElement* element1 : d->timelineElements.values(property)) {
-            //Make sure elements don't intersect each other
-            for (TimelineElement* element2 : d->timelineElements.values(property)) {
-                if (element1 != element2 && element1->intersects(element2)) canCommit = false;
-            }
-
-            //Make sure elements are sequential
-            if (element1->startFrame() > element1->endFrame()) canCommit = false;
-        }
+    if (!this->canCommitTransaction()) {
+        rollbackTransaction();
+        return false;
     }
 
     for (TimelineElement* element : d->timelineElements) {
-        if (canCommit) {
-            element->commitTransaction();
-        } else {
-            element->rollbackTransaction();
-        }
+        element->commitTransaction();
     }
 
     d->inTransaction--;
 
-    if (canCommit && d->invalidateFrames) {
+    if (d->invalidateFrames) {
         this->tryInvalidateFromFrame(d->invalidateFrom);
         d->invalidateFrames = false;
     }
 
     emit timelineElementsChanged();
-    return canCommit;
+    return true;
+}
+
+bool Element::canCommitTransaction()
+{
+    //Make sure the state of the timeline elements are valid
+    for (QString property : this->animatableProperties().keys()) {
+        for (TimelineElement* element1 : d->timelineElements.values(property)) {
+            //Make sure elements don't intersect each other
+            for (TimelineElement* element2 : d->timelineElements.values(property)) {
+                if (element1 != element2 && element1->intersects(element2)) return false;
+            }
+
+            //Make sure elements are sequential
+            if (element1->startFrame() > element1->endFrame()) return false;
+        }
+    }
+    return true;
+}
+
+void Element::rollbackTransaction()
+{
+    for (TimelineElement* element : d->timelineElements) {
+        element->rollbackTransaction();
+    }
+
+    d->inTransaction--;
+    emit timelineElementsChanged();
 }
 
 void Element::setDisplayColor(QColor color) {
