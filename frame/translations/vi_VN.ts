@@ -400,12 +400,12 @@
     <message>
         <location filename="../mainwindow.ui" line="825"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn tất cả</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="828"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="671"/>
@@ -788,68 +788,68 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderjobwidget.ui" line="98"/>
         <source>PROGRESS</source>
-        <translation type="unfinished"></translation>
+        <translation>TIẾN ĐỘ</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="175"/>
         <location filename="../render/renderjobwidget.ui" line="258"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>HOẠT ĐỘNG</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="184"/>
         <source>Play Rendered Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát phim được kết xuất</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="187"/>
         <source>Open the rendered video in your default video player</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở phim được kết xuất trong trình phát phim mặc định của bạn</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="194"/>
         <source>Open Video Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở vị trí phim</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="197"/>
         <source>Show the video file in the file browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiển thị tệp phim trên trình duyệt tệp</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="267"/>
         <source>Cancel Render Job</source>
-        <translation type="unfinished"></translation>
+        <translation>Hủy việc kết xuất</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="270"/>
         <source>Stop rendering the video</source>
-        <translation type="unfinished"></translation>
+        <translation>Dừng việc kết xuất</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="47"/>
         <source>Pending...</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang chờ xử lý...</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="52"/>
         <source>Currently rendering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang kết xuất...</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="58"/>
         <source>Job Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Việc kết xuất hoàn thành</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="64"/>
         <source>Job Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Việc kết xuất thất bại</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="70"/>
         <source>Job Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Việc kết xuất bị hủy</translation>
     </message>
 </context>
 <context>
@@ -862,7 +862,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderjobs.ui" line="53"/>
         <source>Render Jobs</source>
-        <translation type="unfinished">Hoạt động kết xuất</translation>
+        <translation>Hoạt động kết xuất</translation>
     </message>
 </context>
 <context>
@@ -875,59 +875,59 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderpopover.ui" line="35"/>
         <source>Render</source>
-        <translation type="unfinished">Kết Xuất</translation>
+        <translation>Kết Xuất</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="80"/>
         <source>Render to</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết Xuất thành</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="114"/>
         <source>FFMPEG location</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí FFMPEG</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="128"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt đầu</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="100"/>
         <source>Renderer Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Đường dẫn đến trình kết xuất</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="66"/>
         <location filename="../render/renderpopover.ui" line="73"/>
         <location filename="../render/renderpopover.ui" line="107"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyệt...</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="48"/>
         <source>MP4 Videos (*.mp4)</source>
-        <translation type="unfinished"></translation>
+        <translation>Phim MP4 (*.mp4)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="70"/>
         <source>FFMPEG (ffmpeg.exe)</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMPEG (ffmpeg.exe)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="72"/>
         <source>FFMPEG (ffmpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMPEG (ffmpeg)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="90"/>
         <source>theFrame Renderer (theframe-render.exe)</source>
-        <translation type="unfinished"></translation>
+        <translation>Trình kết xuất theFrame (theframe-renderer.exe)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="92"/>
         <source>theFrame Rnederer (theframe-render)</source>
-        <translation type="unfinished"></translation>
+        <translation>Trình kết xuất (theframe-render)</translation>
     </message>
 </context>
 <context>
@@ -963,12 +963,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../timeline/timeline.cpp" line="306"/>
         <source>Cut</source>
-        <translation type="unfinished">Cắt</translation>
+        <translation>Cắt</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="351"/>
         <source>Paste Elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Dán thành phần</translation>
     </message>
 </context>
 <context>
@@ -1065,39 +1065,39 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="119"/>
         <source>Paste Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Dán thành phần dòng thời gian</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="122"/>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="171"/>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="185"/>
         <source>Paste</source>
-        <translation type="unfinished">Dán</translation>
+        <translation>Dán</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="123"/>
         <source>Can&apos;t paste that timeline element here because it would overlap with other timeline elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể dán thành phần dồng thời gian đó ở đây tại vị nó sẽ chống với thành phần dòng thời gian khác</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="168"/>
         <source>Paste Timeline Elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Dán thành phần dòng thời gian</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="172"/>
         <source>Can&apos;t paste those timeline elements here because they would overlap with other timeline elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể dán thành phần dồng thời gian đó ở đây tại vị nó sẽ chống với thành phần dòng thời gian khác</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="189"/>
         <source>Can&apos;t paste that timeline element here because the type of the timeline element you&apos;re pasting doesn&apos;t match</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể dán thành phần dồng thời gian đó ở đây tại vị kiểu thành phần dòng thời gian bạn đang cố dán không có hợp nhau</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="191"/>
         <source>Can&apos;t paste those timeline elements here</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể dán thành phần dồng thời gian đó ở đây</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="455"/>
@@ -1130,12 +1130,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../viewport.cpp" line="166"/>
         <source>Start Value Change</source>
-        <translation type="unfinished">Đổi Giá Trị Bắt Đầu</translation>
+        <translation>Đổi Giá Trị Bắt Đầu</translation>
     </message>
     <message>
         <location filename="../viewport.cpp" line="178"/>
         <source>End Value Change</source>
-        <translation type="unfinished">Đổi Giá Trị Kết Thúc</translation>
+        <translation>Đổi Giá Trị Kết Thúc</translation>
     </message>
 </context>
 <context>
