@@ -40,6 +40,17 @@ int main(int argc, char* argv[]) {
     }
     a.installTranslators();
 
+    //Install libtheframe translators
+    QTranslator* libtheframeTranslator = new QTranslator();
+#if defined(Q_OS_MAC)
+    libtheframeTranslator->load(QLocale::system().name(), a.macOSBundlePath() + "/Contents/Frameworks/libtheframe.framework/Contents/translations/");
+#elif defined(Q_OS_LINUX)
+    libtheframeTranslator->load(QLocale::system().name(), a.shareDir() + "/libtheframe/translations");
+#elif defined(Q_OS_WIN)
+    libtheframeTranslator->load(QLocale::system().name(), this->applicationDirPath() + "\\libtheframe\\translations");
+#endif
+    a.installTranslator(libtheframeTranslator);
+
     a.setOrganizationName("theSuite");
     a.setOrganizationDomain("vicr123.com");
     a.setApplicationName("theFrame");

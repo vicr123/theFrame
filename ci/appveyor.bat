@@ -34,12 +34,14 @@ cd ..
 mkdir deploy
 mkdir deploy\styles
 mkdir deploy\translations
+mkdir deploy\translations\libtheframe
 mkdir deploy\icons
 copy "contemporary-theme\release\Contemporary.dll" deploy\styles
 copy build\frame\release\theFrame.exe deploy
-copy translations\*.qm deploy\translations
-copy defaults.conf deploy\
-robocopy icons\contemporary-theme deploy\icons\ /e
+copy frame\translations\*.qm deploy\translations
+copy libtheframe\translations\*.qm deploy\translations
+copy frame\defaults.conf deploy\
+robocopy frame\icons\contemporary-theme deploy\icons\ /e
 copy build\libtheframe\release\libtheframe.dll deploy
 copy build\theframe-render\release\theframe-render.exe deploy
 copy "C:\Program Files\thelibs\lib\the-libs.dll" deploy

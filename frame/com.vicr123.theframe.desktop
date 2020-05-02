@@ -8,4 +8,4 @@ GenericName[vi]=Công cụ hoạt hình
 Categories=AudioVideo;Video;
 Exec=theframe %U
 Icon=theframe
-MimeType=application/x-theframe-project
+MimeType=application/x-theframe-project;

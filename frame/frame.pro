@@ -153,13 +153,13 @@ macx {
     SOURCES += \
         main-objc.mm
 
-#    blueprint {
-#        TARGET = "theSlate Blueprint"
-#        ICON = icon-bp.icns
-#    } else {
+    blueprint {
+        TARGET = "theFrame Blueprint"
+        ICON = icon-bp.icns
+    } else {
         TARGET = "theFrame"
         ICON = icon.icns
-#    }
+    }
 
     INCLUDEPATH += "/usr/local/include/the-libs"
     LIBS += -L/usr/local/lib -lthe-libs -F$$OUT_PWD/../libtheframe/ -framework libtheframe

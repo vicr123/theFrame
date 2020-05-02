@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" sourcelanguage="en_US">
+<TS version="2.1" language="vi_VN" sourcelanguage="en_US">
 <context>
     <name>Element</name>
     <message>
         <location filename="../elements/element.cpp" line="66"/>
         <source>New Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Thành phần mới</translation>
     </message>
 </context>
 <context>
@@ -14,17 +14,17 @@
     <message>
         <location filename="../elements/groupelement.cpp" line="56"/>
         <source>Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="58"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ mờ đục</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="73"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhóm</translation>
     </message>
 </context>
 <context>
@@ -32,27 +32,27 @@
     <message>
         <location filename="../elements/pictureelement.cpp" line="93"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí/Kích thước</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="95"/>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Nguồn</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="97"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ mờ đục</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="117"/>
         <source>All Images (*.png *.jpg *.jpeg *.gif *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Mọi hình ảnh (*.png *.jpg *.jpeg *.gif *.svg)</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="124"/>
         <source>Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Hình ảnh</translation>
     </message>
 </context>
 <context>
@@ -60,32 +60,32 @@
     <message>
         <location filename="../elements/rectangleelement.cpp" line="81"/>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Chữ nhật</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="86"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí/Kích thước</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="88"/>
         <source>Background Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu nền</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="90"/>
         <source>Border Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu viền</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="92"/>
         <source>Border Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiều rộng viền</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="94"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ mờ đục</translation>
     </message>
 </context>
 <context>
@@ -93,33 +93,33 @@
     <message>
         <location filename="../elements/textelement.cpp" line="25"/>
         <source>Edit Me!</source>
-        <translation type="unfinished"></translation>
+        <translation>Chỉnh sửa tôi!</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="82"/>
         <location filename="../elements/textelement.cpp" line="111"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Văn bản</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="84"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="86"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu văn bản</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="88"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Phông</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="90"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ mờ đục</translation>
     </message>
 </context>
 <context>
@@ -127,7 +127,7 @@
     <message>
         <location filename="../elements/viewportelement.cpp" line="87"/>
         <source>Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Vải bạt</translation>
     </message>
 </context>
 </TS>
