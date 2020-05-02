@@ -29,6 +29,7 @@ namespace Ui {
 }
 QT_END_NAMESPACE
 
+class QListWidgetItem;
 struct MainWindowPrivate;
 class MainWindow : public QMainWindow {
         Q_OBJECT
@@ -117,6 +118,8 @@ class MainWindow : public QMainWindow {
         
         void on_actionSelect_All_triggered();
 
+        void on_recentsBox_itemActivated(QListWidgetItem *item);
+
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;
@@ -131,5 +134,6 @@ class MainWindow : public QMainWindow {
         tPromise<void>* ensureDiscardChanges();
 
         void updatePlayFrame();
+        void updateRecents();
 };
 #endif // MAINWINDOW_H

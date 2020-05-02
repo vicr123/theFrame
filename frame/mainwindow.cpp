@@ -110,6 +110,13 @@ MainWindow::MainWindow(QWidget* parent)
     d->playTimer = new QTimer(this);
     connect(d->playTimer, &QTimer::timeout, this, &MainWindow::updatePlayFrame);
 
+    connect(&d->settings, &tSettings::settingChanged, this, [=](QString key) {
+        if (key == "Files/recents") {
+            this->updateRecents();
+        }
+    });
+    this->updateRecents();
+
     ui->stackedWidget->setCurrentWidget(ui->welcomePage);
     ui->stackedWidget->setCurrentAnimation(tStackedWidget::Fade);
 
@@ -154,6 +161,12 @@ void MainWindow::openFile(QString filePath)
     QString projectPath = QFileInfo(d->currentFile).path();
     d->viewport->setProperty("projectPath", projectPath);
     ui->propertiesWidget->setProjectPath(projectPath);
+
+    QStringList recents = d->settings.delimitedList("Files/recents");
+    if (recents.contains(d->currentFile)) recents.removeAll(d->currentFile);
+    recents.prepend(d->currentFile);
+    if (recents.count() > 10) recents.removeLast();
+    d->settings.setDelimitedList("Files/recents", recents);
 
     d->undoStack->clear();
     ui->stackedWidget->setCurrentWidget(ui->mainPage);
@@ -216,6 +229,39 @@ void MainWindow::updatePlayFrame() {
         ui->playButton->setChecked(false);
     } else {
         ui->timeline->setCurrentFrame(newFrame);
+    }
+}
+
+void MainWindow::updateRecents()
+{
+    ui->menuOpen_Recent->clear();
+    QStringList recents = d->settings.delimitedList("Files/recents");
+    recents.removeAll("");
+    if (recents.isEmpty()) {
+        ui->menuOpen_Recent->addAction(tr("No Recent Files"))->setEnabled(false);
+    } else {
+        for (QString recent : recents) {
+            QFileInfo file(recent);
+            if (file.exists()) {
+                ui->menuOpen_Recent->addAction(file.completeBaseName(), [=] {
+                    //Open the file
+                    if (d->undoStack->isClean()) {
+                        this->openFile(recent);
+                    } else {
+                        this->ensureDiscardChanges()->then([=] {
+                            this->openFile(recent);
+                        });
+                    }
+                });
+
+                QListWidgetItem* item = new QListWidgetItem();
+                item->setText(file.completeBaseName());
+                item->setData(Qt::UserRole, recent);
+                ui->recentsBox->addItem(item);
+            }
+        }
+        ui->menuOpen_Recent->addSeparator();
+        ui->menuOpen_Recent->addAction(tr("Clear Recent Items"));
     }
 }
 
@@ -389,6 +435,12 @@ tPromise<void>* MainWindow::saveAs()
                 QString projectPath = QFileInfo(d->currentFile).path();
                 d->viewport->setProperty("projectPath", projectPath);
                 ui->propertiesWidget->setProjectPath(projectPath);
+
+                QStringList recents = d->settings.delimitedList("Files/recents");
+                if (recents.contains(d->currentFile)) recents.removeAll(d->currentFile);
+                recents.prepend(d->currentFile);
+                if (recents.count() > 10) recents.removeLast();
+                d->settings.setDelimitedList("Files/recents", recents);
 
                 this->save()->then(res)->error(rej);
             } else {
@@ -630,4 +682,17 @@ void MainWindow::on_actionPaste_triggered()
 void MainWindow::on_actionSelect_All_triggered()
 {
     ui->timeline->selectAll();
+}
+
+void MainWindow::on_recentsBox_itemActivated(QListWidgetItem *item)
+{
+    //Open the file
+    if (d->undoStack->isClean()) {
+        this->openFile(item->data(Qt::UserRole).toString());
+    } else {
+        //We should never get here... but just in case :)
+        this->ensureDiscardChanges()->then([=] {
+            this->openFile(item->data(Qt::UserRole).toString());
+        });
+    }
 }
