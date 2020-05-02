@@ -6,7 +6,7 @@
     <message>
         <location filename="../elements/element.cpp" line="66"/>
         <source>New Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Nowy Element</translation>
     </message>
 </context>
 <context>
@@ -14,17 +14,17 @@
     <message>
         <location filename="../elements/groupelement.cpp" line="56"/>
         <source>Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Offsetowy</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="58"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieprzezroczystość</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="73"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grupa</translation>
     </message>
 </context>
 <context>
@@ -32,17 +32,17 @@
     <message>
         <location filename="../elements/pictureelement.cpp" line="93"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Geometria</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="95"/>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Źródło</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="97"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieprzezroczystość</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="117"/>
