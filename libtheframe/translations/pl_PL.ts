@@ -65,7 +65,7 @@
     <message>
         <location filename="../elements/rectangleelement.cpp" line="86"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Geometria</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="88"/>
@@ -85,7 +85,7 @@
     <message>
         <location filename="../elements/rectangleelement.cpp" line="94"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nieprzezroczystość</translation>
     </message>
 </context>
 <context>
@@ -119,7 +119,7 @@
     <message>
         <location filename="../elements/textelement.cpp" line="90"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nieprzezroczystość</translation>
     </message>
 </context>
 <context>

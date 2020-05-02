@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 #elif defined(Q_OS_LINUX)
     libtheframeTranslator->load(QLocale::system().name(), a.shareDir() + "/libtheframe/translations");
 #elif defined(Q_OS_WIN)
-    libtheframeTranslator->load(QLocale::system().name(), this->applicationDirPath() + "\\libtheframe\\translations");
+    libtheframeTranslator->load(QLocale::system().name(), a.applicationDirPath() + "\\libtheframe\\translations");
 #endif
     a.installTranslator(libtheframeTranslator);
 
