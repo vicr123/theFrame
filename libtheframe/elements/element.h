@@ -35,15 +35,15 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         ~Element();
 
         enum PropertyType {
-            Integer,
-            Double,
-            Rect,
-            Color,
-            Percentage,
-            String,
-            Point,
-            Font,
-            File
+            Integer = 0,
+            Double = 1,
+            Rect = 2,
+            Color = 3,
+            Percentage = 4,
+            String = 5,
+            Point = 6,
+            Font = 7,
+            File = 8
         };
 
         virtual void render(QPainter* painter, quint64 frame) const;
@@ -104,6 +104,7 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
 
     private:
         ElementPrivate* d;
+        friend TimelineElement;
 
         QJsonValue propertyToJson(QString property, QVariant value) const;
         QJsonValue propertyToJson(PropertyType propertyType, QVariant value) const;

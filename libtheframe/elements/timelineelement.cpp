@@ -21,6 +21,8 @@
 
 #include <QTimer>
 #include <QStack>
+#include <QJsonObject>
+#include "element.h"
 
 struct TimelineElementPrivate {
     quint64 startFrame;
@@ -40,8 +42,10 @@ struct TimelineElementPrivate {
     QStack<TimelineElementPrivate> transactionStack;
 };
 
-TimelineElement::TimelineElement() : QObject(nullptr) {
+TimelineElement::TimelineElement(Element* parentElement) : QObject(nullptr)
+{
     d = new TimelineElementPrivate();
+    d->parent = parentElement;
 }
 
 TimelineElement::TimelineElement(quint64 startFrame, QVariant startValue, quint64 endFrame, QVariant endValue, QEasingCurve easingCurve) : QObject(nullptr) {
@@ -60,6 +64,14 @@ TimelineElement::~TimelineElement() {
 
 void TimelineElement::setStartFrame(quint64 startFrame) {
     d->startFrame = startFrame;
+    emit elementPropertyChanged();
+}
+
+void TimelineElement::moveStartFrame(quint64 startFrame)
+{
+    quint64 length = d->endFrame - d->startFrame;
+    d->startFrame = startFrame;
+    d->endFrame = startFrame + length;
     emit elementPropertyChanged();
 }
 
@@ -138,6 +150,40 @@ bool TimelineElement::isFrameContained(quint64 frame) {
 
 bool TimelineElement::intersects(TimelineElement* other) {
     return this->isFrameContained(other->endFrame()) || this->isFrameContained(other->startFrame());
+}
+
+QJsonObject TimelineElement::save()
+{
+    QJsonObject jsonElement;
+    jsonElement.insert("property", this->propertyName());
+    jsonElement.insert("startFrame", QString::number(this->startFrame()));
+    jsonElement.insert("endFrame", QString::number(this->endFrame()));
+    jsonElement.insert("startValue", this->parentElement()->propertyToJson(this->propertyName(), this->startValue()));
+    jsonElement.insert("endValue", this->parentElement()->propertyToJson(this->propertyName(), this->endValue()));
+    jsonElement.insert("startAnchored", this->startAnchored());
+    jsonElement.insert("id", QString::number(this->getId()));
+    jsonElement.insert("type", this->parentElement()->propertyType(this->propertyName()));
+
+    QJsonObject easingCurve;
+    easingCurve.insert("type", this->easingCurve().type());
+    jsonElement.insert("easingCurve", easingCurve);
+    return jsonElement;
+}
+
+void TimelineElement::load(QJsonObject obj)
+{
+    QString property = obj.value("property").toString();
+
+    this->setPropertyName(property);
+    this->setStartFrame(obj.value("startFrame").toString().toULongLong());
+    this->setEndFrame(obj.value("endFrame").toString().toULongLong());
+    this->setStartValue(d->parent->jsonToProperty(property, obj.value("startValue")));
+    this->setEndValue(d->parent->jsonToProperty(property, obj.value("endValue")));
+    this->setStartAnchored(obj.value("startAnchored").toBool());
+
+    QJsonObject easingCurveObject = obj.value("easingCurve").toObject();
+    QEasingCurve easingCurve(static_cast<QEasingCurve::Type>(easingCurveObject.value("type").toInt()));
+    this->setEasingCurve(easingCurve);
 }
 
 void TimelineElement::beginTransaction() {

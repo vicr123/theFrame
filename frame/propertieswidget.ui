@@ -32,7 +32,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="nothingSelectedPage">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -446,6 +446,9 @@
               <widget class="QLabel" name="label_6">
                <property name="text">
                 <string>Select the type of easing curve you'd like to use</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
                </property>
               </widget>
              </item>

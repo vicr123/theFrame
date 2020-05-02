@@ -31,6 +31,7 @@ class QMimeData;
 class TimelineElement;
 class Prerenderer;
 class QUndoStack;
+class TimelineRightWidgetProperty;
 struct TimelinePrivate;
 class Timeline : public QWidget {
         Q_OBJECT
@@ -64,6 +65,9 @@ class Timeline : public QWidget {
         void addToCurrentSelection(QObject* element);
         void clearCurrentSelection();
         QList<QObject*> currentSelection();
+
+        void setSelectedTimelineRightWidget(TimelineRightWidgetProperty* rightWidget);
+        TimelineRightWidgetProperty* selectedTimelineRightWidget();
 
         void deleteSelected(QString undoText = "");
 

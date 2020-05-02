@@ -26,6 +26,11 @@
 #include "timeline.h"
 #include "prerenderer.h"
 
+#include <QClipboard>
+#include <QMimeData>
+#include <ttoast.h>
+#include <tsystemsound.h>
+
 #include "undo/undotimelineelementmodify.h"
 #include "undo/undonewtimelineelement.h"
 
@@ -88,6 +93,104 @@ quint64 TimelineRightWidgetProperty::frameForPoint(int x) {
     if (x < 0) return 0;
     if (x > this->width()) return static_cast<quint64>(this->width() / d->timeline->frameSpacing());
     return static_cast<quint64>(x / d->timeline->frameSpacing());
+}
+
+void TimelineRightWidgetProperty::paste()
+{
+    const QMimeData* mimeData = QApplication::clipboard()->mimeData();
+    QJsonArray list = QJsonDocument::fromBinaryData(mimeData->data("application/x-theframe-timelineelements")).array();
+
+    // Figure out how to paste this data
+    // 1. If there is only one element, and it is of the same property type, paste that element here
+
+    if (list.count() == 1 && list.first().toObject().value("type").toInt() == d->element->propertyType(d->property)) {
+        d->element->beginTransaction();
+
+        TimelineElement* element = new TimelineElement(d->element);
+        element->load(list.first().toObject());
+        element->moveStartFrame(d->timeline->currentFrame());
+        d->element->addTimelineElement(d->property, element);
+
+        if (d->element->tryCommitTransaction()) {
+            d->timeline->setCurrentSelection(d->element);
+            d->timeline->undoStack()->push(new UndoNewTimelineElement(tr("Paste Timeline Element"), TimelineElementState(element)));
+        } else {
+            tToast* toast = new tToast(this);
+            toast->setTitle(tr("Paste"));
+            toast->setText(tr("Can't paste that timeline element here because it would overlap with other timeline elements"));
+            toast->show(this->window());
+            connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+            tSystemSound::play("bell");
+        }
+        return;
+    }
+
+    // 2. If the parent element contains properties of the same name (with matching types) paste the elements there
+    {
+        bool isOk = true;
+        int earliestFrameIndex = 0;
+        for (int i = 0; i < list.count(); i++) {
+            QJsonObject elementObject = list.at(i).toObject();
+            if (d->element->allProperties().contains(elementObject.value("property").toString()) &&
+                d->element->allProperties().value(elementObject.value("property").toString()) == d->element->propertyType(elementObject.value("property").toString())) {
+
+                if (list.at(earliestFrameIndex).toObject().value("startFrame").toString().toULongLong() > elementObject.value("startFrame").toString().toULongLong())
+                    earliestFrameIndex = i;
+            } else {
+                isOk = false;
+            }
+        }
+
+        if (isOk) {
+            d->element->beginTransaction();
+
+            quint64 earliestFrame = list.at(earliestFrameIndex).toObject().value("startFrame").toString().toULongLong();
+            QList<TimelineElement*> elements;
+            for (QJsonValue elementValue : list) {
+                QJsonObject elementObject = elementValue.toObject();
+                TimelineElement* element = new TimelineElement(d->element);
+                element->load(elementObject);
+                element->moveStartFrame(d->timeline->currentFrame() + element->startFrame() - earliestFrame);
+                d->element->addTimelineElement(element->propertyName(), element);
+                elements.append(element);
+            }
+
+            if (d->element->tryCommitTransaction()) {
+                d->timeline->clearCurrentSelection();
+                QList<TimelineElementState> elementStates;
+                for (TimelineElement* element : elements) {
+                    d->timeline->addToCurrentSelection(element);
+                    elementStates.append(TimelineElementState(element));
+                }
+                d->timeline->undoStack()->push(new UndoNewTimelineElement(tr("Paste Timeline Elements"), elementStates));
+            } else {
+                tToast* toast = new tToast(this);
+                toast->setTitle(tr("Paste"));
+                toast->setText(tr("Can't paste those timeline elements here because they would overlap with other timeline elements"));
+                toast->show(this->window());
+                connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+                tSystemSound::play("bell");
+            }
+            return;
+        }
+    }
+
+    // 3. TODO: If the parent element contains properties of the same types, paste the elements there
+
+    // 4. This is an invalid paste operation. Work out what went wrong and try to show a helpful toast
+    tToast* toast = new tToast(this);
+    toast->setTitle(tr("Paste"));
+
+    if (list.count() == 1 && list.first().toObject().value("type").toInt() != d->element->propertyType(d->property)) {
+        //The user is trying to paste, but the types don't match
+        toast->setText(tr("Can't paste that timeline element here because the type of the timeline element you're pasting doesn't match"));
+    } else {
+        toast->setText(tr("Can't paste those timeline elements here"));
+    }
+
+    toast->show(this->window());
+    connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
+    tSystemSound::play("bell");
 }
 
 void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
@@ -247,6 +350,8 @@ void TimelineRightWidgetProperty::mousePressEvent(QMouseEvent* event) {
         } else {
             d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
         }
+
+        d->timeline->setSelectedTimelineRightWidget(this);
     } else {
         d->mouseState = TimelineRightWidgetPropertyPrivate::MouseDownNoAction;
     }

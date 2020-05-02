@@ -6,7 +6,7 @@
 #include <QDebug>
 
 struct UndoNewTimelineElementPrivate {
-    TimelineElementState state;
+    QList<TimelineElementState> states;
 
     bool ignore = true;
 };
@@ -14,7 +14,13 @@ struct UndoNewTimelineElementPrivate {
 UndoNewTimelineElement::UndoNewTimelineElement(QString text, TimelineElementState newTimelineElement) : QUndoCommand(text)
 {
     d = new UndoNewTimelineElementPrivate;
-    d->state = newTimelineElement;
+    d->states = {newTimelineElement};
+}
+
+UndoNewTimelineElement::UndoNewTimelineElement(QString text, QList<TimelineElementState> newTimelineelements) : QUndoCommand(text)
+{
+    d = new UndoNewTimelineElementPrivate;
+    d->states = newTimelineelements;
 }
 
 UndoNewTimelineElement::~UndoNewTimelineElement()
@@ -24,7 +30,9 @@ UndoNewTimelineElement::~UndoNewTimelineElement()
 
 void UndoNewTimelineElement::undo()
 {
-    d->state.target()->timelineElementById(d->state.id)->deleteLater();
+    for (auto i = d->states.rbegin(); i != d->states.rend(); i++) {
+        i->target()->timelineElementById(i->elementId())->deleteLater();
+    }
 }
 
 void UndoNewTimelineElement::redo()
@@ -34,13 +42,10 @@ void UndoNewTimelineElement::redo()
         return;
     }
 
-    Element* target = d->state.target();
-    TimelineElement* element = new TimelineElement();
-    element->setStartFrame(d->state.startFrame);
-    element->setEndFrame(d->state.endFrame);
-    element->setStartValue(d->state.startValue);
-    element->setEndValue(d->state.endValue);
-    element->setStartAnchored(d->state.anchorStart);
-    element->setEasingCurve(d->state.easingCurve);
-    target->addTimelineElement(d->state.property, element, d->state.id);
+    for (TimelineElementState state : d->states) {
+        Element* target = state.target();
+        TimelineElement* element = new TimelineElement(target);
+        element->load(state.data);
+        target->addTimelineElement(state.elementProperty(), element, state.elementId());
+    }
 }

@@ -28,6 +28,7 @@
 #include <QMimeData>
 #include <QClipboard>
 #include <QJsonDocument>
+#include <tsystemsound.h>
 #include <elements/timelineelement.h>
 #include <the-libs_global.h>
 
@@ -37,6 +38,7 @@
 
 #include "timelineleftwidget.h"
 #include "timelinerightwidget.h"
+#include "timelinerightwidgetproperty.h"
 
 struct TimelinePrivate {
     TimelineLeftWidget* rootLeftWidget;
@@ -45,6 +47,8 @@ struct TimelinePrivate {
 
     QUndoStack* undoStack;
     QList<QObject*> currentSelection;
+
+    QPointer<TimelineRightWidgetProperty> currentRightWidget;
 
     quint64 frameCount = 1200;
     double frameSpacing = 1;
@@ -193,6 +197,16 @@ QList<QObject*> Timeline::currentSelection() {
     return d->currentSelection;
 }
 
+void Timeline::setSelectedTimelineRightWidget(TimelineRightWidgetProperty* rightWidget)
+{
+    d->currentRightWidget = rightWidget;
+}
+
+TimelineRightWidgetProperty* Timeline::selectedTimelineRightWidget()
+{
+    return d->currentRightWidget;
+}
+
 void Timeline::deleteSelected(QString undoText) {
 
     d->undoStack->beginMacro(tr("Delete"));
@@ -295,7 +309,7 @@ void Timeline::cut()
 bool Timeline::canPaste()
 {
     const QMimeData* mimeData = QApplication::clipboard()->mimeData();
-    if (mimeData->hasFormat("application/x-theframe-elements")) {
+    if (mimeData->hasFormat("application/x-theframe-elements") || mimeData->hasFormat("application/x-theframe-timelineelements")) {
         return true;
     } else {
         return false;
@@ -335,6 +349,12 @@ void Timeline::paste()
             undoList.append(ElementState(element));
         }
         d->undoStack->push(new UndoNewElement(tr("Paste Elements"), undoList));
+    } else if (mimeData->hasFormat("application/x-theframe-timelineelements")) {
+        if (d->currentRightWidget) {
+            d->currentRightWidget->paste();
+        } else {
+            tSystemSound::play("bell");
+        }
     }
 }
 
@@ -385,6 +405,13 @@ QMimeData* Timeline::selectedMimeData()
         }
 
         mimeData->setData("application/x-theframe-elements", QJsonDocument(list).toBinaryData());
+    } else if (d->currentSelection.first()->metaObject()->inherits(&TimelineElement::staticMetaObject)) {
+        QJsonArray list;
+        for (QObject* element : d->currentSelection) {
+            TimelineElement* e = static_cast<TimelineElement*>(element);
+            list.append(e->save());
+        }
+        mimeData->setData("application/x-theframe-timelineelements", QJsonDocument(list).toBinaryData());
     }
 
     return mimeData;

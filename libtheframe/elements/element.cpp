@@ -351,19 +351,7 @@ QJsonObject Element::save() const {
 
     QJsonArray timelineElements;
     for (TimelineElement* element : d->timelineElements) {
-        QJsonObject jsonElement;
-        jsonElement.insert("property", element->propertyName());
-        jsonElement.insert("startFrame", QString::number(element->startFrame()));
-        jsonElement.insert("endFrame", QString::number(element->endFrame()));
-        jsonElement.insert("startValue", propertyToJson(element->propertyName(), element->startValue()));
-        jsonElement.insert("endValue", propertyToJson(element->propertyName(), element->endValue()));
-        jsonElement.insert("startAnchored", element->startAnchored());
-        jsonElement.insert("id", QString::number(element->getId()));
-
-        QJsonObject easingCurve;
-        easingCurve.insert("type", element->easingCurve().type());
-        jsonElement.insert("easingCurve", easingCurve);
-        timelineElements.append(jsonElement);
+        timelineElements.append(element->save());
     }
     elementObject.insert("timelineElements", timelineElements);
 
@@ -398,16 +386,8 @@ bool Element::load(QJsonObject obj, bool respectIds) {
         QJsonObject elementObject = elementValue.toObject();
         QString property = elementObject.value("property").toString();
 
-        TimelineElement* element = new TimelineElement();
-        element->setStartFrame(elementObject.value("startFrame").toString().toULongLong());
-        element->setEndFrame(elementObject.value("endFrame").toString().toULongLong());
-        element->setStartValue(jsonToProperty(property, elementObject.value("startValue")));
-        element->setEndValue(jsonToProperty(property, elementObject.value("endValue")));
-        element->setStartAnchored(elementObject.value("startAnchored").toBool());
-
-        QJsonObject easingCurveObject = elementObject.value("easingCurve").toObject();
-        QEasingCurve easingCurve(static_cast<QEasingCurve::Type>(easingCurveObject.value("type").toInt()));
-        element->setEasingCurve(easingCurve);
+        TimelineElement* element = new TimelineElement(this);
+        element->load(elementObject);
 
         uint id = 0;
         if (respectIds) id = elementObject.value("id").toString().toUInt();

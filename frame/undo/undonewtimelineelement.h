@@ -9,6 +9,7 @@ class UndoNewTimelineElement : public QUndoCommand
 {
     public:
         UndoNewTimelineElement(QString text, TimelineElementState newTimelineElement);
+        UndoNewTimelineElement(QString text, QList<TimelineElementState> newTimelineelements);
         ~UndoNewTimelineElement();
 
     private:

@@ -662,17 +662,17 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>Chọn loại đường giảm bạn muốn dùng</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="461"/>
+        <location filename="../propertieswidget.ui" line="464"/>
         <source>EASING</source>
         <translation>ĐƯỜNG GIẢM</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="559"/>
+        <location filename="../propertieswidget.ui" line="562"/>
         <source>Element Name</source>
         <translation>Tên thành phần</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.ui" line="579"/>
+        <location filename="../propertieswidget.ui" line="582"/>
         <source>Element Color</source>
         <translation>Màu thành phần</translation>
     </message>
@@ -852,7 +852,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderjobs.ui" line="53"/>
         <source>Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hoạt động kết xuất</translation>
     </message>
 </context>
 <context>
@@ -865,7 +865,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderpopover.ui" line="35"/>
         <source>Render</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kết Xuất</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="80"/>
@@ -936,27 +936,27 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="198"/>
+        <location filename="../timeline/timeline.cpp" line="212"/>
         <source>Delete</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="206"/>
+        <location filename="../timeline/timeline.cpp" line="220"/>
         <source>Delete Timeline Element</source>
         <translation>Xóa Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="211"/>
+        <location filename="../timeline/timeline.cpp" line="225"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>Xóa %1 &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="292"/>
+        <location filename="../timeline/timeline.cpp" line="306"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Cắt</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="337"/>
+        <location filename="../timeline/timeline.cpp" line="351"/>
         <source>Paste Elements</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1053,17 +1053,54 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>TimelineRightWidgetProperty</name>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="341"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="116"/>
+        <source>Paste Timeline Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="119"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="168"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="182"/>
+        <source>Paste</source>
+        <translation type="unfinished">Dán</translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="120"/>
+        <source>Can&apos;t paste that timeline element here because it would overlap with other timeline elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="165"/>
+        <source>Paste Timeline Elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="169"/>
+        <source>Can&apos;t paste those timeline elements here because they would overlap with other timeline elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="186"/>
+        <source>Can&apos;t paste that timeline element here because the type of the timeline element you&apos;re pasting doesn&apos;t match</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="188"/>
+        <source>Can&apos;t paste those timeline elements here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="446"/>
         <source>Move Timeline Element</source>
         <translation>Chuyển Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="347"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="452"/>
         <source>Resize Timeline Element</source>
         <translation>Đổi Kích Thước Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="351"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="456"/>
         <source>New Timeline Element</source>
         <translation>Thành Phần Dòng Thời Gian Mới</translation>
     </message>

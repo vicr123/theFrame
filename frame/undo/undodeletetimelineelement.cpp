@@ -23,14 +23,9 @@ UndoDeleteTimelineElement::~UndoDeleteTimelineElement()
 void UndoDeleteTimelineElement::undo()
 {
     Element* target = d->state.target();
-    TimelineElement* element = new TimelineElement();
-    element->setStartFrame(d->state.startFrame);
-    element->setEndFrame(d->state.endFrame);
-    element->setStartValue(d->state.startValue);
-    element->setEndValue(d->state.endValue);
-    element->setStartAnchored(d->state.anchorStart);
-    element->setEasingCurve(d->state.easingCurve);
-    target->addTimelineElement(d->state.property, element, d->state.id);
+    TimelineElement* element = new TimelineElement(target);
+    element->load(d->state.data);
+    target->addTimelineElement(d->state.elementProperty(), element, d->state.elementId());
 }
 
 void UndoDeleteTimelineElement::redo()
@@ -39,5 +34,5 @@ void UndoDeleteTimelineElement::redo()
         d->ignore = false;
         return;
     }
-    d->state.target()->timelineElementById(d->state.id)->deleteLater();
+    d->state.target()->timelineElementById(d->state.elementId())->deleteLater();
 }

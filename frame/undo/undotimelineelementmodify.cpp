@@ -25,13 +25,8 @@ UndoTimelineElementModify::~UndoTimelineElementModify()
 void UndoTimelineElementModify::undo()
 {
     Element* target = d->before.target();
-    TimelineElement* timelineElement = target->timelineElementById(d->before.id);
-    timelineElement->setStartFrame(d->before.startFrame);
-    timelineElement->setStartValue(d->before.startValue);
-    timelineElement->setEndFrame(d->before.endFrame);
-    timelineElement->setEndValue(d->before.endValue);
-    timelineElement->setStartAnchored(d->before.anchorStart);
-    timelineElement->setEasingCurve(d->before.easingCurve);
+    TimelineElement* timelineElement = target->timelineElementById(d->before.elementId());
+    timelineElement->load(d->before.data);
 }
 
 void UndoTimelineElementModify::redo()
@@ -42,13 +37,8 @@ void UndoTimelineElementModify::redo()
     }
 
     Element* target = d->after.target();
-    TimelineElement* timelineElement = target->timelineElementById(d->after.id);
-    timelineElement->setStartFrame(d->after.startFrame);
-    timelineElement->setStartValue(d->after.startValue);
-    timelineElement->setEndFrame(d->after.endFrame);
-    timelineElement->setEndValue(d->after.endValue);
-    timelineElement->setStartAnchored(d->after.anchorStart);
-    timelineElement->setEasingCurve(d->after.easingCurve);
+    TimelineElement* timelineElement = target->timelineElementById(d->after.elementId());
+    timelineElement->load(d->after.data);
 }
 
 
@@ -62,7 +52,7 @@ bool UndoTimelineElementModify::mergeWith(const QUndoCommand* o)
     //Check if we can merge
     if (o->id() != this->id()) return false;
     const UndoTimelineElementModify* other = static_cast<const UndoTimelineElementModify*>(o);
-    if (d->before.target() == other->d->before.target() && d->before.id == other->d->before.id) {
+    if (d->before.target() == other->d->before.target() && d->before.elementId() == other->d->before.elementId()) {
         d->after = other->d->after;
         return true;
     } else {

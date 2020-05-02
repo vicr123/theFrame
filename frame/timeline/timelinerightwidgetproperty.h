@@ -33,6 +33,8 @@ class TimelineRightWidgetProperty : public QWidget {
 
         quint64 frameForPoint(int x);
 
+        void paste();
+
     signals:
 
     private:

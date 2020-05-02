@@ -12,14 +12,7 @@ TimelineElementState::TimelineElementState(TimelineElement* element)
     }
     this->rootElement = parent;
 
-    this->property = element->propertyName();
-    this->startFrame = element->startFrame();
-    this->endFrame = element->endFrame();
-    this->startValue = element->startValue();
-    this->endValue = element->endValue();
-    this->anchorStart = element->startAnchored();
-    this->easingCurve = element->easingCurve();
-    this->id = element->getId();
+    this->data = element->save();
 }
 
 TimelineElementState::TimelineElementState()
@@ -37,15 +30,19 @@ Element* TimelineElementState::target()
     return parent;
 }
 
+QString TimelineElementState::elementProperty()
+{
+    return data.value("property").toString();
+}
+
+uint TimelineElementState::elementId()
+{
+    return data.value("id").toString().toUInt();
+}
+
 bool TimelineElementState::operator==(TimelineElementState other)
 {
-    return this->property == other.property &&
-            this->startFrame == other.startFrame &&
-            this->endFrame == other.endFrame &&
-            this->startValue == other.startValue &&
-            this->endValue == other.endValue &&
-            this->easingCurve == other.easingCurve &&
-            this->id == other.id;
+    return this->data == other.data;
 }
 
 bool TimelineElementState::operator!=(TimelineElementState other)

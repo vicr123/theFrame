@@ -31,11 +31,12 @@ class Element;
 class LIBTHEFRAME_EXPORT TimelineElement : public QObject {
         Q_OBJECT
     public:
-        explicit TimelineElement();
+        explicit TimelineElement(Element* parentElement = nullptr);
         explicit TimelineElement(quint64 startFrame, QVariant startValue, quint64 endFrame, QVariant endValue, QEasingCurve easingCurve = QEasingCurve::Linear);
         ~TimelineElement();
 
         void setStartFrame(quint64 startFrame);
+        void moveStartFrame(quint64 startFrame);
         quint64 startFrame();
 
         void setEndFrame(quint64 endFrame);
@@ -62,6 +63,9 @@ class LIBTHEFRAME_EXPORT TimelineElement : public QObject {
 
         bool isFrameContained(quint64 frame);
         bool intersects(TimelineElement* other);
+
+        QJsonObject save();
+        void load(QJsonObject obj);
 
     protected:
         friend Element;
