@@ -41,7 +41,7 @@ copy build\frame\release\theFrame.exe deploy
 copy frame\translations\*.qm deploy\translations
 copy libtheframe\translations\*.qm deploy\translations
 copy frame\defaults.conf deploy\
-robocopy frame\icons\contemporary-icons deploy\icons\ /e
+robocopy frame\icons\contemporary-icons deploy\icons\ /mir
 copy build\libtheframe\release\libtheframe.dll deploy
 copy build\theframe-render\release\theframe-render.exe deploy
 copy "C:\Program Files\thelibs\lib\the-libs.dll" deploy

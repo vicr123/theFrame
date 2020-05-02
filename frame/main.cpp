@@ -56,7 +56,10 @@ int main(int argc, char* argv[]) {
     a.setApplicationName("theFrame");
 
 #if defined(Q_OS_WIN)
-    tSettings::registerDefaults(QApplication::applicationDirPath() + "/defaults.conf");
+    QIcon::setThemeName("contemporary-icons");
+    QIcon::setThemeSearchPaths({a.applicationDirPath() + "\\icons"});
+
+    tSettings::registerDefaults(a.applicationDirPath() + "/defaults.conf");
 #elif defined(Q_OS_MAC)
     QIcon::setThemeName("contemporary-icons");
     QIcon::setThemeSearchPaths({a.macOSBundlePath() + "/Contents/Resources/icons"});

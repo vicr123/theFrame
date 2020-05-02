@@ -1161,12 +1161,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="108"/>
+        <location filename="../main.cpp" line="111"/>
         <source>Animation Tool</source>
         <translation>Công cụ hoạt hình</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="111"/>
+        <location filename="../main.cpp" line="114"/>
         <source>Project files to open</source>
         <translation type="unfinished"></translation>
     </message>
