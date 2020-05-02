@@ -623,3 +623,8 @@ void MainWindow::on_actionPaste_triggered()
 {
     ui->timeline->paste();
 }
+
+void MainWindow::on_actionSelect_All_triggered()
+{
+    ui->timeline->selectAll();
+}

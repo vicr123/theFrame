@@ -274,6 +274,7 @@ const Element* Element::rootElement() const {
 }
 
 TimelineElement* Element::timelineElementAtFrame(QString property, quint64 frame) const {
+    if (property == "") return nullptr;
     for (TimelineElement* timelineElement : timelineElements(property)) {
         if (timelineElement->isFrameContained(frame)) {
             return timelineElement;
@@ -287,6 +288,8 @@ void Element::beginTransaction() {
     for (TimelineElement* element : d->timelineElements) {
         element->beginTransaction();
     }
+    qDebug() << "Transaction +" << d->elementName;
+
 }
 
 bool Element::tryCommitTransaction() {
@@ -300,6 +303,7 @@ bool Element::tryCommitTransaction() {
     }
 
     d->inTransaction--;
+    qDebug() << "Transaction -" << d->elementName;
 
     if (d->invalidateFrames) {
         this->tryInvalidateFromFrame(d->invalidateFrom);
@@ -334,6 +338,7 @@ void Element::rollbackTransaction()
     }
 
     d->inTransaction--;
+    qDebug() << "Transaction -" << d->elementName;
     emit timelineElementsChanged();
 }
 

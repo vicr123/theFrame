@@ -358,6 +358,25 @@ void Timeline::paste()
     }
 }
 
+void Timeline::selectAll()
+{
+    d->currentSelection.clear();
+    QList<Element*> elements({d->rootViewportElement});
+    for (int i = 0; i < elements.count(); i++) {
+        for (Element* child : elements.at(i)->childElements()) {
+            elements.append(child);
+        }
+    }
+
+    for (Element* element : elements) {
+        for (QString property : element->animatableProperties().keys()) {
+            for (TimelineElement* element : element->timelineElements(property)) {
+                addToCurrentSelection(element);
+            }
+        }
+    }
+}
+
 QJsonObject Timeline::save() const {
     QJsonObject rootObj;
     rootObj.insert("framerate", static_cast<qint64>(this->framerate()));

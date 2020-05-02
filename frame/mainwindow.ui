@@ -436,6 +436,7 @@
     <addaction name="actionPaste"/>
     <addaction name="separator"/>
     <addaction name="actionDeleteTransition"/>
+    <addaction name="actionSelect_All"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -776,7 +777,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="edit-cut"/>
+    <iconset theme="edit-cut">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Cut</string>
@@ -790,7 +792,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="edit-copy"/>
+    <iconset theme="edit-copy">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Copy</string>
@@ -804,13 +807,25 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="edit-paste"/>
+    <iconset theme="edit-paste">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Paste</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionSelect_All">
+   <property name="icon">
+    <iconset theme="edit-select-all"/>
+   </property>
+   <property name="text">
+    <string>Select All</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
    </property>
   </action>
  </widget>

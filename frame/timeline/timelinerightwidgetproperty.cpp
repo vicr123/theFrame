@@ -431,11 +431,11 @@ void TimelineRightWidgetProperty::mouseMoveEvent(QMouseEvent* event) {
 
 void TimelineRightWidgetProperty::mouseReleaseEvent(QMouseEvent* event) {
     bool shouldCommit = true;
-    QSet<Element*> elements;
-    elements.insert(d->element->parentElement());
+    QList<Element*> elements;
+    elements.append(d->element);
     for (QObject* o : d->timeline->currentSelection()) {
         TimelineElement* element = static_cast<TimelineElement*>(o);
-        elements.insert(element->parentElement());
+        if (!elements.contains(element->parentElement())) elements.append(element->parentElement());
         if (!element->parentElement()->canCommitTransaction()) shouldCommit = false;
     }
 
@@ -542,11 +542,11 @@ void TimelineRightWidgetProperty::singleClick(QMouseEvent* event)
             clearSelection();
         }
 
-        QSet<Element*> elements;
-        elements.insert(d->element->parentElement());
+        QList<Element*> elements;
+        elements.append(d->element);
         for (QObject* o : d->timeline->currentSelection()) {
             TimelineElement* element = static_cast<TimelineElement*>(o);
-            elements.insert(element->parentElement());
+            if (!elements.contains(element->parentElement())) elements.append(element->parentElement());
         }
         for (Element* element : elements) element->beginTransaction();
         d->timeline->setSelectedTimelineRightWidget(this);
@@ -558,6 +558,7 @@ void TimelineRightWidgetProperty::singleClick(QMouseEvent* event)
 
 void TimelineRightWidgetProperty::doubleClick(QMouseEvent* event)
 {
+    if (d->property == "") return;
     //Select all timeline elements on the current property
     d->timeline->clearCurrentSelection();
     for (TimelineElement* element : d->element->timelineElements(d->property)) {

@@ -89,6 +89,8 @@ class Timeline : public QWidget {
         bool canPaste();
         void paste();
 
+        void selectAll();
+
         QJsonObject save() const;
         bool load(QJsonObject obj);
 
