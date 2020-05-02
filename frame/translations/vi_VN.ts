@@ -77,17 +77,17 @@
         <translation>Bắt đầu một dự án mới</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="92"/>
+        <location filename="../mainwindow.ui" line="102"/>
         <source>RECENT FILES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="109"/>
+        <location filename="../mainwindow.ui" line="86"/>
         <source>Open Existing Project</source>
         <translation>Mở dự án đã tồn tại</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="112"/>
+        <location filename="../mainwindow.ui" line="89"/>
         <source>Open a project that you&apos;ve saved</source>
         <translation>Mở một dự án bạn đã lưu</translation>
     </message>
