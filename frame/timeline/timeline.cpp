@@ -370,8 +370,8 @@ void Timeline::selectAll()
 
     for (Element* element : elements) {
         for (QString property : element->animatableProperties().keys()) {
-            for (TimelineElement* element : element->timelineElements(property)) {
-                addToCurrentSelection(element);
+            for (TimelineElement* timelineElement : element->timelineElements(property)) {
+                addToCurrentSelection(timelineElement);
             }
         }
     }

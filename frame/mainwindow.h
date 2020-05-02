@@ -39,6 +39,8 @@ class MainWindow : public QMainWindow {
 
         static QList<MainWindow*> openWindows;
 
+        void openFile(QString filePath);
+
     private slots:
 
         void on_timeline_currentFrameChanged(quint64 frame);

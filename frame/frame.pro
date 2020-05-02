@@ -124,7 +124,10 @@ unix:!macx {
     defaults.path = /etc/theframe/
     defaults.files = defaults.conf
 
-    INSTALLS += target appentry icon translations
+    mime.path = /usr/share/mime/packages/
+    mime.files = application-x-theframe-project.xml
+
+    INSTALLS += target appentry icon translations defaults mime
 }
 
 win32 {
@@ -170,12 +173,15 @@ macx {
     defaults.files = defaults.conf
 
     QMAKE_BUNDLE_DATA += icons defaults
+    QMAKE_INFO_PLIST = Info.plist
 }
 
 INCLUDEPATH += $$PWD/../libtheframe
 DEPENDPATH += $$PWD/../libtheframe
 
 DISTFILES += \
+    Info.plist \
+    application-x-theframe-project.xml \
     com.vicr123.theframe.desktop \
     defaults.conf
 

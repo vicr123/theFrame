@@ -438,62 +438,62 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="307"/>
         <source>Running Render Jobs</source>
         <translation>Việc kết xuất đang xảy ra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="305"/>
+        <location filename="../mainwindow.cpp" line="308"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation>Bạn còn việc kết xuất đang xảy ra. Nếu bạn thoát theFrame, nó sẽ bị hủy</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="310"/>
         <source>Exit Anyway</source>
         <translation>Vẫn thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="404"/>
+        <location filename="../mainwindow.cpp" line="407"/>
         <source>Save Changes?</source>
         <translation>Lưu thay đổi?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="405"/>
+        <location filename="../mainwindow.cpp" line="408"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Bạn sẽ mất các thay đổi chưa lưu trong dự án này nếu bạn không lưu nó.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="579"/>
+        <location filename="../mainwindow.cpp" line="582"/>
         <source>Rendering Queued</source>
         <translation>Kết Xuất được xếp hàng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="580"/>
+        <location filename="../mainwindow.cpp" line="583"/>
         <source>%1 has been queued for rendering.</source>
         <translation>%1 bị xếp hàng để kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="582"/>
+        <location filename="../mainwindow.cpp" line="585"/>
         <source>Rendering Started</source>
         <translation>Kết Xuất được bắt đầu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="583"/>
+        <location filename="../mainwindow.cpp" line="586"/>
         <source>%1 has started rendering.</source>
         <translation>%1 đã bắt đầu kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="589"/>
         <source>View Render Jobs</source>
         <translation>Xem hoạt động kết xuất</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="365"/>
+        <location filename="../mainwindow.cpp" line="368"/>
         <source>Error</source>
         <translation>Lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="365"/>
+        <location filename="../mainwindow.cpp" line="368"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -502,8 +502,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Đừng đóng cửa sổ này đến khi bạn lưu tệp này, nếu không thì bạn sẽ mất dữ liệu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="226"/>
-        <location filename="../mainwindow.cpp" line="379"/>
+        <location filename="../mainwindow.cpp" line="255"/>
+        <location filename="../mainwindow.cpp" line="382"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>Tệp dự án theFrame (*.tfrproj)</translation>
     </message>
@@ -1144,6 +1144,11 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <location filename="../main.cpp" line="97"/>
         <source>Animation Tool</source>
         <translation>Công cụ hoạt hình</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="100"/>
+        <source>Project files to open</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

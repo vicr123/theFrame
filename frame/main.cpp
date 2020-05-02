@@ -96,7 +96,37 @@ int main(int argc, char* argv[]) {
     a.setApplicationVersion("1.0");
     a.setGenericName(QApplication::translate("main", "Animation Tool"));
 
-    MainWindow w;
-    w.show();
+    QCommandLineParser parser;
+    parser.addPositionalArgument("files", a.translate("main", "Project files to open"), "files");
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.process(a);
+
+    bool openedFirstFile = false;
+
+    if (parser.positionalArguments().isEmpty()) {
+        MainWindow *w = new MainWindow();
+        w->show();
+
+        QObject::connect(&a, &tApplication::openFile, [=, &openedFirstFile](QString file) {
+            MainWindow* window;
+            if (openedFirstFile) {
+                window = new MainWindow();
+            } else {
+                window = w;
+            }
+            window->openFile(file);
+            openedFirstFile = true;
+        });
+    } else {
+        for (QString arg : parser.positionalArguments()) {
+            QString fileName = arg;
+            if (QUrl(fileName).isValid()) fileName = QUrl(fileName).toLocalFile();
+            MainWindow *w = new MainWindow();
+            w->openFile(fileName);
+            w->show();
+        }
+    }
+
     return a.exec();
 }

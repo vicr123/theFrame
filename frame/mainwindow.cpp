@@ -130,6 +130,35 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
+void MainWindow::openFile(QString filePath)
+{
+    //Attempt to load this file
+    QFile file(filePath);
+    file.open(QSaveFile::ReadOnly);
+
+    QJsonParseError error;
+    QJsonDocument doc = QJsonDocument::fromJson(file.readAll(), &error);
+
+    if (error.error != QJsonParseError::NoError || !doc.isObject()) {
+        //Error Error!
+        return;
+    }
+
+    if (!ui->timeline->load(doc.object())) {
+        //Error Error!
+        return;
+    }
+
+    d->currentFile = filePath;
+    this->setWindowFilePath(d->currentFile);
+    QString projectPath = QFileInfo(d->currentFile).path();
+    d->viewport->setProperty("projectPath", projectPath);
+    ui->propertiesWidget->setProjectPath(projectPath);
+
+    d->undoStack->clear();
+    ui->stackedWidget->setCurrentWidget(ui->mainPage);
+}
+
 
 void MainWindow::on_timeline_currentFrameChanged(quint64 frame) {
     ui->viewport->setFrame(frame);
@@ -228,40 +257,14 @@ void MainWindow::on_actionOpen_triggered() {
     fileDialog->setWindowModality(Qt::WindowModal);
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
         if (result == QFileDialog::Accepted) {
-            auto loadFile = [=] {
-                //Attempt to load this file
-                QFile file(fileDialog->selectedFiles().first());
-                file.open(QSaveFile::ReadOnly);
-
-                QJsonParseError error;
-                QJsonDocument doc = QJsonDocument::fromJson(file.readAll(), &error);
-
-                if (error.error != QJsonParseError::NoError || !doc.isObject()) {
-                    //Error Error!
-                    return;
-                }
-
-                if (!ui->timeline->load(doc.object())) {
-                    //Error Error!
-                    return;
-                }
-
-                d->currentFile = fileDialog->selectedFiles().first();
-                this->setWindowFilePath(d->currentFile);
-                QString projectPath = QFileInfo(d->currentFile).path();
-                d->viewport->setProperty("projectPath", projectPath);
-                ui->propertiesWidget->setProjectPath(projectPath);
-
-                d->undoStack->clear();
-                ui->stackedWidget->setCurrentWidget(ui->mainPage);
-            };
-
             if (!d->undoStack->isClean()) {
-                this->ensureDiscardChanges()->then(loadFile)->error([=](QString reason) {
+                this->ensureDiscardChanges()->then([=] {
+                    this->openFile(fileDialog->selectedFiles().first());
+                })->error([=](QString reason) {
                     fileDialog->deleteLater();
                 });
             } else {
-                loadFile();
+                this->openFile(fileDialog->selectedFiles().first());
             }
         } else {
             fileDialog->deleteLater();
