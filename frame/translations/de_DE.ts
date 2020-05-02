@@ -99,42 +99,42 @@
     <message>
         <location filename="../mainwindow.ui" line="146"/>
         <source>Make sure you&apos;re happy with the frame rate and resolution before you begin. You can change them later, but it be a lot easier to set it up before you begin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stelle Sicher, dass du mit der Auswahl der Bildrate und der Auflösung glück bist. Du kannst sie später ändern, aber es wird einfacher sein, wenn du sie vor dem Beginn einstellst.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="173"/>
         <source>Project Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Projekt Auflösung</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="180"/>
         <source>Framerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildrate</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="187"/>
         <source> frames per second</source>
-        <translation type="unfinished"></translation>
+        <translation> Bilder pro Sekunde</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="233"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="253"/>
         <source>Create</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstellen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="401"/>
         <source>File</source>
-        <translation type="unfinished">Datei</translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="405"/>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Zuletzt geöffnet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
@@ -145,142 +145,142 @@
         <location filename="../mainwindow.ui" line="432"/>
         <location filename="../mainwindow.ui" line="482"/>
         <source>Timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitleiste</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="459"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Hilfe</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="468"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenster</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="512"/>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Eigenschaften</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="543"/>
         <source>Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächste Bild</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechts</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="555"/>
         <source>Previous Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Letztes Bild</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="558"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Links</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
         <source>Del</source>
-        <translation type="unfinished"></translation>
+        <translation>entf</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="575"/>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
+        <translation>Hineinzoomen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="578"/>
         <source>Ctrl+=</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+=</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="587"/>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Herauszoomen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="590"/>
         <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+-</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="599"/>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Abspielen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="602"/>
         <source>Space</source>
-        <translation type="unfinished"></translation>
+        <translation>Leertaste</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="611"/>
         <source>First Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstes Bild</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="614"/>
         <source>Home</source>
-        <translation type="unfinished"></translation>
+        <translation>pos1</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="623"/>
         <source>Last Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Letztes Bild</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="626"/>
         <source>End</source>
-        <translation type="unfinished"></translation>
+        <translation>ende</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="635"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="638"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+S</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="647"/>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern unter</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="650"/>
         <source>Ctrl+Shift+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Shift+S</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="659"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="662"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+O</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="671"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Über</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="679"/>
@@ -290,132 +290,132 @@
     <message>
         <location filename="../mainwindow.ui" line="682"/>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="690"/>
         <source>O</source>
-        <translation type="unfinished"></translation>
+        <translation>O</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="698"/>
         <source>P</source>
-        <translation type="unfinished"></translation>
+        <translation>P</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="706"/>
         <source>Enable Prerendering</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorrendern aktivieren</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="715"/>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Quellen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="724"/>
         <source>File Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Bug melden</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Beenden</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Q</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="748"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="751"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+W</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="760"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Neu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="763"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="772"/>
         <source>New Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Neues Fenster</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="775"/>
         <source>Ctrl+Shift+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Shift+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="780"/>
         <source>Render</source>
-        <translation type="unfinished"></translation>
+        <translation>Rendern</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="783"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+R</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="788"/>
         <source>Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderaufträge</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="791"/>
         <source>Ctrl+Shift+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Shift+R</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="803"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausschneiden</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="806"/>
         <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+X</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="818"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="821"/>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+C</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="833"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="836"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+V</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="844"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alles auswählen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="847"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+A</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="687"/>
@@ -430,100 +430,102 @@
     <message>
         <location filename="../mainwindow.cpp" line="68"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Rückgängig</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="69"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiederholen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="72"/>
         <source>CTRL+Z</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Z</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="73"/>
         <source>CTRL+SHIFT+Z</source>
-        <translation type="unfinished"></translation>
+        <translation>Strg+Shift+Z</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="241"/>
         <source>No Recent Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine zuletzt geöffneten Dateien</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="264"/>
         <source>Clear Recent Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Zuletzt geöffnete Dateien Leeren</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="353"/>
         <source>Running Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Laufende Renderaufträge</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="354"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Du hast laufende Renderaufträge. Wenn du theFrame schließt, werden sie abgebrochen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="356"/>
         <source>Exit Anyway</source>
-        <translation type="unfinished"></translation>
+        <translation>Trotzdem Beenden</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="459"/>
         <source>Save Changes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Änderungen Speichern?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="460"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sie verlieren alle nicht gespeicherten Änderungen in diesem Projekt, wenn Sie nicht speichern.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="634"/>
         <source>Rendering Queued</source>
-        <translation type="unfinished"></translation>
+        <translation>Rendering eingereiht</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="635"/>
         <source>%1 has been queued for rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 wurde zum Rendern in die Warteschlange gestellt.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="637"/>
         <source>Rendering Started</source>
-        <translation type="unfinished"></translation>
+        <translation>Rendering gestartet</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="638"/>
         <source>%1 has started rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 hat das Rendern gestartet.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="641"/>
         <source>View Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderaufträge ansehen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="414"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="414"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Datei konnte leider nicht gespeichert werden. Stellen Sie sicher, dass genügend Speicherplatz vorhanden ist und Sie die Berechtigung zum Schreiben in die Datei haben.
+
+Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. Andernfalls können Daten verloren gehen.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="301"/>
         <location filename="../mainwindow.cpp" line="428"/>
         <source>theFrame Project Files (*.tfrproj)</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame Projekt Dateien (*.tfrproj)</translation>
     </message>
 </context>
 <context>
@@ -531,12 +533,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../properties/percentageproperty.ui" line="38"/>
         <source>Value</source>
-        <translation type="unfinished">Wert</translation>
+        <translation>Wert</translation>
     </message>
     <message>
         <location filename="../properties/percentageproperty.ui" line="45"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
 </context>
 <context>
@@ -544,12 +546,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../properties/pointproperty.ui" line="32"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <location filename="../properties/pointproperty.ui" line="49"/>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>
@@ -562,52 +564,52 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../propertieswidget.ui" line="74"/>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Auflösung</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="81"/>
         <source>Frame Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiederholungsrate</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="131"/>
         <source>PROJECT</source>
-        <translation type="unfinished"></translation>
+        <translation>PROJEKT</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="138"/>
         <source> frames per second</source>
-        <translation type="unfinished"></translation>
+        <translation> Bilder pro Sekunde</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="118"/>
         <source>Total Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Komplette Anzahl an Bildern</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="88"/>
         <source>Changing the frame rate and resolution may have unintended consequences. You have been warned!</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Ändern der Bildrate und der Auflösung kann unbeabsichtigte Folgen haben. Du wurdest gewarnt!</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="248"/>
         <source>START VALUE</source>
-        <translation type="unfinished"></translation>
+        <translation>START WERT</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="255"/>
         <source>Anchor Start Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Ankerstartwert</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="315"/>
         <source>END VALUE</source>
-        <translation type="unfinished"></translation>
+        <translation>Endwert</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="358"/>
         <source>Linear</source>
-        <translation type="unfinished"></translation>
+        <translation>Linear</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="363"/>
