@@ -46,12 +46,12 @@
     <message>
         <location filename="../properties/fontproperty.ui" line="35"/>
         <source>Family</source>
-        <translation type="unfinished"></translation>
+        <translation>Familie</translation>
     </message>
     <message>
         <location filename="../properties/fontproperty.ui" line="42"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe</translation>
     </message>
 </context>
 <context>
@@ -59,42 +59,42 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theFrame</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="64"/>
         <source>Welcome to theFrame!</source>
-        <translation type="unfinished"></translation>
+        <translation>WIllkommen bei theFrame!</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="76"/>
         <source>Create New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstelle ein neues Projekt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="79"/>
         <source>Start a new project</source>
-        <translation type="unfinished"></translation>
+        <translation>Starte ein neues Projekt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="102"/>
         <source>RECENT FILES</source>
-        <translation type="unfinished"></translation>
+        <translation>Zuletzt verwendete Dateien</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="86"/>
         <source>Open Existing Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein existierendes Projekt öffnen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="89"/>
         <source>Open a project that you&apos;ve saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein Projekt öffnen, das du gespeichert hast</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Neues Projekt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="146"/>
