@@ -37,7 +37,7 @@
     <item>
      <widget class="tStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="welcomePage">
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -81,6 +81,16 @@
            </widget>
           </item>
           <item>
+           <widget class="QCommandLinkButton" name="openProjectButton">
+            <property name="text">
+             <string>Open Existing Project</string>
+            </property>
+            <property name="description">
+             <string>Open a project that you've saved</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="label">
             <property name="font">
              <font>
@@ -100,16 +110,6 @@
            <widget class="QListWidget" name="recentsBox">
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCommandLinkButton" name="openProjectButton">
-            <property name="text">
-             <string>Open Existing Project</string>
-            </property>
-            <property name="description">
-             <string>Open a project that you've saved</string>
             </property>
            </widget>
           </item>
