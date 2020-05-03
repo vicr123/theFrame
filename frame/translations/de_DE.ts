@@ -139,7 +139,7 @@
     <message>
         <location filename="../mainwindow.ui" line="424"/>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansehen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="432"/>
@@ -285,7 +285,7 @@
     <message>
         <location filename="../mainwindow.ui" line="679"/>
         <source>Set In Point</source>
-        <translation type="unfinished"></translation>
+        <translation>In Punkt setzen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="682"/>
@@ -420,12 +420,12 @@
     <message>
         <location filename="../mainwindow.ui" line="687"/>
         <source>Set Out Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Out Punkt setzen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="695"/>
         <source>Clear In/Out Points</source>
-        <translation type="unfinished"></translation>
+        <translation>In/Out Punkte zurücksetzen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="68"/>
@@ -559,7 +559,7 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../propertieswidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="74"/>
@@ -614,127 +614,127 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../propertieswidget.ui" line="363"/>
         <source>Quadratic</source>
-        <translation type="unfinished"></translation>
+        <translation>Quadratisch</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="368"/>
         <source>Cubic</source>
-        <translation type="unfinished"></translation>
+        <translation>Kubisch</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="373"/>
         <source>Quartic</source>
-        <translation type="unfinished"></translation>
+        <translation>Quartisch</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="378"/>
         <source>Quintic</source>
-        <translation type="unfinished"></translation>
+        <translation>Quintisch</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="383"/>
         <source>Sinusoidal</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sinus</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="388"/>
         <source>Exponential</source>
-        <translation type="unfinished"></translation>
+        <translation>Exponentiell</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="393"/>
         <source>Circular</source>
-        <translation type="unfinished"></translation>
+        <translation>Zirkulär</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="398"/>
         <source>Elastic</source>
-        <translation type="unfinished"></translation>
+        <translation>Elastische</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="403"/>
         <source>Overshooting</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschleunigungskurve</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="408"/>
         <source>Bouncing</source>
-        <translation type="unfinished"></translation>
+        <translation>Springende</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="413"/>
         <source>Custom Beizer Spline</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerdefinierte Beizer Spline</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="425"/>
         <source>Accelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschleunigen</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="430"/>
         <source>Decelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlangsamen</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="435"/>
         <source>Accelerate then Decelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschleunigen dann Verlangsamen</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="440"/>
         <source>Decelerate then Accelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlangsamen dann Beschleunigen</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="448"/>
         <source>Select the type of easing curve you&apos;d like to use</source>
-        <translation type="unfinished"></translation>
+        <translation>Wählen Sie die Art der Beschleunigungskurve aus, die Sie verwenden möchten</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="464"/>
         <source>EASING</source>
-        <translation type="unfinished"></translation>
+        <translation>LOCKERUNG</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="562"/>
         <source>Element Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Element Name</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="582"/>
         <source>Element Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Element Farbe</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="164"/>
         <source>Start Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Startwertänderung</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="169"/>
         <source>End Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Endwertänderung</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="224"/>
         <source>Start State Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Startstatusänderung</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="273"/>
         <source>Easing Curve Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschleunigungskurvenänderung</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="280"/>
         <source>Element Name Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Elementnamenänderung</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="317"/>
         <source>Select Color</source>
-        <translation type="unfinished">Farbe auswählen</translation>
+        <translation>Farbe auswählen</translation>
     </message>
 </context>
 <context>
@@ -742,32 +742,32 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../properties/rectproperty.ui" line="42"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Oben</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="59"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Breite</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="66"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Links</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="73"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechts</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="100"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Unten</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="107"/>
         <source>Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Höhe</translation>
     </message>
 </context>
 <context>
@@ -775,22 +775,22 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../render/rendercontroller.cpp" line="32"/>
         <source>Render Job Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderauftrag abgeschlossen</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="33"/>
         <source>%1 has finished rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ist mit dem Rendern fertig.</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="39"/>
         <source>Render Job Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderauftrag fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="40"/>
         <source>%1 failed to render.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 hat das Rendern fehlgeschlagen.</translation>
     </message>
 </context>
 <context>
@@ -798,78 +798,78 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../render/renderjobwidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="35"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="98"/>
         <source>PROGRESS</source>
-        <translation type="unfinished"></translation>
+        <translation>FORTSCHRITT</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="175"/>
         <location filename="../render/renderjobwidget.ui" line="258"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>AKTIONEN</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="184"/>
         <source>Play Rendered Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Gerendertes Video abspielen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="187"/>
         <source>Open the rendered video in your default video player</source>
-        <translation type="unfinished"></translation>
+        <translation>Das gerenderte Video in deinem Standart Video Player öffnen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="194"/>
         <source>Open Video Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Video Speicherort öffnen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="197"/>
         <source>Show the video file in the file browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Video Datei im Datei Browser anzeigen lassen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="267"/>
         <source>Cancel Render Job</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderauftrag abbrechen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="270"/>
         <source>Stop rendering the video</source>
-        <translation type="unfinished"></translation>
+        <translation>Rendern abbrechen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="47"/>
         <source>Pending...</source>
-        <translation type="unfinished"></translation>
+        <translation>Anstehend...</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="52"/>
         <source>Currently rendering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Am Rendern...</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="58"/>
         <source>Job Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>Abgeschlossen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="64"/>
         <source>Job Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="70"/>
         <source>Job Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Abgebrochen</translation>
     </message>
 </context>
 <context>
@@ -877,12 +877,12 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../render/renderjobs.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../render/renderjobs.ui" line="53"/>
         <source>Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderaufträge</translation>
     </message>
 </context>
 <context>
@@ -890,64 +890,64 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../render/renderpopover.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="35"/>
         <source>Render</source>
-        <translation type="unfinished"></translation>
+        <translation>Rendern</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="80"/>
         <source>Render to</source>
-        <translation type="unfinished"></translation>
+        <translation>Rendern unter</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="114"/>
         <source>FFMPEG location</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMPEG Speicherort</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="128"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="100"/>
         <source>Renderer Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Renderer Speicherort</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="66"/>
         <location filename="../render/renderpopover.ui" line="73"/>
         <location filename="../render/renderpopover.ui" line="107"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Durchsuchen...</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="48"/>
         <source>MP4 Videos (*.mp4)</source>
-        <translation type="unfinished"></translation>
+        <translation>MP4 Videos (*.mp4)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="70"/>
         <source>FFMPEG (ffmpeg.exe)</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMPEG (ffmpeg.exe)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="72"/>
         <source>FFMPEG (ffmpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMPEG (ffmpeg)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="90"/>
         <source>theFrame Renderer (theframe-render.exe)</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame Renderer (theframe-render.exe)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="92"/>
         <source>theFrame Rnederer (theframe-render)</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame Renderer (theframe-render)</translation>
     </message>
 </context>
 <context>
@@ -955,7 +955,7 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../properties/stringproperty.ui" line="32"/>
         <source>Value</source>
-        <translation type="unfinished">Wert</translation>
+        <translation>Wert</translation>
     </message>
 </context>
 <context>
@@ -963,32 +963,32 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../timeline/timeline.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="212"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="220"/>
         <source>Delete Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitleisten Element löschen</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="225"/>
         <source>Delete %1 &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 &quot;%2&quot; löschen</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="306"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausschneiden</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="351"/>
         <source>Paste Elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Elemente einfügen</translation>
     </message>
 </context>
 <context>
@@ -996,80 +996,80 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="56"/>
         <source>-</source>
-        <translation type="unfinished"></translation>
+        <translation>-</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="69"/>
         <location filename="../timeline/timelineleftwidget.ui" line="88"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="99"/>
         <source>Add an element</source>
-        <translation type="unfinished"></translation>
+        <translation>Element hinzufügen</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="100"/>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechteck</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="103"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Text</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="106"/>
         <source>Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="109"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppe</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="163"/>
         <source>Add %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 hinzufügen</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="169"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="171"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="170"/>
         <source>Children will also be deleted</source>
-        <translation type="unfinished"></translation>
+        <translation>Kinder werden auch gelöscht</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="172"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="178"/>
         <source>Delete %1 &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 &quot;%2&quot; löschen</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="191"/>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Umbenennen</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="191"/>
         <source>Set a name for this %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Setze einen Namen für dieses %1</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="195"/>
         <source>Element Name Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Elementnamenänderung</translation>
     </message>
 </context>
 <context>
@@ -1077,7 +1077,7 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../timeline/timelinerightwidget.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -1085,54 +1085,54 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="121"/>
         <source>Paste Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitleisten Element einfügen</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="124"/>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="173"/>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="187"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="125"/>
         <source>Can&apos;t paste that timeline element here because it would overlap with other timeline elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Dieses Zeitleisten Element kann hier nicht eingefügt werden, da es sich mit anderen Zeitleisten Elementen überschneiden würde</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="170"/>
         <source>Paste Timeline Elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitleisten Elemente einfügen</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="174"/>
         <source>Can&apos;t paste those timeline elements here because they would overlap with other timeline elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Zeitleisten Elemente können hier nicht eingefügt werden, da sie sich mit anderen Zeitleisten Elementen überschneiden würden</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="193"/>
         <source>Can&apos;t paste that timeline element here because the type of the timeline element you&apos;re pasting doesn&apos;t match</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Zeitleisten Element kann hier nicht eingefügt werden, da der Typ des eingefügten Zeitleisten Elements nicht übereinstimmt</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="195"/>
         <source>Can&apos;t paste those timeline elements here</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Zeitleisten Elemente können hier nicht eingefügt werden</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="459"/>
         <source>Move Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitleisten Element verschieben</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="465"/>
         <source>Resize Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe des Zeitleisten Elementes ändern</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="469"/>
         <source>New Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Neues Zeitleisten Element</translation>
     </message>
 </context>
 <context>
@@ -1140,22 +1140,22 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../viewport.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../viewport.cpp" line="58"/>
         <source>Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Leinwand</translation>
     </message>
     <message>
         <location filename="../viewport.cpp" line="166"/>
         <source>Start Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Startwertänderung</translation>
     </message>
     <message>
         <location filename="../viewport.cpp" line="178"/>
         <source>End Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Endwertänderung</translation>
     </message>
 </context>
 <context>
@@ -1163,12 +1163,12 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     <message>
         <location filename="../main.cpp" line="111"/>
         <source>Animation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Animations Werkzeug</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="114"/>
         <source>Project files to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Zu öffnende Projektdateien</translation>
     </message>
 </context>
 </TS>
