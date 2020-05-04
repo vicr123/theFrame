@@ -63,6 +63,7 @@ TimelineRightWidget::~TimelineRightWidget() {
 
 void TimelineRightWidget::addChild(int index, TimelineRightWidget* child) {
     ui->childrenLayout->insertWidget(index, child);
+    ui->childrenLayout->setAlignment(child, Qt::AlignTop);
 }
 
 void TimelineRightWidget::setHeaderHeight(int height) {

@@ -37,6 +37,7 @@
 #include <elements/textelement.h>
 #include <elements/groupelement.h>
 #include <elements/pictureelement.h>
+#include <elements/ellipseelement.h>
 
 struct TimelineLeftWidgetPrivate {
     Timeline* timeline;
@@ -99,6 +100,9 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     addMenu->addSection(tr("Add an element"));
     addMenu->addAction(tr("Rectangle"), [ = ] {
         addElement(new RectangleElement());
+    });
+    addMenu->addAction(tr("Ellipse"), [ = ] {
+        addElement(new EllipseElement());
     });
     addMenu->addAction(tr("Text"), [ = ] {
         addElement(new TextElement());

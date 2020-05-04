@@ -1,4 +1,4 @@
-QT += widgets svg
+QT += widgets svg thelib
 SHARE_APP_NAME=theframe/libtheframe
 
 TEMPLATE = lib
@@ -20,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     elements/element.cpp \
+    elements/ellipseelement.cpp \
     elements/groupelement.cpp \
     elements/pictureelement.cpp \
     elements/rectangleelement.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 
 HEADERS += \
     elements/element.h \
+    elements/ellipseelement.h \
     elements/groupelement.h \
     elements/pictureelement.h \
     elements/rectangleelement.h \
@@ -37,12 +39,10 @@ HEADERS += \
     elements/viewportelement.h \
     libtheframe_global.h
 
+#Include the-libs build tools
+include($$[QT_INSTALL_DATA]/the-libs/buildmaster.pri)
+
 unix:!macx {
-    # Include the-libs build tools
-    include(/usr/share/the-libs/pri/buildmaster.pri)
-
-    QT += thelib
-
     TARGET = theframe
     target.path = /usr/lib
 
@@ -53,18 +53,10 @@ unix:!macx {
 }
 
 win32 {
-    # Include the-libs build tools
-    include(C:/Program Files/thelibs/pri/buildmaster.pri)
-
-    INCLUDEPATH += "C:/Program Files/thelibs/include"
-    LIBS += -L"C:/Program Files/thelibs/lib" -lthe-libs
     TARGET = libtheframe
 }
 
 macx {
-    # Include the-libs build tools
-    include(/usr/local/share/the-libs/pri/buildmaster.pri)
-
     QT += macextras
     LIBS += -framework CoreFoundation -framework AppKit
 
@@ -75,7 +67,4 @@ macx {
 #    FRAMEWORK_HEADERS.files = ${HEADERS}
 #    FRAMEWORK_HEADERS.path = Headers
 #    QMAKE_BUNDLE_DATA += FRAMEWORK_HEADERS
-
-    INCLUDEPATH += "/usr/local/include/the-libs"
-    LIBS += -L/usr/local/lib -lthe-libs
 }

@@ -102,7 +102,7 @@ QColor TextElement::propertyColor(QString property) const {
     } else if (property == "font") {
         return QColor(39, 40, 23, 127);
     } else if (property == "opacity") {
-        return QColor(39, 40, 23, 127);
+        return QColor(14, 40, 37, 127);
     }
     return QColor();
 }
