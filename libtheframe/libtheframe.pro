@@ -20,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     elements/element.cpp \
+    elements/ellipseelement.cpp \
     elements/groupelement.cpp \
     elements/pictureelement.cpp \
     elements/rectangleelement.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
 
 HEADERS += \
     elements/element.h \
+    elements/ellipseelement.h \
     elements/groupelement.h \
     elements/pictureelement.h \
     elements/rectangleelement.h \

@@ -4,9 +4,42 @@
 <context>
     <name>Element</name>
     <message>
-        <location filename="../elements/element.cpp" line="66"/>
+        <location filename="../elements/element.cpp" line="67"/>
         <source>New Element</source>
         <translation>Thành phần mới</translation>
+    </message>
+</context>
+<context>
+    <name>EllipseElement</name>
+    <message>
+        <location filename="../elements/ellipseelement.cpp" line="60"/>
+        <source>Geometry</source>
+        <translation type="unfinished">Vị trí/Kích thước</translation>
+    </message>
+    <message>
+        <location filename="../elements/ellipseelement.cpp" line="62"/>
+        <source>Background Color</source>
+        <translation type="unfinished">Màu nền</translation>
+    </message>
+    <message>
+        <location filename="../elements/ellipseelement.cpp" line="64"/>
+        <source>Border Color</source>
+        <translation type="unfinished">Màu viền</translation>
+    </message>
+    <message>
+        <location filename="../elements/ellipseelement.cpp" line="66"/>
+        <source>Border Width</source>
+        <translation type="unfinished">Chiều rộng viền</translation>
+    </message>
+    <message>
+        <location filename="../elements/ellipseelement.cpp" line="68"/>
+        <source>Opacity</source>
+        <translation type="unfinished">Độ mờ đục</translation>
+    </message>
+    <message>
+        <location filename="../elements/ellipseelement.cpp" line="91"/>
+        <source>Ellipse</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
