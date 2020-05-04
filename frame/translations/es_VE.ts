@@ -448,80 +448,80 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="243"/>
+        <location filename="../mainwindow.cpp" line="241"/>
         <source>No Recent Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="266"/>
+        <location filename="../mainwindow.cpp" line="264"/>
         <source>Clear Recent Items</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="359"/>
+        <location filename="../mainwindow.cpp" line="353"/>
         <source>Running Render Jobs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="360"/>
+        <location filename="../mainwindow.cpp" line="354"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="356"/>
         <source>Exit Anyway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="465"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Save Changes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="466"/>
+        <location filename="../mainwindow.cpp" line="460"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="640"/>
+        <location filename="../mainwindow.cpp" line="634"/>
         <source>Rendering Queued</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="641"/>
+        <location filename="../mainwindow.cpp" line="635"/>
         <source>%1 has been queued for rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="637"/>
         <source>Rendering Started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="644"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>%1 has started rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="647"/>
+        <location filename="../mainwindow.cpp" line="641"/>
         <source>View Render Jobs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="414"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="414"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="301"/>
+        <location filename="../mainwindow.cpp" line="428"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1008,69 +1008,64 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="100"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="99"/>
         <source>Add an element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="101"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="100"/>
         <source>Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="104"/>
-        <source>Ellipse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="107"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="103"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="110"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="106"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="113"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="109"/>
         <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="167"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="163"/>
         <source>Add %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="173"/>
-        <location filename="../timeline/timelineleftwidget.cpp" line="175"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="169"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="171"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="174"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="170"/>
         <source>Children will also be deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="176"/>
-        <location filename="../timeline/timelineleftwidget.cpp" line="182"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="172"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="178"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="195"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="191"/>
         <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="195"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="191"/>
         <source>Set a name for this %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="199"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="195"/>
         <source>Element Name Change</source>
         <translation type="unfinished"></translation>
     </message>

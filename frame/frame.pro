@@ -1,4 +1,4 @@
-QT       += core gui concurrent thelib
+QT       += core gui concurrent
 SHARE_APP_NAME = theframe
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -102,12 +102,11 @@ FORMS += \
     timeline/timelinerightwidget.ui \
     viewport.ui
 
-#Include the-libs build tools
-include($$[QT_INSTALL_DATA]/the-libs/buildmaster.pri)
-
 unix:!macx {
     # Include the-libs build tools
+    include(/usr/share/the-libs/pri/buildmaster.pri)
 
+    QT += thelib
     LIBS += -L$$OUT_PWD/../libtheframe/ -ltheframe
 
     TARGET = theframe
@@ -132,14 +131,22 @@ unix:!macx {
 }
 
 win32 {
+    # Include the-libs build tools
+    include(C:/Program Files/thelibs/pri/buildmaster.pri)
+
     CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/release/ -llibtheframe
     CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/debug/ -llibtheframe
 
+    INCLUDEPATH += "C:/Program Files/thelibs/include"
+    LIBS += -L"C:/Program Files/thelibs/lib" -lthe-libs
     RC_FILE = icon.rc
     TARGET = theFrame
 }
 
 macx {
+    # Include the-libs build tools
+    include(/usr/local/share/the-libs/pri/buildmaster.pri)
+
     QT += macextras
     LIBS += -framework CoreFoundation -framework AppKit
 
@@ -154,7 +161,8 @@ macx {
         ICON = icon.icns
     }
 
-    LIBS += -F$$OUT_PWD/../libtheframe/ -framework libtheframe
+    INCLUDEPATH += "/usr/local/include/the-libs"
+    LIBS += -L/usr/local/lib -lthe-libs -F$$OUT_PWD/../libtheframe/ -framework libtheframe
 
     QMAKE_POST_LINK += $$quote(cp $${PWD}/dmgicon.icns $${PWD}/app-dmg-background.png $${PWD}/node-appdmg-config*.json $${OUT_PWD}/..)
 

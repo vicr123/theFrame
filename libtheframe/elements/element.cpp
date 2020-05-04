@@ -30,7 +30,6 @@
 #include "textelement.h"
 #include "groupelement.h"
 #include "pictureelement.h"
-#include "ellipseelement.h"
 
 struct ElementPrivate {
     QMultiMap<QString, TimelineElement*> timelineElements;
@@ -447,8 +446,6 @@ Element* Element::constructByType(QString type)
         return new GroupElement();
     } else if (type == "PictureElement") {
         return new PictureElement();
-    } else if (type == "EllipseElement") {
-        return new EllipseElement();
     }
     return nullptr;
 }

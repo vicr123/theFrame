@@ -4,41 +4,8 @@
 <context>
     <name>Element</name>
     <message>
-        <location filename="../elements/element.cpp" line="67"/>
+        <location filename="../elements/element.cpp" line="66"/>
         <source>New Element</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EllipseElement</name>
-    <message>
-        <location filename="../elements/ellipseelement.cpp" line="60"/>
-        <source>Geometry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../elements/ellipseelement.cpp" line="62"/>
-        <source>Background Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../elements/ellipseelement.cpp" line="64"/>
-        <source>Border Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../elements/ellipseelement.cpp" line="66"/>
-        <source>Border Width</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../elements/ellipseelement.cpp" line="68"/>
-        <source>Opacity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../elements/ellipseelement.cpp" line="91"/>
-        <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

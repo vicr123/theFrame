@@ -4,8 +4,6 @@ if "%APPVEYOR_REPO_TAG_NAME%"=="continuous" (
 
 )
 
-git config core.symlinks true
-git reset --hard
 git submodule init
 git submodule update
 

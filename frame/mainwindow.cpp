@@ -235,8 +235,6 @@ void MainWindow::updatePlayFrame() {
 void MainWindow::updateRecents()
 {
     ui->menuOpen_Recent->clear();
-    ui->recentsBox->clear();
-
     QStringList recents = d->settings.delimitedList("Files/recents");
     recents.removeAll("");
     if (recents.isEmpty()) {
@@ -263,11 +261,7 @@ void MainWindow::updateRecents()
             }
         }
         ui->menuOpen_Recent->addSeparator();
-        ui->menuOpen_Recent->addAction(tr("Clear Recent Items"), [=] {
-            QStringList recents = d->settings.delimitedList("Files/recents");
-            recents.clear();
-            d->settings.setDelimitedList("Files/recents", recents);
-        });
+        ui->menuOpen_Recent->addAction(tr("Clear Recent Items"));
     }
 }
 
