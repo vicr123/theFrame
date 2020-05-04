@@ -2,8 +2,9 @@
 #define ELLIPSEELEMENT_H
 
 #include "element.h"
+#include "libtheframe_global.h"
 
-class EllipseElement : public Element
+class LIBTHEFRAME_EXPORT EllipseElement : public Element
 {
         Q_OBJECT
     public:
