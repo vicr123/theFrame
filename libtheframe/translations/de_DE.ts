@@ -6,7 +6,7 @@
     <message>
         <location filename="../elements/element.cpp" line="67"/>
         <source>New Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Neues Element</translation>
     </message>
 </context>
 <context>
@@ -47,17 +47,17 @@
     <message>
         <location filename="../elements/groupelement.cpp" line="56"/>
         <source>Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschiebung</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="58"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Deckkraft</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="73"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Gruppe</translation>
     </message>
 </context>
 <context>
@@ -65,27 +65,27 @@
     <message>
         <location filename="../elements/pictureelement.cpp" line="93"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Geometrie</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="95"/>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Quelle</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="97"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Deckkraft</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="117"/>
         <source>All Images (*.png *.jpg *.jpeg *.gif *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Bilder (*.png *.jpg *.jpeg *.gif *.svg)</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="124"/>
         <source>Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild</translation>
     </message>
 </context>
 <context>
@@ -93,32 +93,32 @@
     <message>
         <location filename="../elements/rectangleelement.cpp" line="81"/>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechteck</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="86"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Geometrie</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="88"/>
         <source>Background Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Hintergrundfarbe</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="90"/>
         <source>Border Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Rahmenfarbe</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="92"/>
         <source>Border Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Rahmenbreite</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="94"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Deckkraft</translation>
     </message>
 </context>
 <context>
@@ -126,33 +126,33 @@
     <message>
         <location filename="../elements/textelement.cpp" line="25"/>
         <source>Edit Me!</source>
-        <translation type="unfinished"></translation>
+        <translation>Bearbeite mich!</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="82"/>
         <location filename="../elements/textelement.cpp" line="111"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Text</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="84"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Position</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="86"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Textfarbe</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="88"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Schriftart</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="90"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Deckkraft</translation>
     </message>
 </context>
 <context>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../elements/viewportelement.cpp" line="87"/>
         <source>Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Leinwand</translation>
     </message>
 </context>
 </TS>
