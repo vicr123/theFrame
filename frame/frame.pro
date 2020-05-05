@@ -48,6 +48,7 @@ SOURCES += \
     undo/undonewtimelineelement.cpp \
     undo/undotimelineelementmodify.cpp \
     viewport.cpp \
+    viewport/pointviewport.cpp \
     viewport/rectangleviewport.cpp \
     viewport/viewportproperty.cpp
 
@@ -82,6 +83,7 @@ HEADERS += \
     undo/undonewtimelineelement.h \
     undo/undotimelineelementmodify.h \
     viewport.h \
+    viewport/pointviewport.h \
     viewport/rectangleviewport.h \
     viewport/viewportproperty.h
 

@@ -3,6 +3,7 @@
 #include "viewport.h"
 
 #include "rectangleviewport.h"
+#include "pointviewport.h"
 
 struct ViewportPropertyPrivate {
     ViewportProperty::Type type;
@@ -26,12 +27,13 @@ ViewportProperty* ViewportProperty::constructForType(Element::PropertyType prope
     switch (propertyType) {
         case Element::Rect:
             return new RectangleViewport(type, viewport);
+        case Element::Point:
+            return new PointViewport(type, viewport);
         case Element::Integer:
         case Element::Double:
         case Element::Color:
         case Element::Percentage:
         case Element::String:
-        case Element::Point:
         case Element::Font:
         case Element::File:
             break;

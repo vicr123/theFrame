@@ -51,6 +51,8 @@ class Viewport : public QWidget {
 
         QRect viewportToCanvas(QRect viewportCoordinates);
         QRect canvasToViewport(QRect canvasCoordinates);
+        QPoint viewportToCanvas(QPoint viewportCoordinates);
+        QPoint canvasToViewport(QPoint canvasCoordinates);
 
     signals:
         void viewportRectChanged();

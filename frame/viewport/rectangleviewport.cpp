@@ -3,12 +3,13 @@
 #include "viewport.h"
 #include <QPainter>
 #include <QMouseEvent>
+#include <tvariantanimation.h>
 
 struct RectangleViewportPrivate {
     Viewport* parent;
-    RectangleViewport::Type type;
+    ViewportProperty::Type type;
     QRect value;
-    QColor color;
+    tVariantAnimation* color;
     QPoint offset;
     bool anchored = false;
 
@@ -28,16 +29,31 @@ RectangleViewport::RectangleViewport(Type type, Viewport *parent) : ViewportProp
     d->parent = parent;
     d->type = type;
 
+    d->color = new tVariantAnimation(this);
+    d->color->setDuration(1000);
+
     switch (type) {
         case StartType:
-            d->color = Qt::red;
+            d->color->setStartValue(QColor(100, 0, 0));
+            d->color->setEndValue(QColor(255, 0, 0));
             break;
         case EndType:
-            d->color = Qt::blue;
+            d->color->setStartValue(QColor(0, 100, 255));
+            d->color->setEndValue(QColor(0, 255, 255));
             break;
         case StartValueType:
-            d->color = Qt::green;
+            d->color->setStartValue(QColor(0, 100, 0));
+            d->color->setEndValue(QColor(0, 255, 0));
     }
+
+    connect(d->color, &tVariantAnimation::valueChanged, this, [=] {
+        this->update();
+    });
+    connect(d->color, &tVariantAnimation::finished, this, [=] {
+        d->color->setDirection(d->color->direction() == tVariantAnimation::Forward ? tVariantAnimation::Backward : tVariantAnimation::Forward);
+        d->color->start();
+    });
+    d->color->start();
 
     connect(parent, &Viewport::viewportRectChanged, this, &RectangleViewport::updateGeometry);
     this->setMouseTracking(true);
@@ -100,7 +116,7 @@ void RectangleViewport::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
     painter.setPen(Qt::transparent);
-    painter.setBrush(d->color);
+    painter.setBrush(d->color->currentValue().value<QColor>());
     painter.drawRect(0, 0, this->width(), d->lineWidth);
     painter.drawRect(0, 0, d->lineWidth, this->height());
     painter.drawRect(0, this->height() - d->lineWidth, this->width(), d->lineWidth);

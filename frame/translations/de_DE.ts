@@ -1153,13 +1153,13 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Leinwand</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="169"/>
-        <location filename="../viewport.cpp" line="219"/>
+        <location filename="../viewport.cpp" line="181"/>
+        <location filename="../viewport.cpp" line="231"/>
         <source>Start Value Change</source>
         <translation>Startwertänderung</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="189"/>
+        <location filename="../viewport.cpp" line="201"/>
         <source>End Value Change</source>
         <translation>Endwertänderung</translation>
     </message>

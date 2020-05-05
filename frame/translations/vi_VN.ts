@@ -1153,13 +1153,13 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>Vải bạt</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="169"/>
-        <location filename="../viewport.cpp" line="219"/>
+        <location filename="../viewport.cpp" line="181"/>
+        <location filename="../viewport.cpp" line="231"/>
         <source>Start Value Change</source>
         <translation>Đổi Giá Trị Bắt Đầu</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="189"/>
+        <location filename="../viewport.cpp" line="201"/>
         <source>End Value Change</source>
         <translation>Đổi Giá Trị Kết Thúc</translation>
     </message>

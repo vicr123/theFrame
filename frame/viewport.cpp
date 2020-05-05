@@ -144,6 +144,18 @@ QRect Viewport::canvasToViewport(QRect canvasCoordinates)
     return QRect(newPoint, newSize);
 }
 
+QPoint Viewport::viewportToCanvas(QPoint viewportCoordinates)
+{
+    double scale = this->viewportScale();
+    return (viewportCoordinates - viewportRect().topLeft()) / scale;
+}
+
+QPoint Viewport::canvasToViewport(QPoint canvasCoordinates)
+{
+    double scale = this->viewportScale();
+    return canvasCoordinates * scale + viewportRect().topLeft();
+}
+
 void Viewport::updateTimelineSelection()
 {
     QList<QObject*> toDelete = d->adjustmentWidgets.keys();
