@@ -448,72 +448,72 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="241"/>
+        <location filename="../mainwindow.cpp" line="245"/>
         <source>No Recent Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="264"/>
+        <location filename="../mainwindow.cpp" line="268"/>
         <source>Clear Recent Items</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="357"/>
         <source>Running Render Jobs</source>
         <translation>Việc kết xuất đang xảy ra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="354"/>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation>Bạn còn việc kết xuất đang xảy ra. Nếu bạn thoát theFrame, nó sẽ bị hủy</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="356"/>
+        <location filename="../mainwindow.cpp" line="360"/>
         <source>Exit Anyway</source>
         <translation>Vẫn thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="459"/>
+        <location filename="../mainwindow.cpp" line="463"/>
         <source>Save Changes?</source>
         <translation>Lưu thay đổi?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="460"/>
+        <location filename="../mainwindow.cpp" line="464"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Bạn sẽ mất các thay đổi chưa lưu trong dự án này nếu bạn không lưu nó.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="634"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>Rendering Queued</source>
         <translation>Kết Xuất được xếp hàng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="635"/>
+        <location filename="../mainwindow.cpp" line="639"/>
         <source>%1 has been queued for rendering.</source>
         <translation>%1 bị xếp hàng để kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="641"/>
         <source>Rendering Started</source>
         <translation>Kết Xuất được bắt đầu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="642"/>
         <source>%1 has started rendering.</source>
         <translation>%1 đã bắt đầu kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="641"/>
+        <location filename="../mainwindow.cpp" line="645"/>
         <source>View Render Jobs</source>
         <translation>Xem hoạt động kết xuất</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="414"/>
+        <location filename="../mainwindow.cpp" line="418"/>
         <source>Error</source>
         <translation>Lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="414"/>
+        <location filename="../mainwindow.cpp" line="418"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -522,8 +522,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Đừng đóng cửa sổ này đến khi bạn lưu tệp này, nếu không thì bạn sẽ mất dữ liệu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="301"/>
-        <location filename="../mainwindow.cpp" line="428"/>
+        <location filename="../mainwindow.cpp" line="305"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>Tệp dự án theFrame (*.tfrproj)</translation>
     </message>
@@ -966,27 +966,27 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="214"/>
+        <location filename="../timeline/timeline.cpp" line="247"/>
         <source>Delete</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="222"/>
+        <location filename="../timeline/timeline.cpp" line="255"/>
         <source>Delete Timeline Element</source>
         <translation>Xóa Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="227"/>
+        <location filename="../timeline/timeline.cpp" line="260"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>Xóa %1 &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="308"/>
+        <location filename="../timeline/timeline.cpp" line="341"/>
         <source>Cut</source>
         <translation>Cắt</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="353"/>
+        <location filename="../timeline/timeline.cpp" line="386"/>
         <source>Paste Elements</source>
         <translation>Dán thành phần</translation>
     </message>
@@ -1125,17 +1125,17 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>Không thể dán thành phần dồng thời gian đó ở đây</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="459"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="460"/>
         <source>Move Timeline Element</source>
         <translation>Chuyển Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="465"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="466"/>
         <source>Resize Timeline Element</source>
         <translation>Đổi Kích Thước Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="469"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="470"/>
         <source>New Timeline Element</source>
         <translation>Thành Phần Dòng Thời Gian Mới</translation>
     </message>

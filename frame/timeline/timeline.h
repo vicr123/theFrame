@@ -49,11 +49,16 @@ class Timeline : public QWidget {
         void setPrerenderer(Prerenderer* prerenderer);
         Prerenderer* prerenderer() const;
 
-        void setFrameSpacing(double frameSpacing);
+        void setFrameSpacing(double frameSpacing, int centerX = 0);
         double frameSpacing() const;
 
         void setFrameCount(quint64 frameCount);
         quint64 frameCount() const;
+
+        quint64 leftRenderFrame();
+        quint64 rightRenderFrame();
+        void ensurePlayheadVisible();
+        int playheadXPos();
 
         void setFramerate(uint framerate);
         uint framerate() const;
@@ -111,6 +116,7 @@ class Timeline : public QWidget {
         TimelinePrivate* d;
         
         QMimeData* selectedMimeData();
+        bool eventFilter(QObject* watched, QEvent* event);
 };
 
 #endif // TIMELINE_H

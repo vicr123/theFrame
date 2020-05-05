@@ -448,72 +448,72 @@
         <translation>Strg+Shift+Z</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="241"/>
+        <location filename="../mainwindow.cpp" line="245"/>
         <source>No Recent Files</source>
         <translation>Keine zuletzt geöffneten Dateien</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="264"/>
+        <location filename="../mainwindow.cpp" line="268"/>
         <source>Clear Recent Items</source>
         <translation>Zuletzt geöffnete Dateien Leeren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="357"/>
         <source>Running Render Jobs</source>
         <translation>Laufende Renderaufträge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="354"/>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation>Du hast laufende Renderaufträge. Wenn du theFrame schließt, werden sie abgebrochen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="356"/>
+        <location filename="../mainwindow.cpp" line="360"/>
         <source>Exit Anyway</source>
         <translation>Trotzdem Beenden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="459"/>
+        <location filename="../mainwindow.cpp" line="463"/>
         <source>Save Changes?</source>
         <translation>Änderungen Speichern?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="460"/>
+        <location filename="../mainwindow.cpp" line="464"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Sie verlieren alle nicht gespeicherten Änderungen in diesem Projekt, wenn Sie nicht speichern.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="634"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>Rendering Queued</source>
         <translation>Rendering eingereiht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="635"/>
+        <location filename="../mainwindow.cpp" line="639"/>
         <source>%1 has been queued for rendering.</source>
         <translation>%1 wurde zum Rendern in die Warteschlange gestellt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="641"/>
         <source>Rendering Started</source>
         <translation>Rendering gestartet</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="642"/>
         <source>%1 has started rendering.</source>
         <translation>%1 hat das Rendern gestartet.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="641"/>
+        <location filename="../mainwindow.cpp" line="645"/>
         <source>View Render Jobs</source>
         <translation>Renderaufträge ansehen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="414"/>
+        <location filename="../mainwindow.cpp" line="418"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="414"/>
+        <location filename="../mainwindow.cpp" line="418"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -522,8 +522,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. Andernfalls können Daten verloren gehen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="301"/>
-        <location filename="../mainwindow.cpp" line="428"/>
+        <location filename="../mainwindow.cpp" line="305"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>theFrame Projekt Dateien (*.tfrproj)</translation>
     </message>
@@ -966,27 +966,27 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="214"/>
+        <location filename="../timeline/timeline.cpp" line="247"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="222"/>
+        <location filename="../timeline/timeline.cpp" line="255"/>
         <source>Delete Timeline Element</source>
         <translation>Zeitleisten Element löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="227"/>
+        <location filename="../timeline/timeline.cpp" line="260"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>%1 &quot;%2&quot; löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="308"/>
+        <location filename="../timeline/timeline.cpp" line="341"/>
         <source>Cut</source>
         <translation>Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="353"/>
+        <location filename="../timeline/timeline.cpp" line="386"/>
         <source>Paste Elements</source>
         <translation>Elemente einfügen</translation>
     </message>
@@ -1125,17 +1125,17 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Diese Zeitleisten Elemente können hier nicht eingefügt werden</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="459"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="460"/>
         <source>Move Timeline Element</source>
         <translation>Zeitleisten Element verschieben</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="465"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="466"/>
         <source>Resize Timeline Element</source>
         <translation>Größe des Zeitleisten Elementes ändern</translation>
     </message>
     <message>
-        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="469"/>
+        <location filename="../timeline/timelinerightwidgetproperty.cpp" line="470"/>
         <source>New Timeline Element</source>
         <translation>Neues Zeitleisten Element</translation>
     </message>

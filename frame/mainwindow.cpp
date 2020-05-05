@@ -192,15 +192,19 @@ void MainWindow::on_actionDeleteTransition_triggered() {
 }
 
 void MainWindow::on_actionZoomIn_triggered() {
+    ui->timeline->ensurePlayheadVisible();
+
     double spacing = ui->timeline->frameSpacing();
     spacing *= 1.25;
-    ui->timeline->setFrameSpacing(spacing);
+    ui->timeline->setFrameSpacing(spacing, ui->timeline->playheadXPos());
 }
 
 void MainWindow::on_actionZoomOut_triggered() {
+    ui->timeline->ensurePlayheadVisible();
+
     double spacing = ui->timeline->frameSpacing();
     spacing *= 0.8;
-    ui->timeline->setFrameSpacing(spacing);
+    ui->timeline->setFrameSpacing(spacing, ui->timeline->playheadXPos());
 }
 
 void MainWindow::on_playButton_toggled(bool checked) {

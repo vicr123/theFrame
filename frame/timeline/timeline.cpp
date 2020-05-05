@@ -28,9 +28,11 @@
 #include <QMimeData>
 #include <QClipboard>
 #include <QJsonDocument>
+#include <QPinchGesture>
 #include <tsystemsound.h>
 #include <elements/timelineelement.h>
 #include <the-libs_global.h>
+#include <math.h>
 
 #include "undo/undodeletetimelineelement.h"
 #include "undo/undodeleteelement.h"
@@ -77,6 +79,9 @@ Timeline::Timeline(QWidget* parent) :
     ui->timelineRightPane->setProperty("X-Contemporary-NoInstallScroller", true);
 
     connect(QApplication::clipboard(), &QClipboard::dataChanged, this, &Timeline::canPasteChanged);
+
+    ui->timelineRightPane->viewport()->installEventFilter(this);
+    ui->timelineRightPane->viewport()->grabGesture(Qt::PinchGesture);
 }
 
 Timeline::~Timeline() {
@@ -112,8 +117,13 @@ Prerenderer* Timeline::prerenderer() const {
     return d->prerenderer;
 }
 
-void Timeline::setFrameSpacing(double frameSpacing) {
+void Timeline::setFrameSpacing(double frameSpacing, int centerX) {
+    int frameNumber = qRound((ui->timelineRightPane->horizontalScrollBar()->value() + centerX) / d->frameSpacing);
     d->frameSpacing = frameSpacing;
+
+    int newValue = frameNumber * frameSpacing - centerX;
+    ui->timelineRightPane->horizontalScrollBar()->setValue(newValue);
+
     emit frameSpacingChanged(frameSpacing);
 }
 
@@ -129,6 +139,29 @@ void Timeline::setFrameCount(quint64 frameCount) {
 
 quint64 Timeline::frameCount() const {
     return d->frameCount;
+}
+
+quint64 Timeline::leftRenderFrame()
+{
+    return ui->timelineRightPane->horizontalScrollBar()->value() / d->frameSpacing;
+}
+
+quint64 Timeline::rightRenderFrame()
+{
+    return qMin<quint64>(leftRenderFrame() + ui->timelineRightPane->width() / d->frameSpacing + 1, d->frameCount);
+}
+
+void Timeline::ensurePlayheadVisible()
+{
+    if (leftRenderFrame() < d->currentFrame && rightRenderFrame() > d->currentFrame) return;
+    int newValue = d->currentFrame * d->frameSpacing - this->width() / 2;
+    if (newValue < 0) newValue = 0;
+    ui->timelineRightPane->horizontalScrollBar()->setValue(newValue);
+}
+
+int Timeline::playheadXPos()
+{
+    return d->currentFrame * d->frameSpacing - ui->timelineRightPane->horizontalScrollBar()->value();
 }
 
 void Timeline::setFramerate(uint framerate) {
@@ -441,4 +474,38 @@ QMimeData* Timeline::selectedMimeData()
     }
 
     return mimeData;
+}
+
+bool Timeline::eventFilter(QObject* watched, QEvent* event)
+{
+    if (watched == ui->timelineRightPane->viewport()) {
+        if (event->type() == QEvent::Gesture) {
+            QGestureEvent* e = static_cast<QGestureEvent*>(event);
+            if (QGesture* gesture = e->gesture(Qt::PinchGesture)) {
+                QPinchGesture* pinchGesture = static_cast<QPinchGesture*>(gesture);
+                this->setFrameSpacing(this->frameSpacing() * pinchGesture->scaleFactor(), pinchGesture->centerPoint().x());
+            }
+        } else if (event->type() == QEvent::Wheel) {
+            QWheelEvent* e = static_cast<QWheelEvent*>(event);
+
+#ifdef Q_OS_MAC
+            Q_UNUSED(e);
+#else
+            if (e->modifiers() == Qt::ControlModifier) {
+                QPoint pixels = e->pixelDelta();
+                QPoint angle = e->angleDelta() / 8;
+
+                if (!pixels.isNull()) {
+                    this->setFrameSpacing(this->frameSpacing() * pow(1.005, e->pixelDelta().y()), e->pos().x());
+                } else if (!angle.isNull()) {
+                    this->setFrameSpacing(this->frameSpacing() * pow(1.005, e->pixelDelta().y()), e->pos().x());
+                }
+
+                //Block this event
+                return true;
+            }
+#endif
+        }
+    }
+    return false;
 }

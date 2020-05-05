@@ -215,7 +215,7 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
     painter.drawRect(0, 0, this->width(), this->height());
 
     //Draw background elements
-    for (quint64 i = 0; i < d->timeline->frameCount(); i++) {
+    for (quint64 i = d->timeline->leftRenderFrame(); i < d->timeline->rightRenderFrame(); i++) {
         painter.save();
         double frameStart = d->timeline->frameSpacing() * static_cast<double>(i);
         double frameEnd = d->timeline->frameSpacing() * static_cast<double>(i + 1);
@@ -260,7 +260,8 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
     }
 
     //Draw foreground elements
-    int skipText = 0;    for (quint64 i = 0; i < d->timeline->frameCount(); i++) {
+    int skipText = 0;
+    for (quint64 i = d->timeline->leftRenderFrame(); i < d->timeline->rightRenderFrame(); i++) {
         painter.save();
         double frameStart = d->timeline->frameSpacing() * static_cast<double>(i);
         double frameEnd = d->timeline->frameSpacing() * static_cast<double>(i + 1);
