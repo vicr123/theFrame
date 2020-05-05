@@ -114,6 +114,8 @@ void Element::setStartValue(QString property, QVariant value) {
     Q_ASSERT(this->allProperties().contains(property));
     d->startValues.insert(property, value);
     tryInvalidateFromFrame(0);
+
+    emit startValueChanged(property, value);
 }
 
 QVariant Element::startValue(QString property) const {

@@ -966,27 +966,27 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="212"/>
+        <location filename="../timeline/timeline.cpp" line="214"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="220"/>
+        <location filename="../timeline/timeline.cpp" line="222"/>
         <source>Delete Timeline Element</source>
         <translation>Zeitleisten Element löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="225"/>
+        <location filename="../timeline/timeline.cpp" line="227"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>%1 &quot;%2&quot; löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="306"/>
+        <location filename="../timeline/timeline.cpp" line="308"/>
         <source>Cut</source>
         <translation>Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="351"/>
+        <location filename="../timeline/timeline.cpp" line="353"/>
         <source>Paste Elements</source>
         <translation>Elemente einfügen</translation>
     </message>
@@ -1148,17 +1148,18 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="58"/>
+        <location filename="../viewport.cpp" line="59"/>
         <source>Canvas</source>
         <translation>Leinwand</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="166"/>
+        <location filename="../viewport.cpp" line="169"/>
+        <location filename="../viewport.cpp" line="219"/>
         <source>Start Value Change</source>
         <translation>Startwertänderung</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="178"/>
+        <location filename="../viewport.cpp" line="189"/>
         <source>End Value Change</source>
         <translation>Endwertänderung</translation>
     </message>

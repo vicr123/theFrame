@@ -22,20 +22,21 @@ struct RectangleViewportPrivate {
     const int lineWidth = SC_DPI(5);
 };
 
-RectangleViewport::RectangleViewport(Type type, Viewport *parent) : QWidget(parent)
+RectangleViewport::RectangleViewport(Type type, Viewport *parent) : ViewportProperty(type, parent)
 {
     d = new RectangleViewportPrivate();
     d->parent = parent;
     d->type = type;
 
     switch (type) {
-        case RectangleViewport::StartType:
+        case StartType:
             d->color = Qt::red;
             break;
-        case RectangleViewport::EndType:
+        case EndType:
             d->color = Qt::blue;
             break;
-
+        case StartValueType:
+            d->color = Qt::green;
     }
 
     connect(parent, &Viewport::viewportRectChanged, this, &RectangleViewport::updateGeometry);
@@ -50,15 +51,15 @@ RectangleViewport::~RectangleViewport()
     delete d;
 }
 
-void RectangleViewport::setValue(QRect value)
+void RectangleViewport::setValue(QVariant value)
 {
-    d->value = value;
+    d->value = value.toRect();
     emit valueChanged(value);
 
     this->updateGeometry();
 }
 
-QRect RectangleViewport::value()
+QVariant RectangleViewport::value()
 {
     return d->value;
 }

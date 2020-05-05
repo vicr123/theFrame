@@ -103,6 +103,7 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         void nameChanged(QString name);
         void childElementInserted(int index, Element* element);
         void displayColorChanged(QColor color);
+        void startValueChanged(QString property, QVariant value);
 
     private:
         ElementPrivate* d;

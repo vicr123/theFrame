@@ -964,27 +964,27 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="212"/>
+        <location filename="../timeline/timeline.cpp" line="214"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="220"/>
+        <location filename="../timeline/timeline.cpp" line="222"/>
         <source>Delete Timeline Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="225"/>
+        <location filename="../timeline/timeline.cpp" line="227"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="306"/>
+        <location filename="../timeline/timeline.cpp" line="308"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="351"/>
+        <location filename="../timeline/timeline.cpp" line="353"/>
         <source>Paste Elements</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1146,17 +1146,18 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="58"/>
+        <location filename="../viewport.cpp" line="59"/>
         <source>Canvas</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="166"/>
+        <location filename="../viewport.cpp" line="169"/>
+        <location filename="../viewport.cpp" line="219"/>
         <source>Start Value Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="178"/>
+        <location filename="../viewport.cpp" line="189"/>
         <source>End Value Change</source>
         <translation type="unfinished"></translation>
     </message>

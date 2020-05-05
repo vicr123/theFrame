@@ -966,27 +966,27 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation></translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="212"/>
+        <location filename="../timeline/timeline.cpp" line="214"/>
         <source>Delete</source>
         <translation>Xóa</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="220"/>
+        <location filename="../timeline/timeline.cpp" line="222"/>
         <source>Delete Timeline Element</source>
         <translation>Xóa Thành Phần Dòng Thời Gian</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="225"/>
+        <location filename="../timeline/timeline.cpp" line="227"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>Xóa %1 &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="306"/>
+        <location filename="../timeline/timeline.cpp" line="308"/>
         <source>Cut</source>
         <translation>Cắt</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="351"/>
+        <location filename="../timeline/timeline.cpp" line="353"/>
         <source>Paste Elements</source>
         <translation>Dán thành phần</translation>
     </message>
@@ -1148,17 +1148,18 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="58"/>
+        <location filename="../viewport.cpp" line="59"/>
         <source>Canvas</source>
         <translation>Vải bạt</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="166"/>
+        <location filename="../viewport.cpp" line="169"/>
+        <location filename="../viewport.cpp" line="219"/>
         <source>Start Value Change</source>
         <translation>Đổi Giá Trị Bắt Đầu</translation>
     </message>
     <message>
-        <location filename="../viewport.cpp" line="178"/>
+        <location filename="../viewport.cpp" line="189"/>
         <source>End Value Change</source>
         <translation>Đổi Giá Trị Kết Thúc</translation>
     </message>

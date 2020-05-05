@@ -1,32 +1,26 @@
 #ifndef RECTANGLEVIEWPORT_H
 #define RECTANGLEVIEWPORT_H
 
-#include <QWidget>
+#include "viewportproperty.h"
 
 class Viewport;
 struct RectangleViewportPrivate;
 class TimelineElement;
-class RectangleViewport : public QWidget
+class RectangleViewport : public ViewportProperty
 {
         Q_OBJECT
     public:
-        enum Type {
-            StartType,
-            EndType
-        };
 
         explicit RectangleViewport(Type type, Viewport *parent = nullptr);
         ~RectangleViewport();
 
-        void setValue(QRect value);
-        QRect value();
+        void setValue(QVariant value);
+        QVariant value();
 
         void setAnchored(bool anchored);
         void setOffset(QPoint offset);
 
     signals:
-        void valueChanged(QRect value);
-        void focusFrame();
 
     private:
         friend RectangleViewportPrivate;

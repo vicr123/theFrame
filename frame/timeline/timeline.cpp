@@ -57,6 +57,8 @@ struct TimelinePrivate {
 
     quint64 inPoint = 0;
     quint64 outPoint = 0;
+
+    const int fileVersion = 0;
 };
 
 Timeline::Timeline(QWidget* parent) :
@@ -379,6 +381,7 @@ void Timeline::selectAll()
 
 QJsonObject Timeline::save() const {
     QJsonObject rootObj;
+    rootObj.insert("fileVersion", d->fileVersion);
     rootObj.insert("framerate", static_cast<qint64>(this->framerate()));
     rootObj.insert("frameCount", QString::number(this->frameCount()));
     rootObj.insert("frameSpacing", this->frameSpacing());
@@ -393,6 +396,10 @@ QJsonObject Timeline::save() const {
 }
 
 bool Timeline::load(QJsonObject obj) {
+    int fileVersion = obj.value("fileVersion").toInt();
+
+    //TODO: Do some checking on the file version
+
     this->setFramerate(static_cast<uint>(obj.value("framerate").toInt()));
     this->setFrameCount(obj.value("frameCount").toString().toULongLong());
     this->setFrameSpacing(obj.value("frameSpacing").toDouble());

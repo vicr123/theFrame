@@ -29,8 +29,9 @@
 
 #include <QUndoStack>
 #include "undo/undotimelineelementmodify.h"
+#include "undo/undoelementmodify.h"
 
-#include "viewport/rectangleviewport.h"
+#include "viewport/viewportproperty.h"
 
 struct ViewportPrivate {
     ViewportElement* rootElement;
@@ -42,7 +43,7 @@ struct ViewportPrivate {
 
     QRect viewportRect;
 
-    QMultiMap<QObject*, QWidget*> adjustmentWidgets;
+    QMultiMap<QObject*, ViewportProperty*> adjustmentWidgets;
 
     bool renderingFrame = false;
     bool renderRequired = false;
@@ -154,65 +155,90 @@ void Viewport::updateTimelineSelection()
                 toDelete.removeOne(timelineElement);
             } else {
                 Element* element = timelineElement->parentElement();
-                switch (element->propertyType(timelineElement->propertyName())) {
-                    case Element::Rect: {
-                        RectangleViewport* start = new RectangleViewport(RectangleViewport::StartType, this);
+
+                ViewportProperty* start = ViewportProperty::constructForType(element->propertyType(timelineElement->propertyName()), ViewportProperty::StartType, this);
+                ViewportProperty* end = ViewportProperty::constructForType(element->propertyType(timelineElement->propertyName()), ViewportProperty::EndType, this);
+
+                if (start) {
+                    start->setOffset(element->parentElement()->renderOffset(timelineElement->startFrame()));
+                    start->setValue(timelineElement->startValue());
+                    start->setAnchored(timelineElement->startAnchored());
+                    connect(start, &ViewportProperty::valueChanged, this, [=](QVariant value) {
+                        TimelineElementState oldState(timelineElement);
+                        timelineElement->setStartValue(value);
+                        d->timeline->undoStack()->push(new UndoTimelineElementModify(tr("Start Value Change"), oldState, TimelineElementState(timelineElement)));
+                    });
+                    connect(start, &ViewportProperty::focusFrame, this, [=] {
+                        d->timeline->setCurrentFrame(timelineElement->startFrame());
+                    });
+                    connect(timelineElement, &TimelineElement::elementPropertyChanged, start, [=] {
+                        QSignalBlocker blocker(start);
+                        start->setValue(timelineElement->startValue());
                         start->setOffset(element->parentElement()->renderOffset(timelineElement->startFrame()));
-                        start->setValue(timelineElement->startValue().toRect());
                         start->setAnchored(timelineElement->startAnchored());
-                        connect(start, &RectangleViewport::valueChanged, this, [=](QRect value) {
-                            TimelineElementState oldState(timelineElement);
-                            timelineElement->setStartValue(value);
-                            d->timeline->undoStack()->push(new UndoTimelineElementModify(tr("Start Value Change"), oldState, TimelineElementState(timelineElement)));
-                        });
-                        connect(start, &RectangleViewport::focusFrame, this, [=] {
-                            d->timeline->setCurrentFrame(timelineElement->startFrame());
-                        });
-
-                        RectangleViewport* end = new RectangleViewport(RectangleViewport::EndType, this);
-                        end->setOffset(element->parentElement()->renderOffset(timelineElement->endFrame()));
-                        end->setValue(timelineElement->endValue().toRect());
-                        connect(end, &RectangleViewport::valueChanged, this, [=](QRect value) {
-                            TimelineElementState oldState(timelineElement);
-                            timelineElement->setEndValue(value);
-                            d->timeline->undoStack()->push(new UndoTimelineElementModify(tr("End Value Change"), oldState, TimelineElementState(timelineElement)));
-                        });
-                        connect(end, &RectangleViewport::focusFrame, this, [=] {
-                            d->timeline->setCurrentFrame(timelineElement->endFrame());
-                        });
-
-                        connect(timelineElement, &TimelineElement::elementPropertyChanged, start, [=] {
-                            QSignalBlocker blocker(start);
-                            start->setValue(timelineElement->startValue().toRect());
-                            start->setOffset(element->parentElement()->renderOffset(timelineElement->startFrame()));
-                            start->setAnchored(timelineElement->startAnchored());
-                        });
-                        connect(timelineElement, &TimelineElement::elementPropertyChanged, end, [=] {
-                            QSignalBlocker blocker(end);
-                            end->setValue(timelineElement->endValue().toRect());
-                            end->setOffset(element->parentElement()->renderOffset(timelineElement->endFrame()));
-                        });
-
-                        d->adjustmentWidgets.insert(timelineElement, start);
-                        d->adjustmentWidgets.insert(timelineElement, end);
-                        break;
-                    }
-                    case Element::Integer:
-                    case Element::Double:
-                    case Element::Color:
-                    case Element::Percentage:
-                    case Element::String:
-                    case Element::Point:
-                    case Element::Font:
-                    case Element::File:
-                        break;
+                    });
+                    d->adjustmentWidgets.insert(timelineElement, start);
                 }
+
+                if (end) {
+                    end->setOffset(element->parentElement()->renderOffset(timelineElement->endFrame()));
+                    end->setValue(timelineElement->endValue());
+                    connect(end, &ViewportProperty::valueChanged, this, [=](QVariant value) {
+                        TimelineElementState oldState(timelineElement);
+                        timelineElement->setEndValue(value);
+                        d->timeline->undoStack()->push(new UndoTimelineElementModify(tr("End Value Change"), oldState, TimelineElementState(timelineElement)));
+                    });
+                    connect(end, &ViewportProperty::focusFrame, this, [=] {
+                        d->timeline->setCurrentFrame(timelineElement->endFrame());
+                    });
+
+                    connect(timelineElement, &TimelineElement::elementPropertyChanged, end, [=] {
+                        QSignalBlocker blocker(end);
+                        end->setValue(timelineElement->endValue());
+                        end->setOffset(element->parentElement()->renderOffset(timelineElement->endFrame()));
+                    });
+
+                    d->adjustmentWidgets.insert(timelineElement, end);
+                }
+            }
+        }
+
+        Element* element = qobject_cast<Element*>(d->timeline->currentSelection().first());
+        if (element) {
+            if (d->adjustmentWidgets.contains(element)) {
+                toDelete.removeOne(element);
+            } else {
+                for (QString property : element->allProperties().keys()) {
+                    ViewportProperty* prop = ViewportProperty::constructForType(element->propertyType(property), ViewportProperty::StartValueType, this);
+                    if (prop) {
+                        prop->setOffset(element->renderOffset(0));
+                        prop->setValue(element->startValue(property));
+                        connect(prop, &ViewportProperty::valueChanged, this, [=](QVariant value) {
+                            ElementState oldState(element);
+                            element->setStartValue(property, value);
+                            d->timeline->undoStack()->push(new UndoElementModify(tr("Start Value Change"), oldState, ElementState(element)));
+                        });
+                        connect(prop, &ViewportProperty::focusFrame, this, [=] {
+                            d->timeline->setCurrentFrame(0);
+                        });
+
+                        connect(element, &Element::startValueChanged, prop, [=](QString propertyChanged, QVariant value) {
+                            if (property == propertyChanged) {
+                                QSignalBlocker blocker(prop);
+                                prop->setValue(value);
+                            }
+                        });
+
+                        d->adjustmentWidgets.insert(element, prop);
+                    }
+                }
+
             }
         }
     }
 
     for (QObject* w : toDelete) {
-        for (QWidget* widget : d->adjustmentWidgets.values(w)) {
+        for (ViewportProperty* widget : d->adjustmentWidgets.values(w)) {
             widget->deleteLater();
         }
         d->adjustmentWidgets.remove(w);
