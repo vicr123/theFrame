@@ -203,6 +203,7 @@ bool Renderer::completeRender() {
         "-s", QString::number(d->viewport->viewportSize().width()) + "x" + QString::number(d->viewport->viewportSize().height()),
         "-i", "Frame%05d.png",
         "-vcodec", d->vcodec,
+        "-pix_fmt", "yuv420p",
         d->outputFile
     });
     ffmpegProcess.setWorkingDirectory(d->temporaryDir.path());

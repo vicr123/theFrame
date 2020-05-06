@@ -482,7 +482,8 @@ QJsonValue Element::propertyToJson(Element::PropertyType propertyType, QVariant 
             QJsonArray array = {
                 col.red(),
                 col.green(),
-                col.blue()
+                col.blue(),
+                col.alpha()
             };
             return array;
         }
@@ -521,7 +522,7 @@ QVariant Element::jsonToProperty(Element::PropertyType propertyType, QJsonValue 
         }
         case Element::Color: {
             QJsonArray array = json.toArray();
-            QColor col(array.at(0).toInt(), array.at(1).toInt(), array.at(2).toInt());
+            QColor col(array.at(0).toInt(), array.at(1).toInt(), array.at(2).toInt(), array.at(3).toInt(255));
             return col;
         }
         case Element::Point: {
