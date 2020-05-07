@@ -35,10 +35,16 @@ SOURCES += \
     render/renderjobs.cpp \
     render/renderjobwidget.cpp \
     render/renderpopover.cpp \
+    settings/advancedsettings.cpp \
+    settings/generalsettings.cpp \
+    settings/settingsdialog.cpp \
+    settings/tutorialssettings.cpp \
     timeline/timeline.cpp \
     timeline/timelineleftwidget.cpp \
     timeline/timelinerightwidget.cpp \
     timeline/timelinerightwidgetproperty.cpp \
+    tutorialengine.cpp \
+    tutorialwindow.cpp \
     undo/elementstate.cpp \
     undo/timelineelementstate.cpp \
     undo/undodeleteelement.cpp \
@@ -70,10 +76,16 @@ HEADERS += \
     render/renderjobs.h \
     render/renderjobwidget.h \
     render/renderpopover.h \
+    settings/advancedsettings.h \
+    settings/generalsettings.h \
+    settings/settingsdialog.h \
+    settings/tutorialssettings.h \
     timeline/timeline.h \
     timeline/timelineleftwidget.h \
     timeline/timelinerightwidget.h \
     timeline/timelinerightwidgetproperty.h \
+    tutorialengine.h \
+    tutorialwindow.h \
     undo/elementstate.h \
     undo/timelineelementstate.h \
     undo/undodeleteelement.h \
@@ -101,9 +113,14 @@ FORMS += \
     render/renderjobs.ui \
     render/renderjobwidget.ui \
     render/renderpopover.ui \
+    settings/advancedsettings.ui \
+    settings/generalsettings.ui \
+    settings/settingsdialog.ui \
+    settings/tutorialssettings.ui \
     timeline/timeline.ui \
     timeline/timelineleftwidget.ui \
     timeline/timelinerightwidget.ui \
+    tutorialwindow.ui \
     viewport.ui
 
 unix:!macx {

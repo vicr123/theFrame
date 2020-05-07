@@ -33,6 +33,9 @@
 #include "undo/undodeleteelement.h"
 #include "undo/undoelementmodify.h"
 
+#include "tutorialengine.h"
+#include "tutorialwindow.h"
+
 #include <elements/rectangleelement.h>
 #include <elements/textelement.h>
 #include <elements/groupelement.h>
@@ -62,6 +65,14 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     connect(element, &Element::nameChanged, ui->elementName, &QLabel::setText);
     ui->elementName->setText(element->name());
     ui->elementType->setText(element->typeDisplayName());
+
+    if (isRoot) {
+        timeline->tutorialEngine()->setTutorialTrigger(TutorialEngine::AddElement, [=] {
+            TutorialWindow::trigger(TutorialWindow::AddElement, TutorialWindow::Horizontal, ui->addButton);
+        }, [=] {
+            TutorialWindow::hide(TutorialWindow::AddElement);
+        });
+    }
 
     int propertyElementHeight = 0;
     for (QString property : element->animatableProperties().keys()) {
@@ -159,6 +170,8 @@ void TimelineLeftWidget::addChild(int index, Element* element) {
     TimelineLeftWidget* widget = new TimelineLeftWidget(d->timeline, element, false);
     d->rightWidget->addChild(index, widget->rightWidget());
     ui->childrenLayout->insertWidget(index, widget);
+
+    d->timeline->tutorialEngine()->setTutorialState(TutorialEngine::AddTimelineElement);
 }
 
 void TimelineLeftWidget::addElement(Element* element)

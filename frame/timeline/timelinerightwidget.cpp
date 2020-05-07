@@ -24,6 +24,10 @@
 #include "timelinerightwidgetproperty.h"
 #include <QPainter>
 
+#include "timeline.h"
+#include "tutorialengine.h"
+#include "tutorialwindow.h"
+
 struct TimelineRightWidgetPrivate {
     Timeline* timeline;
     Element* element;
@@ -52,6 +56,12 @@ TimelineRightWidget::TimelineRightWidget(Timeline* timeline, Element* element, b
         ui->propertiesLayout->addWidget(propertyWidget);
         d->propertyWidgets.append(propertyWidget);
     }
+
+    d->timeline->tutorialEngine()->setTutorialTrigger(TutorialEngine::AddTimelineElement, [=] {
+        TutorialWindow::trigger(TutorialWindow::AddTimelineElement, TutorialWindow::Vertical, ui->propertiesWidget);
+    }, [=] {
+        TutorialWindow::hide(TutorialWindow::AddTimelineElement);
+    });
 
     connect(element, &Element::destroyed, this, &TimelineRightWidget::deleteLater);
 }

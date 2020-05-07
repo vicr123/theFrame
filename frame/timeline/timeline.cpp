@@ -46,6 +46,7 @@ struct TimelinePrivate {
     TimelineLeftWidget* rootLeftWidget;
     ViewportElement* rootViewportElement;
     Prerenderer* prerenderer;
+    TutorialEngine* tutorialEngine;
 
     QUndoStack* undoStack;
     QList<QObject*> currentSelection;
@@ -115,6 +116,16 @@ void Timeline::setPrerenderer(Prerenderer* prerenderer) {
 
 Prerenderer* Timeline::prerenderer() const {
     return d->prerenderer;
+}
+
+void Timeline::setTutorialEngine(TutorialEngine* engine)
+{
+    d->tutorialEngine = engine;
+}
+
+TutorialEngine* Timeline::tutorialEngine()
+{
+    return d->tutorialEngine;
 }
 
 void Timeline::setFrameSpacing(double frameSpacing, int centerX) {

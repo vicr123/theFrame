@@ -32,6 +32,7 @@ class TimelineElement;
 class Prerenderer;
 class QUndoStack;
 class TimelineRightWidgetProperty;
+class TutorialEngine;
 struct TimelinePrivate;
 class Timeline : public QWidget {
         Q_OBJECT
@@ -48,6 +49,9 @@ class Timeline : public QWidget {
 
         void setPrerenderer(Prerenderer* prerenderer);
         Prerenderer* prerenderer() const;
+
+        void setTutorialEngine(TutorialEngine* engine);
+        TutorialEngine* tutorialEngine();
 
         void setFrameSpacing(double frameSpacing, int centerX = 0);
         double frameSpacing() const;

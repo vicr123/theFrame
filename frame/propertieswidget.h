@@ -27,6 +27,7 @@ namespace Ui {
 }
 
 class Timeline;
+class TutorialEngine;
 class QUndoStack;
 struct PropertiesWidgetPrivate;
 class PropertiesWidget : public QWidget {
@@ -38,6 +39,7 @@ class PropertiesWidget : public QWidget {
 
         void setTimeline(Timeline* timeline);
         void setUndoStack(QUndoStack* undoStack);
+        void setTutorialEngine(TutorialEngine* tutorialEngine);
 
         void setProjectPath(QString path);
 

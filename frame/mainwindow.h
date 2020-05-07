@@ -120,6 +120,8 @@ class MainWindow : public QMainWindow {
 
         void on_recentsBox_itemActivated(QListWidgetItem *item);
 
+        void on_actionSettings_triggered();
+
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;

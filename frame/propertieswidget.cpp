@@ -33,6 +33,9 @@
 #include <elements/timelineelement.h>
 #include <elements/element.h>
 
+#include "tutorialengine.h"
+#include "tutorialwindow.h"
+
 #include <QColorDialog>
 
 #include "undo/undoelementmodify.h"
@@ -40,6 +43,7 @@
 
 struct PropertiesWidgetPrivate {
     Timeline* timeline;
+    TutorialEngine* tutorialEngine;
     QUndoStack* undoStack;
 
     QString projectPath;
@@ -112,11 +116,26 @@ void PropertiesWidget::setUndoStack(QUndoStack* undoStack)
     d->undoStack = undoStack;
 }
 
+void PropertiesWidget::setTutorialEngine(TutorialEngine* tutorialEngine)
+{
+    d->tutorialEngine = tutorialEngine;
+    tutorialEngine->setTutorialTrigger(TutorialEngine::ChangeEasing, [=] {
+        TutorialWindow::trigger(TutorialWindow::ChangeEasing, TutorialWindow::Horizontal, ui->easingWidget);
+    }, [=] {
+        TutorialWindow::hide(TutorialWindow::ChangeEasing);
+    });
+}
+
 void PropertiesWidget::setProjectPath(QString path) {
     d->projectPath = path;
 }
 
 void PropertiesWidget::updateCurrentTimelineElements() {
+    QList<TutorialEngine::TutorialState> validTutorialStates;
+    validTutorialStates.append(TutorialEngine::Idle);
+    validTutorialStates.append(TutorialEngine::AddElement);
+    validTutorialStates.append(TutorialEngine::AddTimelineElement);
+
     if (d->timeline->currentSelection().count() == 0) {
         ui->stackedWidget->setCurrentWidget(ui->nothingSelectedPage);
     } else if (d->timeline->currentSelection().count() == 1) {
@@ -167,6 +186,8 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                     TimelineElementState oldState(timelineElement);
                     timelineElement->setEndValue(value);
                     d->undoStack->push(new UndoTimelineElementModify(tr("End Value Change"), oldState, TimelineElementState(timelineElement)));
+
+                    d->tutorialEngine->setTutorialState(TutorialEngine::ChangeEasing);
                 });
                 connect(timelineElement, &TimelineElement::elementPropertyChanged, d->startWidget, [=] {
                     QSignalBlocker blocker(d->startWidget);
@@ -175,6 +196,12 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 connect(timelineElement, &TimelineElement::elementPropertyChanged, d->endWidget, [=] {
                     QSignalBlocker blocker(d->endWidget);
                     d->endWidget->setValue(timelineElement->endValue());
+                });
+
+                d->tutorialEngine->setTutorialTrigger(TutorialEngine::ChangeProperty, [=] {
+                    TutorialWindow::trigger(TutorialWindow::ChangeProperty, TutorialWindow::Horizontal, d->endWidget);
+                }, [=] {
+                    TutorialWindow::hide(TutorialWindow::ChangeProperty);
                 });
             }
 
@@ -185,6 +212,9 @@ void PropertiesWidget::updateCurrentTimelineElements() {
             } else {
                 ui->easingBox->setCurrentIndex(1 + timelineElement->easingCurve().type() / 4);
             }
+
+            validTutorialStates.append(TutorialEngine::ChangeProperty);
+            validTutorialStates.append(TutorialEngine::ChangeEasing);
         } else if (e->metaObject()->inherits(&Element::staticMetaObject)) {
             ui->stackedWidget->setCurrentWidget(ui->singleElementSelectedPage);
             for (QWidget* w : d->propertyWidgets) {
@@ -256,6 +286,10 @@ void PropertiesWidget::updateCurrentTimelineElements() {
             });
             ui->elementNameBox->setText(element->name());
         }
+    }
+
+    if (!validTutorialStates.contains(d->tutorialEngine->tutorialState())) {
+        d->tutorialEngine->setTutorialState(TutorialEngine::Idle);
     }
 }
 

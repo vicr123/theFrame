@@ -335,137 +335,139 @@
             </widget>
            </item>
            <item>
-            <layout class="QGridLayout" name="gridLayout_2">
-             <property name="leftMargin">
-              <number>9</number>
-             </property>
-             <property name="topMargin">
-              <number>9</number>
-             </property>
-             <property name="rightMargin">
-              <number>9</number>
-             </property>
-             <property name="bottomMargin">
-              <number>9</number>
-             </property>
-             <property name="spacing">
-              <number>6</number>
-             </property>
-             <item row="2" column="0">
-              <widget class="QComboBox" name="easingBox">
-               <item>
-                <property name="text">
-                 <string>Linear</string>
+            <widget class="QWidget" name="easingWidget" native="true">
+             <layout class="QGridLayout" name="gridLayout_2">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item row="2" column="0">
+               <widget class="QComboBox" name="easingBox">
+                <item>
+                 <property name="text">
+                  <string>Linear</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Quadratic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Cubic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Quartic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Quintic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sinusoidal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Exponential</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Circular</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Elastic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Overshooting</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Bouncing</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Custom Beizer Spline</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="easingTypeBox">
+                <property name="enabled">
+                 <bool>false</bool>
                 </property>
-               </item>
-               <item>
+                <item>
+                 <property name="text">
+                  <string>Accelerate</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Decelerate</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Accelerate then Decelerate</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Decelerate then Accelerate</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_6">
                 <property name="text">
-                 <string>Quadratic</string>
+                 <string>Select the type of easing curve you'd like to use</string>
                 </property>
-               </item>
-               <item>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_5">
+                <property name="font">
+                 <font>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
-                 <string>Cubic</string>
+                 <string>EASING</string>
                 </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Quartic</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Quintic</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Sinusoidal</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Exponential</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Circular</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Elastic</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Overshooting</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bouncing</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Custom Beizer Spline</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="easingTypeBox">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Accelerate</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Decelerate</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Accelerate then Decelerate</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Decelerate then Accelerate</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="1" column="0" colspan="2">
-              <widget class="QLabel" name="label_6">
-               <property name="text">
-                <string>Select the type of easing curve you'd like to use</string>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" colspan="2">
-              <widget class="QLabel" name="label_5">
-               <property name="font">
-                <font>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>EASING</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </item>
            <item>
             <spacer name="verticalSpacer_2">

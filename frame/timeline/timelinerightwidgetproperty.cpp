@@ -25,6 +25,7 @@
 #include <elements/timelineelement.h>
 #include "timeline.h"
 #include "prerenderer.h"
+#include "tutorialengine.h"
 
 #include <QClipboard>
 #include <QMimeData>
@@ -468,6 +469,7 @@ void TimelineRightWidgetProperty::mouseReleaseEvent(QMouseEvent* event) {
             }
             case TimelineRightWidgetPropertyPrivate::MouseCreatingTransition:
                 undoCommand = new UndoNewTimelineElement(tr("New Timeline Element"), TimelineElementState(d->mouseTimelineElement));
+                d->timeline->tutorialEngine()->setTutorialState(TutorialEngine::ChangeProperty);
                 break;
             case TimelineRightWidgetPropertyPrivate::MouseDownNoAction:
             case TimelineRightWidgetPropertyPrivate::MouseIdle:

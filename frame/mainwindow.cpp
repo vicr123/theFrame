@@ -32,6 +32,10 @@
 #include "prerenderer.h"
 #include <tpopover.h>
 #include <ttoast.h>
+#include "settings/settingsdialog.h"
+
+#include "tutorialwindow.h"
+#include "tutorialengine.h"
 
 #include "render/renderpopover.h"
 #include "render/renderjobs.h"
@@ -46,6 +50,7 @@ struct MainWindowPrivate {
 
     QUndoStack* undoStack;
     Prerenderer* prerenderer;
+    TutorialEngine* tutorialEngine;
 
     QString currentFile;
     ViewportElement* viewport;
@@ -78,6 +83,8 @@ MainWindow::MainWindow(QWidget* parent)
         this->setWindowModified(!clean);
     });
 
+    d->tutorialEngine = new TutorialEngine(this);
+
     d->prerenderer = new Prerenderer();
     d->viewport = ui->viewport->rootElement();
     d->prerenderer->setViewportElement(d->viewport);
@@ -87,6 +94,7 @@ MainWindow::MainWindow(QWidget* parent)
     ui->viewport->setTimeline(ui->timeline);
 
     ui->timeline->setUndoStack(d->undoStack);
+    ui->timeline->setTutorialEngine(d->tutorialEngine);
     ui->timeline->setPrerenderer(d->prerenderer);
     ui->timeline->setViewportElement(d->viewport);
     connect(ui->timeline, &Timeline::canCutChanged, this, [=] {
@@ -101,6 +109,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     ui->propertiesWidget->setTimeline(ui->timeline);
     ui->propertiesWidget->setUndoStack(d->undoStack);
+    ui->propertiesWidget->setTutorialEngine(d->tutorialEngine);
 
     ui->menuWindow->addAction(ui->timelineDockWidget->toggleViewAction());
     ui->menuWindow->addAction(ui->propertiesDockWidget->toggleViewAction());
@@ -379,7 +388,10 @@ void MainWindow::closeEvent(QCloseEvent* event)
         box->open();
     }
 
-    if (d->shouldSaveWindowState) d->settings.setValue("Window/WindowState", this->saveState());
+    if (d->shouldSaveWindowState) {
+        d->settings.setValue("Window/WindowState", this->saveState());
+        d->settings.sync();
+    }
 }
 
 bool MainWindow::eventFilter(QObject* watched, QEvent* event)
@@ -524,6 +536,8 @@ void MainWindow::on_doCreateButton_clicked()
 
     this->saveAs()->then([=] {
         ui->stackedWidget->setCurrentWidget(ui->mainPage);
+        d->tutorialEngine->setTutorialsEnabled(true);
+        d->tutorialEngine->setTutorialState(TutorialEngine::AddElement);
     });
 }
 
@@ -535,25 +549,31 @@ void MainWindow::on_openProjectButton_clicked()
 void MainWindow::on_stackedWidget_currentChanged(int arg1)
 {
     bool menuState;
-    if (ui->stackedWidget->currentWidget() == ui->mainPage) {
-        menuState = true;
-        d->shouldSaveWindowState = true;
-
-        if (d->settings.contains("Window/WindowState")) {
-            this->restoreState(d->settings.value("Window/WindowState").toByteArray());
-        } else {
+    QWidget* currentWidget = ui->stackedWidget->widget(arg1);
+    if (currentWidget == ui->mainPage) {
+        QVariant windowState = d->settings.value("Window/WindowState");
+        if (windowState.toString() == "default") {
             ui->timelineDockWidget->setVisible(true);
             ui->propertiesDockWidget->setVisible(true);
+        } else {
+            this->restoreState(windowState.toByteArray());
         }
+
+        menuState = true;
+        d->shouldSaveWindowState = true;
     } else {
+        if (d->shouldSaveWindowState) {
+            d->settings.setValue("Window/WindowState", this->saveState());
+            d->settings.sync();
+        }
+
         menuState = false;
         d->shouldSaveWindowState = false;
 
-        d->settings.setValue("Window/WindowState", this->saveState());
-        d->settings.sync();
-
         ui->timelineDockWidget->setVisible(false);
         ui->propertiesDockWidget->setVisible(false);
+
+        d->tutorialEngine->setTutorialsEnabled(false);
     }
 
     ui->menubar->setVisible(menuState);
@@ -699,4 +719,12 @@ void MainWindow::on_recentsBox_itemActivated(QListWidgetItem *item)
             this->openFile(item->data(Qt::UserRole).toString());
         });
     }
+}
+
+void MainWindow::on_actionSettings_triggered()
+{
+    SettingsDialog* dialog = new SettingsDialog(this);
+    dialog->setWindowFlag(Qt::Sheet);
+    dialog->setWindowModality(Qt::WindowModal);
+    dialog->open();
 }
