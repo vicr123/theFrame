@@ -68,6 +68,7 @@ class PropertiesWidget : public QWidget {
 
         void updateCurrentTimelineElements();
         void setEasingCurve();
+        void updateEasingCurve();
 };
 
 #endif // PROPERTIESWIDGET_H

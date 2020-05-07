@@ -141,6 +141,7 @@ void Element::addTimelineElement(QString property, TimelineElement* element, uin
         timelineElementId = id;
     } else {
         timelineElementId = d->timelineElementIds;
+        d->timelineElementIds++;
     }
 
     element->setParentElement(this);
@@ -158,8 +159,6 @@ void Element::addTimelineElement(QString property, TimelineElement* element, uin
         if (d->timelineElementsById.value(timelineElementId) == element) d->timelineElementsById.remove(timelineElementId);
         emit timelineElementsChanged();
     });
-
-    d->timelineElementIds++;
 
     tryInvalidateFromFrame(element->startFrame());
     emit timelineElementsChanged();
@@ -222,12 +221,12 @@ void Element::addChild(Element* element, uint id) {
 
 void Element::insertChild(int index, Element* element, uint id)
 {
-
     uint childElementId;
     if (id != 0) {
         childElementId = id;
     } else {
         childElementId = d->childrenElementIds;
+        d->childrenElementIds++;
     }
 
     d->children.insert(index, element);
@@ -239,8 +238,6 @@ void Element::insertChild(int index, Element* element, uint id)
         if (d->childrenById.value(childElementId) == element) d->childrenById.remove(childElementId);
         tryInvalidateFromFrame(0);
     });
-
-    d->childrenElementIds++;
 
     emit childElementInserted(index, element);
     tryInvalidateFromFrame(0);

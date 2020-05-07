@@ -685,22 +685,23 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Endwertänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="254"/>
+        <location filename="../propertieswidget.cpp" line="252"/>
         <source>Start State Change</source>
         <translation>Startstatusänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="307"/>
+        <location filename="../propertieswidget.cpp" line="340"/>
+        <location filename="../propertieswidget.cpp" line="348"/>
         <source>Easing Curve Change</source>
         <translation>Beschleunigungskurvenänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="315"/>
+        <location filename="../propertieswidget.cpp" line="328"/>
         <source>Element Name Change</source>
         <translation>Elementnamenänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="352"/>
+        <location filename="../propertieswidget.cpp" line="373"/>
         <source>Select Color</source>
         <translation>Farbe auswählen</translation>
     </message>

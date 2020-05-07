@@ -34,6 +34,7 @@ void TutorialEngine::setTutorialsEnabled(bool enable)
 void TutorialEngine::setTutorialState(TutorialEngine::TutorialState state)
 {
     if (!d->enabled) return;
+    if (d->state == state) return;
     if (d->hideCallbacks.contains(d->state)) d->hideCallbacks.value(d->state)();
 
     if (state != Idle) {

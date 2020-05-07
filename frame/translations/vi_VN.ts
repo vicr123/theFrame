@@ -685,22 +685,23 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>Đổi Giá Trị Kết Thúc</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="254"/>
+        <location filename="../propertieswidget.cpp" line="252"/>
         <source>Start State Change</source>
         <translation>Đổi Trạng Thái Đầu Tiên</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="307"/>
+        <location filename="../propertieswidget.cpp" line="340"/>
+        <location filename="../propertieswidget.cpp" line="348"/>
         <source>Easing Curve Change</source>
         <translation>Đổi Đường Giảm</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="315"/>
+        <location filename="../propertieswidget.cpp" line="328"/>
         <source>Element Name Change</source>
         <translation>Đổi Tên Thành Phần</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="352"/>
+        <location filename="../propertieswidget.cpp" line="373"/>
         <source>Select Color</source>
         <translation>Chọn màu</translation>
     </message>

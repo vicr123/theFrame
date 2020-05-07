@@ -205,13 +205,11 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 });
             }
 
-            if (timelineElement->easingCurve().type() == QEasingCurve::Linear) {
-                ui->easingBox->setCurrentIndex(0);
-            } else if (timelineElement->easingCurve().type() == QEasingCurve::BezierSpline) {
-                ui->easingBox->setCurrentIndex(ui->easingBox->count() - 1);
-            } else {
-                ui->easingBox->setCurrentIndex(1 + timelineElement->easingCurve().type() / 4);
-            }
+            //TODO: Change d->startWidget to something a little more reasonable
+            connect(timelineElement, &TimelineElement::elementPropertyChanged, d->startWidget, [=] {
+                this->updateEasingCurve();
+            });
+            updateEasingCurve();
 
             validTutorialStates.append(TutorialEngine::ChangeProperty);
             validTutorialStates.append(TutorialEngine::ChangeEasing);
@@ -295,7 +293,6 @@ void PropertiesWidget::updateCurrentTimelineElements() {
 
 void PropertiesWidget::setEasingCurve() {
     TimelineElement* timelineElement = qobject_cast<TimelineElement*>(d->timeline->currentSelection().first());
-    TimelineElementState oldState(timelineElement);
     if (ui->easingBox->currentIndex() == 0) { //Linear
         timelineElement->setEasingCurve(QEasingCurve::Linear);
     } else if (ui->easingBox->currentIndex() == ui->easingBox->count() - 1) {
@@ -304,8 +301,24 @@ void PropertiesWidget::setEasingCurve() {
         QEasingCurve::Type easingCurveType = static_cast<QEasingCurve::Type>((ui->easingBox->currentIndex() - 1) * 4 + 1 + ui->easingTypeBox->currentIndex());
         timelineElement->setEasingCurve(easingCurveType);
     }
-    d->undoStack->push(new UndoTimelineElementModify(tr("Easing Curve Change"), oldState, TimelineElementState(timelineElement)));
-    d->tutorialEngine->setTutorialState(TutorialEngine::Idle);
+}
+
+void PropertiesWidget::updateEasingCurve()
+{
+    QSignalBlocker blocker1(ui->easingBox);
+    QSignalBlocker blocker2(ui->easingTypeBox);
+    TimelineElement* timelineElement = qobject_cast<TimelineElement*>(d->timeline->currentSelection().first());
+    if (timelineElement->easingCurve().type() == QEasingCurve::Linear) {
+        ui->easingBox->setCurrentIndex(0);
+        ui->easingTypeBox->setEnabled(false);
+    } else if (timelineElement->easingCurve().type() == QEasingCurve::BezierSpline) {
+        ui->easingBox->setCurrentIndex(ui->easingBox->count() - 1);
+        ui->easingTypeBox->setEnabled(false);
+    } else {
+        ui->easingBox->setCurrentIndex(1 + timelineElement->easingCurve().type() / 4);
+        ui->easingTypeBox->setCurrentIndex((timelineElement->easingCurve().type() - 1) % 4);
+        ui->easingTypeBox->setEnabled(true);
+    }
 }
 
 void PropertiesWidget::on_elementNameBox_textChanged(const QString& arg1) {
@@ -316,16 +329,24 @@ void PropertiesWidget::on_elementNameBox_textChanged(const QString& arg1) {
 }
 
 void PropertiesWidget::on_easingBox_currentIndexChanged(int index) {
+    TimelineElement* timelineElement = qobject_cast<TimelineElement*>(d->timeline->currentSelection().first());
+    TimelineElementState oldState(timelineElement);
     if (index == 0 || index == ui->easingBox->count() - 1) {
         ui->easingTypeBox->setEnabled(false);
     } else {
         ui->easingTypeBox->setEnabled(true);
     }
     setEasingCurve();
+    d->undoStack->push(new UndoTimelineElementModify(tr("Easing Curve Change"), oldState, TimelineElementState(timelineElement)));
+    d->tutorialEngine->setTutorialState(TutorialEngine::Idle);
 }
 
 void PropertiesWidget::on_easingTypeBox_currentIndexChanged(int index) {
+    TimelineElement* timelineElement = qobject_cast<TimelineElement*>(d->timeline->currentSelection().first());
+    TimelineElementState oldState(timelineElement);
     setEasingCurve();
+    d->undoStack->push(new UndoTimelineElementModify(tr("Easing Curve Change"), oldState, TimelineElementState(timelineElement)));
+    d->tutorialEngine->setTutorialState(TutorialEngine::Idle);
 }
 
 void PropertiesWidget::on_fpsBox_valueChanged(int arg1) {
