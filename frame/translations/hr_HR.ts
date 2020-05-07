@@ -175,6 +175,7 @@
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Right</source>
+        <extracomment>Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -185,6 +186,7 @@
     <message>
         <location filename="../mainwindow.ui" line="558"/>
         <source>Left</source>
+        <extracomment>Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -193,18 +195,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="566"/>
-        <source>Del</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="575"/>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="578"/>
-        <source>Ctrl+=</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -213,18 +205,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="590"/>
-        <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="599"/>
         <source>Play</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="602"/>
-        <source>Space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -233,18 +215,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="614"/>
-        <source>Home</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="623"/>
         <source>Last Frame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="626"/>
-        <source>End</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -253,28 +225,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="638"/>
-        <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="647"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="650"/>
-        <source>Ctrl+Shift+S</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="659"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -290,16 +247,19 @@
     <message>
         <location filename="../mainwindow.ui" line="682"/>
         <source>I</source>
+        <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="690"/>
         <source>O</source>
+        <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="698"/>
         <source>P</source>
+        <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -323,18 +283,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="736"/>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="748"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="751"/>
-        <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -343,18 +293,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="763"/>
-        <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="772"/>
         <source>New Window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="775"/>
-        <source>Ctrl+Shift+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -365,6 +305,7 @@
     <message>
         <location filename="../mainwindow.ui" line="783"/>
         <source>Ctrl+R</source>
+        <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -375,6 +316,7 @@
     <message>
         <location filename="../mainwindow.ui" line="791"/>
         <source>Ctrl+Shift+R</source>
+        <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -383,18 +325,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="806"/>
-        <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="818"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="821"/>
-        <source>Ctrl+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -403,18 +335,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="836"/>
-        <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="844"/>
+        <location filename="../mainwindow.ui" line="845"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="847"/>
-        <source>Ctrl+A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

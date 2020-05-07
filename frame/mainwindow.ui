@@ -543,7 +543,7 @@
     <string>Next Frame</string>
    </property>
    <property name="shortcut">
-    <string>Right</string>
+    <string extracomment="Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.">Right</string>
    </property>
   </action>
   <action name="actionPreviousFrame">
@@ -555,7 +555,7 @@
     <string>Previous Frame</string>
    </property>
    <property name="shortcut">
-    <string>Left</string>
+    <string extracomment="Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.">Left</string>
    </property>
   </action>
   <action name="actionDeleteTransition">
@@ -563,7 +563,7 @@
     <string>Delete</string>
    </property>
    <property name="shortcut">
-    <string>Del</string>
+    <string notr="true">Del</string>
    </property>
   </action>
   <action name="actionZoomIn">
@@ -575,7 +575,7 @@
     <string>Zoom In</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+=</string>
+    <string notr="true">Ctrl+=</string>
    </property>
   </action>
   <action name="actionZoomOut">
@@ -587,7 +587,7 @@
     <string>Zoom Out</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+-</string>
+    <string notr="true">Ctrl+-</string>
    </property>
   </action>
   <action name="actionPlay">
@@ -599,7 +599,7 @@
     <string>Play</string>
    </property>
    <property name="shortcut">
-    <string>Space</string>
+    <string notr="true">Space</string>
    </property>
   </action>
   <action name="actionFirstFrame">
@@ -611,7 +611,7 @@
     <string>First Frame</string>
    </property>
    <property name="shortcut">
-    <string>Home</string>
+    <string notr="true">Home</string>
    </property>
   </action>
   <action name="actionLastFrame">
@@ -623,7 +623,7 @@
     <string>Last Frame</string>
    </property>
    <property name="shortcut">
-    <string>End</string>
+    <string notr="true">End</string>
    </property>
   </action>
   <action name="actionSave">
@@ -635,7 +635,7 @@
     <string>Save</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+S</string>
+    <string notr="true">Ctrl+S</string>
    </property>
   </action>
   <action name="actionSaveAs">
@@ -647,7 +647,7 @@
     <string>Save As</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+S</string>
+    <string notr="true">Ctrl+Shift+S</string>
    </property>
   </action>
   <action name="actionOpen">
@@ -659,7 +659,7 @@
     <string>Open</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+O</string>
+    <string notr="true">Ctrl+O</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -679,7 +679,7 @@
     <string>Set In Point</string>
    </property>
    <property name="shortcut">
-    <string>I</string>
+    <string extracomment="Keyboard shortcut; set an appropriate key for this action">I</string>
    </property>
   </action>
   <action name="actionSet_Out_Point">
@@ -687,7 +687,7 @@
     <string>Set Out Point</string>
    </property>
    <property name="shortcut">
-    <string>O</string>
+    <string extracomment="Keyboard shortcut; set an appropriate key for this action">O</string>
    </property>
   </action>
   <action name="actionClear_In_Out_Points">
@@ -695,7 +695,7 @@
     <string>Clear In/Out Points</string>
    </property>
    <property name="shortcut">
-    <string>P</string>
+    <string extracomment="Keyboard shortcut; set an appropriate key for this action">P</string>
    </property>
   </action>
   <action name="actionEnable_Prerendering">
@@ -733,7 +733,7 @@
     <string>Exit</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+    <string notr="true">Ctrl+Q</string>
    </property>
    <property name="menuRole">
     <enum>QAction::QuitRole</enum>
@@ -748,7 +748,7 @@
     <string>Close</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string notr="true">Ctrl+W</string>
    </property>
   </action>
   <action name="actionNew">
@@ -760,7 +760,7 @@
     <string>New</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+N</string>
+    <string notr="true">Ctrl+N</string>
    </property>
   </action>
   <action name="actionNew_Window">
@@ -772,7 +772,7 @@
     <string>New Window</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+N</string>
+    <string notr="true">Ctrl+Shift+N</string>
    </property>
   </action>
   <action name="actionRender">
@@ -780,7 +780,7 @@
     <string>Render</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+R</string>
+    <string extracomment="Keyboard shortcut; set an appropriate key for this action">Ctrl+R</string>
    </property>
   </action>
   <action name="actionRender_Jobs">
@@ -788,7 +788,7 @@
     <string>Render Jobs</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+R</string>
+    <string extracomment="Keyboard shortcut; set an appropriate key for this action">Ctrl+Shift+R</string>
    </property>
   </action>
   <action name="actionCut">
@@ -803,7 +803,7 @@
     <string>Cut</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+X</string>
+    <string notr="true">Ctrl+X</string>
    </property>
   </action>
   <action name="actionCopy">
@@ -818,7 +818,7 @@
     <string>Copy</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+C</string>
+    <string notr="true">Ctrl+C</string>
    </property>
   </action>
   <action name="actionPaste">
@@ -833,18 +833,19 @@
     <string>Paste</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+V</string>
+    <string notr="true">Ctrl+V</string>
    </property>
   </action>
   <action name="actionSelect_All">
    <property name="icon">
-    <iconset theme="edit-select-all"/>
+    <iconset theme="edit-select-all">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Select All</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+A</string>
+    <string notr="true">Ctrl+A</string>
    </property>
   </action>
  </widget>
