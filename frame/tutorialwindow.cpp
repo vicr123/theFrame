@@ -163,7 +163,8 @@ void TutorialWindow::on_okButton_clicked()
 
 void TutorialWindow::on_disableTutorialsButton_clicked()
 {
-    d->settings.value("Tutorials/DisableTutorials").toBool();
+    d->settings.setValue("Tutorials/DisableTutorials", true);
     d->settings.sync();
+
     ui->okButton->click();
 }

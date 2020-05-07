@@ -305,6 +305,7 @@ void PropertiesWidget::setEasingCurve() {
         timelineElement->setEasingCurve(easingCurveType);
     }
     d->undoStack->push(new UndoTimelineElementModify(tr("Easing Curve Change"), oldState, TimelineElementState(timelineElement)));
+    d->tutorialEngine->setTutorialState(TutorialEngine::Idle);
 }
 
 void PropertiesWidget::on_elementNameBox_textChanged(const QString& arg1) {
