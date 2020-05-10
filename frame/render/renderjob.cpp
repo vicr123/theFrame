@@ -53,7 +53,7 @@ QString RenderJob::jobDisplayName()
 void RenderJob::enqueueRenderJob()
 {
     if (d->settings.value("Render/ffmpegAutomatic").toBool()) {
-        d->ffmpegPath = FFmpegDetector::instance()->systemFfmpegPath();
+        d->ffmpegPath = FFmpegDetector::instance()->renderFfmpegPath();
     } else {
         d->ffmpegPath = d->settings.value("Render/ffmpegLocation").toString();
     }

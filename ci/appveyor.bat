@@ -34,7 +34,7 @@ cd ..
 mkdir deploy
 mkdir deploy\styles
 mkdir deploy\translations
-mkdir deploy\translations\libtheframe
+mkdir deploy\libtheframe\translations
 mkdir deploy\icons
 copy "contemporary-theme\release\Contemporary.dll" deploy\styles
 copy build\frame\release\theFrame.exe deploy
