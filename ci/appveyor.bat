@@ -39,7 +39,7 @@ mkdir deploy\icons
 copy "contemporary-theme\release\Contemporary.dll" deploy\styles
 copy build\frame\release\theFrame.exe deploy
 copy frame\translations\*.qm deploy\translations
-copy libtheframe\translations\*.qm deploy\translations
+copy libtheframe\translations\*.qm deploy\libtheframe\translations
 copy frame\defaults.conf deploy\
 robocopy frame\icons\contemporary-icons deploy\icons\ /mir
 copy build\libtheframe\release\libtheframe.dll deploy
@@ -49,5 +49,7 @@ copy "C:\OpenSSL-Win64\bin\openssl.exe" deploy
 copy "C:\OpenSSL-Win64\bin\libeay32.dll" deploy
 copy "C:\OpenSSL-Win64\bin\ssleay32.dll" deploy
 copy "C:\OpenSSL-Win64\bin\openssl.cfg" deploy
+copy "C:\OpenSSL-v111-Win64\bin\libssl-1_1-x64.dll" deploy
+copy "C:\OpenSSL-v111-Win64\bin\libcrypto-1_1-x64.dll" deploy
 cd deploy
 windeployqt theFrame.exe -svg -multimedia -concurrent

@@ -61,7 +61,7 @@ QString FFmpegDetector::theframeFfmpegPath()
 #ifdef Q_OS_WIN
     extension = ".exe";
 #endif
-    return QDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).absoluteFilePath("ffmpeg" + extension);
+    return QDir::cleanPath(QDir(QStandardPaths::writableLocation(QStandardPaths::DataLocation)).absoluteFilePath("ffmpeg" + extension));
 #endif
 }
 
