@@ -3,11 +3,12 @@
 #include <QApplication>
 #include <QProcess>
 #include <QFileInfo>
+#include "ffmpegdetector.h"
 #include <tsettings.h>
 
 struct RenderJobPrivate {
     QString filename;
-    QString ffmpegPath = "ffmpeg";
+    QString ffmpegPath;
     QString renderer;
 
     QByteArray projectFile;
@@ -26,20 +27,6 @@ RenderJob::RenderJob(QByteArray projectFile, QString projectPath, QObject *paren
     d = new RenderJobPrivate();
     d->projectFile = projectFile;
     d->projectPath = projectPath;
-
-    d->ffmpegPath = d->settings.value("Render/ffmpegLocation").toString();
-    if (d->ffmpegPath == "default") d->ffmpegPath = "ffmpeg";
-
-    d->renderer = d->settings.value("Render/rendererPath").toString();
-    if (d->renderer == "default") {
-#if defined(Q_OS_WIN)
-        d->renderer = QApplication::applicationDirPath() + "/theframe-render.exe";
-#elif defined(Q_OS_MAC)
-        d->renderer =  QApplication::applicationDirPath() + "/theframe-render";
-#else
-        d->renderer = "theframe-render";
-#endif
-    }
 }
 
 RenderJob::~RenderJob()
@@ -63,26 +50,14 @@ QString RenderJob::jobDisplayName()
     return QFileInfo(d->filename).fileName();
 }
 
-void RenderJob::setFfmpegPath(QString ffmpeg)
+void RenderJob::enqueueRenderJob()
 {
-    d->ffmpegPath = ffmpeg;
-    emit ffmpegPathChanged(ffmpeg);
-}
-
-QString RenderJob::ffmpegPath()
-{
-    return d->ffmpegPath;
-}
-
-void RenderJob::setRenderer(QString renderer)
-{
-    d->renderer = renderer;
-    emit rendererChanged(renderer);
-}
-
-QString RenderJob::renderer()
-{
-    return d->renderer;
+    if (d->settings.value("Render/ffmpegAutomatic").toBool()) {
+        d->ffmpegPath = FFmpegDetector::instance()->systemFfmpegPath();
+    } else {
+        d->ffmpegPath = d->settings.value("Render/ffmpegLocation").toString();
+    }
+    d->renderer = d->settings.value("Render/rendererPath").toString();
 }
 
 void RenderJob::startRenderJob()

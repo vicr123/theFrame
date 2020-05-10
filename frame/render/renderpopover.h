@@ -34,6 +34,14 @@ class RenderPopover : public QWidget
 
         void on_startRenderButton_clicked();
 
+        void on_listWidget_currentRowChanged(int currentRow);
+
+        void on_ffmpegTabWidget_currentChanged(int index);
+
+        void on_downloadFfmpegButton_clicked();
+
+        void on_removeFfmpegButton_clicked();
+
     signals:
         void renderingStarted(RenderJobPtr job);
         void done();
@@ -41,6 +49,10 @@ class RenderPopover : public QWidget
     private:
         Ui::RenderPopover *ui;
         RenderPopoverPrivate* d;
+
+        void settingChanged(QString key, QVariant value);
+        void ffmpegDownloadStateChanged();
+        void ensureSettingsValid();
 };
 
 #endif // RENDERPOPOVER_H

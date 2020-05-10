@@ -20,6 +20,7 @@ RenderController* RenderController::instance()
 
 void RenderController::queueRenderJob(RenderJobPtr job)
 {
+    job->enqueueRenderJob();
     connect(job.data(), &RenderJob::stateChanged, this, [=](RenderJob::State state) {
         switch (state) {
             case RenderJob::Idle:
@@ -55,7 +56,7 @@ QList<RenderJobPtr> RenderController::jobs()
 bool RenderController::haveUnfinishedJobs()
 {
     for (RenderJobPtr job : d->jobs) {
-        if (job->state() != RenderJob::Finished || job->state() != RenderJob::Errored || job->state() == RenderJob::Cancelled) return true;
+        if (job->state() == RenderJob::Idle || job->state() == RenderJob::Started) return true;
     }
     return false;
 }

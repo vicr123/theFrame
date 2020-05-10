@@ -58,6 +58,7 @@ int main(int argc, char* argv[]) {
 #endif
 
     QGuiApplication a(argc, argv);
+    a.setApplicationVersion("1.0");
 
     //Catch signals on Linux
     prepareTraps();

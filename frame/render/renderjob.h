@@ -25,12 +25,7 @@ class RenderJob : public QObject
 
         QString jobDisplayName();
 
-        void setFfmpegPath(QString ffmpeg);
-        QString ffmpegPath();
-
-        void setRenderer(QString renderer);
-        QString renderer();
-
+        void enqueueRenderJob();
         void startRenderJob();
         void cancelRenderJob();
         State state();
@@ -40,8 +35,6 @@ class RenderJob : public QObject
 
     signals:
         void outputFileNameChanged(QString filename);
-        void ffmpegPathChanged(QString ffmpegPath);
-        void rendererChanged(QString renderer);
         void stateChanged(State state);
         void progressChanged(quint64 progress, quint64 maxProgress);
 

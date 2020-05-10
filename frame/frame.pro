@@ -1,4 +1,4 @@
-QT       += core gui concurrent
+QT       += core gui concurrent network
 SHARE_APP_NAME = theframe
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -30,6 +30,7 @@ SOURCES += \
     properties/rectproperty.cpp \
     properties/stringproperty.cpp \
     propertieswidget.cpp \
+    render/ffmpegdetector.cpp \
     render/rendercontroller.cpp \
     render/renderjob.cpp \
     render/renderjobs.cpp \
@@ -71,6 +72,7 @@ HEADERS += \
     properties/rectproperty.h \
     properties/stringproperty.h \
     propertieswidget.h \
+    render/ffmpegdetector.h \
     render/rendercontroller.h \
     render/renderjob.h \
     render/renderjobs.h \

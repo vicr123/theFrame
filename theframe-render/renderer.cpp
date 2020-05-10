@@ -68,6 +68,7 @@ bool Renderer::prepare() {
     parser.addOption({"vcodec", tr("Video codec to use"), tr("vcodec")});
     parser.addOption({"project-path", tr("Root path for project files"), tr("project-path")});
     parser.addHelpOption();
+    parser.addVersionOption();
     parser.setOptionsAfterPositionalArgumentsMode(QCommandLineParser::ParseAsOptions);
     parser.process(QCoreApplication::instance()->arguments());
 

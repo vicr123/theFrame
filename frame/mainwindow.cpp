@@ -650,7 +650,7 @@ void MainWindow::on_actionRender_triggered()
 
     RenderPopover* render = new RenderPopover(doc.toJson(QJsonDocument::Compact), QFileInfo(d->currentFile).path());
     tPopover* popover = new tPopover(render);
-    popover->setPopoverWidth(SC_DPI(600));
+    popover->setPopoverWidth(SC_DPI(-300));
     connect(render, &RenderPopover::renderingStarted, this, [=](RenderJobPtr job) {
         if (job->state() == RenderJob::Idle || job->state() == RenderJob::Started) {
             tToast* toast = new tToast();
