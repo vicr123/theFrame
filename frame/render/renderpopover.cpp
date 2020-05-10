@@ -35,7 +35,7 @@ RenderPopover::RenderPopover(QByteArray projectFile, QString projectPath, QWidge
 #if defined(Q_OS_WIN)
         renderer = QApplication::applicationDirPath() + "/theframe-render.exe";
 #elif defined(Q_OS_MAC)
-        renderer =  QApplication::applicationDirPath() + "/theframe-render";
+        renderer = QApplication::applicationDirPath() + "/theframe-render";
 #endif
     }
     d->settings.setValue("Render/rendererPath", renderer);
@@ -188,6 +188,8 @@ void RenderPopover::ensureSettingsValid()
 {
     bool ffmpegOk = false;
     auto checkFfmpeg = [=](QString ffmpegPath) -> QString {
+        if (ffmpegPath.isEmpty()) return "";
+
         QProcess proc;
         proc.start(ffmpegPath, {"-version"});
         proc.waitForStarted();
@@ -197,9 +199,9 @@ void RenderPopover::ensureSettingsValid()
             QString output = proc.readAll();
             QStringList firstLine = output.split("\n").first().split(" ");
             if (firstLine.count() >= 3) {
-                return tr("Current FFMpeg version: %1").arg(firstLine.at(2));
+                return tr("Current FFmpeg version: %1").arg(firstLine.at(2));
             } else {
-                return tr("FFMpeg is working.");
+                return tr("FFmpeg is working.");
             }
         } else {
             return "";
@@ -248,6 +250,8 @@ void RenderPopover::ensureSettingsValid()
     if (!QFileInfo(d->renderJob->outputFileName()).dir().exists()) fileOk = false;
 
     auto checkRenderer = [=](QString rendererPath) {
+        if (rendererPath.isEmpty()) return false;
+
         QProcess proc;
         proc.start(rendererPath, {"-v"});
         proc.waitForFinished();

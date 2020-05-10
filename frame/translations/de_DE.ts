@@ -967,52 +967,52 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="200"/>
-        <source>Current FFMpeg version: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../render/renderpopover.cpp" line="202"/>
-        <source>FFMpeg is working.</source>
+        <source>Current FFmpeg version: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="211"/>
+        <location filename="../render/renderpopover.cpp" line="204"/>
+        <source>FFmpeg is working.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.cpp" line="213"/>
         <source>FFmpeg failed to download.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="221"/>
+        <location filename="../render/renderpopover.cpp" line="223"/>
         <source>Automatic FFmpeg is not working correctly. Manual FFmpeg settings are required to render correctly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="228"/>
+        <location filename="../render/renderpopover.cpp" line="230"/>
         <source>Install FFmpeg using your system package manager, and then restart theFrame to continue rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="230"/>
+        <location filename="../render/renderpopover.cpp" line="232"/>
         <source>FFmpeg has not been downloaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="266"/>
+        <location filename="../render/renderpopover.cpp" line="270"/>
         <source>Looks like there&apos;s an issue with some settings. You&apos;ll need to fix them before we can start rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="268"/>
+        <location filename="../render/renderpopover.cpp" line="272"/>
         <source>Output file needs to be reviewed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="269"/>
+        <location filename="../render/renderpopover.cpp" line="273"/>
         <source>FFmpeg settings need to be reviewed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="270"/>
+        <location filename="../render/renderpopover.cpp" line="274"/>
         <source>Renderer is unavailable</source>
         <translation type="unfinished"></translation>
     </message>

@@ -45,5 +45,9 @@ robocopy frame\icons\contemporary-icons deploy\icons\ /mir
 copy build\libtheframe\release\libtheframe.dll deploy
 copy build\theframe-render\release\theframe-render.exe deploy
 copy "C:\Program Files\thelibs\lib\the-libs.dll" deploy
+copy "C:\OpenSSL-Win64\bin\openssl.exe" deploy
+copy "C:\OpenSSL-Win64\bin\libeay32.dll" deploy
+copy "C:\OpenSSL-Win64\bin\ssleay32.dll" deploy
+copy "C:\OpenSSL-Win64\bin\openssl.cfg" deploy
 cd deploy
 windeployqt theFrame.exe -svg -multimedia -concurrent
