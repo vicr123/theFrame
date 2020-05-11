@@ -113,6 +113,16 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QCommandLinkButton" name="settingsButton">
+            <property name="text">
+             <string>Settings</string>
+            </property>
+            <property name="description">
+             <string>Change how theFrame works</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
        </layout>

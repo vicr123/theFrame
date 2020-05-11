@@ -139,6 +139,10 @@ MainWindow::MainWindow(QWidget* parent)
 #endif
     ui->welcomeTitle->setFont(titleFont);
     ui->newProjectTitle->setFont(titleFont);
+
+#ifdef Q_OS_MAC
+    setupMacOS();
+#endif
 }
 
 MainWindow::~MainWindow() {
@@ -584,6 +588,10 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
     ui->actionSave->setEnabled(menuState);
     ui->actionSaveAs->setEnabled(menuState);
     ui->actionRender->setEnabled(menuState);
+
+#ifdef Q_OS_MAC
+    updateTouchBar();
+#endif
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -727,4 +735,9 @@ void MainWindow::on_actionSettings_triggered()
     dialog->setWindowFlag(Qt::Sheet);
     dialog->setWindowModality(Qt::WindowModal);
     dialog->open();
+}
+
+void MainWindow::on_settingsButton_clicked()
+{
+    ui->actionSettings->trigger();
 }

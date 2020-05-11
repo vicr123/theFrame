@@ -42,6 +42,11 @@ class MainWindow : public QMainWindow {
 
         void openFile(QString filePath);
 
+#ifdef Q_OS_MAC
+        void setupMacOS();
+        void updateTouchBar();
+#endif
+
     private slots:
 
         void on_timeline_currentFrameChanged(quint64 frame);
@@ -121,6 +126,8 @@ class MainWindow : public QMainWindow {
         void on_recentsBox_itemActivated(QListWidgetItem *item);
 
         void on_actionSettings_triggered();
+
+        void on_settingsButton_clicked();
 
     private:
         Ui::MainWindow* ui;

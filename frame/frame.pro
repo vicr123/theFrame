@@ -171,13 +171,14 @@ win32 {
 
 macx {
     # Include the-libs build tools
-#    include(/usr/local/share/the-libs/pri/buildmaster.pri)
+    include(/usr/local/share/the-libs/pri/buildmaster.pri)
 
     QT += macextras
     LIBS += -framework CoreFoundation -framework AppKit
 
     SOURCES += \
-        main-objc.mm
+        main-objc.mm \
+        mainwindow-objc.mm
 
     blueprint {
         TARGET = "theFrame Blueprint"
