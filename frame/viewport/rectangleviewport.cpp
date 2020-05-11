@@ -138,7 +138,20 @@ void RectangleViewport::mouseMoveEvent(QMouseEvent* event)
         QPoint parentPos = this->mapTo(d->parent, event->pos());
         switch (d->sizingFlags) {
             case Body:
-                newGeometry.translate(event->globalPos() - d->initialPos);
+                if (event->modifiers() & Qt::ShiftModifier) {
+                    //Constrain to an axis
+                    QPoint difference = event->globalPos() - d->initialPos;
+                    if (qAbs(difference.y()) > qAbs(difference.x())) {
+                        //Constrain to the Y axis
+                        newGeometry.translate(0, difference.y());
+                    } else {
+                        //Constrain to the X axis
+                        newGeometry.translate(difference.x(), 0);
+                    }
+                } else {
+                    //Translate normally
+                    newGeometry.translate(event->globalPos() - d->initialPos);
+                }
                 break;
             case Left:
                 newGeometry.setLeft(parentPos.x());
@@ -154,15 +167,39 @@ void RectangleViewport::mouseMoveEvent(QMouseEvent* event)
                 break;
             case Left | Top:
                 newGeometry.setTopLeft(parentPos);
+                if (event->modifiers() & Qt::ShiftModifier) {
+                    //Constrain ratio
+                    QPoint fixedPoint = newGeometry.bottomRight();
+                    newGeometry.setSize(d->initialState.size().scaled(newGeometry.size(), Qt::KeepAspectRatio));
+                    newGeometry.moveBottomRight(fixedPoint);
+                }
                 break;
             case Right | Bottom:
                 newGeometry.setBottomRight(parentPos);
+                if (event->modifiers() & Qt::ShiftModifier) {
+                    //Constrain ratio
+                    QPoint fixedPoint = newGeometry.topLeft();
+                    newGeometry.setSize(d->initialState.size().scaled(newGeometry.size(), Qt::KeepAspectRatio));
+                    newGeometry.moveTopLeft(fixedPoint);
+                }
                 break;
             case Left | Bottom:
                 newGeometry.setBottomLeft(parentPos);
+                if (event->modifiers() & Qt::ShiftModifier) {
+                    //Constrain ratio
+                    QPoint fixedPoint = newGeometry.topRight();
+                    newGeometry.setSize(d->initialState.size().scaled(newGeometry.size(), Qt::KeepAspectRatio));
+                    newGeometry.moveTopRight(fixedPoint);
+                }
                 break;
             case Right | Top:
                 newGeometry.setTopRight(parentPos);
+                if (event->modifiers() & Qt::ShiftModifier) {
+                    //Constrain ratio
+                    QPoint fixedPoint = newGeometry.bottomLeft();
+                    newGeometry.setSize(d->initialState.size().scaled(newGeometry.size(), Qt::KeepAspectRatio));
+                    newGeometry.moveBottomLeft(fixedPoint);
+                }
                 break;
         }
 

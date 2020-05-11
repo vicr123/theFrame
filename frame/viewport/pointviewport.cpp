@@ -119,7 +119,21 @@ void PointViewport::mouseMoveEvent(QMouseEvent* event)
 {
     if (d->isMouseDown) {
         QPoint newPoint = d->initialState;
-        newPoint += event->globalPos() - d->initialPos;
+
+        if (event->modifiers() == Qt::ShiftModifier) {
+            //Constrain to an axis
+            QPoint difference = event->globalPos() - d->initialPos;
+            if (qAbs(difference.y()) > qAbs(difference.x())) {
+                //Constrain to the Y axis
+                newPoint.ry() += difference.y();
+            } else {
+                //Constrain to the X axis
+                newPoint.rx() += difference.x();
+            }
+        } else {
+            //Translate normally
+            newPoint += event->globalPos() - d->initialPos;
+        }
         this->setValue(d->parent->viewportToCanvas(newPoint) - d->offset);
     }
 }

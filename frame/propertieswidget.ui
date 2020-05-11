@@ -252,7 +252,7 @@
              <item>
               <widget class="QCheckBox" name="anchorStartValue">
                <property name="text">
-                <string>Anchor Start Value</string>
+                <string>Leave Unchanged</string>
                </property>
               </widget>
              </item>
@@ -515,8 +515,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>398</width>
-            <height>498</height>
+            <width>155</width>
+            <height>96</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
