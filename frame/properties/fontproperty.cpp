@@ -35,6 +35,9 @@ void FontProperty::setValue(QVariant value) {
 
     QFont font = value.value<QFont>();
     ui->fontBox->setCurrentFont(font);
+    ui->boldButton->setChecked(font.bold());
+    ui->italiciseButton->setChecked(font.italic());
+    ui->underlineButton->setChecked(font.underline());
 }
 
 void FontProperty::on_fontBox_currentFontChanged(const QFont& f) {
@@ -43,6 +46,24 @@ void FontProperty::on_fontBox_currentFontChanged(const QFont& f) {
 
 void FontProperty::setValue() {
     QFont font(ui->fontBox->currentFont().family());
+    font.setBold(ui->boldButton->isChecked());
+    font.setItalic(ui->italiciseButton->isChecked());
+    font.setUnderline(ui->underlineButton->isChecked());
 
     this->setValue(font);
+}
+
+void FontProperty::on_boldButton_toggled(bool checked)
+{
+    this->setValue();
+}
+
+void FontProperty::on_italiciseButton_toggled(bool checked)
+{
+    this->setValue();
+}
+
+void FontProperty::on_underlineButton_toggled(bool checked)
+{
+    this->setValue();
 }

@@ -496,6 +496,10 @@ QJsonValue Element::propertyToJson(Element::PropertyType propertyType, QVariant 
             QFont font = value.value<QFont>();
             return font.toString();
         }
+        case Element::Anchor: {
+            int anchor = value.value<AnchorPosition>();
+            return anchor;
+        }
     }
     return QJsonValue();
 }
@@ -532,6 +536,10 @@ QVariant Element::jsonToProperty(Element::PropertyType propertyType, QJsonValue 
             QFont font;
             font.fromString(str);
             return font;
+        }
+        case Element::Anchor: {
+            AnchorPosition anchor = static_cast<AnchorPosition>(json.toInt());
+            return anchor;
         }
     }
     return QVariant();

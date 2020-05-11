@@ -38,6 +38,12 @@ class FontProperty : public PropertyWidget {
     private slots:
         void on_fontBox_currentFontChanged(const QFont& f);
 
+        void on_boldButton_toggled(bool checked);
+
+        void on_italiciseButton_toggled(bool checked);
+
+        void on_underlineButton_toggled(bool checked);
+
     private:
         Ui::FontProperty* ui;
 

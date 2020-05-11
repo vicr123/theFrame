@@ -36,7 +36,7 @@ class StringProperty : public PropertyWidget {
         void setValue(QVariant value);
 
     private slots:
-        void on_valueBox_textChanged(const QString& arg1);
+        void on_valueBox_textChanged();
 
     private:
         Ui::StringProperty* ui;

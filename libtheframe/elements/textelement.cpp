@@ -28,6 +28,7 @@ TextElement::TextElement() : Element() {
     this->setStartValue("font", QApplication::font());
     this->setStartValue("fontSize", 50.0);
     this->setStartValue("opacity", 1.0);
+    this->setStartValue("anchor", Center);
 }
 
 
@@ -36,6 +37,7 @@ void TextElement::render(QPainter* painter, quint64 frame) const {
 
     QString text = this->startValue("text").toString();
     QFont font = this->startValue("font").value<QFont>();
+    AnchorPosition anchor = this->startValue("anchor").value<AnchorPosition>();
     double fontSize = this->propertyValueForFrame("fontSize", frame).toDouble();
     QColor textCol = this->propertyValueForFrame("textColor", frame).value<QColor>();
     QPoint pos = this->propertyValueForFrame("position", frame).toPoint();
@@ -46,16 +48,43 @@ void TextElement::render(QPainter* painter, quint64 frame) const {
 
     pos += this->parentElement()->renderOffset(frame);
 
-    QRect textRect;
-    textRect.setHeight(metrics.height());
-    textRect.setWidth(metrics.horizontalAdvance(text));
-    textRect.moveCenter(pos); //TODO: Anchor
+    QRect textRect = metrics.boundingRect(QRect(0, 0, 999999, 999999), Qt::AlignLeft, text);
+
+    textRect.moveCenter(pos);
+    switch (anchor) {
+        case Element::Center:
+            break;
+        case Element::TopLeft:
+            textRect.moveTopLeft(pos);
+            break;
+        case Element::TopCenter:
+            textRect.moveTop(pos.y());
+            break;
+        case Element::TopRight:
+            textRect.moveTopRight(pos);
+            break;
+        case Element::CenterLeft:
+            textRect.moveLeft(pos.x());
+            break;
+        case Element::CenterRight:
+            textRect.moveRight(pos.x());
+            break;
+        case Element::BottomLeft:
+            textRect.moveBottomLeft(pos);
+            break;
+        case Element::BottomCenter:
+            textRect.moveBottom(pos.y());
+            break;
+        case Element::BottomRight:
+            textRect.moveBottomRight(pos);
+            break;
+    }
 
 
     painter->setOpacity(painter->opacity() * opacity);
     painter->setFont(font);
     painter->setPen(textCol);
-    painter->drawText(textRect, Qt::AlignCenter, text);
+    painter->drawText(textRect, Qt::AlignLeft, text);
 
     Element::render(painter, frame);
 
@@ -79,6 +108,7 @@ QMap<QString, Element::PropertyType> TextElement::animatableProperties() const {
 QMap<QString, Element::PropertyType> TextElement::staticProperties() const {
     return {
         {"text", Element::String},
+        {"anchor", Element::Anchor},
         {"font", Element::Font}
     };
 }
@@ -88,6 +118,8 @@ QString TextElement::propertyDisplayName(QString property) const {
         return tr("Text");
     } else if (property == "position") {
         return tr("Position");
+    } else if (property == "anchor") {
+        return tr("Anchor Point");
     } else if (property == "fontSize") {
         return tr("Font Size");
     } else if (property == "textColor") {
@@ -102,6 +134,8 @@ QString TextElement::propertyDisplayName(QString property) const {
 
 QColor TextElement::propertyColor(QString property) const {
     if (property == "text") {
+        return QColor(14, 40, 37, 127);
+    } else if (property == "anchor") {
         return QColor(14, 40, 37, 127);
     } else if (property == "position") {
         return QColor(38, 40, 21, 127);

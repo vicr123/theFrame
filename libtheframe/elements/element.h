@@ -43,7 +43,20 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
             String = 5,
             Point = 6,
             Font = 7,
-            File = 8
+            File = 8,
+            Anchor = 9
+        };
+
+        enum AnchorPosition {
+            Center = 0,
+            TopLeft = 1,
+            TopCenter = 2,
+            TopRight = 3,
+            CenterLeft = 4,
+            CenterRight = 5,
+            BottomLeft = 6,
+            BottomCenter = 7,
+            BottomRight = 8
         };
 
         virtual void render(QPainter* painter, quint64 frame) const;
@@ -115,5 +128,6 @@ class LIBTHEFRAME_EXPORT Element : public QObject {
         QVariant jsonToProperty(PropertyType propertyType, QJsonValue json) const;
         void tryInvalidateFromFrame(quint64 frame);
 };
+Q_DECLARE_METATYPE(Element::AnchorPosition)
 
 #endif // ELEMENT_H

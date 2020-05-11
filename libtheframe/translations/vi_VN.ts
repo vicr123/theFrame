@@ -129,33 +129,38 @@
         <translation>Chỉnh sửa tôi!</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="88"/>
-        <location filename="../elements/textelement.cpp" line="121"/>
+        <location filename="../elements/textelement.cpp" line="118"/>
+        <location filename="../elements/textelement.cpp" line="155"/>
         <source>Text</source>
         <translation>Văn bản</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="90"/>
+        <location filename="../elements/textelement.cpp" line="120"/>
         <source>Position</source>
         <translation>Vị trí</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="92"/>
+        <location filename="../elements/textelement.cpp" line="122"/>
+        <source>Anchor Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/textelement.cpp" line="124"/>
         <source>Font Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="94"/>
+        <location filename="../elements/textelement.cpp" line="126"/>
         <source>Text Color</source>
         <translation>Màu văn bản</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="96"/>
+        <location filename="../elements/textelement.cpp" line="128"/>
         <source>Font</source>
         <translation>Phông</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="98"/>
+        <location filename="../elements/textelement.cpp" line="130"/>
         <source>Opacity</source>
         <translation>Độ mờ đục</translation>
     </message>

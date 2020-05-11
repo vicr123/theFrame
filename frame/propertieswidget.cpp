@@ -28,6 +28,7 @@
 #include "properties/fontproperty.h"
 #include "properties/fileproperty.h"
 #include "properties/colorproperty.h"
+#include "properties/anchorproperty.h"
 
 #include "timeline/timeline.h"
 #include <elements/timelineelement.h>
@@ -73,6 +74,8 @@ struct PropertiesWidgetPrivate {
                 return &FontProperty::staticMetaObject;
             case Element::File:
                 return &FileProperty::staticMetaObject;
+            case Element::Anchor:
+                return &AnchorProperty::staticMetaObject;
 
         }
         return nullptr;

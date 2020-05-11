@@ -129,33 +129,38 @@
         <translation>Bearbeite mich!</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="88"/>
-        <location filename="../elements/textelement.cpp" line="121"/>
+        <location filename="../elements/textelement.cpp" line="118"/>
+        <location filename="../elements/textelement.cpp" line="155"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="90"/>
+        <location filename="../elements/textelement.cpp" line="120"/>
         <source>Position</source>
         <translation>Position</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="92"/>
+        <location filename="../elements/textelement.cpp" line="122"/>
+        <source>Anchor Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../elements/textelement.cpp" line="124"/>
         <source>Font Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="94"/>
+        <location filename="../elements/textelement.cpp" line="126"/>
         <source>Text Color</source>
         <translation>Textfarbe</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="96"/>
+        <location filename="../elements/textelement.cpp" line="128"/>
         <source>Font</source>
         <translation>Schriftart</translation>
     </message>
     <message>
-        <location filename="../elements/textelement.cpp" line="98"/>
+        <location filename="../elements/textelement.cpp" line="130"/>
         <source>Opacity</source>
         <translation>Deckkraft</translation>
     </message>
