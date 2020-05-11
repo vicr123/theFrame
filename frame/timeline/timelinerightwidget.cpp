@@ -35,6 +35,7 @@ struct TimelineRightWidgetPrivate {
 
     int bottomPadding;
 
+    TimelineRightWidgetProperty* mainPropertyWidget;
     QList<TimelineRightWidgetProperty*> propertyWidgets;
 };
 
@@ -48,8 +49,10 @@ TimelineRightWidget::TimelineRightWidget(Timeline* timeline, Element* element, b
     d->element = element;
     d->isRoot = isRoot;
 
-    TimelineRightWidgetProperty* propertyWidget = new TimelineRightWidgetProperty(timeline, element, "", isRoot, this);
-    ui->mainWidgetLayout->addWidget(propertyWidget);
+    d->mainPropertyWidget = new TimelineRightWidgetProperty(timeline, element, "", isRoot, this);
+    if (!isRoot) {
+        ui->mainWidgetLayout->addWidget(d->mainPropertyWidget);
+    }
 
     for (QString property : element->animatableProperties().keys()) {
         TimelineRightWidgetProperty* propertyWidget = new TimelineRightWidgetProperty(timeline, element, property, false, this);
@@ -71,12 +74,23 @@ TimelineRightWidget::~TimelineRightWidget() {
     delete ui;
 }
 
+bool TimelineRightWidget::isRoot()
+{
+    return d->isRoot;
+}
+
+QWidget* TimelineRightWidget::mainPropertyWidget()
+{
+    return d->mainPropertyWidget;
+}
+
 void TimelineRightWidget::addChild(int index, TimelineRightWidget* child) {
     ui->childrenLayout->insertWidget(index, child);
 }
 
 void TimelineRightWidget::setHeaderHeight(int height) {
     ui->mainWidget->setFixedHeight(height);
+    d->mainPropertyWidget->setFixedHeight(height);
 }
 
 void TimelineRightWidget::setPropertyElementHeight(int height) {

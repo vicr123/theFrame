@@ -311,6 +311,7 @@ void PropertiesWidget::updateEasingCurve()
     QSignalBlocker blocker1(ui->easingBox);
     QSignalBlocker blocker2(ui->easingTypeBox);
     TimelineElement* timelineElement = qobject_cast<TimelineElement*>(d->timeline->currentSelection().first());
+    if (!timelineElement) return;
     if (timelineElement->easingCurve().type() == QEasingCurve::Linear) {
         ui->easingBox->setCurrentIndex(0);
         ui->easingTypeBox->setEnabled(false);

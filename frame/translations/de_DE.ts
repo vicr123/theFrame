@@ -76,11 +76,6 @@ Save your work before you reset. theFrame will restart once the reset is complet
         <source>Family</source>
         <translation>Familie</translation>
     </message>
-    <message>
-        <location filename="../properties/fontproperty.ui" line="42"/>
-        <source>Size</source>
-        <translation>Größe</translation>
-    </message>
 </context>
 <context>
     <name>GeneralSettings</name>
@@ -163,235 +158,242 @@ Save your work before you reset. theFrame will restart once the reset is complet
         <translation>Erstellen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="401"/>
+        <location filename="../mainwindow.ui" line="410"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="405"/>
+        <location filename="../mainwindow.ui" line="414"/>
         <source>Open Recent</source>
         <translation>Zuletzt geöffnet</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="426"/>
+        <location filename="../mainwindow.ui" line="435"/>
         <source>View</source>
         <translation>Ansehen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="434"/>
-        <location filename="../mainwindow.ui" line="484"/>
+        <location filename="../mainwindow.ui" line="443"/>
+        <location filename="../mainwindow.ui" line="493"/>
         <source>Timeline</source>
         <translation>Zeitleiste</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="449"/>
+        <location filename="../mainwindow.ui" line="458"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="461"/>
+        <location filename="../mainwindow.ui" line="470"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../mainwindow.ui" line="479"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="514"/>
+        <location filename="../mainwindow.ui" line="523"/>
         <source>Properties</source>
         <translation>Eigenschaften</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="545"/>
+        <location filename="../mainwindow.ui" line="554"/>
         <source>Next Frame</source>
         <translation>Nächste Bild</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="548"/>
+        <location filename="../mainwindow.ui" line="557"/>
         <source>Right</source>
         <extracomment>Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.</extracomment>
         <translation>Rechts</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="557"/>
+        <location filename="../mainwindow.ui" line="566"/>
         <source>Previous Frame</source>
         <translation>Letztes Bild</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="560"/>
+        <location filename="../mainwindow.ui" line="569"/>
         <source>Left</source>
         <extracomment>Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.</extracomment>
         <translation>Links</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="565"/>
+        <location filename="../mainwindow.ui" line="574"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="577"/>
+        <location filename="../mainwindow.ui" line="586"/>
         <source>Zoom In</source>
         <translation>Hineinzoomen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="589"/>
+        <location filename="../mainwindow.ui" line="598"/>
         <source>Zoom Out</source>
         <translation>Herauszoomen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="601"/>
+        <location filename="../mainwindow.ui" line="610"/>
         <source>Play</source>
         <translation>Abspielen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="613"/>
+        <location filename="../mainwindow.ui" line="335"/>
+        <location filename="../mainwindow.ui" line="622"/>
         <source>First Frame</source>
         <translation>Erstes Bild</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="625"/>
+        <location filename="../mainwindow.ui" line="349"/>
+        <source>Play/Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="366"/>
+        <location filename="../mainwindow.ui" line="634"/>
         <source>Last Frame</source>
         <translation>Letztes Bild</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="637"/>
+        <location filename="../mainwindow.ui" line="646"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="649"/>
+        <location filename="../mainwindow.ui" line="658"/>
         <source>Save As</source>
         <translation>Speichern unter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="661"/>
+        <location filename="../mainwindow.ui" line="670"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="673"/>
+        <location filename="../mainwindow.ui" line="682"/>
         <source>About</source>
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="681"/>
+        <location filename="../mainwindow.ui" line="690"/>
         <source>Set In Point</source>
         <translation>In Punkt setzen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="684"/>
+        <location filename="../mainwindow.ui" line="693"/>
         <source>I</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation>I</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="692"/>
+        <location filename="../mainwindow.ui" line="701"/>
         <source>O</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation>O</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="700"/>
+        <location filename="../mainwindow.ui" line="709"/>
         <source>P</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation>P</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="708"/>
+        <location filename="../mainwindow.ui" line="717"/>
         <source>Enable Prerendering</source>
         <translation>Vorrendern aktivieren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="717"/>
+        <location filename="../mainwindow.ui" line="726"/>
         <source>Sources</source>
         <translation>Quellen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="726"/>
+        <location filename="../mainwindow.ui" line="735"/>
         <source>File Bug</source>
         <translation>Bug melden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="735"/>
+        <location filename="../mainwindow.ui" line="744"/>
         <source>Exit</source>
         <translation>Beenden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="750"/>
+        <location filename="../mainwindow.ui" line="759"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="762"/>
+        <location filename="../mainwindow.ui" line="771"/>
         <source>New</source>
         <translation>Neu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="774"/>
+        <location filename="../mainwindow.ui" line="783"/>
         <source>New Window</source>
         <translation>Neues Fenster</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="782"/>
+        <location filename="../mainwindow.ui" line="791"/>
         <source>Render</source>
         <translation>Rendern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="785"/>
+        <location filename="../mainwindow.ui" line="794"/>
         <source>Ctrl+R</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation>Strg+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="790"/>
+        <location filename="../mainwindow.ui" line="799"/>
         <source>Render Jobs</source>
         <translation>Renderaufträge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="793"/>
+        <location filename="../mainwindow.ui" line="802"/>
         <source>Ctrl+Shift+R</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation>Strg+Shift+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="805"/>
+        <location filename="../mainwindow.ui" line="814"/>
         <source>Cut</source>
         <translation>Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="820"/>
+        <location filename="../mainwindow.ui" line="829"/>
         <source>Copy</source>
         <translation>Kopieren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="835"/>
+        <location filename="../mainwindow.ui" line="844"/>
         <source>Paste</source>
         <translation>Einfügen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="847"/>
+        <location filename="../mainwindow.ui" line="856"/>
         <source>Select All</source>
         <translation>Alles auswählen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="858"/>
+        <location filename="../mainwindow.ui" line="868"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="861"/>
+        <location filename="../mainwindow.ui" line="871"/>
         <source>Ctrl+,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="689"/>
+        <location filename="../mainwindow.ui" line="698"/>
         <source>Set Out Point</source>
         <translation>Out Punkt setzen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="697"/>
+        <location filename="../mainwindow.ui" line="706"/>
         <source>Clear In/Out Points</source>
         <translation>In/Out Punkte zurücksetzen</translation>
     </message>
@@ -566,8 +568,8 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="255"/>
-        <source>Anchor Start Value</source>
-        <translation>Ankerstartwert</translation>
+        <source>Leave Unchanged</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="315"/>
@@ -675,33 +677,33 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Element Farbe</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="183"/>
+        <location filename="../propertieswidget.cpp" line="186"/>
         <source>Start Value Change</source>
         <translation>Startwertänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="188"/>
+        <location filename="../propertieswidget.cpp" line="191"/>
         <source>End Value Change</source>
         <translation>Endwertänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="252"/>
+        <location filename="../propertieswidget.cpp" line="255"/>
         <source>Start State Change</source>
         <translation>Startstatusänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="340"/>
-        <location filename="../propertieswidget.cpp" line="348"/>
+        <location filename="../propertieswidget.cpp" line="344"/>
+        <location filename="../propertieswidget.cpp" line="352"/>
         <source>Easing Curve Change</source>
         <translation>Beschleunigungskurvenänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="328"/>
+        <location filename="../propertieswidget.cpp" line="332"/>
         <source>Element Name Change</source>
         <translation>Elementnamenänderung</translation>
     </message>
     <message>
-        <location filename="../propertieswidget.cpp" line="373"/>
+        <location filename="../propertieswidget.cpp" line="377"/>
         <source>Select Color</source>
         <translation>Farbe auswählen</translation>
     </message>
@@ -1041,14 +1043,6 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
     </message>
 </context>
 <context>
-    <name>StringProperty</name>
-    <message>
-        <location filename="../properties/stringproperty.ui" line="32"/>
-        <source>Value</source>
-        <translation>Wert</translation>
-    </message>
-</context>
-<context>
     <name>Timeline</name>
     <message>
         <location filename="../timeline/timeline.ui" line="14"/>
@@ -1056,27 +1050,27 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="258"/>
+        <location filename="../timeline/timeline.cpp" line="267"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="266"/>
+        <location filename="../timeline/timeline.cpp" line="275"/>
         <source>Delete Timeline Element</source>
         <translation>Zeitleisten Element löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="271"/>
+        <location filename="../timeline/timeline.cpp" line="280"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>%1 &quot;%2&quot; löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="352"/>
+        <location filename="../timeline/timeline.cpp" line="361"/>
         <source>Cut</source>
         <translation>Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="397"/>
+        <location filename="../timeline/timeline.cpp" line="406"/>
         <source>Paste Elements</source>
         <translation>Elemente einfügen</translation>
     </message>

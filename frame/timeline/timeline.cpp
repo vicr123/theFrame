@@ -47,6 +47,7 @@ struct TimelinePrivate {
     ViewportElement* rootViewportElement;
     Prerenderer* prerenderer;
     TutorialEngine* tutorialEngine;
+    QWidget* timeTicker;
 
     QUndoStack* undoStack;
     QList<QObject*> currentSelection;
@@ -75,6 +76,10 @@ Timeline::Timeline(QWidget* parent) :
 
     connect(ui->timelineLeftPane->verticalScrollBar(), &QScrollBar::valueChanged, ui->timelineRightPane->verticalScrollBar(), &QScrollBar::setValue);
     connect(ui->timelineRightPane->verticalScrollBar(), &QScrollBar::valueChanged, ui->timelineLeftPane->verticalScrollBar(), &QScrollBar::setValue);
+    connect(ui->timelineRightPane->verticalScrollBar(), &QScrollBar::valueChanged, this, [=](int value) {
+        //Keep the ticker visible on top
+        d->timeTicker->move(0, value);
+    });
 
     ui->timelineLeftPane->setProperty("X-Contemporary-NoInstallScroller", true);
     ui->timelineRightPane->setProperty("X-Contemporary-NoInstallScroller", true);
@@ -103,7 +108,11 @@ void Timeline::setViewportElement(ViewportElement* element) {
     d->rootViewportElement = element;
     d->rootLeftWidget = new TimelineLeftWidget(this, element, true);
     ui->leftPaneLayout->addWidget(d->rootLeftWidget);
-    ui->rightPaneLayout->addWidget(d->rootLeftWidget->rightWidget());
+
+    TimelineRightWidget* rightWidget = d->rootLeftWidget->rightWidget();
+    ui->rightPaneLayout->addWidget(rightWidget);
+    d->timeTicker = rightWidget->mainPropertyWidget();
+    d->timeTicker->setParent(ui->rightPaneContents);
 }
 
 ViewportElement* Timeline::viewportElement() {

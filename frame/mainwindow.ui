@@ -331,6 +331,9 @@
            </item>
            <item>
             <widget class="QToolButton" name="firstFrameButton">
+             <property name="toolTip">
+              <string>First Frame</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -342,6 +345,9 @@
            </item>
            <item>
             <widget class="QToolButton" name="playButton">
+             <property name="toolTip">
+              <string>Play/Pause</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -356,6 +362,9 @@
            </item>
            <item>
             <widget class="QToolButton" name="lastFrameButton">
+             <property name="toolTip">
+              <string>Last Frame</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -852,7 +861,8 @@
   </action>
   <action name="actionSettings">
    <property name="icon">
-    <iconset theme="configure"/>
+    <iconset theme="configure">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Settings</string>
@@ -866,6 +876,12 @@
   </action>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>tStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header location="global">tstackedwidget.h</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>Viewport</class>
    <extends>QWidget</extends>
@@ -885,12 +901,6 @@
    <class>PropertiesWidget</class>
    <extends>QWidget</extends>
    <header>propertieswidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>tStackedWidget</class>
-   <extends>QStackedWidget</extends>
-   <header location="global">tstackedwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
