@@ -1284,6 +1284,31 @@ Go ahead and set an easing curve now.</source>
         <source>Tutorials</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../settings/tutorialssettings.ui" line="92"/>
+        <source>Tutorials are a good way to find your way around theFrame if you&apos;re using it for the first time. They&apos;ll show up when you create a new project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings/tutorialssettings.ui" line="102"/>
+        <source>Show Tutorials</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings/tutorialssettings.ui" line="144"/>
+        <source>RESET TUTORIALS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings/tutorialssettings.ui" line="151"/>
+        <source>If you&apos;d like to see all the tutorials again, including the tutorial prompts that you&apos;ve already seen, you can reset them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../settings/tutorialssettings.ui" line="163"/>
+        <source>Reset Tutorials</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Viewport</name>
