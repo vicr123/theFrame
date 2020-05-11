@@ -100,7 +100,7 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../mainwindow.ui" line="64"/>
         <source>Welcome to theFrame!</source>
-        <translation>WIllkommen bei theFrame!</translation>
+        <translation>Willkommen bei theFrame!</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="76"/>
