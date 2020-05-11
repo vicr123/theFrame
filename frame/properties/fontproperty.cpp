@@ -35,20 +35,14 @@ void FontProperty::setValue(QVariant value) {
 
     QFont font = value.value<QFont>();
     ui->fontBox->setCurrentFont(font);
-    ui->fontSizeBox->setValue(font.pointSizeF());
 }
 
 void FontProperty::on_fontBox_currentFontChanged(const QFont& f) {
     this->setValue();
 }
 
-void FontProperty::on_fontSizeBox_valueChanged(double arg1) {
-    this->setValue();
-}
-
 void FontProperty::setValue() {
     QFont font(ui->fontBox->currentFont().family());
-    font.setPointSizeF(ui->fontSizeBox->value());
 
     this->setValue(font);
 }

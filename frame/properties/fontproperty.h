@@ -38,8 +38,6 @@ class FontProperty : public PropertyWidget {
     private slots:
         void on_fontBox_currentFontChanged(const QFont& f);
 
-        void on_fontSizeBox_valueChanged(double arg1);
-
     private:
         Ui::FontProperty* ui;
 

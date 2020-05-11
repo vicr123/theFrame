@@ -223,7 +223,7 @@ void Viewport::updateTimelineSelection()
                 for (QString property : element->allProperties().keys()) {
                     ViewportProperty* prop = ViewportProperty::constructForType(element->propertyType(property), ViewportProperty::StartValueType, this);
                     if (prop) {
-                        prop->setOffset(element->renderOffset(0));
+                        prop->setOffset(element->parentElement()->renderOffset(0));
                         prop->setValue(element->startValue(property));
                         connect(prop, &ViewportProperty::valueChanged, this, [=](QVariant value) {
                             ElementState oldState(element);

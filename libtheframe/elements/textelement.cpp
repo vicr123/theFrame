@@ -26,6 +26,7 @@ TextElement::TextElement() : Element() {
     this->setStartValue("textColor", QColor(0, 0, 0));
     this->setStartValue("position", QPoint(100, 100));
     this->setStartValue("font", QApplication::font());
+    this->setStartValue("fontSize", 50.0);
     this->setStartValue("opacity", 1.0);
 }
 
@@ -35,9 +36,12 @@ void TextElement::render(QPainter* painter, quint64 frame) const {
 
     QString text = this->startValue("text").toString();
     QFont font = this->startValue("font").value<QFont>();
+    double fontSize = this->propertyValueForFrame("fontSize", frame).toDouble();
     QColor textCol = this->propertyValueForFrame("textColor", frame).value<QColor>();
     QPoint pos = this->propertyValueForFrame("position", frame).toPoint();
     double opacity = this->propertyValueForFrame("opacity", frame).toDouble();
+
+    font.setPointSizeF(fontSize);
     QFontMetrics metrics(font);
 
     pos += this->parentElement()->renderOffset(frame);
@@ -46,6 +50,7 @@ void TextElement::render(QPainter* painter, quint64 frame) const {
     textRect.setHeight(metrics.height());
     textRect.setWidth(metrics.horizontalAdvance(text));
     textRect.moveCenter(pos); //TODO: Anchor
+
 
     painter->setOpacity(painter->opacity() * opacity);
     painter->setFont(font);
@@ -64,6 +69,7 @@ QPoint TextElement::renderOffset(quint64 frame) const {
 
 QMap<QString, Element::PropertyType> TextElement::animatableProperties() const {
     return {
+        {"fontSize", Element::Double},
         {"position", Element::Point},
         {"textColor", Element::Color},
         {"opacity", Element::Percentage}
@@ -82,6 +88,8 @@ QString TextElement::propertyDisplayName(QString property) const {
         return tr("Text");
     } else if (property == "position") {
         return tr("Position");
+    } else if (property == "fontSize") {
+        return tr("Font Size");
     } else if (property == "textColor") {
         return tr("Text Color");
     } else if (property == "font") {
@@ -97,6 +105,8 @@ QColor TextElement::propertyColor(QString property) const {
         return QColor(14, 40, 37, 127);
     } else if (property == "position") {
         return QColor(38, 40, 21, 127);
+    } else if (property == "fontSize") {
+        return QColor(14, 40, 37, 127);
     } else if (property == "textColor") {
         return QColor(40, 18, 35, 127);
     } else if (property == "font") {
@@ -109,4 +119,16 @@ QColor TextElement::propertyColor(QString property) const {
 
 QString TextElement::typeDisplayName() const {
     return tr("Text");
+}
+
+
+QVariantMap TextElement::propertyMetadata(QString property) const
+{
+    if (property == "fontSize") {
+        return {
+            {"minValue", 1.0},
+            {"maxValue", 999.0}
+        };
+    }
+    return QVariantMap();
 }

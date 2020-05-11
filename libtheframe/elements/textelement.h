@@ -41,6 +41,8 @@ class LIBTHEFRAME_EXPORT TextElement : public Element {
         QString propertyDisplayName(QString property) const;
         QColor propertyColor(QString property) const;
         QString typeDisplayName() const;
+        QVariantMap propertyMetadata(QString property) const;
+
 };
 
 #endif // TEXTELEMENT_H

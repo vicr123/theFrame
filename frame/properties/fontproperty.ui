@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>47</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,25 +36,8 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Size</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="1">
     <widget class="QFontComboBox" name="fontBox"/>
-   </item>
-   <item row="1" column="1">
-    <widget class="QDoubleSpinBox" name="fontSizeBox">
-     <property name="decimals">
-      <number>0</number>
-     </property>
-     <property name="maximum">
-      <double>300.000000000000000</double>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>
