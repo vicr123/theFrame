@@ -14,32 +14,32 @@
     <message>
         <location filename="../elements/ellipseelement.cpp" line="60"/>
         <source>Geometry</source>
-        <translation type="unfinished">Vị trí/Kích thước</translation>
+        <translation>Vị trí/Kích thước</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="62"/>
         <source>Background Color</source>
-        <translation type="unfinished">Màu nền</translation>
+        <translation>Màu nền</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="64"/>
         <source>Border Color</source>
-        <translation type="unfinished">Màu viền</translation>
+        <translation>Màu viền</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="66"/>
         <source>Border Width</source>
-        <translation type="unfinished">Chiều rộng viền</translation>
+        <translation>Chiều rộng viền</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="68"/>
         <source>Opacity</source>
-        <translation type="unfinished">Độ mờ đục</translation>
+        <translation>Độ mờ đục</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="91"/>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Bầu dục</translation>
     </message>
 </context>
 <context>
@@ -142,12 +142,12 @@
     <message>
         <location filename="../elements/textelement.cpp" line="122"/>
         <source>Anchor Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Điểm neo</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="124"/>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Kích thước phông</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="126"/>
