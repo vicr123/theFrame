@@ -73,7 +73,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="listWidget">
+          <widget class="QListWidget" name="leftList">
            <property name="frameShape">
             <enum>QFrame::NoFrame</enum>
            </property>
@@ -306,8 +306,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>347</width>
-               <height>370</height>
+               <width>254</width>
+               <height>224</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -592,8 +592,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>347</width>
-               <height>370</height>
+               <width>212</width>
+               <height>174</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
@@ -688,6 +688,11 @@
     </widget>
    </item>
   </layout>
+  <action name="actionStart_Rendering">
+   <property name="text">
+    <string>Start Rendering</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

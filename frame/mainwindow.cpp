@@ -221,17 +221,7 @@ void MainWindow::on_actionZoomOut_triggered() {
 }
 
 void MainWindow::on_playButton_toggled(bool checked) {
-    if (checked) {
-        if (ui->timeline->currentFrame() == ui->timeline->frameCount() - 1) {
-            d->startFrame = 0;
-        } else {
-            d->startFrame = ui->timeline->currentFrame();
-        }
-        d->playStartTime = QDateTime::currentMSecsSinceEpoch();
-        d->playTimer->start();
-    } else {
-        d->playTimer->stop();
-    }
+    ui->actionPlay->setChecked(checked);
 }
 
 void MainWindow::updatePlayFrame() {
@@ -243,7 +233,7 @@ void MainWindow::updatePlayFrame() {
 
     if (newFrame > ui->timeline->frameCount()) {
         ui->timeline->setCurrentFrame(ui->timeline->frameCount() - 1);
-        ui->playButton->setChecked(false);
+        ui->actionPlay->setChecked(false);
     } else {
         ui->timeline->setCurrentFrame(newFrame);
     }
@@ -282,17 +272,13 @@ void MainWindow::updateRecents()
     }
 }
 
-void MainWindow::on_actionPlay_triggered() {
-    ui->playButton->toggle();
-}
-
 void MainWindow::on_actionFirstFrame_triggered() {
-    ui->playButton->setChecked(false);
+    ui->actionPlay->setChecked(false);
     ui->timeline->setCurrentFrame(0);
 }
 
 void MainWindow::on_actionLastFrame_triggered() {
-    ui->playButton->setChecked(false);
+    ui->actionPlay->setChecked(false);
     ui->timeline->setCurrentFrame(ui->timeline->frameCount() - 1);
 }
 
@@ -683,6 +669,9 @@ void MainWindow::on_actionRender_triggered()
     connect(popover, &tPopover::dismissed, render, &RenderPopover::deleteLater);
     connect(popover, &tPopover::dismissed, popover, &tPopover::deleteLater);
     popover->show(this);
+
+    //Tell the render window that it is now being shown
+    render->shown();
 }
 
 void MainWindow::on_actionRender_Jobs_triggered()
@@ -740,4 +729,21 @@ void MainWindow::on_actionSettings_triggered()
 void MainWindow::on_settingsButton_clicked()
 {
     ui->actionSettings->trigger();
+}
+
+void MainWindow::on_actionPlay_toggled(bool checked)
+{
+    if (checked) {
+        if (ui->timeline->currentFrame() == ui->timeline->frameCount() - 1) {
+            d->startFrame = 0;
+        } else {
+            d->startFrame = ui->timeline->currentFrame();
+        }
+        d->playStartTime = QDateTime::currentMSecsSinceEpoch();
+        d->playTimer->start();
+    } else {
+        d->playTimer->stop();
+    }
+
+    ui->playButton->setChecked(checked);
 }

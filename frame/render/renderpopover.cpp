@@ -60,6 +60,13 @@ RenderPopover::~RenderPopover()
     delete ui;
 }
 
+void RenderPopover::shown()
+{
+#ifdef Q_OS_MAC
+    setupMacOS();
+#endif
+}
+
 void RenderPopover::on_browseForFileButton_clicked()
 {
     QFileDialog* fileDialog = new QFileDialog(this->window());
@@ -138,14 +145,7 @@ void RenderPopover::on_rendererPath_textEdited(const QString &arg1)
 
 void RenderPopover::on_startRenderButton_clicked()
 {
-    RenderController::instance()->queueRenderJob(d->renderJob);
-    emit renderingStarted(d->renderJob);
-    emit done();
-}
-
-void RenderPopover::on_listWidget_currentRowChanged(int currentRow)
-{
-    ui->stackedWidget->setCurrentIndex(currentRow);
+    ui->actionStart_Rendering->trigger();
 }
 
 void RenderPopover::on_ffmpegTabWidget_currentChanged(int index)
@@ -262,7 +262,7 @@ void RenderPopover::ensureSettingsValid()
     if (checkRenderer(d->settings.value("Render/rendererPath").toString())) rendererOk = true;
 
     bool canRender = ffmpegOk && fileOk && rendererOk;
-    ui->startRenderButton->setEnabled(canRender);
+    ui->actionStart_Rendering->setEnabled(canRender);
     ui->renderUnavailablePrompt->setVisible(!canRender);
 
     if (!canRender) {
@@ -286,4 +286,21 @@ void RenderPopover::on_removeFfmpegButton_clicked()
 {
     FFmpegDetector::instance()->removeFfmpeg();
     ensureSettingsValid();
+}
+
+void RenderPopover::on_actionStart_Rendering_triggered()
+{
+    RenderController::instance()->queueRenderJob(d->renderJob);
+    emit renderingStarted(d->renderJob);
+    emit done();
+}
+
+void RenderPopover::on_actionStart_Rendering_changed()
+{
+    ui->startRenderButton->setEnabled(ui->actionStart_Rendering->isEnabled());
+}
+
+void RenderPopover::on_leftList_currentRowChanged(int currentRow)
+{
+    ui->stackedWidget->setCurrentIndex(currentRow);
 }

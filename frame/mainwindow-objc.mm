@@ -3,16 +3,16 @@
 
 #import <AppKit/AppKit.h>
 
-@class TouchBarProvider;
+@class MainWindowTouchBarProvider;
 
-struct TouchBarItem {
-    TouchBarItem() {};
-    TouchBarItem(QString identifier);
-    TouchBarItem(QString identifier, QAction* action);
-    TouchBarItem(QString identifier, QAction* action, NSImageName image);
-    ~TouchBarItem();
+struct MainWindowTouchBarItem {
+    MainWindowTouchBarItem() {};
+    MainWindowTouchBarItem(QString identifier);
+    MainWindowTouchBarItem(QString identifier, QAction* action);
+    MainWindowTouchBarItem(QString identifier, QAction* action, NSImageName image);
+    ~MainWindowTouchBarItem();
 
-    void prepareTouchBarItem(TouchBarProvider* provider);
+    void prepareTouchBarItem(MainWindowTouchBarProvider* provider);
 
     QString identifier;
     QAction* action;
@@ -22,9 +22,9 @@ struct TouchBarItem {
 
     NSTouchBarItem* touchBarItem;
 };
-typedef QSharedPointer<TouchBarItem> TouchBarItemPtr;
+typedef QSharedPointer<MainWindowTouchBarItem> TouchBarItemPtr;
 
-@interface TouchBarProvider: NSResponder <NSTouchBarDelegate, NSApplicationDelegate, NSWindowDelegate>
+@interface MainWindowTouchBarProvider: NSResponder <NSTouchBarDelegate, NSApplicationDelegate, NSWindowDelegate>
 
 @property (strong) NSCustomTouchBarItem *firstFrameItem;
 @property (strong) NSCustomTouchBarItem *lastFrameItem;
@@ -48,7 +48,7 @@ static NSTouchBarItemIdentifier renderIdentifier = @"com.vicr123.theframe.render
 static NSTouchBarItemIdentifier timelineIdentifier = @"com.vicr123.theframe.timeline";
 static NSTouchBarItemIdentifier timelineBarIdentifier = @"com.vicr123.theframe.timelineBar";
 
-@implementation TouchBarProvider
+@implementation MainWindowTouchBarProvider
 
 - (id)init: (MainWindow*)mainWin withMainWindowUi:(Ui::MainWindow*)ui {
     if (self = [super init]) {
@@ -58,14 +58,14 @@ static NSTouchBarItemIdentifier timelineBarIdentifier = @"com.vicr123.theframe.t
 
         //Initialise the action mapping
         self.touchBarActionMapping = {
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(firstFrameIdentifier), ui->actionFirstFrame, NSImageNameTouchBarSkipToStartTemplate)),
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(playIdentifier), ui->actionPlay, NSImageNameTouchBarPlayPauseTemplate)),
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(lastFrameIdentifier), ui->actionLastFrame, NSImageNameTouchBarSkipToEndTemplate)),
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(renderIdentifier), ui->actionRender, NSImageNameTouchBarRecordStartTemplate)),
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(inPointIdentifier), ui->actionSet_In_Point)),
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(outpointIdentifier), ui->actionSet_Out_Point)),
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(timelineIdentifier))),
-            TouchBarItemPtr(new TouchBarItem(QString::fromNSString(timelineBarIdentifier)))
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(firstFrameIdentifier), ui->actionFirstFrame, NSImageNameTouchBarSkipToStartTemplate)),
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(playIdentifier), ui->actionPlay, NSImageNameTouchBarPlayTemplate)),
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(lastFrameIdentifier), ui->actionLastFrame, NSImageNameTouchBarSkipToEndTemplate)),
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(renderIdentifier), ui->actionRender, NSImageNameTouchBarRecordStartTemplate)),
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(inPointIdentifier), ui->actionSet_In_Point)),
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(outpointIdentifier), ui->actionSet_Out_Point)),
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(timelineIdentifier))),
+            TouchBarItemPtr(new MainWindowTouchBarItem(QString::fromNSString(timelineBarIdentifier)))
         };
         
         for (TouchBarItemPtr item : self.touchBarActionMapping) {
@@ -110,7 +110,12 @@ static NSTouchBarItemIdentifier timelineBarIdentifier = @"com.vicr123.theframe.t
     });
 
     if (result != self.touchBarActionMapping.constEnd()) {
-        result->data()->action->trigger();
+        QAction* action = result->data()->action;
+        if (action->isCheckable()) {
+            action->setChecked(!action->isChecked());
+        } else {
+            action->trigger();
+        }
     }
 }
 
@@ -158,7 +163,7 @@ void MainWindow::setupMacOS() {
 
     //Install TouchBarProvider as window delegate
     NSView *view = reinterpret_cast<NSView *>(this->winId());
-    TouchBarProvider *touchBarProvider = [[TouchBarProvider alloc] init:this withMainWindowUi:ui];
+    MainWindowTouchBarProvider *touchBarProvider = [[MainWindowTouchBarProvider alloc] init:this withMainWindowUi:ui];
     [touchBarProvider installAsDelegateForWindow:view.window];
 }
 
@@ -168,28 +173,28 @@ void MainWindow::updateTouchBar() {
     view.window.touchBar = nil;
 }
 
-TouchBarItem::TouchBarItem(QString identifier) {
+MainWindowTouchBarItem::MainWindowTouchBarItem(QString identifier) {
     this->identifier = identifier;
 }
 
-TouchBarItem::TouchBarItem(QString identifier, QAction* action) {
+MainWindowTouchBarItem::MainWindowTouchBarItem(QString identifier, QAction* action) {
     this->action = action;
     this->identifier = identifier;
 }
 
-TouchBarItem::TouchBarItem(QString identifier, QAction* action, NSImageName image) {
+MainWindowTouchBarItem::MainWindowTouchBarItem(QString identifier, QAction* action, NSImageName image) {
     this->action = action;
     this->identifier = identifier;
     this->image = image;
     this->haveImage = true;
 }
 
-TouchBarItem::~TouchBarItem()
+MainWindowTouchBarItem::~MainWindowTouchBarItem()
 {
     [this->touchBarItem release];
 }
 
-void TouchBarItem::prepareTouchBarItem(TouchBarProvider* provider) {
+void MainWindowTouchBarItem::prepareTouchBarItem(MainWindowTouchBarProvider* provider) {
     if (identifier == QString::fromNSString(timelineIdentifier)) {
         NSPopoverTouchBarItem* item = [[NSPopoverTouchBarItem alloc] initWithIdentifier:identifier.toNSString()];
         [item setCustomizationLabel:QApplication::translate("MainWindow", "Timeline").toNSString()];
@@ -236,14 +241,17 @@ void TouchBarItem::prepareTouchBarItem(TouchBarProvider* provider) {
         NSButton* button = [NSButton buttonWithTitle:action->text().toNSString() target:provider action:@selector(touchBarActionClicked:)];
         [button setIdentifier:identifier.toNSString()];
 
-        auto setEnabled = [=] {
+        auto setState = [=] {
             bool enabled = true;
             if (!action->isEnabled()) enabled = false;
             if (action->menu() && !action->menu()->isEnabled()) enabled = false;
             if ([provider getMainWindowUi]->stackedWidget->widget([provider getMainWindowUi]->stackedWidget->currentIndex()) != [provider getMainWindowUi]->mainPage) enabled = false;
             [button setEnabled:enabled];
+
+            [button setButtonType:action->isCheckable() ? NSPushOnPushOffButton : NSMomentaryPushInButton];
+            [button setState:action->isChecked() ? NSOnState : NSOffState];
         };
-        setEnabled();
+        setState();
 
         if (haveImage) {
             [button setImage:[NSImage imageNamed:image]];
@@ -251,8 +259,8 @@ void TouchBarItem::prepareTouchBarItem(TouchBarProvider* provider) {
 
         item.view = button;
 
-        QObject::connect(action, &QAction::changed, [provider getMainWindow], setEnabled);
-        QObject::connect([provider getMainWindowUi]->stackedWidget, &tStackedWidget::currentChanged, setEnabled);
+        QObject::connect(action, &QAction::changed, [provider getMainWindow], setState);
+        QObject::connect([provider getMainWindowUi]->stackedWidget, &tStackedWidget::currentChanged, setState);
 
         this->touchBarItem = item;
     }

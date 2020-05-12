@@ -178,7 +178,8 @@ macx {
 
     SOURCES += \
         main-objc.mm \
-        mainwindow-objc.mm
+        mainwindow-objc.mm \
+        render/renderpopover-objc.mm
 
     blueprint {
         TARGET = "theFrame Blueprint"

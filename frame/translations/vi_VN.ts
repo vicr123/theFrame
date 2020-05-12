@@ -180,9 +180,9 @@ Lưu việc của bạn trước khi bạn đặt lại. theFrame sẽ khởi ch
     <message>
         <location filename="../mainwindow.ui" line="453"/>
         <location filename="../mainwindow.ui" line="503"/>
-        <location filename="../mainwindow-objc.mm" line="195"/>
-        <location filename="../mainwindow-objc.mm" line="196"/>
-        <location filename="../mainwindow-objc.mm" line="207"/>
+        <location filename="../mainwindow-objc.mm" line="200"/>
+        <location filename="../mainwindow-objc.mm" line="201"/>
+        <location filename="../mainwindow-objc.mm" line="212"/>
         <source>Timeline</source>
         <translation>Dòng thời gian</translation>
     </message>
@@ -244,13 +244,13 @@ Lưu việc của bạn trước khi bạn đặt lại. theFrame sẽ khởi ch
         <translation>Thu nhỏ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="620"/>
+        <location filename="../mainwindow.ui" line="623"/>
         <source>Play</source>
         <translation>Phát</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="345"/>
-        <location filename="../mainwindow.ui" line="632"/>
+        <location filename="../mainwindow.ui" line="635"/>
         <source>First Frame</source>
         <translation>Khung đầu tiên</translation>
     </message>
@@ -266,148 +266,148 @@ Lưu việc của bạn trước khi bạn đặt lại. theFrame sẽ khởi ch
     </message>
     <message>
         <location filename="../mainwindow.ui" line="376"/>
-        <location filename="../mainwindow.ui" line="644"/>
+        <location filename="../mainwindow.ui" line="647"/>
         <source>Last Frame</source>
         <translation>Khung cuối cùng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="656"/>
+        <location filename="../mainwindow.ui" line="659"/>
         <source>Save</source>
         <translation>Lưu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="668"/>
+        <location filename="../mainwindow.ui" line="671"/>
         <source>Save As</source>
         <translation>Lưu thành</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="680"/>
+        <location filename="../mainwindow.ui" line="683"/>
         <source>Open</source>
         <translation>Mở</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="692"/>
+        <location filename="../mainwindow.ui" line="695"/>
         <source>About</source>
         <translation>Giới thiệu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="700"/>
+        <location filename="../mainwindow.ui" line="703"/>
         <source>Set In Point</source>
         <translation>Đạt điểm vào</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="703"/>
+        <location filename="../mainwindow.ui" line="706"/>
         <source>I</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="711"/>
+        <location filename="../mainwindow.ui" line="714"/>
         <source>O</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="719"/>
+        <location filename="../mainwindow.ui" line="722"/>
         <source>P</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="727"/>
+        <location filename="../mainwindow.ui" line="730"/>
         <source>Enable Prerendering</source>
         <translation>Bật tính năng kết xuất trước</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="736"/>
+        <location filename="../mainwindow.ui" line="739"/>
         <source>Sources</source>
         <translation>Mã nguồn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="745"/>
+        <location filename="../mainwindow.ui" line="748"/>
         <source>File Bug</source>
         <translation>Báo cáo lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="754"/>
+        <location filename="../mainwindow.ui" line="757"/>
         <source>Exit</source>
         <translation>Thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="769"/>
+        <location filename="../mainwindow.ui" line="772"/>
         <source>Close</source>
         <translation>Đóng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="781"/>
+        <location filename="../mainwindow.ui" line="784"/>
         <source>New</source>
         <translation>Mới</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="793"/>
+        <location filename="../mainwindow.ui" line="796"/>
         <source>New Window</source>
         <translation>Cửa sổ mới</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="801"/>
+        <location filename="../mainwindow.ui" line="804"/>
         <source>Render</source>
         <translation>Kết Xuất</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="804"/>
+        <location filename="../mainwindow.ui" line="807"/>
         <source>Ctrl+R</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="809"/>
+        <location filename="../mainwindow.ui" line="812"/>
         <source>Render Jobs</source>
         <translation>Hoạt động kết xuất</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="812"/>
+        <location filename="../mainwindow.ui" line="815"/>
         <source>Ctrl+Shift+R</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="824"/>
+        <location filename="../mainwindow.ui" line="827"/>
         <source>Cut</source>
         <translation>Cắt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="839"/>
+        <location filename="../mainwindow.ui" line="842"/>
         <source>Copy</source>
         <translation>Sao chép</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="854"/>
+        <location filename="../mainwindow.ui" line="857"/>
         <source>Paste</source>
         <translation>Dán</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="866"/>
+        <location filename="../mainwindow.ui" line="869"/>
         <source>Select All</source>
         <translation>Chọn tất cả</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="119"/>
-        <location filename="../mainwindow.ui" line="878"/>
+        <location filename="../mainwindow.ui" line="881"/>
         <source>Settings</source>
         <translation>Cài đặt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="881"/>
+        <location filename="../mainwindow.ui" line="884"/>
         <source>Ctrl+,</source>
         <translation>Ctrl+,</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="708"/>
+        <location filename="../mainwindow.ui" line="711"/>
         <source>Set Out Point</source>
         <translation>Đặt điểm ra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="716"/>
+        <location filename="../mainwindow.ui" line="719"/>
         <source>Clear In/Out Points</source>
         <translation>Xóa điểm vào/ra</translation>
     </message>
@@ -432,72 +432,72 @@ Lưu việc của bạn trước khi bạn đặt lại. theFrame sẽ khởi ch
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="248"/>
         <source>No Recent Files</source>
         <translation>Không có tệp nào gần đây</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="281"/>
+        <location filename="../mainwindow.cpp" line="271"/>
         <source>Clear Recent Items</source>
         <translation>Xóa các mục gần đây</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="370"/>
+        <location filename="../mainwindow.cpp" line="356"/>
         <source>Running Render Jobs</source>
         <translation>Việc kết xuất đang xảy ra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="371"/>
+        <location filename="../mainwindow.cpp" line="357"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation>Bạn còn việc kết xuất đang xảy ra. Nếu bạn thoát theFrame, nó sẽ bị hủy</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="359"/>
         <source>Exit Anyway</source>
         <translation>Vẫn thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="479"/>
+        <location filename="../mainwindow.cpp" line="465"/>
         <source>Save Changes?</source>
         <translation>Lưu thay đổi?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="480"/>
+        <location filename="../mainwindow.cpp" line="466"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Bạn sẽ mất các thay đổi chưa lưu trong dự án này nếu bạn không lưu nó.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="666"/>
+        <location filename="../mainwindow.cpp" line="652"/>
         <source>Rendering Queued</source>
         <translation>Kết Xuất được xếp hàng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="667"/>
+        <location filename="../mainwindow.cpp" line="653"/>
         <source>%1 has been queued for rendering.</source>
         <translation>%1 bị xếp hàng để kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="669"/>
+        <location filename="../mainwindow.cpp" line="655"/>
         <source>Rendering Started</source>
         <translation>Kết Xuất được bắt đầu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="670"/>
+        <location filename="../mainwindow.cpp" line="656"/>
         <source>%1 has started rendering.</source>
         <translation>%1 đã bắt đầu kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="673"/>
+        <location filename="../mainwindow.cpp" line="659"/>
         <source>View Render Jobs</source>
         <translation>Xem hoạt động kết xuất</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="420"/>
         <source>Error</source>
         <translation>Lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="420"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -506,8 +506,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Đừng đóng cửa sổ này đến khi bạn lưu tệp này, nếu không thì bạn sẽ mất dữ liệu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="318"/>
-        <location filename="../mainwindow.cpp" line="448"/>
+        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="434"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>Tệp dự án theFrame (*.tfrproj)</translation>
     </message>
@@ -776,11 +776,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>RenderJobWidget</name>
     <message>
-        <location filename="../render/renderjobwidget.ui" line="35"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../render/renderjobwidget.ui" line="98"/>
         <source>PROGRESS</source>
         <translation>TIẾN ĐỘ</translation>
@@ -937,6 +932,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="683"/>
+        <location filename="../render/renderpopover.ui" line="693"/>
         <source>Start Rendering</source>
         <translation>Bắt đầu kết xuất</translation>
     </message>
@@ -953,27 +949,27 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation>Duyệt...</translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="67"/>
+        <location filename="../render/renderpopover.cpp" line="74"/>
         <source>MP4 Videos (*.mp4)</source>
         <translation>Phim MP4 (*.mp4)</translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="89"/>
+        <location filename="../render/renderpopover.cpp" line="96"/>
         <source>FFMPEG (ffmpeg.exe)</source>
         <translation>FFMPEG (ffmpeg.exe)</translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="91"/>
+        <location filename="../render/renderpopover.cpp" line="98"/>
         <source>FFMPEG (ffmpeg)</source>
         <translation>FFMPEG (ffmpeg)</translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="109"/>
+        <location filename="../render/renderpopover.cpp" line="116"/>
         <source>theFrame Renderer (theframe-render.exe)</source>
         <translation>Trình kết xuất theFrame (theframe-renderer.exe)</translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="111"/>
+        <location filename="../render/renderpopover.cpp" line="118"/>
         <source>theFrame Renderer (theframe-render)</source>
         <translation>Trình kết xuất theFrame (theframe-render)</translation>
     </message>
@@ -1026,6 +1022,11 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <location filename="../render/renderpopover.cpp" line="274"/>
         <source>Renderer is unavailable</source>
         <translation>Trình kết xuất không có sẵn</translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover-objc.mm" line="201"/>
+        <source>Render:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -612,6 +612,9 @@
    </property>
   </action>
   <action name="actionPlay">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset theme="media-playback-start">
      <normaloff>.</normaloff>.</iconset>

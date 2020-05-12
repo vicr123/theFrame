@@ -63,8 +63,6 @@ class MainWindow : public QMainWindow {
 
         void on_playButton_toggled(bool checked);
 
-        void on_actionPlay_triggered();
-
         void on_actionFirstFrame_triggered();
 
         void on_actionLastFrame_triggered();
@@ -128,6 +126,8 @@ class MainWindow : public QMainWindow {
         void on_actionSettings_triggered();
 
         void on_settingsButton_clicked();
+
+        void on_actionPlay_toggled(bool checked);
 
     private:
         Ui::MainWindow* ui;
