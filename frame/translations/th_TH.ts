@@ -534,11 +534,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>PropertiesWidget</name>
     <message>
-        <location filename="../propertieswidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../propertieswidget.ui" line="74"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
@@ -1052,11 +1047,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 <context>
     <name>Timeline</name>
     <message>
-        <location filename="../timeline/timeline.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../timeline/timeline.cpp" line="267"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
@@ -1084,22 +1074,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 </context>
 <context>
     <name>TimelineLeftWidget</name>
-    <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="56"/>
-        <source>-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="69"/>
-        <location filename="../timeline/timelineleftwidget.ui" line="88"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="111"/>
         <source>Add an element</source>
@@ -1165,14 +1139,6 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="212"/>
         <source>Element Name Change</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TimelineRightWidget</name>
-    <message>
-        <location filename="../timeline/timelinerightwidget.ui" line="14"/>
-        <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1321,11 +1287,6 @@ Go ahead and set an easing curve now.</source>
 </context>
 <context>
     <name>Viewport</name>
-    <message>
-        <location filename="../viewport.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../viewport.cpp" line="59"/>
         <source>Canvas</source>

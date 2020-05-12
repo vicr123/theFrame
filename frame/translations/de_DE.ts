@@ -536,11 +536,6 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
 <context>
     <name>PropertiesWidget</name>
     <message>
-        <location filename="../propertieswidget.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
-    <message>
         <location filename="../propertieswidget.ui" line="74"/>
         <source>Resolution</source>
         <translation>Auflösung</translation>
@@ -1054,11 +1049,6 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
 <context>
     <name>Timeline</name>
     <message>
-        <location filename="../timeline/timeline.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
-    <message>
         <location filename="../timeline/timeline.cpp" line="267"/>
         <source>Delete</source>
         <translation>Löschen</translation>
@@ -1086,22 +1076,6 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
 </context>
 <context>
     <name>TimelineLeftWidget</name>
-    <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
-    <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="56"/>
-        <source>-</source>
-        <translation>-</translation>
-    </message>
-    <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="69"/>
-        <location filename="../timeline/timelineleftwidget.ui" line="88"/>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="111"/>
         <source>Add an element</source>
@@ -1168,14 +1142,6 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
         <location filename="../timeline/timelineleftwidget.cpp" line="212"/>
         <source>Element Name Change</source>
         <translation>Elementnamenänderung</translation>
-    </message>
-</context>
-<context>
-    <name>TimelineRightWidget</name>
-    <message>
-        <location filename="../timeline/timelinerightwidget.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -1323,11 +1289,6 @@ Go ahead and set an easing curve now.</source>
 </context>
 <context>
     <name>Viewport</name>
-    <message>
-        <location filename="../viewport.ui" line="14"/>
-        <source>Form</source>
-        <translation>Form</translation>
-    </message>
     <message>
         <location filename="../viewport.cpp" line="59"/>
         <source>Canvas</source>
