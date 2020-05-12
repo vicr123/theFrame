@@ -82,7 +82,7 @@ static NSTouchBarItemIdentifier timelineBarIdentifier = @"com.vicr123.theframe.t
     bar.delegate = self;
 
     bar.defaultItemIdentifiers = @[timelineIdentifier, firstFrameIdentifier, playIdentifier, lastFrameIdentifier];
-    bar.customizationRequiredItemIdentifiers = @[firstFrameIdentifier, lastFrameIdentifier];
+    bar.customizationRequiredItemIdentifiers = @[];
     bar.customizationAllowedItemIdentifiers = @[firstFrameIdentifier, lastFrameIdentifier, playIdentifier, inPointIdentifier, outpointIdentifier, renderIdentifier, timelineIdentifier, NSTouchBarItemIdentifierFlexibleSpace];
     [bar setCustomizationIdentifier:@"com.vicr123.theFrame.touchbar"];
 
