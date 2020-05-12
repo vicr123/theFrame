@@ -6,12 +6,12 @@
     <message>
         <location filename="../settings/advancedsettings.ui" line="35"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Nâng cao</translation>
     </message>
     <message>
         <location filename="../settings/advancedsettings.ui" line="95"/>
         <source>RESET</source>
-        <translation type="unfinished"></translation>
+        <translation>ĐẶT LẠI</translation>
     </message>
     <message>
         <location filename="../settings/advancedsettings.ui" line="102"/>
@@ -21,12 +21,17 @@
 - Any layout changes that you&apos;ve made
 
 Save your work before you reset. theFrame will restart once the reset is complete. This action is irreversible.</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt theFrame lại về cài đặt nguyên. Điều này sẽ xóa:
+- Các tệp gần đây
+- Các cài đặt bạn đã thay đổi
+- Các thay đổi về bố cục
+
+Lưu việc của bạn trước khi bạn đặt lại. theFrame sẽ khởi chạy lại sau khi đặt lại hoàn thành. Hoạt động này không thể bị hoàn tác.</translation>
     </message>
     <message>
         <location filename="../settings/advancedsettings.ui" line="119"/>
         <source>Reset theFrame</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt theFrame lại</translation>
     </message>
 </context>
 <context>
@@ -82,7 +87,7 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../settings/generalsettings.ui" line="35"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Chung</translation>
     </message>
 </context>
 <context>
@@ -110,7 +115,7 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../mainwindow.ui" line="102"/>
         <source>RECENT FILES</source>
-        <translation type="unfinished"></translation>
+        <translation>TỆP GẦN ĐÂY</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="86"/>
@@ -165,7 +170,7 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../mainwindow.ui" line="424"/>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Mở tệp gần đây</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="445"/>
@@ -252,12 +257,12 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../mainwindow.ui" line="122"/>
         <source>Change how theFrame works</source>
-        <translation type="unfinished"></translation>
+        <translation>Tùy chỉnh cách hoạt động cho theFrame</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="359"/>
         <source>Play/Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Phát/tạm dừng</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="376"/>
@@ -389,12 +394,12 @@ Save your work before you reset. theFrame will restart once the reset is complet
         <location filename="../mainwindow.ui" line="119"/>
         <location filename="../mainwindow.ui" line="878"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="881"/>
         <source>Ctrl+,</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+,</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="708"/>
@@ -429,12 +434,12 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../mainwindow.cpp" line="258"/>
         <source>No Recent Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Không có tệp nào gần đây</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="281"/>
         <source>Clear Recent Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa các mục gần đây</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="370"/>
@@ -568,7 +573,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../propertieswidget.ui" line="88"/>
         <source>Changing the frame rate and resolution may have unintended consequences. You have been warned!</source>
-        <translation type="unfinished"></translation>
+        <translation>Thay đổi tốc độ khung hình và độ phân giải có thể hậu quả không lường trước được. Chúng tôi đã cảnh báo cho bạn!</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="248"/>
@@ -578,7 +583,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../propertieswidget.ui" line="255"/>
         <source>Leave Unchanged</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thay đổi</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="315"/>
@@ -866,24 +871,24 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <location filename="../render/renderpopover.ui" line="82"/>
         <location filename="../render/renderpopover.ui" line="214"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp ra</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="87"/>
         <location filename="../render/renderpopover.ui" line="292"/>
         <source>FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="92"/>
         <location filename="../render/renderpopover.ui" line="578"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Nâng cao</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="154"/>
         <source>HEADS UP!</source>
-        <translation type="unfinished"></translation>
+        <translation>CHỜ ĐÃ!</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="242"/>
@@ -893,52 +898,52 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderpopover.ui" line="317"/>
         <source>theFrame uses FFmpeg to encode the final video.</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame sử dụng FFmpeg để mã hóa phim cuối cùng.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="331"/>
         <source>Automatic Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt tự động</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="402"/>
         <source>Remove FFMpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>Gỡ FFmpeg</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="409"/>
         <source>Download FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>Tải xuống FFmpeg</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="447"/>
         <source>Downloading FFmpeg...</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang tải FFmpeg xuống...</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="464"/>
         <source>If you need to continue working on your project, you can close this dialog while FFmpeg is downloading.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nếu bạn cần tiếp tục làm việc với dự án của bạn, bạn có thể đóng hộp thoại này khi FFmpeg đang tải xuống.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="492"/>
         <source>Manual Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt thủ công</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="510"/>
         <source>FFmpeg location</source>
-        <translation type="unfinished"></translation>
+        <translation>Vị trí FFmpeg</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="633"/>
         <source>The default settings here should be adequate for most users. Don&apos;t change them unless you know what you&apos;re doing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Các cài đặt mặc định dứơi đây là phù hợp với hầu hết người dùng. Đừng thay đổi nó trừ khi bạn biết bạn đang làm gì.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="683"/>
         <source>Start Rendering</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt đầu kết xuất</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="623"/>
@@ -975,57 +980,57 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderpopover.cpp" line="111"/>
         <source>theFrame Renderer (theframe-render)</source>
-        <translation type="unfinished"></translation>
+        <translation>Trình kết xuất theFrame (theframe-render)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="202"/>
         <source>Current FFmpeg version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Phiên bản FFmpeg hiện tại: %1</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="204"/>
         <source>FFmpeg is working.</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg đang hoạt động.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="213"/>
         <source>FFmpeg failed to download.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tải xuống FFmpeg.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="223"/>
         <source>Automatic FFmpeg is not working correctly. Manual FFmpeg settings are required to render correctly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể đặt FFmpeg tự động. Bạn cần đổi sang cài đặt thủ công để kết xuất.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="230"/>
         <source>Install FFmpeg using your system package manager, and then restart theFrame to continue rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sử dụng trình quản lý gói của hệ thống của bạn để cài đặt FFmpeg, rồi khởi chạy theFrame lại để tiếp tục kết xuất.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="232"/>
         <source>FFmpeg has not been downloaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg chưa được tải xuống.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="270"/>
         <source>Looks like there&apos;s an issue with some settings. You&apos;ll need to fix them before we can start rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>Có vẻ như có vấn đề với một số cài đặt. Bạn cần sửa nó trước khi chúng tôi bắt đầu kết xuất được.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="272"/>
         <source>Output file needs to be reviewed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp ra cần phải xem lại</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="273"/>
         <source>FFmpeg settings need to be reviewed</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt FFmpeg cần phải xem lại</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="274"/>
         <source>Renderer is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Trình kết xuất không có sẵn</translation>
     </message>
 </context>
 <context>
@@ -1033,22 +1038,22 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../settings/settingsdialog.ui" line="53"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="64"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Chung</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="69"/>
         <source>Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Hướng dẫn</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="74"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Nâng cao</translation>
     </message>
 </context>
 <context>
@@ -1115,7 +1120,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="115"/>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Bầu dục</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="118"/>
@@ -1238,54 +1243,56 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../tutorialwindow.ui" line="42"/>
         <source>Disable Tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Tắt hướng dẫn</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.ui" line="62"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="52"/>
         <source>Let&apos;s get started!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy bắt đầu!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="53"/>
         <source>Go ahead and add an element to get started.</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm vào một thành phần để bắt đầu.</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="56"/>
         <source>Let&apos;s animate!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy hoạt hình!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="57"/>
         <source>Drag on the timeline to set an animation for a property.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kéo trên dòng thời gian để đặt một hoạt hình cho một tài sản.</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="60"/>
         <source>Great!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuyệt!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="61"/>
         <source>Now that you&apos;ve created an animation, you can change its properties.
 Go ahead and change the end value now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bây giờ bạn đã tạo một hoạt hình, bạn có thể tùy chỉnh nó.
+Hãy thay đổi giá trị kết thúc bây giờ.</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="64"/>
         <source>Make it natural!</source>
-        <translation type="unfinished"></translation>
+        <translation>Làm nó tự nhiên!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="65"/>
         <source>You can make your animation look smoother and more natural by applying an easing curve.
 Go ahead and set an easing curve now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn có thể làm hoạt hình của bạn mịn màng và tự nhiên hơn bởi cách áp dụng một đường giảm.
+Hãy đặt một đường giảm bây giờ.</translation>
     </message>
 </context>
 <context>
@@ -1293,32 +1300,32 @@ Go ahead and set an easing curve now.</source>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="35"/>
         <source>Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Hướng dẫn</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="92"/>
         <source>Tutorials are a good way to find your way around theFrame if you&apos;re using it for the first time. They&apos;ll show up when you create a new project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hướng dẫn là một cách tốt để tìm đường xung quanh theFrame nếu bạn sử dụng lần đầu tiên. Nó sẽ xuất hiện khi bạn tạo một dự án mới.</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="102"/>
         <source>Show Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiển thị hướng dẫn</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="144"/>
         <source>RESET TUTORIALS</source>
-        <translation type="unfinished"></translation>
+        <translation>ĐẶT LẠI HƯỚNG DẪN</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="151"/>
         <source>If you&apos;d like to see all the tutorials again, including the tutorial prompts that you&apos;ve already seen, you can reset them here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nếu bạn muốn xem các hướng dẫn lại, bao gồm các lời hướng dẫn bạn đã xem, bạn có thể đặt nó lại ở đây.</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="163"/>
         <source>Reset Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Đặt lại các hướng dẫn</translation>
     </message>
 </context>
 <context>
@@ -1355,7 +1362,7 @@ Go ahead and set an easing curve now.</source>
     <message>
         <location filename="../main.cpp" line="114"/>
         <source>Project files to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Tệp dự án để mở</translation>
     </message>
 </context>
 </TS>
