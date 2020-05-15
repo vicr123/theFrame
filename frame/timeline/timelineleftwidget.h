@@ -50,11 +50,16 @@ class TimelineLeftWidget : public QWidget {
         Ui::TimelineLeftWidget* ui;
         TimelineLeftWidgetPrivate* d;
 
+        QColor expectedDisplayColor();
+        void updatePalette();
+
         void resizeEvent(QResizeEvent* event);
         void paintEvent(QPaintEvent* event);
 
         void mousePressEvent(QMouseEvent* event);
         void mouseReleaseEvent(QMouseEvent* event);
+
+        void changeEvent(QEvent* event);
 
         void addChild(int index, Element* element);
         void addElement(Element* element);

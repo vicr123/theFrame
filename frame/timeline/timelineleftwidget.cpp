@@ -27,6 +27,7 @@
 #include <QInputDialog>
 #include <QMouseEvent>
 #include <QPointer>
+#include <QTimer>
 
 #include <QUndoStack>
 #include "undo/undonewelement.h"
@@ -65,6 +66,8 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     connect(element, &Element::nameChanged, ui->elementName, &QLabel::setText);
     ui->elementName->setText(element->name());
     ui->elementType->setText(element->typeDisplayName());
+
+    connect(element, &Element::displayColorChanged, this, &TimelineLeftWidget::updatePalette);
 
     if (isRoot) {
         timeline->tutorialEngine()->setTutorialTrigger(TutorialEngine::AddElement, [=] {
@@ -127,6 +130,8 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     ui->addButton->setMenu(addMenu);
 
     if (isRoot) ui->deleteButton->setVisible(false);
+
+    QTimer::singleShot(0, this, &TimelineLeftWidget::updatePalette);
 }
 
 TimelineLeftWidget::~TimelineLeftWidget() {
@@ -149,7 +154,7 @@ void TimelineLeftWidget::paintEvent(QPaintEvent* event) {
     painter.setPen(Qt::transparent);
 
     QColor displayColor = d->element->displayColor();
-    if (d->isRoot) displayColor.setAlpha(255);
+//    if (d->isRoot) displayColor.setAlpha(255);
     if (d->timeline->currentSelection().contains(d->element)) displayColor = displayColor.lighter();
     painter.setBrush(displayColor);
     painter.drawRect(0, 0, this->width(), this->height());
@@ -164,6 +169,13 @@ void TimelineLeftWidget::mousePressEvent(QMouseEvent* event) {
 
 void TimelineLeftWidget::mouseReleaseEvent(QMouseEvent* event) {
 
+}
+
+void TimelineLeftWidget::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        updatePalette();
+    }
 }
 
 void TimelineLeftWidget::addChild(int index, Element* element) {
@@ -211,4 +223,32 @@ void TimelineLeftWidget::on_renameButton_clicked() {
         d->element->setName(newName);
         d->timeline->undoStack()->push(new UndoElementModify(tr("Element Name Change"), oldState, ElementState(d->element)));
     }
+}
+
+QColor TimelineLeftWidget::expectedDisplayColor()
+{
+    QColor col = d->element->displayColor();
+    if (TimelineLeftWidget* parentLeftWidget = qobject_cast<TimelineLeftWidget*>(this->parentWidget()->parentWidget())) {
+        QColor parent = parentLeftWidget->expectedDisplayColor();
+        col.setRedF(col.redF() + parent.redF() / 2);
+        col.setGreenF(col.greenF() + parent.greenF() / 2);
+        col.setBlueF(col.blueF() + parent.blueF() / 2);
+    }
+    return col;
+}
+
+void TimelineLeftWidget::updatePalette()
+{
+    QPalette pal = this->palette();
+    QColor expected = expectedDisplayColor();
+    if (qGray(expected.rgb()) < 127) {
+        pal.setColor(QPalette::WindowText, Qt::white);
+    } else {
+        pal.setColor(QPalette::WindowText, Qt::black);
+    }
+    this->setPalette(pal);
+    d->rightWidget->setPalette(pal);
+
+    this->update();
+    d->rightWidget->update();
 }

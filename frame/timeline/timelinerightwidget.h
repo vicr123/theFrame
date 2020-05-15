@@ -47,6 +47,8 @@ class TimelineRightWidget : public QWidget {
 
         void setPropertiesCollapsed(bool propertiesCollapsed);
 
+        void setPalette(QPalette pal);
+
     private:
         Ui::TimelineRightWidget* ui;
         TimelineRightWidgetPrivate* d;

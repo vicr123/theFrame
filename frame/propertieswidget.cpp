@@ -262,21 +262,21 @@ void PropertiesWidget::updateCurrentTimelineElements() {
                 line->setFixedHeight(1);
                 outerLayout->addWidget(line);
 
-                connect(element, &Element::displayColorChanged, this, [=](QColor col) {
-                    col.setAlpha(255);
-                    QPalette pal = ui->elementColorButton->palette();
-                    pal.setColor(QPalette::Button, col);
-                    ui->elementColorButton->setPalette(pal);
-                });
-                QColor displayCol = element->displayColor();
-                displayCol.setAlpha(255);
-                QPalette displayPal = ui->elementColorButton->palette();
-                displayPal.setColor(QPalette::Button, displayCol);
-                ui->elementColorButton->setPalette(displayPal);
-
                 ui->elementPropertiesLayout->addWidget(w);
                 d->propertyWidgets.append(w);
             }
+
+            connect(element, &Element::displayColorChanged, this, [=](QColor col) {
+//                col.setAlpha(255);
+                QPalette pal = ui->elementColorButton->palette();
+                pal.setColor(QPalette::Button, col);
+                ui->elementColorButton->setPalette(pal);
+            });
+            QColor displayCol = element->displayColor();
+//            displayCol.setAlpha(255);
+            QPalette displayPal = ui->elementColorButton->palette();
+            displayPal.setColor(QPalette::Button, displayCol);
+            ui->elementColorButton->setPalette(displayPal);
 
             QSignalBlocker blocker(ui->elementNameBox);
 

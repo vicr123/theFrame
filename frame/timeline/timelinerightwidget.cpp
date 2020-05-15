@@ -113,6 +113,12 @@ void TimelineRightWidget::setPropertiesCollapsed(bool propertiesCollapsed) {
     }
 }
 
+void TimelineRightWidget::setPalette(QPalette pal)
+{
+    d->mainPropertyWidget->setPalette(pal);
+    QWidget::setPalette(pal);
+}
+
 bool TimelineRightWidget::eventFilter(QObject* watched, QEvent* event) {
     if (watched == ui->mainWidget) {
         switch (event->type()) {

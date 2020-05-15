@@ -7,6 +7,7 @@ namespace Ui {
     class GeneralSettings;
 }
 
+struct GeneralSettingsPrivate;
 class GeneralSettings : public QWidget
 {
         Q_OBJECT
@@ -15,8 +16,16 @@ class GeneralSettings : public QWidget
         explicit GeneralSettings(QWidget *parent = nullptr);
         ~GeneralSettings();
 
+    private slots:
+        void on_lightThemeRadioButton_toggled(bool checked);
+
+        void on_darkThemeRadioButton_toggled(bool checked);
+
     private:
         Ui::GeneralSettings *ui;
+        GeneralSettingsPrivate* d;
+
+        void updateTheme();
 };
 
 #endif // GENERALSETTINGS_H

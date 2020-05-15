@@ -207,9 +207,15 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     painter.setPen(Qt::transparent);
     if (d->property == "") {
-        QColor displayColor = d->element->displayColor();
-        if (d->isRoot) displayColor.setAlpha(255);
-        painter.setBrush(displayColor);
+        QColor col = d->element->displayColor();
+        if (d->isRoot) {
+            QColor parent = QApplication::palette().color(QPalette::Window);
+            col.setRedF(col.redF() + parent.redF() / 2);
+            col.setGreenF(col.greenF() + parent.greenF() / 2);
+            col.setBlueF(col.blueF() + parent.blueF() / 2);
+            col.setAlpha(255);
+        }
+        painter.setBrush(col);
     } else {
         painter.setBrush(d->element->propertyColor(d->property));
     }
@@ -306,7 +312,7 @@ void TimelineRightWidgetProperty::paintEvent(QPaintEvent* event) {
                     textRect.adjust(3, 3, -3, -3);
 
                     painter.setBrush(Qt::transparent);
-                    painter.setPen(QColor(255, 255, 255));
+                    painter.setPen(this->palette().color(QPalette::WindowText));
                     painter.drawText(textRect, Qt::AlignLeft | Qt::AlignVCenter, number);
                 }
             }

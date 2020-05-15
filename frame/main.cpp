@@ -24,6 +24,7 @@
 #include <QIcon>
 #include <QStyleFactory>
 #include <tsettings.h>
+#include "managers/thememanager.h"
 
 #ifdef Q_OS_MAC
     extern void setupMacObjC();
@@ -76,31 +77,8 @@ int main(int argc, char* argv[]) {
     }
 #endif
 
-    if (QStyleFactory::keys().contains("Contemporary")) {
-        QPalette pal = a.palette();
-
-        pal.setColor(QPalette::Button, QColor(0, 50, 150));
-        pal.setColor(QPalette::ButtonText, QColor(255, 255, 255));
-        pal.setColor(QPalette::Highlight, QColor(0, 80, 170));
-        pal.setColor(QPalette::HighlightedText, QColor(255, 255, 255));
-        pal.setColor(QPalette::Disabled, QPalette::Button, QColor(0, 30, 100));
-        pal.setColor(QPalette::Disabled, QPalette::ButtonText, QColor(150, 150, 150));
-
-        pal.setColor(QPalette::Window, QColor(40, 40, 40));
-        pal.setColor(QPalette::Base, QColor(40, 40, 40));
-        pal.setColor(QPalette::AlternateBase, QColor(60, 60, 60));
-        pal.setColor(QPalette::WindowText, QColor(255, 255, 255));
-        pal.setColor(QPalette::Text, QColor(255, 255, 255));
-        pal.setColor(QPalette::ToolTipText, QColor(255, 255, 255));
-
-        pal.setColor(QPalette::Disabled, QPalette::WindowText, QColor(150, 150, 150));
-
-        a.setPalette(pal);
-        a.setPalette(pal, "QDockWidget");
-        a.setPalette(pal, "QToolBar");
-
-        a.setStyle("Contemporary");
-    }
+    //Initialise the theme manager
+    ThemeManager::instance();
 
     a.setApplicationIcon(QIcon::fromTheme("theframe", QIcon(":/icons/theframe.svg")));
     a.setAboutDialogSplashGraphic(a.aboutDialogSplashGraphicFromSvg(":/icons/aboutsplash.svg"));

@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    managers/thememanager.cpp \
     prerenderer.cpp \
     properties/anchorproperty.cpp \
     properties/colorproperty.cpp \
@@ -62,6 +63,7 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
+    managers/thememanager.h \
     prerenderer.h \
     properties/anchorproperty.h \
     properties/colorproperty.h \
