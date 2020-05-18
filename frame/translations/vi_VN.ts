@@ -462,62 +462,62 @@ Lưu việc của bạn trước khi bạn đặt lại. theFrame sẽ khởi ch
         <translation>Xóa các mục gần đây</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="356"/>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>Running Render Jobs</source>
         <translation>Việc kết xuất đang xảy ra</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="357"/>
+        <location filename="../mainwindow.cpp" line="359"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation>Bạn còn việc kết xuất đang xảy ra. Nếu bạn thoát theFrame, nó sẽ bị hủy</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="359"/>
+        <location filename="../mainwindow.cpp" line="361"/>
         <source>Exit Anyway</source>
         <translation>Vẫn thoát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="465"/>
+        <location filename="../mainwindow.cpp" line="467"/>
         <source>Save Changes?</source>
         <translation>Lưu thay đổi?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="466"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Bạn sẽ mất các thay đổi chưa lưu trong dự án này nếu bạn không lưu nó.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="652"/>
+        <location filename="../mainwindow.cpp" line="654"/>
         <source>Rendering Queued</source>
         <translation>Kết Xuất được xếp hàng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="653"/>
+        <location filename="../mainwindow.cpp" line="655"/>
         <source>%1 has been queued for rendering.</source>
         <translation>%1 bị xếp hàng để kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="655"/>
+        <location filename="../mainwindow.cpp" line="657"/>
         <source>Rendering Started</source>
         <translation>Kết Xuất được bắt đầu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="656"/>
+        <location filename="../mainwindow.cpp" line="658"/>
         <source>%1 has started rendering.</source>
         <translation>%1 đã bắt đầu kết xuất.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="659"/>
+        <location filename="../mainwindow.cpp" line="661"/>
         <source>View Render Jobs</source>
         <translation>Xem hoạt động kết xuất</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="422"/>
         <source>Error</source>
         <translation>Lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="422"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -526,8 +526,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Đừng đóng cửa sổ này đến khi bạn lưu tệp này, nếu không thì bạn sẽ mất dữ liệu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="306"/>
+        <location filename="../mainwindow.cpp" line="436"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>Tệp dự án theFrame (*.tfrproj)</translation>
     </message>

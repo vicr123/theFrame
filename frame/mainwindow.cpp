@@ -268,7 +268,9 @@ void MainWindow::updateRecents()
             }
         }
         ui->menuOpen_Recent->addSeparator();
-        ui->menuOpen_Recent->addAction(tr("Clear Recent Items"));
+        ui->menuOpen_Recent->addAction(tr("Clear Recent Items"), [=] {
+            d->settings.setDelimitedList("Files/recents", {});
+        });
     }
 }
 
