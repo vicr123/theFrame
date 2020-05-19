@@ -162,6 +162,8 @@ win32 {
     # Include the-libs build tools
     include(C:/Program Files/thelibs/pri/buildmaster.pri)
 
+    QT += winextras
+
     CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/release/ -llibtheframe
     CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/debug/ -llibtheframe
 

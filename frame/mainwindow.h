@@ -42,6 +42,8 @@ class MainWindow : public QMainWindow {
 
         void openFile(QString filePath);
 
+        void show();
+
 #ifdef Q_OS_MAC
         void setupMacOS();
         void updateTouchBar();
@@ -144,5 +146,6 @@ class MainWindow : public QMainWindow {
 
         void updatePlayFrame();
         void updateRecents();
+        void updateControlledRenderJobs();
 };
 #endif // MAINWINDOW_H

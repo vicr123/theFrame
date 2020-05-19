@@ -43,6 +43,11 @@
 
 #include <QUndoStack>
 
+#ifdef Q_OS_WIN
+#include <QWinTaskbarProgress>
+#include <QWinTaskbarButton>
+#endif
+
 struct MainWindowPrivate {
     QTimer* playTimer;
     qint64 playStartTime;
@@ -59,6 +64,12 @@ struct MainWindowPrivate {
 
     uint closeFlag = 0;
     bool shouldSaveWindowState = false;
+
+    QList<RenderJobPtr> controlledRenderJobs;
+
+#ifdef Q_OS_WIN
+    QWinTaskbarButton* taskbarButton;
+#endif
 };
 
 QList<MainWindow*> MainWindow::openWindows = QList<MainWindow*>();
@@ -185,6 +196,15 @@ void MainWindow::openFile(QString filePath)
     ui->stackedWidget->setCurrentWidget(ui->mainPage);
 }
 
+void MainWindow::show()
+{
+    QMainWindow::show();
+#ifdef Q_OS_WIN
+    d->taskbarButton = new QWinTaskbarButton(this);
+    d->taskbarButton->setWindow(this->windowHandle());
+#endif
+}
+
 
 void MainWindow::on_timeline_currentFrameChanged(quint64 frame) {
     ui->viewport->setFrame(frame);
@@ -274,6 +294,49 @@ void MainWindow::updateRecents()
     }
 }
 
+void MainWindow::updateControlledRenderJobs()
+{
+    bool haveControlledJob = false;
+
+    int value = 0;
+    int total = 0;
+    if (d->controlledRenderJobs.count() == 1) {
+        RenderJobPtr job = d->controlledRenderJobs.first();
+        if (job->state() == RenderJob::Idle || job->state() == RenderJob::Started) {
+            haveControlledJob = true;
+            value = job->progress();
+            total = job->maxProgress();
+        }
+    } else {
+        for (RenderJobPtr job : d->controlledRenderJobs) {
+            if (job->state() == RenderJob::Idle || job->state() == RenderJob::Started) {
+                haveControlledJob = true;
+                if (job->maxProgress() != 0) {
+                    value += (static_cast<double>(job->progress()) / job->maxProgress()) * 100;
+                }
+                total += 100;
+            } else if (job->state() == RenderJob::Finished || job->state() == RenderJob::Cancelled) {
+                haveControlledJob = true;
+                value += 100;
+                total += 100;
+            }
+        }
+    }
+
+    if (haveControlledJob) {
+#ifdef Q_OS_WIN
+        d->taskbarButton->progress()->setMaximum(total);
+        d->taskbarButton->progress()->setValue(value);
+        d->taskbarButton->progress()->show();
+#endif
+    } else {
+        d->controlledRenderJobs.clear();
+#ifdef Q_OS_WIN
+        d->taskbarButton->progress()->hide();
+#endif
+    }
+}
+
 void MainWindow::on_actionFirstFrame_triggered() {
     ui->actionPlay->setChecked(false);
     ui->timeline->setCurrentFrame(0);
@@ -312,6 +375,7 @@ void MainWindow::on_actionOpen_triggered() {
                 this->ensureDiscardChanges()->then([=] {
                     this->openFile(fileDialog->selectedFiles().first());
                 })->error([=](QString reason) {
+                    Q_UNUSED(reason);
                     fileDialog->deleteLater();
                 });
             } else {
@@ -338,6 +402,8 @@ void MainWindow::closeEvent(QCloseEvent* event)
                 d->closeFlag |= 1;
                 this->close();
             })->error([=](QString error) {
+                Q_UNUSED(error);
+
                 //Don't quit the app
                 d->closeFlag = 0;
     #ifdef Q_OS_MAC
@@ -665,6 +731,12 @@ void MainWindow::on_actionRender_triggered()
             });
             connect(toast, &tToast::dismissed, toast, &tToast::deleteLater);
             toast->show(this);
+
+            connect(job.data(), &RenderJob::stateChanged, this, &MainWindow::updateControlledRenderJobs);
+            connect(job.data(), &RenderJob::progressChanged, this, &MainWindow::updateControlledRenderJobs);
+
+            d->controlledRenderJobs.append(job);
+            updateControlledRenderJobs();
         }
     });
     connect(render, &RenderPopover::done, popover, &tPopover::dismiss);
