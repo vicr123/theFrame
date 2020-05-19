@@ -145,8 +145,10 @@ MainWindow::MainWindow(QWidget* parent)
 
     QFont titleFont = ui->welcomeTitle->font();
 #ifdef Q_OS_MAC
+    //macOS uses a different DPI setting
     titleFont.setPointSize(30);
 #else
+    titleFont.setPointSize(20);
 #endif
     ui->welcomeTitle->setFont(titleFont);
     ui->newProjectTitle->setFont(titleFont);
@@ -262,6 +264,8 @@ void MainWindow::updatePlayFrame() {
 void MainWindow::updateRecents()
 {
     ui->menuOpen_Recent->clear();
+    ui->recentsBox->clear();
+
     QStringList recents = d->settings.delimitedList("Files/recents");
     recents.removeAll("");
     if (recents.isEmpty()) {

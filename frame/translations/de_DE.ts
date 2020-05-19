@@ -447,72 +447,72 @@ Save your work before you reset. theFrame will restart once the reset is complet
         <translation>Strg+Shift+Z</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="268"/>
+        <location filename="../mainwindow.cpp" line="272"/>
         <source>No Recent Files</source>
         <translation>Keine zuletzt geöffneten Dateien</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="291"/>
+        <location filename="../mainwindow.cpp" line="295"/>
         <source>Clear Recent Items</source>
         <translation>Zuletzt geöffnete Dateien Leeren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="424"/>
+        <location filename="../mainwindow.cpp" line="428"/>
         <source>Running Render Jobs</source>
         <translation>Laufende Renderaufträge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="429"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation>Du hast laufende Renderaufträge. Wenn du theFrame schließt, werden sie abgebrochen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="427"/>
+        <location filename="../mainwindow.cpp" line="431"/>
         <source>Exit Anyway</source>
         <translation>Trotzdem Beenden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="533"/>
+        <location filename="../mainwindow.cpp" line="537"/>
         <source>Save Changes?</source>
         <translation>Änderungen Speichern?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="534"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Sie verlieren alle nicht gespeicherten Änderungen in diesem Projekt, wenn Sie nicht speichern.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="720"/>
+        <location filename="../mainwindow.cpp" line="724"/>
         <source>Rendering Queued</source>
         <translation>Rendering eingereiht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="721"/>
+        <location filename="../mainwindow.cpp" line="725"/>
         <source>%1 has been queued for rendering.</source>
         <translation>%1 wurde zum Rendern in die Warteschlange gestellt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="723"/>
+        <location filename="../mainwindow.cpp" line="727"/>
         <source>Rendering Started</source>
         <translation>Rendering gestartet</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="724"/>
+        <location filename="../mainwindow.cpp" line="728"/>
         <source>%1 has started rendering.</source>
         <translation>%1 hat das Rendern gestartet.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="727"/>
+        <location filename="../mainwindow.cpp" line="731"/>
         <source>View Render Jobs</source>
         <translation>Renderaufträge ansehen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="488"/>
+        <location filename="../mainwindow.cpp" line="492"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="488"/>
+        <location filename="../mainwindow.cpp" line="492"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -521,8 +521,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. Andernfalls können Daten verloren gehen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
-        <location filename="../mainwindow.cpp" line="502"/>
+        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>theFrame Projekt Dateien (*.tfrproj)</translation>
     </message>
