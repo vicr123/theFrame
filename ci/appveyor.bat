@@ -11,6 +11,12 @@ set QTDIR=C:\Qt\5.12\msvc2017_64
 set PATH=%PATH%;%QTDIR%\bin
 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
 
+rem Remove symlinks from contemporary-icons
+cp ci\delink.ps1 frame\icons\contemporary-icons
+cd frame\icons\contemporary-icons
+powershell -executionpolicy bypass -File delink.ps1
+cd ..\..\..
+
 git clone https://github.com/vicr123/the-libs.git
 cd the-libs
 git checkout blueprint

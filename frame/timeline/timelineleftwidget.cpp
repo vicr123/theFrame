@@ -48,6 +48,13 @@ struct TimelineLeftWidgetPrivate {
     QPointer<Element> element;
     TimelineRightWidget* rightWidget;
 
+    struct ConstructibleElement {
+        QString name;
+        Element*(*construct)();
+    };
+
+    QList<ConstructibleElement> constructibleElements;
+
     bool isRoot;
 };
 
@@ -60,6 +67,22 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
     d->timeline = timeline;
     d->element = element;
     d->isRoot = isRoot;
+
+    d->constructibleElements.append({tr("Rectangle"), []() -> Element* {
+        return new RectangleElement();
+    }});
+    d->constructibleElements.append({tr("Ellipse"), []() -> Element* {
+        return new EllipseElement();
+    }});
+    d->constructibleElements.append({tr("Text"), []() -> Element* {
+        return new TextElement();
+    }});
+    d->constructibleElements.append({tr("Picture"), []() -> Element* {
+        return new PictureElement();
+    }});
+    d->constructibleElements.append({tr("Group"), []() -> Element* {
+        return new GroupElement();
+    }});
 
     d->rightWidget = new TimelineRightWidget(timeline, element, isRoot);
 
@@ -112,21 +135,11 @@ TimelineLeftWidget::TimelineLeftWidget(Timeline* timeline, Element* element, boo
 
     QMenu* addMenu = new QMenu(this);
     addMenu->addSection(tr("Add an element"));
-    addMenu->addAction(tr("Rectangle"), [ = ] {
-        addElement(new RectangleElement());
-    });
-    addMenu->addAction(tr("Ellipse"), [ = ] {
-        addElement(new EllipseElement());
-    });
-    addMenu->addAction(tr("Text"), [ = ] {
-        addElement(new TextElement());
-    });
-    addMenu->addAction(tr("Picture"), [ = ] {
-        addElement(new PictureElement());
-    });
-    addMenu->addAction(tr("Group"), [ = ] {
-        addElement(new GroupElement());
-    });
+    for (TimelineLeftWidgetPrivate::ConstructibleElement constructible : d->constructibleElements) {
+        addMenu->addAction(constructible.name, [=] {
+            addElement(constructible.construct());
+        });
+    }
     ui->addButton->setMenu(addMenu);
 
     if (isRoot) ui->deleteButton->setVisible(false);
@@ -144,10 +157,12 @@ TimelineRightWidget* TimelineLeftWidget::rightWidget() {
 }
 
 void TimelineLeftWidget::resizeEvent(QResizeEvent* event) {
+    Q_UNUSED(event);
     d->rightWidget->setFixedHeight(this->height());
 }
 
 void TimelineLeftWidget::paintEvent(QPaintEvent* event) {
+    Q_UNUSED(event);
     if (!d->element) return;
 
     QPainter painter(this);
@@ -168,7 +183,7 @@ void TimelineLeftWidget::mousePressEvent(QMouseEvent* event) {
 }
 
 void TimelineLeftWidget::mouseReleaseEvent(QMouseEvent* event) {
-
+    Q_UNUSED(event);
 }
 
 void TimelineLeftWidget::changeEvent(QEvent* event)
@@ -176,6 +191,48 @@ void TimelineLeftWidget::changeEvent(QEvent* event)
     if (event->type() == QEvent::ApplicationPaletteChange) {
         updatePalette();
     }
+}
+
+void TimelineLeftWidget::contextMenuEvent(QContextMenuEvent* event)
+{
+    if (!d->timeline->currentSelection().contains(d->element)) {
+        d->timeline->setCurrentSelection(d->element);
+    }
+
+    QMenu* menu = new QMenu(this);
+
+    QMenu* addChildMenu = new QMenu(menu);
+    addChildMenu->setTitle(tr("Add Child Element"));
+    addChildMenu->setIcon(QIcon::fromTheme("list-add"));
+    for (TimelineLeftWidgetPrivate::ConstructibleElement constructible : d->constructibleElements) {
+        addChildMenu->addAction(constructible.name, [=] {
+            addElement(constructible.construct());
+        });
+    }
+
+    menu->addSection(tr("For this element"));
+    QAction* collapseAction = menu->addAction(tr("Collapse"), [=] {
+        ui->collapseButton->toggle();
+    });
+    collapseAction->setChecked(collapseAction->isChecked());
+    menu->addAction(QIcon::fromTheme("edit-rename"), tr("Rename"), [=] {
+        ui->renameButton->click();
+    });
+    menu->addMenu(addChildMenu);
+
+    menu->addSection(tr("For selected elements"));
+    menu->addAction(QIcon::fromTheme("edit-cut"), tr("Cut"), [=] {
+        d->timeline->cut();
+    });
+    menu->addAction(QIcon::fromTheme("edit-copy"), tr("Copy"), [=] {
+        d->timeline->copy();
+    });
+    menu->addSeparator();
+    if (!d->isRoot) menu->addAction(QIcon::fromTheme("list-remove"), tr("Delete"), [=] {
+        d->timeline->deleteSelected();
+    });
+    connect(menu, &QMenu::aboutToHide, menu, &QMenu::deleteLater);
+    menu->popup(event->globalPos());
 }
 
 void TimelineLeftWidget::addChild(int index, Element* element) {
@@ -193,20 +250,8 @@ void TimelineLeftWidget::addElement(Element* element)
 }
 
 void TimelineLeftWidget::on_deleteButton_clicked() {
-    if (d->element->childElements().count() > 0) {
-        QMenu* warningMenu = new QMenu(this);
-        warningMenu->addSection(tr("Delete"));
-        warningMenu->addAction(tr("Children will also be deleted"))->setEnabled(false);
-        warningMenu->addAction(QIcon::fromTheme("list-remove"), tr("Delete"), [ = ] {
-            d->timeline->undoStack()->push(new UndoDeleteElement(tr("Delete %1 \"%2\"").arg(d->element->typeDisplayName()).arg(d->element->name()), ElementState(d->element)));
-            d->element->deleteLater();
-        });
-        ui->deleteButton->setMenu(warningMenu);
-        ui->deleteButton->showMenu();
-    } else {
-        d->timeline->undoStack()->push(new UndoDeleteElement(tr("Delete %1 \"%2\"").arg(d->element->typeDisplayName()).arg(d->element->name()), ElementState(d->element)));
-        d->element->deleteLater();
-    }
+    d->timeline->undoStack()->push(new UndoDeleteElement(tr("Delete %1 \"%2\"").arg(d->element->typeDisplayName()).arg(d->element->name()), ElementState(d->element)));
+    d->element->deleteLater();
 }
 
 void TimelineLeftWidget::on_collapseButton_toggled(bool checked) {

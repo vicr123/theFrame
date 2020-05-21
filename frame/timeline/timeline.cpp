@@ -210,6 +210,8 @@ void Timeline::setCurrentSelection(QObject* element) {
 
 void Timeline::addToCurrentSelection(QObject* element) {
     if (d->currentSelection.count() > 0) {
+        if (d->currentSelection.contains(element)) return;
+
         QList<const QMetaObject*> parents({
             &Element::staticMetaObject,
             &TimelineElement::staticMetaObject

@@ -1070,27 +1070,27 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
 <context>
     <name>Timeline</name>
     <message>
-        <location filename="../timeline/timeline.cpp" line="267"/>
+        <location filename="../timeline/timeline.cpp" line="269"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="275"/>
+        <location filename="../timeline/timeline.cpp" line="277"/>
         <source>Delete Timeline Element</source>
         <translation>Zeitleisten Element löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="280"/>
+        <location filename="../timeline/timeline.cpp" line="282"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>%1 &quot;%2&quot; löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="361"/>
+        <location filename="../timeline/timeline.cpp" line="363"/>
         <source>Cut</source>
         <translation>Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../timeline/timeline.cpp" line="406"/>
+        <location filename="../timeline/timeline.cpp" line="408"/>
         <source>Paste Elements</source>
         <translation>Elemente einfügen</translation>
     </message>
@@ -1098,69 +1098,105 @@ Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. An
 <context>
     <name>TimelineLeftWidget</name>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="114"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="137"/>
         <source>Add an element</source>
         <translation>Element hinzufügen</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="115"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="71"/>
         <source>Rectangle</source>
         <translation>Rechteck</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="118"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="74"/>
         <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="121"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="77"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="124"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="80"/>
         <source>Picture</source>
         <translation>Bild</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="127"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="83"/>
         <source>Group</source>
         <translation>Gruppe</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="192"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="205"/>
+        <source>Add Child Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="213"/>
+        <source>For this element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="223"/>
+        <source>For selected elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="224"/>
+        <source>Cut</source>
+        <translation type="unfinished">Ausschneiden</translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="227"/>
+        <source>Copy</source>
+        <translation type="unfinished">Kopieren</translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="231"/>
+        <source>Delete</source>
+        <translation type="unfinished">Löschen</translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.ui" line="56"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="214"/>
+        <source>Collapse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.ui" line="192"/>
+        <source>Delete Element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.ui" line="212"/>
+        <source>Add Child</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../timeline/timelineleftwidget.cpp" line="249"/>
         <source>Add %1</source>
         <translation>%1 hinzufügen</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="198"/>
-        <location filename="../timeline/timelineleftwidget.cpp" line="200"/>
-        <source>Delete</source>
-        <translation>Löschen</translation>
-    </message>
-    <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="199"/>
-        <source>Children will also be deleted</source>
-        <translation>Kinder werden auch gelöscht</translation>
-    </message>
-    <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="201"/>
-        <location filename="../timeline/timelineleftwidget.cpp" line="207"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="253"/>
         <source>Delete %1 &quot;%2&quot;</source>
         <translation>%1 &quot;%2&quot; löschen</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="220"/>
+        <location filename="../timeline/timelineleftwidget.ui" line="105"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="218"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="265"/>
         <source>Rename</source>
         <translation>Umbenennen</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="220"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="265"/>
         <source>Set a name for this %1</source>
         <translation>Setze einen Namen für dieses %1</translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.cpp" line="224"/>
+        <location filename="../timeline/timelineleftwidget.cpp" line="269"/>
         <source>Element Name Change</source>
         <translation>Elementnamenänderung</translation>
     </message>

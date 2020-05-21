@@ -60,6 +60,7 @@ class TimelineLeftWidget : public QWidget {
         void mouseReleaseEvent(QMouseEvent* event);
 
         void changeEvent(QEvent* event);
+        void contextMenuEvent(QContextMenuEvent *event);
 
         void addChild(int index, Element* element);
         void addElement(Element* element);
