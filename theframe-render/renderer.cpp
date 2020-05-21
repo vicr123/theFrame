@@ -44,6 +44,8 @@ struct RendererPrivate {
 
     QString ffmpegCommand;
     QString vcodec;
+    QString pixelFormat;
+    QStringList extraFfmpegArguments;
 
     uint framerate;
     quint64 frameCount;
@@ -66,6 +68,7 @@ bool Renderer::prepare() {
     parser.addPositionalArgument("output", tr("Output File"), tr("[output]"));
     parser.addOption({"ffmpeg-command", tr("FFmpeg command to run"), tr("ffmpeg-command")});
     parser.addOption({"vcodec", tr("Video codec to use"), tr("vcodec")});
+    parser.addOption({"pixel-format", tr("Pixel format to use"), tr("pixel-format")});
     parser.addOption({"project-path", tr("Root path for project files"), tr("project-path")});
     parser.addHelpOption();
     parser.addVersionOption();
@@ -141,6 +144,19 @@ bool Renderer::prepare() {
         d->vcodec = "libx264";
     }
 
+    if (parser.isSet("pixel-format")) {
+        d->pixelFormat = parser.value("pixel-format");
+    } else {
+        d->vcodec = "yuv420p";
+    }
+
+    //Calculate extra arguments
+    if (d->pixelFormat == "yuva420p" && d->vcodec == "libvpx") {
+        d->extraFfmpegArguments.append({
+            "-auto-alt-ref", "0"
+        });
+    }
+
     return true;
 }
 
@@ -172,6 +188,10 @@ void Renderer::beginRender() {
     QFuture<void> progress = QtConcurrent::map(indices, [ = ](const quint64 & frame) {
         QImage image(d->viewport->viewportSize(), QImage::Format_ARGB32);
         QPainter painter(&image);
+        if (d->pixelFormat == "yuva420p") {
+            //Render with a transparent background color
+            d->viewport->setBackgroundColor(Qt::transparent);
+        }
         d->viewport->render(&painter, frame);
         bool success = image.save(d->temporaryDir.filePath(QStringLiteral("Frame%1.png").arg(frame, 5, 10, QChar('0'))), "PNG");
         if (!success) {
@@ -196,17 +216,20 @@ bool Renderer::completeRender() {
     logInfo(tr("Frame output complete."));
     logInfo(tr("Calling on ffmpeg to complete the rendering work"));
 
-    QProcess ffmpegProcess;
-    ffmpegProcess.setProgram(d->ffmpegCommand);
-    ffmpegProcess.setArguments({
+    QStringList ffmpegArguments = {
         "-y",
         "-r", QString::number(d->framerate),
         "-s", QString::number(d->viewport->viewportSize().width()) + "x" + QString::number(d->viewport->viewportSize().height()),
         "-i", "Frame%05d.png",
         "-vcodec", d->vcodec,
-        "-pix_fmt", "yuv420p",
-        d->outputFile
-    });
+        "-pix_fmt", d->pixelFormat
+    };
+    ffmpegArguments.append(d->extraFfmpegArguments);
+    ffmpegArguments.append(d->outputFile);
+
+    QProcess ffmpegProcess;
+    ffmpegProcess.setProgram(d->ffmpegCommand);
+    ffmpegProcess.setArguments(ffmpegArguments);
     ffmpegProcess.setWorkingDirectory(d->temporaryDir.path());
     ffmpegProcess.setProcessChannelMode(QProcess::ForwardedChannels);
     ffmpegProcess.start();

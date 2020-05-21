@@ -787,6 +787,19 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     </message>
 </context>
 <context>
+    <name>RenderJob</name>
+    <message>
+        <location filename="../render/renderjob.cpp" line="68"/>
+        <source>MP4 Videos (*.mp4)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjob.cpp" line="70"/>
+        <source>WebM Videos (*.webm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RenderJobWidget</name>
     <message>
         <location filename="../render/renderjobwidget.ui" line="98"/>
@@ -830,27 +843,32 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="47"/>
+        <location filename="../render/renderjobwidget.ui" line="313"/>
+        <source>RENDER LOG</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderjobwidget.cpp" line="51"/>
         <source>Pending...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="52"/>
+        <location filename="../render/renderjobwidget.cpp" line="56"/>
         <source>Currently rendering...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="58"/>
+        <location filename="../render/renderjobwidget.cpp" line="62"/>
         <source>Job Complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="64"/>
+        <location filename="../render/renderjobwidget.cpp" line="68"/>
         <source>Job Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderjobwidget.cpp" line="70"/>
+        <location filename="../render/renderjobwidget.cpp" line="74"/>
         <source>Job Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -878,13 +896,13 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="87"/>
-        <location filename="../render/renderpopover.ui" line="292"/>
+        <location filename="../render/renderpopover.ui" line="320"/>
         <source>FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="92"/>
-        <location filename="../render/renderpopover.ui" line="578"/>
+        <location filename="../render/renderpopover.ui" line="606"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
@@ -894,145 +912,160 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="242"/>
+        <location filename="../render/renderpopover.ui" line="252"/>
+        <source>Video Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="259"/>
         <source>Render to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="317"/>
+        <location filename="../render/renderpopover.ui" line="277"/>
+        <source>MP4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="282"/>
+        <source>WebM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="290"/>
+        <source>Render with translucent background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../render/renderpopover.ui" line="345"/>
         <source>theFrame uses FFmpeg to encode the final video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="331"/>
+        <location filename="../render/renderpopover.ui" line="359"/>
         <source>Automatic Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="402"/>
+        <location filename="../render/renderpopover.ui" line="430"/>
         <source>Remove FFMpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="409"/>
+        <location filename="../render/renderpopover.ui" line="437"/>
         <source>Download FFmpeg</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="447"/>
+        <location filename="../render/renderpopover.ui" line="475"/>
         <source>Downloading FFmpeg...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="464"/>
+        <location filename="../render/renderpopover.ui" line="492"/>
         <source>If you need to continue working on your project, you can close this dialog while FFmpeg is downloading.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="492"/>
+        <location filename="../render/renderpopover.ui" line="520"/>
         <source>Manual Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="510"/>
+        <location filename="../render/renderpopover.ui" line="538"/>
         <source>FFmpeg location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="633"/>
+        <location filename="../render/renderpopover.ui" line="661"/>
         <source>The default settings here should be adequate for most users. Don&apos;t change them unless you know what you&apos;re doing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="683"/>
-        <location filename="../render/renderpopover.ui" line="693"/>
+        <location filename="../render/renderpopover.ui" line="711"/>
+        <location filename="../render/renderpopover.ui" line="721"/>
         <source>Start Rendering</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="623"/>
+        <location filename="../render/renderpopover.ui" line="651"/>
         <source>Renderer Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.ui" line="262"/>
-        <location filename="../render/renderpopover.ui" line="537"/>
-        <location filename="../render/renderpopover.ui" line="616"/>
+        <location filename="../render/renderpopover.ui" line="266"/>
+        <location filename="../render/renderpopover.ui" line="565"/>
+        <location filename="../render/renderpopover.ui" line="644"/>
         <source>Browse...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="74"/>
-        <source>MP4 Videos (*.mp4)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../render/renderpopover.cpp" line="96"/>
+        <location filename="../render/renderpopover.cpp" line="99"/>
         <source>FFMPEG (ffmpeg.exe)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="98"/>
+        <location filename="../render/renderpopover.cpp" line="101"/>
         <source>FFMPEG (ffmpeg)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="116"/>
+        <location filename="../render/renderpopover.cpp" line="119"/>
         <source>theFrame Renderer (theframe-render.exe)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="118"/>
+        <location filename="../render/renderpopover.cpp" line="121"/>
         <source>theFrame Renderer (theframe-render)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="202"/>
+        <location filename="../render/renderpopover.cpp" line="205"/>
         <source>Current FFmpeg version: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="204"/>
+        <location filename="../render/renderpopover.cpp" line="207"/>
         <source>FFmpeg is working.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="213"/>
+        <location filename="../render/renderpopover.cpp" line="216"/>
         <source>FFmpeg failed to download.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="223"/>
+        <location filename="../render/renderpopover.cpp" line="226"/>
         <source>Automatic FFmpeg is not working correctly. Manual FFmpeg settings are required to render correctly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="230"/>
+        <location filename="../render/renderpopover.cpp" line="233"/>
         <source>Install FFmpeg using your system package manager, and then restart theFrame to continue rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="232"/>
+        <location filename="../render/renderpopover.cpp" line="235"/>
         <source>FFmpeg has not been downloaded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="270"/>
+        <location filename="../render/renderpopover.cpp" line="273"/>
         <source>Looks like there&apos;s an issue with some settings. You&apos;ll need to fix them before we can start rendering.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="272"/>
+        <location filename="../render/renderpopover.cpp" line="275"/>
         <source>Output file needs to be reviewed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="273"/>
+        <location filename="../render/renderpopover.cpp" line="276"/>
         <source>FFmpeg settings need to be reviewed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../render/renderpopover.cpp" line="274"/>
+        <location filename="../render/renderpopover.cpp" line="277"/>
         <source>Renderer is unavailable</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1162,12 +1195,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="192"/>
+        <location filename="../timeline/timelineleftwidget.ui" line="188"/>
         <source>Delete Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="212"/>
+        <location filename="../timeline/timelineleftwidget.ui" line="208"/>
         <source>Add Child</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1182,7 +1215,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../timeline/timelineleftwidget.ui" line="105"/>
+        <location filename="../timeline/timelineleftwidget.ui" line="101"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="218"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="265"/>
         <source>Rename</source>

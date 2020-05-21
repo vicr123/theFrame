@@ -28,6 +28,9 @@ RenderPopover::RenderPopover(QByteArray projectFile, QString projectPath, QWidge
         ensureSettingsValid();
     });
 
+    connect(d->renderJob.data(), &RenderJob::videoCodecChanged, this, &RenderPopover::updateCodecCapabilities);
+    updateCodecCapabilities();
+
     connect(&d->settings, &tSettings::settingChanged, this, &RenderPopover::settingChanged);
 
     QString renderer = d->settings.value("Render/rendererPath").toString();
@@ -71,7 +74,7 @@ void RenderPopover::on_browseForFileButton_clicked()
 {
     QFileDialog* fileDialog = new QFileDialog(this->window());
     fileDialog->setAcceptMode(QFileDialog::AcceptSave);
-    fileDialog->setNameFilters({tr("MP4 Videos (*.mp4)")});
+    fileDialog->setNameFilters(d->renderJob->videoCodecNameFilters());
     fileDialog->setWindowFlag(Qt::Sheet);
     fileDialog->setWindowModality(Qt::WindowModal);
     connect(fileDialog, &QFileDialog::finished, this, [ = ](int result) {
@@ -277,6 +280,12 @@ void RenderPopover::ensureSettingsValid()
     }
 }
 
+void RenderPopover::updateCodecCapabilities()
+{
+    QList<RenderJob::CodecCapability> capabilities = d->renderJob->videoCodecCapabilities();
+    ui->translucentBackgroundCheckbox->setVisible(capabilities.contains(RenderJob::Transparency));
+}
+
 void RenderPopover::on_downloadFfmpegButton_clicked()
 {
     FFmpegDetector::instance()->downloadFfmpeg();
@@ -303,4 +312,16 @@ void RenderPopover::on_actionStart_Rendering_changed()
 void RenderPopover::on_leftList_currentRowChanged(int currentRow)
 {
     ui->stackedWidget->setCurrentIndex(currentRow);
+}
+
+void RenderPopover::on_formatBox_currentIndexChanged(int index)
+{
+    d->renderJob->setVideoCodec(static_cast<RenderJob::VideoCodec>(index));
+}
+
+void RenderPopover::on_translucentBackgroundCheckbox_toggled(bool checked)
+{
+    if (checked) {
+        d->renderJob->setCodecCapabilityEnabled(RenderJob::Transparency, checked);
+    }
 }

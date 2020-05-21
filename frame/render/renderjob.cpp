@@ -15,10 +15,15 @@ struct RenderJobPrivate {
     QString projectPath;
     QProcess* renderProcess;
 
+    QByteArray processOutput;
+
     quint64 progress = 0;
     quint64 maxProgress = 0;
 
     RenderJob::State state = RenderJob::Idle;
+    RenderJob::VideoCodec codec = RenderJob::MP4;
+    QMap<RenderJob::CodecCapability, bool> codecCapabilities;
+
     tSettings settings;
 };
 
@@ -45,6 +50,50 @@ QString RenderJob::outputFileName()
     return d->filename;
 }
 
+void RenderJob::setVideoCodec(RenderJob::VideoCodec codec)
+{
+    d->codec = codec;
+    emit videoCodecChanged(codec);
+}
+
+RenderJob::VideoCodec RenderJob::videoCodec()
+{
+    return d->codec;
+}
+
+QStringList RenderJob::videoCodecNameFilters()
+{
+    switch (d->codec) {
+        case RenderJob::MP4:
+            return {tr("MP4 Videos (*.mp4)")};
+        case RenderJob::WebM:
+            return {tr("WebM Videos (*.webm)")};
+    }
+    return {};
+}
+
+QList<RenderJob::CodecCapability> RenderJob::videoCodecCapabilities()
+{
+    switch (d->codec) {
+        case RenderJob::MP4:
+            return {};
+        case RenderJob::WebM:
+            return {Transparency};
+    }
+    return {};
+}
+
+void RenderJob::setCodecCapabilityEnabled(RenderJob::CodecCapability capability, bool enabled)
+{
+    d->codecCapabilities.insert(capability, enabled);
+    emit codecCapabilityChanged(capability, enabled);
+}
+
+bool RenderJob::codecCapabilityEnabled(RenderJob::CodecCapability capability)
+{
+    return d->codecCapabilities.value(capability, false);
+}
+
 QString RenderJob::jobDisplayName()
 {
     return QFileInfo(d->filename).fileName();
@@ -67,10 +116,29 @@ void RenderJob::startRenderJob()
     d->settings.setValue("Renderer/ffmpegLocation", d->ffmpegPath);
     d->settings.setValue("Renderer/rendererPath", d->renderer);
 
+    QString vcodec;
+    QString pixFmt;
+    switch (d->codec) {
+        case WebM:
+            vcodec = "libvpx";
+            if (d->codecCapabilities.value(Transparency, false)) {
+                pixFmt = "yuva420p";
+            } else {
+                pixFmt = "yuv420p";
+            }
+            break;
+        case MP4:
+        default:
+            vcodec = "libx264";
+            pixFmt = "yuv420p";
+    }
+
     d->renderProcess = new QProcess(this);
     d->renderProcess->setProgram(d->renderer);
     d->renderProcess->setArguments({
         "--ffmpeg-command", d->ffmpegPath,
+        "--vcodec", vcodec,
+        "--pixel-format", pixFmt,
         "--project-path", d->projectPath,
         "-",
         d->filename
@@ -101,6 +169,11 @@ void RenderJob::startRenderJob()
             }
         }
     });
+    connect(d->renderProcess, &QProcess::readyReadStandardError, this, [=] {
+        QByteArray output = d->renderProcess->readAllStandardError();
+        d->processOutput.append(output);
+        emit outputAvailable(output);
+    });
     d->renderProcess->start();
     d->renderProcess->write(d->projectFile);
     d->renderProcess->closeWriteChannel();
@@ -127,6 +200,11 @@ void RenderJob::cancelRenderJob()
 RenderJob::State RenderJob::state()
 {
     return d->state;
+}
+
+QByteArray RenderJob::processOutput()
+{
+    return d->processOutput;
 }
 
 quint64 RenderJob::progress()

@@ -48,6 +48,10 @@ class RenderPopover : public QWidget
 
         void on_leftList_currentRowChanged(int currentRow);
 
+        void on_formatBox_currentIndexChanged(int index);
+
+        void on_translucentBackgroundCheckbox_toggled(bool checked);
+
     signals:
         void renderingStarted(RenderJobPtr job);
         void done();
@@ -59,6 +63,8 @@ class RenderPopover : public QWidget
         void settingChanged(QString key, QVariant value);
         void ffmpegDownloadStateChanged();
         void ensureSettingsValid();
+
+        void updateCodecCapabilities();
 
 #ifdef Q_OS_MAC
         void setupMacOS();

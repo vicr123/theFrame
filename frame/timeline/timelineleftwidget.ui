@@ -58,10 +58,6 @@
         <property name="text">
          <string notr="true">-</string>
         </property>
-        <property name="icon">
-         <iconset theme="arrow-up">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
         <property name="checkable">
          <bool>true</bool>
         </property>

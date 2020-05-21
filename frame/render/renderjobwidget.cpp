@@ -25,8 +25,12 @@ RenderJobWidget::RenderJobWidget(RenderJobPtr job, QWidget *parent) :
         ui->progressBar->setMaximum(maxProgress);
         ui->progressBar->setValue(progress);
     });
+    connect(d->job.data(), &RenderJob::outputAvailable, this, [=](QByteArray output) {
+        ui->logBrowser->append(output);
+    });
     ui->progressBar->setMaximum(d->job->maxProgress());
     ui->progressBar->setValue(d->job->progress());
+    ui->logBrowser->setPlainText(d->job->processOutput());
 
     ui->cancelRenderButton->setProperty("type", "destructive");
 
