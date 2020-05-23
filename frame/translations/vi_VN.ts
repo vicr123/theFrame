@@ -92,22 +92,22 @@ Lưu việc của bạn trước khi bạn đặt lại. theFrame sẽ khởi ch
     <message>
         <location filename="../settings/generalsettings.ui" line="95"/>
         <source>THEME</source>
-        <translation type="unfinished"></translation>
+        <translation>GIAO DIỆN</translation>
     </message>
     <message>
         <location filename="../settings/generalsettings.ui" line="115"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Tối</translation>
     </message>
     <message>
         <location filename="../settings/generalsettings.ui" line="122"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Sáng</translation>
     </message>
     <message>
         <location filename="../settings/generalsettings.ui" line="129"/>
         <source>Restart theFrame to apply your new theme.</source>
-        <translation type="unfinished"></translation>
+        <translation>Khởi chạy theFrame lại để áp dụng giao diện mới.</translation>
     </message>
 </context>
 <context>
@@ -798,12 +798,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderjob.cpp" line="68"/>
         <source>MP4 Videos (*.mp4)</source>
-        <translation type="unfinished">Phim MP4 (*.mp4)</translation>
+        <translation>Phim MP4 (*.mp4)</translation>
     </message>
     <message>
         <location filename="../render/renderjob.cpp" line="70"/>
         <source>WebM Videos (*.webm)</source>
-        <translation type="unfinished"></translation>
+        <translation>Phim WebM (*.webm)</translation>
     </message>
 </context>
 <context>
@@ -852,7 +852,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderjobwidget.ui" line="313"/>
         <source>RENDER LOG</source>
-        <translation type="unfinished"></translation>
+        <translation>NHẬT KÝ KẾT XUẤT</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="51"/>
@@ -921,7 +921,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderpopover.ui" line="252"/>
         <source>Video Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Định dạng phim</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="259"/>
@@ -931,17 +931,17 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderpopover.ui" line="277"/>
         <source>MP4</source>
-        <translation type="unfinished"></translation>
+        <translation>MP4</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="282"/>
         <source>WebM</source>
-        <translation type="unfinished"></translation>
+        <translation>WebM</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="290"/>
         <source>Render with translucent background</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết xuất với nền trong suốt</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="345"/>
@@ -1079,7 +1079,7 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../render/renderpopover-objc.mm" line="201"/>
         <source>Render:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kết xuất:</translation>
     </message>
 </context>
 <context>
@@ -1168,48 +1168,48 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="205"/>
         <source>Add Child Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm thành phần con</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="213"/>
         <source>For this element</source>
-        <translation type="unfinished"></translation>
+        <translation>Cho thành phần này</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="223"/>
         <source>For selected elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Cho các thành phần đã chọn</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="224"/>
         <source>Cut</source>
-        <translation type="unfinished">Cắt</translation>
+        <translation>Cắt</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="227"/>
         <source>Copy</source>
-        <translation type="unfinished">Sao chép</translation>
+        <translation>Sao chép</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="231"/>
         <source>Delete</source>
-        <translation type="unfinished">Xóa</translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="56"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="214"/>
         <source>Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>Thu gọn</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="188"/>
         <source>Delete Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa thành phần</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="208"/>
         <source>Add Child</source>
-        <translation type="unfinished"></translation>
+        <translation>Thêm phần con</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="249"/>
