@@ -297,6 +297,8 @@ Save your work before you reset. theFrame will restart once the reset is complet
     </message>
     <message>
         <location filename="../mainwindow.ui" line="683"/>
+        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="191"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
@@ -447,72 +449,88 @@ Save your work before you reset. theFrame will restart once the reset is complet
         <translation>Strg+Shift+Z</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="272"/>
+        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="203"/>
+        <source>Sorry, we couldn&apos;t open that project because the project file is corrupt.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="200"/>
+        <source>Sorry, we couldn&apos;t open that project because the project file is too new. Check for updates for theFrame, and once you&apos;ve installed all available updates, give it another go.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="206"/>
+        <source>Sorry, we couldn&apos;t open that project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="300"/>
         <source>No Recent Files</source>
         <translation>Keine zuletzt geöffneten Dateien</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="295"/>
+        <location filename="../mainwindow.cpp" line="323"/>
         <source>Clear Recent Items</source>
         <translation>Zuletzt geöffnete Dateien Leeren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="428"/>
+        <location filename="../mainwindow.cpp" line="456"/>
         <source>Running Render Jobs</source>
         <translation>Laufende Renderaufträge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="457"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
         <translation>Du hast laufende Renderaufträge. Wenn du theFrame schließt, werden sie abgebrochen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="431"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Exit Anyway</source>
         <translation>Trotzdem Beenden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="537"/>
+        <location filename="../mainwindow.cpp" line="565"/>
         <source>Save Changes?</source>
         <translation>Änderungen Speichern?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="566"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
         <translation>Sie verlieren alle nicht gespeicherten Änderungen in diesem Projekt, wenn Sie nicht speichern.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="724"/>
+        <location filename="../mainwindow.cpp" line="752"/>
         <source>Rendering Queued</source>
         <translation>Rendering eingereiht</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="725"/>
+        <location filename="../mainwindow.cpp" line="753"/>
         <source>%1 has been queued for rendering.</source>
         <translation>%1 wurde zum Rendern in die Warteschlange gestellt.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="727"/>
+        <location filename="../mainwindow.cpp" line="755"/>
         <source>Rendering Started</source>
         <translation>Rendering gestartet</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="728"/>
+        <location filename="../mainwindow.cpp" line="756"/>
         <source>%1 has started rendering.</source>
         <translation>%1 hat das Rendern gestartet.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="731"/>
+        <location filename="../mainwindow.cpp" line="759"/>
         <source>View Render Jobs</source>
         <translation>Renderaufträge ansehen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="492"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="492"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
@@ -521,8 +539,8 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
 Schließen Sie das Fenster erst, wenn Sie Ihre Änderungen gespeichert haben. Andernfalls können Daten verloren gehen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="373"/>
-        <location filename="../mainwindow.cpp" line="506"/>
+        <location filename="../mainwindow.cpp" line="401"/>
+        <location filename="../mainwindow.cpp" line="534"/>
         <source>theFrame Project Files (*.tfrproj)</source>
         <translation>theFrame Projekt Dateien (*.tfrproj)</translation>
     </message>

@@ -173,12 +173,40 @@ void MainWindow::openFile(QString filePath)
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll(), &error);
 
     if (error.error != QJsonParseError::NoError || !doc.isObject()) {
-        //Error Error!
+        tMessageBox* box = new tMessageBox(this);
+        box->setWindowTitle(tr("Open"));
+        box->setText(tr("Sorry, we couldn't open that project because the project file is corrupt."));
+        box->setIcon(tMessageBox::Critical);
+        box->setStandardButtons(tMessageBox::Ok);
+        box->setWindowModality(Qt::WindowModal);
+        box->setWindowFlag(Qt::Sheet);
+        connect(box, &tMessageBox::finished, box, &tMessageBox::deleteLater);
+        box->open();
         return;
     }
 
-    if (!ui->timeline->load(doc.object())) {
-        //Error Error!
+    Timeline::LoadError loadError = ui->timeline->load(doc.object());
+    if (loadError != Timeline::NoError) {
+        tMessageBox* box = new tMessageBox(this);
+        box->setWindowTitle(tr("Open"));
+        box->setIcon(tMessageBox::Critical);
+        box->setStandardButtons(tMessageBox::Ok);
+        box->setWindowModality(Qt::WindowModal);
+        box->setWindowFlag(Qt::Sheet);
+        connect(box, &tMessageBox::finished, box, &tMessageBox::deleteLater);
+
+        switch (loadError) {
+            case Timeline::FileVersionTooNew:
+                box->setText(tr("Sorry, we couldn't open that project because the project file is too new. Check for updates for theFrame, and once you've installed all available updates, give it another go."));
+                break;
+            case Timeline::FileCorrupt:
+                box->setText(tr("Sorry, we couldn't open that project because the project file is corrupt."));
+                break;
+            default:
+                box->setText(tr("Sorry, we couldn't open that project."));
+        }
+
+        box->open();
         return;
     }
 

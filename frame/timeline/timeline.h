@@ -38,6 +38,12 @@ class Timeline : public QWidget {
         Q_OBJECT
 
     public:
+        enum LoadError {
+            NoError,
+            FileVersionTooNew,
+            FileCorrupt
+        };
+
         explicit Timeline(QWidget* parent = nullptr);
         ~Timeline();
 
@@ -101,7 +107,7 @@ class Timeline : public QWidget {
         void selectAll();
 
         QJsonObject save() const;
-        bool load(QJsonObject obj);
+        LoadError load(QJsonObject obj);
 
     signals:
         void frameSpacingChanged(double frameSpacing);

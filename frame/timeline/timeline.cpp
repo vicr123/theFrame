@@ -450,10 +450,12 @@ QJsonObject Timeline::save() const {
     return rootObj;
 }
 
-bool Timeline::load(QJsonObject obj) {
+Timeline::LoadError Timeline::load(QJsonObject obj) {
     int fileVersion = obj.value("fileVersion").toInt();
 
-    //TODO: Do some checking on the file version
+    if (fileVersion > d->fileVersion) {
+        return FileVersionTooNew;
+    }
 
     this->setFramerate(static_cast<uint>(obj.value("framerate").toInt()));
     this->setFrameCount(obj.value("frameCount").toString().toULongLong());
@@ -464,7 +466,7 @@ bool Timeline::load(QJsonObject obj) {
 
     d->rootViewportElement->load(obj.value("viewport").toObject());
 
-    return true;
+    return NoError;
 }
 
 QMimeData* Timeline::selectedMimeData()
