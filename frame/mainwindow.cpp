@@ -372,11 +372,13 @@ void MainWindow::updateControlledRenderJobs()
 void MainWindow::on_actionFirstFrame_triggered() {
     ui->actionPlay->setChecked(false);
     ui->timeline->setCurrentFrame(0);
+    ui->timeline->ensurePlayheadVisible();
 }
 
 void MainWindow::on_actionLastFrame_triggered() {
     ui->actionPlay->setChecked(false);
     ui->timeline->setCurrentFrame(ui->timeline->frameCount() - 1);
+    ui->timeline->ensurePlayheadVisible();
 }
 
 void MainWindow::on_firstFrameButton_clicked() {
@@ -852,4 +854,17 @@ void MainWindow::on_actionPlay_toggled(bool checked)
     }
 
     ui->playButton->setChecked(checked);
+}
+
+void MainWindow::on_actionRevert_triggered()
+{
+    //Reopen the current file
+    if (d->undoStack->isClean()) {
+        this->openFile(d->currentFile);
+    } else {
+        //We should never get here... but just in case :)
+        this->ensureDiscardChanges()->then([=] {
+            this->openFile(d->currentFile);
+        });
+    }
 }

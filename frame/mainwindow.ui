@@ -437,6 +437,7 @@
     <addaction name="separator"/>
     <addaction name="actionSettings"/>
     <addaction name="separator"/>
+    <addaction name="actionRevert"/>
     <addaction name="actionClose"/>
     <addaction name="actionExit"/>
    </widget>
@@ -885,6 +886,14 @@
    </property>
    <property name="menuRole">
     <enum>QAction::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionRevert">
+   <property name="icon">
+    <iconset theme="view-refresh"/>
+   </property>
+   <property name="text">
+    <string>Revert</string>
    </property>
   </action>
  </widget>

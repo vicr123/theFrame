@@ -131,6 +131,8 @@ class MainWindow : public QMainWindow {
 
         void on_actionPlay_toggled(bool checked);
 
+        void on_actionRevert_triggered();
+
     private:
         Ui::MainWindow* ui;
         MainWindowPrivate* d;
