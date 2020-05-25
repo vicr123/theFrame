@@ -94,7 +94,7 @@ class Timeline : public QWidget {
 
         void clearInOutPoint();
         bool isInPreviewRange(quint64 frame);
-        
+
         bool canCopy();
         void copy();
 
@@ -124,7 +124,7 @@ class Timeline : public QWidget {
     private:
         Ui::Timeline* ui;
         TimelinePrivate* d;
-        
+
         QMimeData* selectedMimeData();
         bool eventFilter(QObject* watched, QEvent* event);
 };

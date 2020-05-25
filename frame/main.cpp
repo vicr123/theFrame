@@ -55,6 +55,7 @@ int main(int argc, char* argv[]) {
     a.setOrganizationName("theSuite");
     a.setOrganizationDomain("vicr123.com");
     a.setApplicationName("theFrame");
+    a.setDesktopFileName("com.vicr123.theframe");
 
 #if defined(Q_OS_WIN)
     QIcon::setThemeName("contemporary-icons");
@@ -97,10 +98,10 @@ int main(int argc, char* argv[]) {
     bool openedFirstFile = false;
 
     if (parser.positionalArguments().isEmpty()) {
-        MainWindow *w = new MainWindow();
+        MainWindow* w = new MainWindow();
         w->show();
 
-        QObject::connect(&a, &tApplication::openFile, [=, &openedFirstFile](QString file) {
+        QObject::connect(&a, &tApplication::openFile, [ =, &openedFirstFile](QString file) {
             MainWindow* window;
             if (openedFirstFile) {
                 window = new MainWindow();
@@ -114,7 +115,7 @@ int main(int argc, char* argv[]) {
         for (QString arg : parser.positionalArguments()) {
             QString fileName = arg;
             if (QUrl(fileName).isValid()) fileName = QUrl(fileName).toLocalFile();
-            MainWindow *w = new MainWindow();
+            MainWindow* w = new MainWindow();
             w->openFile(fileName);
             w->show();
         }
