@@ -759,7 +759,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../propertieswidget.cpp" line="377"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Selecteer Kleur</translation>
     </message>
 </context>
 <context>
@@ -777,12 +777,12 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../properties/rectproperty.ui" line="66"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Links</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="73"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rechts</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="100"/>
@@ -910,7 +910,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../render/renderjobs.ui" line="53"/>
         <source>Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rendertaken</translation>
     </message>
 </context>
 <context>
@@ -918,7 +918,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../render/renderpopover.ui" line="71"/>
         <source>Render</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Render</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="82"/>
@@ -936,7 +936,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
         <location filename="../render/renderpopover.ui" line="92"/>
         <location filename="../render/renderpopover.ui" line="606"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Geavanceerd</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="154"/>
@@ -1112,12 +1112,12 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../settings/settingsdialog.ui" line="53"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Instellingen</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="64"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Algemeen</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="69"/>
@@ -1127,7 +1127,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../settings/settingsdialog.ui" line="74"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Geavanceerd</translation>
     </message>
 </context>
 <context>
@@ -1135,7 +1135,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../timeline/timeline.cpp" line="269"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verwijder</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="277"/>
@@ -1150,7 +1150,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../timeline/timeline.cpp" line="363"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Knip</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="408"/>
@@ -1208,17 +1208,17 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="224"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Knip</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="227"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopieer</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="231"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verwijder</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="56"/>
@@ -1276,7 +1276,7 @@ Sluit dit scherm niet totdat je je wijzigingen hebt kunnen opslaan, ander kun je
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="174"/>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="188"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Plak</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="126"/>
