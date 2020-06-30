@@ -73,8 +73,8 @@ int main(int argc, char* argv[]) {
 #else
     if (QDir("/etc/theframe/defaults.conf").exists()) {
         tSettings::registerDefaults("/etc/theframe/defaults.conf");
-    } else if (QDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../etc/theframe/defaults.conf")).exists()) {
-        tSettings::registerDefaults(QDir::cleanPath(QApplication::applicationDirPath() + "/../etc/theframe/defaults.conf"));
+    } else if (QDir(QDir::cleanPath(QApplication::applicationDirPath() + "/../../etc/theframe/defaults.conf")).exists()) {
+        tSettings::registerDefaults(QDir::cleanPath(QApplication::applicationDirPath() + "/../../etc/theframe/defaults.conf"));
     }
 #endif
 
