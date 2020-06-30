@@ -18,10 +18,10 @@ SOURCES += \
         main.cpp \
         renderer.cpp
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+unix:!macx {
+    target.path = /usr/bin
+    INSTALLS += target
+}
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/release/ -llibtheframe
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../libtheframe/debug/ -llibtheframe
