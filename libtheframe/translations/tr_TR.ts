@@ -6,7 +6,7 @@
     <message>
         <location filename="../elements/element.cpp" line="67"/>
         <source>New Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Öğe</translation>
     </message>
 </context>
 <context>
@@ -14,32 +14,32 @@
     <message>
         <location filename="../elements/ellipseelement.cpp" line="60"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="62"/>
         <source>Background Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Arka plan rengi</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="64"/>
         <source>Border Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Sınır rengi</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="66"/>
         <source>Border Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kenar Genişliği</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="68"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opaklık</translation>
     </message>
     <message>
         <location filename="../elements/ellipseelement.cpp" line="91"/>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Elips</translation>
     </message>
 </context>
 <context>
@@ -47,17 +47,17 @@
     <message>
         <location filename="../elements/groupelement.cpp" line="56"/>
         <source>Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Ofset</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="58"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opaklık</translation>
     </message>
     <message>
         <location filename="../elements/groupelement.cpp" line="73"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grup</translation>
     </message>
 </context>
 <context>
@@ -65,27 +65,27 @@
     <message>
         <location filename="../elements/pictureelement.cpp" line="93"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="95"/>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaynak</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="97"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opaklık</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="117"/>
         <source>All Images (*.png *.jpg *.jpeg *.gif *.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm Resimler (*.png * .jpg* .jpeg* .gif* .svg)</translation>
     </message>
     <message>
         <location filename="../elements/pictureelement.cpp" line="124"/>
         <source>Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim</translation>
     </message>
 </context>
 <context>
@@ -93,32 +93,32 @@
     <message>
         <location filename="../elements/rectangleelement.cpp" line="81"/>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Dikdörtgen</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="86"/>
         <source>Geometry</source>
-        <translation type="unfinished"></translation>
+        <translation>Geometri</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="88"/>
         <source>Background Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Arka plan rengi</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="90"/>
         <source>Border Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Sınır rengi</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="92"/>
         <source>Border Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kenar Genişliği</translation>
     </message>
     <message>
         <location filename="../elements/rectangleelement.cpp" line="94"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opaklık</translation>
     </message>
 </context>
 <context>
@@ -126,43 +126,43 @@
     <message>
         <location filename="../elements/textelement.cpp" line="25"/>
         <source>Edit Me!</source>
-        <translation type="unfinished"></translation>
+        <translation>Beni düzelt!</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="118"/>
         <location filename="../elements/textelement.cpp" line="155"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="120"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Konum</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="122"/>
         <source>Anchor Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantı Noktası</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="124"/>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazı Boyutu</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="126"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Metin Rengi</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="128"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazı tipi</translation>
     </message>
     <message>
         <location filename="../elements/textelement.cpp" line="130"/>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opaklık</translation>
     </message>
 </context>
 <context>
@@ -170,7 +170,7 @@
     <message>
         <location filename="../elements/viewportelement.cpp" line="87"/>
         <source>Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuval</translation>
     </message>
 </context>
 </TS>
