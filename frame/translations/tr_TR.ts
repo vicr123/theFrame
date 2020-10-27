@@ -6,12 +6,12 @@
     <message>
         <location filename="../settings/advancedsettings.ui" line="35"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>İleri</translation>
     </message>
     <message>
         <location filename="../settings/advancedsettings.ui" line="95"/>
         <source>RESET</source>
-        <translation type="unfinished"></translation>
+        <translation>SIFIRLA</translation>
     </message>
     <message>
         <location filename="../settings/advancedsettings.ui" line="102"/>
@@ -21,12 +21,17 @@
 - Any layout changes that you&apos;ve made
 
 Save your work before you reset. theFrame will restart once the reset is complete. This action is irreversible.</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame orijinal ayarlarına sıfırlayın. Bu düzelecek:
+ - Son Dosyalar
+ - Değiştirdiğiniz tüm ayarlar
+ - Yaptığınız tüm düzen değişiklikleri
+
+Sıfırlamadan önce çalışmanızı kaydedin.  Sıfırlama tamamlandığında theFrame yeniden başlayacaktır. Bu eylem geri alınamaz.</translation>
     </message>
     <message>
         <location filename="../settings/advancedsettings.ui" line="119"/>
         <source>Reset theFrame</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame Sıfırla</translation>
     </message>
 </context>
 <context>
@@ -34,12 +39,12 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../properties/colorproperty.ui" line="32"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Değer</translation>
     </message>
     <message>
         <location filename="../properties/colorproperty.cpp" line="32"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Renk seç</translation>
     </message>
 </context>
 <context>
@@ -47,18 +52,18 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../properties/fileproperty.ui" line="32"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../properties/fileproperty.ui" line="42"/>
         <source>Select File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya seç</translation>
     </message>
     <message>
         <location filename="../properties/fileproperty.cpp" line="34"/>
         <location filename="../properties/fileproperty.cpp" line="72"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm Dosyalar (*)</translation>
     </message>
 </context>
 <context>
@@ -66,7 +71,7 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../properties/floatproperty.ui" line="38"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Değer</translation>
     </message>
 </context>
 <context>
@@ -74,7 +79,7 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../properties/fontproperty.ui" line="35"/>
         <source>Family</source>
-        <translation type="unfinished"></translation>
+        <translation>Aile</translation>
     </message>
 </context>
 <context>
@@ -82,27 +87,27 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../settings/generalsettings.ui" line="35"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <location filename="../settings/generalsettings.ui" line="95"/>
         <source>THEME</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../settings/generalsettings.ui" line="115"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Karanlık</translation>
     </message>
     <message>
         <location filename="../settings/generalsettings.ui" line="122"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Işık</translation>
     </message>
     <message>
         <location filename="../settings/generalsettings.ui" line="129"/>
         <source>Restart theFrame to apply your new theme.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni temanızı uygulamak için theFrame yeniden başlatın.</translation>
     </message>
 </context>
 <context>
@@ -110,87 +115,87 @@ Save your work before you reset. theFrame will restart once the reset is complet
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>theFrame</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="64"/>
         <source>Welcome to theFrame!</source>
-        <translation type="unfinished"></translation>
+        <translation>Frame&apos;e hoş geldiniz!</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="76"/>
         <source>Create New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Proje Oluşturun</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="79"/>
         <source>Start a new project</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni bir proje başlatın</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="102"/>
         <source>RECENT FILES</source>
-        <translation type="unfinished"></translation>
+        <translation>SON DOSYALAR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="86"/>
         <source>Open Existing Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Mevcut Projeyi Aç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="89"/>
         <source>Open a project that you&apos;ve saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydettiğiniz bir projeyi açın</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="149"/>
         <source>New Project</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni proje</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="156"/>
         <source>Make sure you&apos;re happy with the frame rate and resolution before you begin. You can change them later, but it be a lot easier to set it up before you begin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlamadan önce kare hızından ve çözünürlükten memnun olduğunuzdan emin olun. Bunları daha sonra değiştirebilirsiniz, ancak başlamadan önce ayarlamak çok daha kolay olacaktır.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="183"/>
         <source>Project Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Proje Çözünürlüğü</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="190"/>
         <source>Framerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Kare hızı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="197"/>
         <source> frames per second</source>
-        <translation type="unfinished"></translation>
+        <translation> saniyedeki kare sayısı</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="243"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="263"/>
         <source>Create</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="420"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="424"/>
         <source>Open Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Son Kullanılanları Aç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Görünüm</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="454"/>
@@ -199,12 +204,12 @@ Save your work before you reset. theFrame will restart once the reset is complet
         <location filename="../mainwindow-objc.mm" line="201"/>
         <location filename="../mainwindow-objc.mm" line="212"/>
         <source>Timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman çizelgesi</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="469"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzenle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="481"/>
