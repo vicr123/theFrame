@@ -214,92 +214,92 @@ Sıfırlamadan önce çalışmanızı kaydedin.  Sıfırlama tamamlandığında 
     <message>
         <location filename="../mainwindow.ui" line="481"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Yardım</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="490"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="534"/>
         <source>Properties</source>
-        <translation type="unfinished"></translation>
+        <translation>Özellikleri</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="565"/>
         <source>Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Sonraki Çerçeve</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="568"/>
         <source>Right</source>
         <extracomment>Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="577"/>
         <source>Previous Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Önceki Çerçeve</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="580"/>
         <source>Left</source>
         <extracomment>Keyboard shortcut; translate as &quot;Right&quot; or &quot;Left&quot; in English depending on the key to be pressed.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="585"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="597"/>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
+        <translation>Yakınlaştır</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="609"/>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzaklaştırmak</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="624"/>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynat</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="345"/>
         <location filename="../mainwindow.ui" line="636"/>
         <source>First Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>İlk Çerçeve</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="122"/>
         <source>Change how theFrame works</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame çalışma şeklini değiştirin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="359"/>
         <source>Play/Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Oynat/Durdur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="376"/>
         <location filename="../mainwindow.ui" line="648"/>
         <source>Last Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>Son Çerçeve</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="660"/>
         <location filename="../mainwindow.cpp" line="527"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="672"/>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Farklı kaydet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
@@ -307,184 +307,184 @@ Sıfırlamadan önce çalışmanızı kaydedin.  Sıfırlama tamamlandığında 
         <location filename="../mainwindow.cpp" line="187"/>
         <location filename="../mainwindow.cpp" line="201"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Aç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="696"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakkında</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="704"/>
         <source>Set In Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Noktaya ayarlayın</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="707"/>
         <source>I</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="715"/>
         <source>O</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>O</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="723"/>
         <source>P</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>P</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="731"/>
         <source>Enable Prerendering</source>
-        <translation type="unfinished"></translation>
+        <translation>Önceden Oluşturmayı Etkinleştir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="740"/>
         <source>Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaynaklar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="749"/>
         <source>File Bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Dosya Hatası</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="758"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Vazgeç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="773"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="785"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="797"/>
         <source>New Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Pencere</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="805"/>
         <source>Render</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluştur</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="808"/>
         <source>Ctrl+R</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="813"/>
         <source>Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>İş Oluşturma</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="816"/>
         <source>Ctrl+Shift+R</source>
         <extracomment>Keyboard shortcut; set an appropriate key for this action</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+ÜstKarakter+R</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="828"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Kes</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="843"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Yapıştırmak</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="870"/>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Hepsini seç</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="896"/>
         <source>Revert</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri döndür</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="119"/>
         <location filename="../mainwindow.ui" line="882"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayarlar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="885"/>
         <source>Ctrl+,</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+,</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="712"/>
         <source>Set Out Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Çıkış Noktası</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="720"/>
         <source>Clear In/Out Points</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş/Çıkış Noktalarını Temizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="84"/>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri alma</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="85"/>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden Yap</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="88"/>
         <source>CTRL+Z</source>
-        <translation type="unfinished"></translation>
+        <translation>CTRL+Z</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="89"/>
         <source>CTRL+SHIFT+Z</source>
-        <translation type="unfinished"></translation>
+        <translation>CTRL+ÜSTKARAKTER+Z</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="172"/>
         <source>Sorry, we couldn&apos;t open that project because we couldn&apos;t access the project file. Check that you have permissions to read the file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Üzgünüz, proje dosyasına erişemediğimiz için o projeyi açamadık. Dosyayı okuma izniniz olup olmadığını kontrol edin.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="188"/>
         <location filename="../mainwindow.cpp" line="213"/>
         <source>Sorry, we couldn&apos;t open that project because the project file is corrupt.</source>
-        <translation type="unfinished"></translation>
+        <translation>Üzgünüz, proje dosyası bozuk olduğu için bu projeyi açamadık.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="210"/>
         <source>Sorry, we couldn&apos;t open that project because the project file is too new. Check for updates for theFrame, and once you&apos;ve installed all available updates, give it another go.</source>
-        <translation type="unfinished"></translation>
+        <translation>Üzgünüz, proje dosyası çok yeni olduğu için bu projeyi açamadık. theFrame için güncellemeleri kontrol edin ve mevcut tüm güncellemeleri yükledikten sonra bir kez daha deneyin.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="216"/>
         <source>Sorry, we couldn&apos;t open that project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Üzgünüz, o projeyi açamadık.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="308"/>
         <source>No Recent Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Son Dosya Yok</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
