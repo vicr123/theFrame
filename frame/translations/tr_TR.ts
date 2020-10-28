@@ -489,70 +489,72 @@ Sıfırlamadan önce çalışmanızı kaydedin.  Sıfırlama tamamlandığında 
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
         <source>Clear Recent Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Son Öğeleri Temizle</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="464"/>
         <source>Running Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>İşleme İşlerini Çalıştırma</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="465"/>
         <source>You have running render jobs. If you exit theFrame, they&apos;ll be cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>Çalışan render işleriniz var. theFrame çıkarsanız, iptal edilecekler</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="467"/>
         <source>Exit Anyway</source>
-        <translation type="unfinished"></translation>
+        <translation>Vazgeç zaten</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="578"/>
         <source>Save Changes?</source>
-        <translation type="unfinished"></translation>
+        <translation>Değişiklikleri Kaydet?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="579"/>
         <source>You&apos;ll lose any unsaved changes in this project if you don&apos;t save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydetmezseniz, bu projedeki kaydedilmemiş değişiklikleri kaybedeceksiniz.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="747"/>
         <source>Rendering Queued</source>
-        <translation type="unfinished"></translation>
+        <translation>İşleme Sıraya Alındı</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="748"/>
         <source>%1 has been queued for rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1, işleme için sıraya alındı.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="750"/>
         <source>Rendering Started</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturma Başladı</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="751"/>
         <source>%1 has started rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 işlemeye başladı.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="754"/>
         <source>View Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>İşleme İşlerini Görüntüle</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="528"/>
         <source>Sorry, we couldn&apos;t save the file. Check that there is enough disk space and that you have permission to write to the file.
 
 Don&apos;t close the window until you&apos;ve managed to save your changes, otherwise you may lose data.</source>
-        <translation type="unfinished"></translation>
+        <translation>Üzgünüz, dosyayı kaydedemedik. Yeterli disk alanı olduğunu ve dosyaya yazma izninizin olduğunu kontrol edin.
+
+Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takdirde verileri kaybedebilirsiniz.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="410"/>
         <location filename="../mainwindow.cpp" line="548"/>
         <source>theFrame Project Files (*.tfrproj)</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame Proje Dosyaları (*.tfrproj)</translation>
     </message>
 </context>
 <context>
@@ -560,12 +562,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../properties/percentageproperty.ui" line="38"/>
         <source>Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Değer</translation>
     </message>
     <message>
         <location filename="../properties/percentageproperty.ui" line="45"/>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
 </context>
 <context>
@@ -573,12 +575,12 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../properties/pointproperty.ui" line="32"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <location filename="../properties/pointproperty.ui" line="49"/>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
 </context>
 <context>
@@ -586,37 +588,37 @@ Don&apos;t close the window until you&apos;ve managed to save your changes, othe
     <message>
         <location filename="../propertieswidget.ui" line="74"/>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran boyutu</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="81"/>
         <source>Frame Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Kare hızı</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="131"/>
         <source>PROJECT</source>
-        <translation type="unfinished"></translation>
+        <translation>PROJE</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="138"/>
         <source> frames per second</source>
-        <translation type="unfinished"></translation>
+        <translation> saniyedeki kare sayısı</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="118"/>
         <source>Total Frames</source>
-        <translation type="unfinished"></translation>
+        <translation>Toplam Çerçeve</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="88"/>
         <source>Changing the frame rate and resolution may have unintended consequences. You have been warned!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kare hızının ve çözünürlüğün değiştirilmesi istenmeyen sonuçlara neden olabilir. Uyarıldın!</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="248"/>
         <source>START VALUE</source>
-        <translation type="unfinished"></translation>
+        <translation>BAŞLANGIÇ DEĞERİ</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="255"/>
