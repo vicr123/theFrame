@@ -623,143 +623,143 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../propertieswidget.ui" line="255"/>
         <source>Leave Unchanged</source>
-        <translation type="unfinished"></translation>
+        <translation>Değiştirmeden Bırak</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="315"/>
         <source>END VALUE</source>
-        <translation type="unfinished"></translation>
+        <translation>SON DEĞER</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="359"/>
         <source>Linear</source>
-        <translation type="unfinished"></translation>
+        <translation>Doğrusal</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="364"/>
         <source>Quadratic</source>
-        <translation type="unfinished"></translation>
+        <translation>İkinci dereceden</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="369"/>
         <source>Cubic</source>
-        <translation type="unfinished"></translation>
+        <translation>Kübik</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="374"/>
         <source>Quartic</source>
-        <translation type="unfinished"></translation>
+        <translation>Çeyrek</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="379"/>
         <source>Quintic</source>
-        <translation type="unfinished"></translation>
+        <translation>Beşli</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="384"/>
         <source>Sinusoidal</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinüzoidal</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="389"/>
         <source>Exponential</source>
-        <translation type="unfinished"></translation>
+        <translation>Üstel</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="394"/>
         <source>Circular</source>
-        <translation type="unfinished"></translation>
+        <translation>Sirküler</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="399"/>
         <source>Elastic</source>
-        <translation type="unfinished"></translation>
+        <translation>Elastik</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="404"/>
         <source>Overshooting</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşma</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="409"/>
         <source>Bouncing</source>
-        <translation type="unfinished"></translation>
+        <translation>Sıçrayan</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="414"/>
         <source>Custom Beizer Spline</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel Beizer Spline</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="426"/>
         <source>Accelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Hızlandırın</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="431"/>
         <source>Decelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Yavaşlat</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="436"/>
         <source>Accelerate then Decelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Hızlandırın, ardından Yavaşlatın</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="441"/>
         <source>Decelerate then Accelerate</source>
-        <translation type="unfinished"></translation>
+        <translation>Yavaşlayın ve Hızlandırın</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="449"/>
         <source>Select the type of easing curve you&apos;d like to use</source>
-        <translation type="unfinished"></translation>
+        <translation>Kullanmak istediğiniz yumuşak geçiş eğrisi türünü seçin</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="465"/>
         <source>EASING</source>
-        <translation type="unfinished"></translation>
+        <translation>KOLAYLIK</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="564"/>
         <source>Element Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Eleman Adı</translation>
     </message>
     <message>
         <location filename="../propertieswidget.ui" line="584"/>
         <source>Element Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Eleman Rengi</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="186"/>
         <source>Start Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Değer Değişikliğini Başlatın</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="191"/>
         <source>End Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Son Değer Değişikliği</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="255"/>
         <source>Start State Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Durum Değişikliğini Başlat</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="344"/>
         <location filename="../propertieswidget.cpp" line="352"/>
         <source>Easing Curve Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Eğri Değişikliğini Kolaylaştırma</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="332"/>
         <source>Element Name Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Öğe Adı Değişikliği</translation>
     </message>
     <message>
         <location filename="../propertieswidget.cpp" line="377"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Renk seç</translation>
     </message>
 </context>
 <context>
@@ -767,32 +767,32 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../properties/rectproperty.ui" line="42"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Üst</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="59"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Genişlik</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="66"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="73"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Sağ</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="100"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <location filename="../properties/rectproperty.ui" line="107"/>
         <source>Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Yükseklik</translation>
     </message>
 </context>
 <context>
@@ -800,22 +800,22 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../render/rendercontroller.cpp" line="33"/>
         <source>Render Job Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>İşi Oluşturma Tamamlandı</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="34"/>
         <source>%1 has finished rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 işlemeyi bitirdi.</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="40"/>
         <source>Render Job Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>İşi Oluşturma Başarısız</translation>
     </message>
     <message>
         <location filename="../render/rendercontroller.cpp" line="41"/>
         <source>%1 failed to render.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 oluşturulamadı.</translation>
     </message>
 </context>
 <context>
@@ -823,12 +823,12 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../render/renderjob.cpp" line="68"/>
         <source>MP4 Videos (*.mp4)</source>
-        <translation type="unfinished"></translation>
+        <translation>MP4 Videoları (*.mp4)</translation>
     </message>
     <message>
         <location filename="../render/renderjob.cpp" line="70"/>
         <source>WebM Videos (*.webm)</source>
-        <translation type="unfinished"></translation>
+        <translation>WebM Videoları (*.webm)</translation>
     </message>
 </context>
 <context>
@@ -836,73 +836,73 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../render/renderjobwidget.ui" line="98"/>
         <source>PROGRESS</source>
-        <translation type="unfinished"></translation>
+        <translation>İLERLEME</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="175"/>
         <location filename="../render/renderjobwidget.ui" line="258"/>
         <source>ACTIONS</source>
-        <translation type="unfinished"></translation>
+        <translation>HAREKETLER</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="184"/>
         <source>Play Rendered Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturulan Videoyu Oynat</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="187"/>
         <source>Open the rendered video in your default video player</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturulan videoyu varsayılan video oynatıcınızda açın</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="194"/>
         <source>Open Video Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Video Konumunu Aç</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="197"/>
         <source>Show the video file in the file browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Video dosyasını dosya tarayıcısında göster</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="267"/>
         <source>Cancel Render Job</source>
-        <translation type="unfinished"></translation>
+        <translation>İşi Oluşturmayı İptal Et</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="270"/>
         <source>Stop rendering the video</source>
-        <translation type="unfinished"></translation>
+        <translation>Videoyu oluşturmayı durdur</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.ui" line="313"/>
         <source>RENDER LOG</source>
-        <translation type="unfinished"></translation>
+        <translation>RENDER GÜNLÜĞÜ</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="51"/>
         <source>Pending...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekliyor...</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="56"/>
         <source>Currently rendering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Şu anda oluşturuluyor ...</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="62"/>
         <source>Job Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>İş Tamamlandı</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="68"/>
         <source>Job Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>İş Başarısız</translation>
     </message>
     <message>
         <location filename="../render/renderjobwidget.cpp" line="74"/>
         <source>Job Cancelled</source>
-        <translation type="unfinished"></translation>
+        <translation>İş İptal Edildi</translation>
     </message>
 </context>
 <context>
@@ -910,7 +910,7 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../render/renderjobs.ui" line="53"/>
         <source>Render Jobs</source>
-        <translation type="unfinished"></translation>
+        <translation>İş Oluşturma</translation>
     </message>
 </context>
 <context>
@@ -918,193 +918,193 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../render/renderpopover.ui" line="71"/>
         <source>Render</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluştur</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="82"/>
         <location filename="../render/renderpopover.ui" line="214"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Çıktı</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="87"/>
         <location filename="../render/renderpopover.ui" line="320"/>
         <source>FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="92"/>
         <location filename="../render/renderpopover.ui" line="606"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>İleri</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="154"/>
         <source>HEADS UP!</source>
-        <translation type="unfinished"></translation>
+        <translation>DİKKAT ET!</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="252"/>
         <source>Video Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Video Formatı</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="259"/>
         <source>Render to</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluştur</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="277"/>
         <source>MP4</source>
-        <translation type="unfinished"></translation>
+        <translation>MP4</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="282"/>
         <source>WebM</source>
-        <translation type="unfinished"></translation>
+        <translation>WebM</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="290"/>
         <source>Render with translucent background</source>
-        <translation type="unfinished"></translation>
+        <translation>Yarı saydam arka planla işleyin</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="345"/>
         <source>theFrame uses FFmpeg to encode the final video.</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame, son videoyu kodlamak için FFmpeg kullanır.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="359"/>
         <source>Automatic Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Otomatik Ayarlar</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="430"/>
         <source>Remove FFMpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMpeg&apos;i kaldır</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="437"/>
         <source>Download FFmpeg</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg&apos;i indirin</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="475"/>
         <source>Downloading FFmpeg...</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg indiriliyor...</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="492"/>
         <source>If you need to continue working on your project, you can close this dialog while FFmpeg is downloading.</source>
-        <translation type="unfinished"></translation>
+        <translation>Projeniz üzerinde çalışmaya devam etmeniz gerekiyorsa, FFmpeg indirilirken bu iletişim kutusunu kapatabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="520"/>
         <source>Manual Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Manuel ayarlar</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="538"/>
         <source>FFmpeg location</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg konumu</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="661"/>
         <source>The default settings here should be adequate for most users. Don&apos;t change them unless you know what you&apos;re doing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Buradaki varsayılan ayarlar çoğu kullanıcı için yeterli olmalıdır. Ne yaptığınızı bilmiyorsanız onları değiştirmeyin.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="711"/>
         <location filename="../render/renderpopover.ui" line="721"/>
         <source>Start Rendering</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturmaya Başlayın</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="651"/>
         <source>Renderer Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturucu Yolu</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.ui" line="266"/>
         <location filename="../render/renderpopover.ui" line="565"/>
         <location filename="../render/renderpopover.ui" line="644"/>
         <source>Browse...</source>
-        <translation type="unfinished"></translation>
+        <translation>Araştır...</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="99"/>
         <source>FFMPEG (ffmpeg.exe)</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMPEG (ffmpeg.exe)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="101"/>
         <source>FFMPEG (ffmpeg)</source>
-        <translation type="unfinished"></translation>
+        <translation>FFMPEG (ffmpeg)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="119"/>
         <source>theFrame Renderer (theframe-render.exe)</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame İşleyici (theframe-render.exe)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="121"/>
         <source>theFrame Renderer (theframe-render)</source>
-        <translation type="unfinished"></translation>
+        <translation>theFrame Oluşturucu (theframe-render)</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="205"/>
         <source>Current FFmpeg version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Mevcut FFmpeg sürümü: %1</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="207"/>
         <source>FFmpeg is working.</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg çalışıyor.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="216"/>
         <source>FFmpeg failed to download.</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg indirilemedi.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="226"/>
         <source>Automatic FFmpeg is not working correctly. Manual FFmpeg settings are required to render correctly.</source>
-        <translation type="unfinished"></translation>
+        <translation>Otomatik FFmpeg düzgün çalışmıyor. Doğru şekilde işlemek için manuel FFmpeg ayarları gereklidir.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="233"/>
         <source>Install FFmpeg using your system package manager, and then restart theFrame to continue rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem paket yöneticinizi kullanarak FFmpeg&apos;i kurun ve ardından oluşturmaya devam etmek için theFrame&apos;i yeniden başlatın.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="235"/>
         <source>FFmpeg has not been downloaded.</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg indirilmedi.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="273"/>
         <source>Looks like there&apos;s an issue with some settings. You&apos;ll need to fix them before we can start rendering.</source>
-        <translation type="unfinished"></translation>
+        <translation>Görünüşe göre bazı ayarlarla ilgili bir sorun var. Oluşturmaya başlamadan önce bunları düzeltmeniz gerekecek.</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="275"/>
         <source>Output file needs to be reviewed</source>
-        <translation type="unfinished"></translation>
+        <translation>Çıktı dosyasının incelenmesi gerekiyor</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="276"/>
         <source>FFmpeg settings need to be reviewed</source>
-        <translation type="unfinished"></translation>
+        <translation>FFmpeg ayarlarının gözden geçirilmesi gerekiyor</translation>
     </message>
     <message>
         <location filename="../render/renderpopover.cpp" line="277"/>
         <source>Renderer is unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluşturucu kullanılamıyor</translation>
     </message>
     <message>
         <location filename="../render/renderpopover-objc.mm" line="201"/>
         <source>Render:</source>
-        <translation type="unfinished"></translation>
+        <translation>Oluştur:</translation>
     </message>
 </context>
 <context>
@@ -1112,22 +1112,22 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../settings/settingsdialog.ui" line="53"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayarlar</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="64"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="69"/>
         <source>Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Öğreticiler</translation>
     </message>
     <message>
         <location filename="../settings/settingsdialog.ui" line="74"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>İleri</translation>
     </message>
 </context>
 <context>
@@ -1135,27 +1135,27 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../timeline/timeline.cpp" line="269"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="277"/>
         <source>Delete Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman Çizelgesi Öğesini Sil</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="282"/>
         <source>Delete %1 &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 &quot;%2&quot;&apos;yi silin</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="363"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Kes</translation>
     </message>
     <message>
         <location filename="../timeline/timeline.cpp" line="408"/>
         <source>Paste Elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Öğeleri Yapıştır</translation>
     </message>
 </context>
 <context>
@@ -1163,105 +1163,105 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="137"/>
         <source>Add an element</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir eleman ekleyin</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="71"/>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Dikdörtgen</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="74"/>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Elips</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="77"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Metin</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="80"/>
         <source>Picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="83"/>
         <source>Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Grup</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="205"/>
         <source>Add Child Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt Öğe Ekle</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="213"/>
         <source>For this element</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu eleman için</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="223"/>
         <source>For selected elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçili elemanlar için</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="224"/>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Kes</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="227"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="231"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="56"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="214"/>
         <source>Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>Çöküş</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="188"/>
         <source>Delete Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Öğeyi Sil</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="208"/>
         <source>Add Child</source>
-        <translation type="unfinished"></translation>
+        <translation>Çocuk Ekle</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="249"/>
         <source>Add %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ekle</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="253"/>
         <source>Delete %1 &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 &quot;%2&quot;&apos;yi silin</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.ui" line="101"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="218"/>
         <location filename="../timeline/timelineleftwidget.cpp" line="265"/>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Adı değiştir</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="265"/>
         <source>Set a name for this %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu %1 için bir isim belirleyin</translation>
     </message>
     <message>
         <location filename="../timeline/timelineleftwidget.cpp" line="269"/>
         <source>Element Name Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Öğe Adı Değişikliği</translation>
     </message>
 </context>
 <context>
@@ -1269,54 +1269,54 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="122"/>
         <source>Paste Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman Çizelgesi Öğesini Yapıştır</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="125"/>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="174"/>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="188"/>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Yapıştırmak</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="126"/>
         <source>Can&apos;t paste that timeline element here because it would overlap with other timeline elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer zaman çizelgesi öğeleriyle çakışacağından bu zaman çizelgesi öğesi buraya yapıştırılamaz</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="171"/>
         <source>Paste Timeline Elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman Çizelgesi Öğesini Yapıştır</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="175"/>
         <source>Can&apos;t paste those timeline elements here because they would overlap with other timeline elements</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu zaman çizelgesi öğelerini buraya yapıştıramazlar çünkü diğer zaman çizelgesi öğeleriyle çakışırlar</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="194"/>
         <source>Can&apos;t paste that timeline element here because the type of the timeline element you&apos;re pasting doesn&apos;t match</source>
-        <translation type="unfinished"></translation>
+        <translation>Yapıştırdığınız zaman çizelgesi öğesinin türü eşleşmediği için bu zaman çizelgesi öğesini buraya yapıştıramazsınız</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="196"/>
         <source>Can&apos;t paste those timeline elements here</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu zaman çizelgesi öğelerini buraya yapıştıramazsınız</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="467"/>
         <source>Move Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman Çizelgesi Öğesini Taşı</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="473"/>
         <source>Resize Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaman Çizelgesi Öğesini Yeniden Boyutlandır</translation>
     </message>
     <message>
         <location filename="../timeline/timelinerightwidgetproperty.cpp" line="477"/>
         <source>New Timeline Element</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni Zaman Çizelgesi Öğesi</translation>
     </message>
 </context>
 <context>
@@ -1324,54 +1324,56 @@ Değişikliklerinizi kaydetmeyi başarana kadar pencereyi kapatmayın, aksi takd
     <message>
         <location filename="../tutorialwindow.ui" line="42"/>
         <source>Disable Tutorial</source>
-        <translation type="unfinished"></translation>
+        <translation>Eğiticiyi Devre Dışı Bırak</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.ui" line="62"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>PEKİ</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="52"/>
         <source>Let&apos;s get started!</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlayalım!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="53"/>
         <source>Go ahead and add an element to get started.</source>
-        <translation type="unfinished"></translation>
+        <translation>Devam edin ve başlamak için bir öğe ekleyin.</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="56"/>
         <source>Let&apos;s animate!</source>
-        <translation type="unfinished"></translation>
+        <translation>Haydi canlandıralım!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="57"/>
         <source>Drag on the timeline to set an animation for a property.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir özelliğin animasyonunu ayarlamak için zaman çizelgesini sürükleyin.</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="60"/>
         <source>Great!</source>
-        <translation type="unfinished"></translation>
+        <translation>Harika!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="61"/>
         <source>Now that you&apos;ve created an animation, you can change its properties.
 Go ahead and change the end value now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Artık bir animasyon oluşturduğunuza göre, özelliklerini değiştirebilirsiniz.
+Devam edin ve son değeri şimdi değiştirin.</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="64"/>
         <source>Make it natural!</source>
-        <translation type="unfinished"></translation>
+        <translation>Doğal olun!</translation>
     </message>
     <message>
         <location filename="../tutorialwindow.cpp" line="65"/>
         <source>You can make your animation look smoother and more natural by applying an easing curve.
 Go ahead and set an easing curve now.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir hareket hızı eğrisi uygulayarak animasyonunuzun daha pürüzsüz ve daha doğal görünmesini sağlayabilirsiniz.
+Devam edin ve şimdi bir hareket hızı eğrisi ayarlayın.</translation>
     </message>
 </context>
 <context>
@@ -1379,32 +1381,32 @@ Go ahead and set an easing curve now.</source>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="35"/>
         <source>Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Öğreticiler</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="92"/>
         <source>Tutorials are a good way to find your way around theFrame if you&apos;re using it for the first time. They&apos;ll show up when you create a new project.</source>
-        <translation type="unfinished"></translation>
+        <translation>Öğreticiler, ilk kez kullanıyorsanız theFrame içinde yolunuzu bulmanın iyi bir yoludur. Yeni bir proje oluşturduğunuzda görünecekler.</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="102"/>
         <source>Show Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Eğiticileri Göster</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="144"/>
         <source>RESET TUTORIALS</source>
-        <translation type="unfinished"></translation>
+        <translation>EĞİTİCİLERİ SIFIRLA</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="151"/>
         <source>If you&apos;d like to see all the tutorials again, including the tutorial prompts that you&apos;ve already seen, you can reset them here.</source>
-        <translation type="unfinished"></translation>
+        <translation>Daha önce görmüş olduğunuz öğretici komut istemleri de dahil olmak üzere tüm eğitimleri tekrar görmek isterseniz, bunları buradan sıfırlayabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../settings/tutorialssettings.ui" line="163"/>
         <source>Reset Tutorials</source>
-        <translation type="unfinished"></translation>
+        <translation>Eğiticileri Sıfırla</translation>
     </message>
 </context>
 <context>
@@ -1412,18 +1414,18 @@ Go ahead and set an easing curve now.</source>
     <message>
         <location filename="../viewport.cpp" line="59"/>
         <source>Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuval</translation>
     </message>
     <message>
         <location filename="../viewport.cpp" line="181"/>
         <location filename="../viewport.cpp" line="231"/>
         <source>Start Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Değer Değişikliğini Başlatın</translation>
     </message>
     <message>
         <location filename="../viewport.cpp" line="201"/>
         <source>End Value Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Son Değer Değişikliği</translation>
     </message>
 </context>
 <context>
@@ -1431,12 +1433,12 @@ Go ahead and set an easing curve now.</source>
     <message>
         <location filename="../main.cpp" line="90"/>
         <source>Animation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Animasyon Aracı</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="93"/>
         <source>Project files to open</source>
-        <translation type="unfinished"></translation>
+        <translation>Açılacak proje dosyaları</translation>
     </message>
 </context>
 </TS>
