@@ -21,12 +21,12 @@
 - Any layout changes that you&apos;ve made
 
 Save your work before you reset. theFrame will restart once the reset is complete. This action is irreversible.</source>
-        <translation>theFrame orijinal ayarlarına sıfırlayın. Bu düzelecek:
+        <translation>theFrame orijinal ayarlarına sıfırlayın. Bu şeyler düzelecek:
  - Son Dosyalar
  - Değiştirdiğiniz tüm ayarlar
  - Yaptığınız tüm düzen değişiklikleri
 
-Sıfırlamadan önce çalışmanızı kaydedin.  Sıfırlama tamamlandığında theFrame yeniden başlayacaktır. Bu eylem geri alınamaz.</translation>
+Sıfırlamadan önce çalışmanızı kaydedin. Sıfırlama tamamlandığında theFrame yeniden başlayacaktır. Bu eylem geri alınamaz.</translation>
     </message>
     <message>
         <location filename="../settings/advancedsettings.ui" line="119"/>
